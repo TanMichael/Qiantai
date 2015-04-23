@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF272A5C-7372-4AFD-BA4A-2CCCC1926FDB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QTsys</RootNamespace>
+    <AssemblyName>QTsys</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web.v20, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Utils.cs" />
+    <Compile Include="DAO\DAOBase.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="dataDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataObjects\ConnectionConfig.cs" />
+    <Compile Include="DataObjects\JsonObjectBase.cs" />
+    <Compile Include="DataObjects\RestResult.cs" />
+    <Compile Include="DataObjects\Team.cs" />
+    <Compile Include="DataObjects\User.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\MaterialManager.cs" />
+    <Compile Include="Manager\ProductionManager.cs" />
+    <Compile Include="Manager\SalesManager.cs" />
+    <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rest\RestService.cs" />
+    <Compile Include="产品入库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="产品入库.Designer.cs">
+      <DependentUpon>产品入库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="产品出库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="产品出库.Designer.cs">
+      <DependentUpon>产品出库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="产品原料关系.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="产品原料关系.Designer.cs">
+      <DependentUpon>产品原料关系.cs</DependentUpon>
+    </Compile>
+    <Compile Include="产品数据修改.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="产品数据修改.Designer.cs">
+      <DependentUpon>产品数据修改.cs</DependentUpon>
+    </Compile>
+    <Compile Include="产品管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="产品管理.Designer.cs">
+      <DependentUpon>产品管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="原料入仓.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="原料入仓.Designer.cs">
+      <DependentUpon>原料入仓.cs</DependentUpon>
+    </Compile>
+    <Compile Include="原料出仓.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="原料出仓.Designer.cs">
+      <DependentUpon>原料出仓.cs</DependentUpon>
+    </Compile>
+    <Compile Include="原料数据修改.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="原料数据修改.Designer.cs">
+      <DependentUpon>原料数据修改.cs</DependentUpon>
+    </Compile>
+    <Compile Include="原料管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="原料管理.Designer.cs">
+      <DependentUpon>原料管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="员工管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="员工管理.Designer.cs">
+      <DependentUpon>员工管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="客户管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="客户管理.Designer.cs">
+      <DependentUpon>客户管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="服务器设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="服务器设置.Designer.cs">
+      <DependentUpon>服务器设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="样品生产.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="样品生产.Designer.cs">
+      <DependentUpon>样品生产.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理.Designer.cs">
+      <DependentUpon>生产管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="订单管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="订单管理.Designer.cs">
+      <DependentUpon>订单管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="送货单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="送货单.Designer.cs">
+      <DependentUpon>送货单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="销售管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="销售管理.Designer.cs">
+      <DependentUpon>销售管理.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="产品管理.resx">
+      <DependentUpon>产品管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="原料管理.resx">
+      <DependentUpon>原料管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="员工管理.resx">
+      <DependentUpon>员工管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="客户管理.resx">
+      <DependentUpon>客户管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="服务器设置.resx">
+      <DependentUpon>服务器设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="样品生产.resx">
+      <DependentUpon>样品生产.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理.resx">
+      <DependentUpon>生产管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="订单管理.resx">
+      <DependentUpon>订单管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="送货单.resx">
+      <DependentUpon>送货单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="销售管理.resx">
+      <DependentUpon>销售管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dataDataSet.xsc">
+      <DependentUpon>dataDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dataDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dataDataSet.xss">
+      <DependentUpon>dataDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\testNode.DataObjects.User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
