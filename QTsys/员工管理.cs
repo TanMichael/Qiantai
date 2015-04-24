@@ -73,7 +73,8 @@ namespace QTsys
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {try
+        {
+            try
             {
                 label搜索栏目.Text = dataGridView1.Columns[e.ColumnIndex].HeaderText.ToString();
             }

@@ -229,6 +229,7 @@
             // 
             // text员工编号
             // 
+            this.text员工编号.Enabled = false;
             this.text员工编号.Location = new System.Drawing.Point(80, 16);
             this.text员工编号.Name = "text员工编号";
             this.text员工编号.Size = new System.Drawing.Size(171, 21);

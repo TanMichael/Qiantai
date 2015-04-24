@@ -66,7 +66,6 @@ namespace QTsys.DAO
             this.Connection.Open();
             ap.Fill(dt);
             this.Connection.Close();
-
             int l = dt.Rows.Count;
             if (l > 0)
             {

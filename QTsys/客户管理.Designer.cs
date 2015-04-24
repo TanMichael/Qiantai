@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.text客户编号 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label联系人 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox搜索联系人 = new System.Windows.Forms.TextBox();
@@ -86,7 +87,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label联系人 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -377,6 +377,7 @@
             // 
             // text客户编号
             // 
+            this.text客户编号.Enabled = false;
             this.text客户编号.Location = new System.Drawing.Point(65, 11);
             this.text客户编号.Name = "text客户编号";
             this.text客户编号.Size = new System.Drawing.Size(100, 21);
@@ -419,6 +420,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "客户联系人";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label联系人
+            // 
+            this.label联系人.AutoSize = true;
+            this.label联系人.Location = new System.Drawing.Point(72, 145);
+            this.label联系人.Name = "label联系人";
+            this.label联系人.Size = new System.Drawing.Size(53, 12);
+            this.label联系人.TabIndex = 52;
+            this.label联系人.Text = "客户编号";
             // 
             // button5
             // 
@@ -646,15 +656,6 @@
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // label联系人
-            // 
-            this.label联系人.AutoSize = true;
-            this.label联系人.Location = new System.Drawing.Point(72, 145);
-            this.label联系人.Name = "label联系人";
-            this.label联系人.Size = new System.Drawing.Size(53, 12);
-            this.label联系人.TabIndex = 52;
-            this.label联系人.Text = "客户编号";
             // 
             // 客户管理
             // 
