@@ -40,13 +40,6 @@ namespace QTsys.Manager
             return result;    // resultObj.success;
         }
 
-        // temp solution for fix the issue, which connection string doesn't change after user updating config.
-        public void UpdateConnection()
-        {
-            this.userDao = new UserDAO();
-            this.customerDao = new CustomerDAO();
-        }
-
         public DataTable GetAllUser()
         {
             return this.userDao.GetAllUser();
