@@ -43,6 +43,7 @@ namespace QTsys.DAO
             return user;
         }*/
 
+        // TODO consider paging
         public DataTable GetAllCustomers()//更新
         {
             Customer cus = new Customer();
@@ -56,6 +57,7 @@ namespace QTsys.DAO
             return dt;
         }
 
+        // TODO consider paging
         public DataTable GetAllCustomerMembers()//更新
         {
             Customer cus = new Customer();
@@ -68,7 +70,7 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
-        public DataTable GetCustomerByName(string Col, string Name)//更新
+        public DataTable SearchCustomerByCol(string Col, string Name)//更新
         {
             Customer cus = new Customer();
             string sql = "SELECT * FROM qiaotai.客户信息 WHERE "+Col+" LIKE '%" + Name + "%';";
@@ -80,7 +82,7 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
-        public DataTable GetCustomerMembersByName(string Col, string Name)//更新
+        public DataTable SearchCustomerMemberByCol(string Col, string Name)//更新
         {
             Customer cus = new Customer();
             string sql = "SELECT * FROM qiaotai.客户联系人 WHERE " + Col + " LIKE '%" + Name + "%';";

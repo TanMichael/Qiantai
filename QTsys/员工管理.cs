@@ -39,7 +39,7 @@ namespace QTsys
                 if (textBox搜索内容.Text != "")
                 {
                     UserDAO con = new UserDAO();
-                    dataGridView1.DataSource = con.GetUserByUserName(label搜索栏目.Text, textBox搜索内容.Text);
+                    dataGridView1.DataSource = con.SearchUserByCol(label搜索栏目.Text, textBox搜索内容.Text);
                     dataGridView1.Update();
                 }
                 else

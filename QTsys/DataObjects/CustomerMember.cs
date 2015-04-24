@@ -1,7 +1,7 @@
 ﻿
 namespace QTsys.DataObjects
 {
-    class CustomerMember : JsonObjectBase<User>
+    class CustomerMember
     {
         public string Id { get; set; }
         public string Name { get; set; }

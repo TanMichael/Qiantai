@@ -1,10 +1,6 @@
 ﻿using QTsys.DataObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 
@@ -63,12 +59,5 @@ namespace QTsys.Common
             doc.Save(@"mysql_set.xml");
         }
 
-        public static string GetUrlBase()
-        {
-            // hardcode for now. TODO retrive from configure file later.
-            const string URL_BASE = "http://localhost.:8087/";
-
-            return URL_BASE;
-        }
     }
 }

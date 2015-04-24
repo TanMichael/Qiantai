@@ -1,9 +1,0 @@
-<root>
-	<Server>chendan</Server>
-	<Database>qiaotai</Database>
-	<DataSource>127.0.0.1</DataSource>
-	<Password>Admin123</Password>
-	<Pooling>chendan</Pooling>
-	<CharSet>utf8</CharSet>
-	<Port>3306</Port>
-</root>

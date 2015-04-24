@@ -55,10 +55,10 @@ namespace QTsys.DAO
             return dt;
         }
 
-        public DataTable GetUserByUserName(string Col,string userName)
+        public DataTable SearchUserByCol(string col, string value)
         {
             User user = new User();
-            string sql = "SELECT * FROM qiaotai.员工信息 WHERE "+Col+" LIKE '%" + userName + "%';";
+            string sql = "SELECT * FROM qiaotai.员工信息 WHERE "+col+" LIKE '%" + value + "%';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();

@@ -55,7 +55,7 @@ namespace QTsys
                 text备注.Text = dataGridView1.Rows[e.RowIndex].Cells["备注"].Value.ToString();
                 //联系人信息更新
                 CustomerDAO cus = new CustomerDAO();
-                dataGridView2.DataSource = cus.GetCustomerMembersByName("所属客户编号", text客户编号.Text);
+                dataGridView2.DataSource = cus.SearchCustomerMemberByCol("所属客户编号", text客户编号.Text);
                 dataGridView2.Update();
             }
             catch (Exception ex) { }
@@ -73,7 +73,7 @@ namespace QTsys
                 CustomerDAO cdao = new CustomerDAO();
                 if (textBox搜索内容.Text != "")
                 {
-                    dataGridView1.DataSource = cdao.GetCustomerByName(label搜索栏目.Text, textBox搜索内容.Text);
+                    dataGridView1.DataSource = cdao.SearchCustomerByCol(label搜索栏目.Text, textBox搜索内容.Text);
                     dataGridView1.Update();
                 }
                 else
@@ -165,7 +165,8 @@ namespace QTsys
             if (textBox搜索联系人.Text != "")
             {
                 
-                dataGridView2.DataSource = cdao.GetCustomerMembersByName(label联系人.Text, textBox搜索联系人.Text);
+                //dataGridView2.DataSource = cdao.GetCustomerMembersByName(label联系人.Text, textBox搜索联系人.Text);
+                dataGridView2.DataSource = cdao.SearchCustomerMemberByCol("编号", textBox搜索联系人.Text);
                 dataGridView2.Update();
             }
             else

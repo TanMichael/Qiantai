@@ -68,6 +68,7 @@ create table 产品信息
 	成型模 nvarchar(128),
 	切模号 nvarchar(128),
 	单位 nvarchar(32),
+	单价 decimal(7,2),
 	库存数量 int
 );
 
@@ -104,13 +105,27 @@ create table 原材料进出仓
    类型                   nvarchar(128),
    库存数量               int,
    原料编号               int,
-   供应商编号             int,
-   供应单价               int,
+   供应商                 nvarchar(256),
+   供应单价               decimal(7,2),
    操作员                 nvarchar(128)
 );
 
 insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("michaeltan", "Abcd1234", "Weihua", "管理员");
 insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("davidzhao", "Abcd1234", "赵鲁泉", "管理员");
 insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("md5", "325a2cc052914ceeb8c19016c091d2ac", "fuck", "管理员");
+
+INSERT INTO `员工信息` (账户名, 密码, 姓名, 系统角色,职位,手机,	办公电话,电子邮箱,部门) VALUES
+	('davidzhaoa','325a2cc052914ceeb8c19016c091d2ac','赵鲁泉','管理员','22222','2','2','2','2'),
+	('md5_2','325a2cc052914ceeb8c19016c091d2ac','fuck','管理员','3','3','3','3','3'),
+	('1','c4ca4238a0b923820dcc509a6f75849b','1','管理员','4','4','4','4','4');
+
 SELECT * FROM `qiaotai`.`员工信息`;
 select * from 员工信息 limit 0,1;
+
+INSERT INTO `客户信息` (客户名称, 地址, 联系电话, 传真,电子邮箱,结算方式,	流水号,备注) VALUES ('SAP','b','c111','323','3243','432','432','342'),
+	('Microsoft','2','2','2','2','2','2','2'),
+	('Oracle','3','3','3','3','3','33','3');
+
+INSERT INTO 客户联系人 (姓名,类型,联系电话,电子邮件,所属客户编号) VALUES ('刘寅', 'sales', '1532', 'liuren@48.com', 13),
+	('左建雄', 'sales', '1532', 'zuojianxing@48.com', 13),
+	('李艳', 'finance', '1632', 'diyan@48.com', 13);
