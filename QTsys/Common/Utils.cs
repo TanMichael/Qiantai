@@ -1,4 +1,5 @@
 ﻿using QTsys.DataObjects;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
@@ -8,6 +9,9 @@ namespace QTsys.Common
 {
     static class Utils
     {
+        private const string CONN_CONFIG_PATH = @"..\..\mysql_set.xml";
+        private static LogonToken _logonToken = new LogonToken { Status = false, UserName = "", Role = "" };
+
         public static string GetMD5String(string source)
         {
             MD5 md5 = MD5.Create();
@@ -26,7 +30,7 @@ namespace QTsys.Common
             ConnectionConfig config = new ConnectionConfig();
 
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"mysql_set.xml");
+            doc.Load(CONN_CONFIG_PATH);
 
             XmlNode root = doc.SelectSingleNode("mysqlset");//指定一个节点
             config.Server = root.Attributes["Server"].Value;
@@ -56,7 +60,26 @@ namespace QTsys.Common
             root.SetAttribute("port", config.Port);//
             doc.AppendChild(root);
 
-            doc.Save(@"mysql_set.xml");
+            doc.Save(CONN_CONFIG_PATH);
+        }
+
+        public static LogonToken GetLogonToken()
+        {
+            return _logonToken;
+        }
+
+        public static void SetLogonToken(string userName, string role, bool status = true)
+        {
+            _logonToken.UserName = userName;
+            _logonToken.Role = role;
+            _logonToken.Status = status;
+
+            _logonToken.LogonTime = _logonToken.LastOperationTime = DateTime.Now;
+        }
+
+        public static void ClearLogonToken()
+        {
+            _logonToken = new LogonToken { Status = false, UserName = "", Role = "" };
         }
 
     }

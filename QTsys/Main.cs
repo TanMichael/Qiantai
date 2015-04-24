@@ -32,13 +32,14 @@ namespace QTsys
         {
             //弹出登录对话框
             Login win = new Login();
+            
             win.ShowDialog();
+
+            //win.Parent = this;
+
             //读取是否成功登录
-            StreamReader rd2 = new StreamReader(Directory.GetCurrentDirectory() + "\\login.txt", Encoding.GetEncoding("unicode"));
-            string log = rd2.ReadToEnd();
-            rd2.Close();
-            //如果登录失败，直接退出
-            if (log != "yes")
+            var token = Utils.GetLogonToken();
+            if (token.Status == false)
             {
                 this.Close();
             }

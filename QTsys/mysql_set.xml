@@ -1,0 +1,1 @@
+<mysqlset Server="cd" Database="qiaotai" DataSource="localhost" UserId="root" Password="Admin123" pooling="false" CharSet="utf8" port="3306" />

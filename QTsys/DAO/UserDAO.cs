@@ -55,6 +55,31 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public List<string> GetAllUserNames()
+        {
+            List<string> result = new List<string>();
+
+            string sql = "SELECT 账户名 FROM qiaotai.员工信息;";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+
+            int l = dt.Rows.Count;
+            if (l > 0)
+            {
+                for (int i = 0; i < l; i++)
+                {
+                    result.Add(dt.Rows[i]["账户名"].ToString());
+                }
+            }
+
+
+            return result;
+        }
+
         public DataTable SearchUserByCol(string col, string value)
         {
             User user = new User();

@@ -59,6 +59,7 @@
     <Compile Include="DataObjects\ConnectionConfig.cs" />
     <Compile Include="DataObjects\Customer.cs" />
     <Compile Include="DataObjects\CustomerMember.cs" />
+    <Compile Include="DataObjects\LogonToken.cs" />
     <Compile Include="DataObjects\Material.cs" />
     <Compile Include="DataObjects\MaterialFlow.cs" />
     <Compile Include="DataObjects\User.cs" />

@@ -1,35 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QTsys.DataObjects;
+using QTsys.Manager;
+using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.Xml;
-using QTsys.Common;
-using QTsys.DataObjects;
-using QTsys.DAO;
 
 namespace QTsys
 {
     public partial class 客户管理 : Form
     {
+        private UserManager userMgr;
+
         public 客户管理()
         {
             InitializeComponent();
+            this.userMgr = UserManager.getUserManager();
         }
 
         private void 客户管理_Load(object sender, EventArgs e)
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
-                dataGridView1.DataSource = cdao.GetAllCustomers();
+                dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                 dataGridView1.Update();
-                dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
                 dataGridView2.Update();
                 
             }
@@ -54,8 +46,7 @@ namespace QTsys
                 text流水号.Text = dataGridView1.Rows[e.RowIndex].Cells["流水号"].Value.ToString();
                 text备注.Text = dataGridView1.Rows[e.RowIndex].Cells["备注"].Value.ToString();
                 //联系人信息更新
-                CustomerDAO cus = new CustomerDAO();
-                dataGridView2.DataSource = cus.SearchCustomerMemberByCol("所属客户编号", text客户编号.Text);
+                dataGridView2.DataSource = this.userMgr.SearchCustomerMemberByCol("所属客户编号", text客户编号.Text);
                 dataGridView2.Update();
             }
             catch (Exception ex) { }
@@ -70,15 +61,14 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
                 if (textBox搜索内容.Text != "")
                 {
-                    dataGridView1.DataSource = cdao.SearchCustomerByCol(label搜索栏目.Text, textBox搜索内容.Text);
+                    dataGridView1.DataSource = this.userMgr.SearchCustomerByCol(label搜索栏目.Text, textBox搜索内容.Text);
                     dataGridView1.Update();
                 }
                 else
                 {
-                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                     dataGridView1.Update();
                 }
             }
@@ -89,7 +79,6 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
                 Customer cus = new Customer();
                 cus.Id = text客户编号.Text;
                 cus.Name = text客户名称.Text;
@@ -100,11 +89,11 @@ namespace QTsys
                 cus.Accounts = text结算方式.Text;
                 cus.Serial = text流水号.Text;
                 cus.Remarks = text备注.Text;
-                if (cdao.AddNewCustomer(cus))
+                if (this.userMgr.AddNewCustomer(cus))
                 {
                     MessageBox.Show("客户[" + text客户编号.Text + "]新增成功！");
                     //更新表格数据                    
-                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                     dataGridView1.Update();
                 }
                 else
@@ -117,12 +106,11 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
-                if (cdao.DelCustomer(text客户编号.Text))
+                if (this.userMgr.DelCustomer(text客户编号.Text))
                 {
                     MessageBox.Show("用户[" + text客户编号.Text + "]已被删除！");
                     //更新表格数据                    
-                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                     dataGridView1.Update();
                 }
                 else
@@ -135,7 +123,6 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
                 Customer cus = new Customer();
                 cus.Id = text客户编号.Text;
                 cus.Name = text客户名称.Text;
@@ -146,11 +133,11 @@ namespace QTsys
                 cus.Accounts = text结算方式.Text;
                 cus.Serial = text流水号.Text;
                 cus.Remarks = text备注.Text;
-                if (cdao.AltCustomer(cus))
+                if (this.userMgr.UpdateCustomer(cus))
                 {
                     MessageBox.Show("客户[" + text客户编号.Text + "]数据修改成功！");
                     //更新表格数据                    
-                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                     dataGridView1.Update();
                 }
                 else
@@ -161,17 +148,16 @@ namespace QTsys
 
         private void button5_Click(object sender, EventArgs e)
         {
-            CustomerDAO cdao = new CustomerDAO();
             if (textBox搜索联系人.Text != "")
             {
                 
                 //dataGridView2.DataSource = cdao.GetCustomerMembersByName(label联系人.Text, textBox搜索联系人.Text);
-                dataGridView2.DataSource = cdao.SearchCustomerMemberByCol("编号", textBox搜索联系人.Text);
+                dataGridView2.DataSource = this.userMgr.SearchCustomerMemberByCol("编号", textBox搜索联系人.Text);
                 dataGridView2.Update();
             }
             else
             {
-                dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
                 dataGridView2.Update();
             }
         }
@@ -199,7 +185,6 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
                 CustomerMember cus = new CustomerMember();
                 cus.Id = t编号.Text;
                 cus.Name = t姓名.Text;
@@ -207,11 +192,11 @@ namespace QTsys
                 cus.Phone = t电话.Text;
                 cus.Email = t电子邮件.Text;
                 cus.CustomerId = t所属客户.Text;
-                if (cdao.AddNewCustomerMember(cus))
+                if (this.userMgr.AddNewCustomerMember(cus))
                 {
                     MessageBox.Show("客户联系人[" + t编号.Text + "]新增成功！");
                     //更新表格数据                    
-                    dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                    dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
                     dataGridView2.Update();
                 }
                 else
@@ -224,12 +209,11 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
-                if (cdao.DelCustomerMember(t编号.Text))
+                if (this.userMgr.DelCustomerMember(t编号.Text))
                 {
                     MessageBox.Show("客户联系人[" + t编号.Text + "]已被删除！");
                     //更新表格数据                    
-                    dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                    dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
                     dataGridView2.Update();
                 }
                 else
@@ -242,7 +226,6 @@ namespace QTsys
         {
             try
             {
-                CustomerDAO cdao = new CustomerDAO();
                 CustomerMember cus = new CustomerMember();
                 cus.Id = t编号.Text;
                 cus.Name = t姓名.Text;
@@ -250,11 +233,11 @@ namespace QTsys
                 cus.Phone = t电话.Text;
                 cus.Email = t电子邮件.Text;
                 cus.CustomerId = t所属客户.Text;
-                if (cdao.AltCustomerMember(cus))
+                if (this.userMgr.UpdateCustomerMember(cus))
                 {
                     MessageBox.Show("客户联系人[" + t编号.Text + "]修改成功！");
                     //更新表格数据                    
-                    dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                    dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
                     dataGridView2.Update();
                 }
                 else

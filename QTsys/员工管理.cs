@@ -10,22 +10,25 @@ using System.Windows.Forms;
 using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
+using QTsys.Manager;
 
 namespace QTsys
 {
     public partial class 员工管理 : Form
     {
+        private UserManager userMgr;
+
         public 员工管理()
         {
             InitializeComponent();
+            this.userMgr = UserManager.getUserManager();
         }
 
         private void 员工管理_Load(object sender, EventArgs e)
         {
             try
             {
-                UserDAO con = new UserDAO();
-                dataGridView1.DataSource = con.GetAllUser();
+                dataGridView1.DataSource = this.userMgr.GetAllUser();
                 dataGridView1.Update();
 
             }
@@ -38,15 +41,12 @@ namespace QTsys
             {
                 if (textBox搜索内容.Text != "")
                 {
-                    UserDAO con = new UserDAO();
-                    dataGridView1.DataSource = con.SearchUserByCol(label搜索栏目.Text, textBox搜索内容.Text);
+                    dataGridView1.DataSource = this.userMgr.SearchUserByCol(label搜索栏目.Text, textBox搜索内容.Text);
                     dataGridView1.Update();
                 }
                 else
                 {
-
-                    UserDAO con = new UserDAO(); 
-                    dataGridView1.DataSource = con.GetAllUser();
+                    dataGridView1.DataSource = this.userMgr.GetAllUser();
                     dataGridView1.Update();
                 }
 
@@ -85,7 +85,6 @@ namespace QTsys
         {
             try
             {
-                UserDAO con = new UserDAO();
                 User newuser=new User();
                 newuser.Id=text员工编号.Text;
                 newuser.UserName= text账户号.Text;
@@ -97,11 +96,11 @@ namespace QTsys
                 newuser.Phone=text办公电话.Text;
                 newuser.Email=text电子邮箱.Text;
                 newuser.Department = text部门.Text;
-                if (con.AddNewUser(newuser))
+                if (this.userMgr.AddNewUser(newuser))
                 {
                     MessageBox.Show("新用户[" + text员工编号.Text + "]生成成功,默认密码为“1”！");
                     //更新表格数据                    
-                    dataGridView1.DataSource = con.GetAllUser();
+                    dataGridView1.DataSource = this.userMgr.GetAllUser();
                     dataGridView1.Update();
                 }
                 else
@@ -114,12 +113,11 @@ namespace QTsys
         {
             try
             {
-                UserDAO con = new UserDAO();
-                if (con.DelUser(text员工编号.Text))
+                if (this.userMgr.DelUser(text员工编号.Text))
                 {
                     MessageBox.Show("用户[" + text员工编号.Text + "]已被删除！");
                     //更新表格数据                    
-                    dataGridView1.DataSource = con.GetAllUser();
+                    dataGridView1.DataSource = this.userMgr.GetAllUser();
                     dataGridView1.Update();
                 }
                 else
@@ -132,7 +130,6 @@ namespace QTsys
         {
             try
             {
-                UserDAO con = new UserDAO();
                 User newuser = new User();
                 newuser.Id = text员工编号.Text;
                 newuser.UserName = text账户号.Text;
@@ -144,11 +141,11 @@ namespace QTsys
                 newuser.Phone = text办公电话.Text;
                 newuser.Email = text电子邮箱.Text;
                 newuser.Department = text部门.Text;
-                if (con.AltUser(newuser))
+                if (this.userMgr.UpdateUser(newuser))
                 {
                     MessageBox.Show("用户[" + text员工编号.Text + "]数据修改成功！");
                     //更新表格数据                    
-                    dataGridView1.DataSource = con.GetAllUser();
+                    dataGridView1.DataSource = this.userMgr.GetAllUser();
                     dataGridView1.Update();
                 }
                 else
