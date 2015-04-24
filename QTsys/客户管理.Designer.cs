@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label搜索栏目 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox搜索内容 = new System.Windows.Forms.TextBox();
@@ -60,32 +61,32 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox搜索联系人 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.t备注 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.t所属客户 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.t称呼 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.t电子邮件 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.t手机 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.t传真 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.t电话 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.t类型 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.t姓名 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label搜索栏目 = new System.Windows.Forms.Label();
+            this.label联系人 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -141,6 +142,15 @@
             this.tabPage1.Text = "客户信息";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // label搜索栏目
+            // 
+            this.label搜索栏目.AutoSize = true;
+            this.label搜索栏目.Location = new System.Drawing.Point(65, 137);
+            this.label搜索栏目.Name = "label搜索栏目";
+            this.label搜索栏目.Size = new System.Drawing.Size(53, 12);
+            this.label搜索栏目.TabIndex = 26;
+            this.label搜索栏目.Text = "客户名称";
             // 
             // button4
             // 
@@ -374,32 +384,33 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label联系人);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.textBox12);
+            this.tabPage2.Controls.Add(this.textBox搜索联系人);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.textBox13);
+            this.tabPage2.Controls.Add(this.t备注);
             this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.textBox14);
+            this.tabPage2.Controls.Add(this.t所属客户);
             this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.textBox15);
+            this.tabPage2.Controls.Add(this.t称呼);
             this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Controls.Add(this.textBox16);
+            this.tabPage2.Controls.Add(this.t电子邮件);
             this.tabPage2.Controls.Add(this.label17);
-            this.tabPage2.Controls.Add(this.textBox17);
+            this.tabPage2.Controls.Add(this.t手机);
             this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Controls.Add(this.textBox18);
+            this.tabPage2.Controls.Add(this.t传真);
             this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.textBox19);
+            this.tabPage2.Controls.Add(this.t电话);
             this.tabPage2.Controls.Add(this.label20);
-            this.tabPage2.Controls.Add(this.textBox20);
+            this.tabPage2.Controls.Add(this.t类型);
             this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.textBox21);
+            this.tabPage2.Controls.Add(this.t姓名);
             this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.textBox22);
+            this.tabPage2.Controls.Add(this.t编号);
             this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -411,12 +422,13 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(287, 140);
+            this.button5.Location = new System.Drawing.Point(353, 138);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(121, 23);
             this.button5.TabIndex = 51;
             this.button5.Text = "进行检索联系人";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label12
             // 
@@ -427,12 +439,12 @@
             this.label12.TabIndex = 50;
             this.label12.Text = "检索";
             // 
-            // textBox12
+            // textBox搜索联系人
             // 
-            this.textBox12.Location = new System.Drawing.Point(65, 140);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(216, 21);
-            this.textBox12.TabIndex = 49;
+            this.textBox搜索联系人.Location = new System.Drawing.Point(168, 140);
+            this.textBox搜索联系人.Name = "textBox搜索联系人";
+            this.textBox搜索联系人.Size = new System.Drawing.Size(156, 21);
+            this.textBox搜索联系人.TabIndex = 49;
             // 
             // button6
             // 
@@ -442,6 +454,7 @@
             this.button6.TabIndex = 48;
             this.button6.Text = "新增";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -451,6 +464,7 @@
             this.button7.TabIndex = 47;
             this.button7.Text = "删除";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -460,6 +474,7 @@
             this.button8.TabIndex = 46;
             this.button8.Text = "修改并保存";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label13
             // 
@@ -470,12 +485,12 @@
             this.label13.TabIndex = 45;
             this.label13.Text = "备注";
             // 
-            // textBox13
+            // t备注
             // 
-            this.textBox13.Location = new System.Drawing.Point(736, 25);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 21);
-            this.textBox13.TabIndex = 44;
+            this.t备注.Location = new System.Drawing.Point(736, 25);
+            this.t备注.Name = "t备注";
+            this.t备注.Size = new System.Drawing.Size(100, 21);
+            this.t备注.TabIndex = 44;
             // 
             // label14
             // 
@@ -486,12 +501,12 @@
             this.label14.TabIndex = 43;
             this.label14.Text = "所属客户编号";
             // 
-            // textBox14
+            // t所属客户
             // 
-            this.textBox14.Location = new System.Drawing.Point(561, 84);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(216, 21);
-            this.textBox14.TabIndex = 42;
+            this.t所属客户.Location = new System.Drawing.Point(561, 84);
+            this.t所属客户.Name = "t所属客户";
+            this.t所属客户.Size = new System.Drawing.Size(216, 21);
+            this.t所属客户.TabIndex = 42;
             // 
             // label15
             // 
@@ -502,12 +517,12 @@
             this.label15.TabIndex = 41;
             this.label15.Text = "称呼";
             // 
-            // textBox15
+            // t称呼
             // 
-            this.textBox15.Location = new System.Drawing.Point(561, 57);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 21);
-            this.textBox15.TabIndex = 40;
+            this.t称呼.Location = new System.Drawing.Point(561, 57);
+            this.t称呼.Name = "t称呼";
+            this.t称呼.Size = new System.Drawing.Size(100, 21);
+            this.t称呼.TabIndex = 40;
             // 
             // label16
             // 
@@ -518,12 +533,12 @@
             this.label16.TabIndex = 39;
             this.label16.Text = "电子邮箱";
             // 
-            // textBox16
+            // t电子邮件
             // 
-            this.textBox16.Location = new System.Drawing.Point(561, 25);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 21);
-            this.textBox16.TabIndex = 38;
+            this.t电子邮件.Location = new System.Drawing.Point(561, 25);
+            this.t电子邮件.Name = "t电子邮件";
+            this.t电子邮件.Size = new System.Drawing.Size(100, 21);
+            this.t电子邮件.TabIndex = 38;
             // 
             // label17
             // 
@@ -534,12 +549,12 @@
             this.label17.TabIndex = 37;
             this.label17.Text = "手机";
             // 
-            // textBox17
+            // t手机
             // 
-            this.textBox17.Location = new System.Drawing.Point(363, 85);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 21);
-            this.textBox17.TabIndex = 36;
+            this.t手机.Location = new System.Drawing.Point(363, 85);
+            this.t手机.Name = "t手机";
+            this.t手机.Size = new System.Drawing.Size(100, 21);
+            this.t手机.TabIndex = 36;
             // 
             // label18
             // 
@@ -550,12 +565,12 @@
             this.label18.TabIndex = 35;
             this.label18.Text = "传真";
             // 
-            // textBox18
+            // t传真
             // 
-            this.textBox18.Location = new System.Drawing.Point(363, 55);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 21);
-            this.textBox18.TabIndex = 34;
+            this.t传真.Location = new System.Drawing.Point(363, 55);
+            this.t传真.Name = "t传真";
+            this.t传真.Size = new System.Drawing.Size(100, 21);
+            this.t传真.TabIndex = 34;
             // 
             // label19
             // 
@@ -566,12 +581,12 @@
             this.label19.TabIndex = 33;
             this.label19.Text = "联系电话";
             // 
-            // textBox19
+            // t电话
             // 
-            this.textBox19.Location = new System.Drawing.Point(363, 25);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 21);
-            this.textBox19.TabIndex = 32;
+            this.t电话.Location = new System.Drawing.Point(363, 25);
+            this.t电话.Name = "t电话";
+            this.t电话.Size = new System.Drawing.Size(100, 21);
+            this.t电话.TabIndex = 32;
             // 
             // label20
             // 
@@ -582,12 +597,12 @@
             this.label20.TabIndex = 31;
             this.label20.Text = "类型";
             // 
-            // textBox20
+            // t类型
             // 
-            this.textBox20.Location = new System.Drawing.Point(77, 84);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(207, 21);
-            this.textBox20.TabIndex = 30;
+            this.t类型.Location = new System.Drawing.Point(77, 84);
+            this.t类型.Name = "t类型";
+            this.t类型.Size = new System.Drawing.Size(207, 21);
+            this.t类型.TabIndex = 30;
             // 
             // label21
             // 
@@ -598,12 +613,12 @@
             this.label21.TabIndex = 29;
             this.label21.Text = "姓名";
             // 
-            // textBox21
+            // t姓名
             // 
-            this.textBox21.Location = new System.Drawing.Point(77, 49);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(207, 21);
-            this.textBox21.TabIndex = 28;
+            this.t姓名.Location = new System.Drawing.Point(77, 49);
+            this.t姓名.Name = "t姓名";
+            this.t姓名.Size = new System.Drawing.Size(207, 21);
+            this.t姓名.TabIndex = 28;
             // 
             // label22
             // 
@@ -614,12 +629,12 @@
             this.label22.TabIndex = 27;
             this.label22.Text = "联系人编号";
             // 
-            // textBox22
+            // t编号
             // 
-            this.textBox22.Location = new System.Drawing.Point(77, 19);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(100, 21);
-            this.textBox22.TabIndex = 26;
+            this.t编号.Location = new System.Drawing.Point(77, 19);
+            this.t编号.Name = "t编号";
+            this.t编号.Size = new System.Drawing.Size(100, 21);
+            this.t编号.TabIndex = 26;
             // 
             // dataGridView2
             // 
@@ -629,15 +644,17 @@
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(1031, 371);
             this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // label搜索栏目
+            // label联系人
             // 
-            this.label搜索栏目.AutoSize = true;
-            this.label搜索栏目.Location = new System.Drawing.Point(65, 137);
-            this.label搜索栏目.Name = "label搜索栏目";
-            this.label搜索栏目.Size = new System.Drawing.Size(53, 12);
-            this.label搜索栏目.TabIndex = 26;
-            this.label搜索栏目.Text = "客户名称";
+            this.label联系人.AutoSize = true;
+            this.label联系人.Location = new System.Drawing.Point(72, 145);
+            this.label联系人.Name = "label联系人";
+            this.label联系人.Size = new System.Drawing.Size(53, 12);
+            this.label联系人.TabIndex = 52;
+            this.label联系人.Text = "客户编号";
             // 
             // 客户管理
             // 
@@ -694,30 +711,31 @@
         private System.Windows.Forms.TextBox textBox搜索内容;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox搜索联系人;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox t备注;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox t所属客户;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox t称呼;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox t电子邮件;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox t手机;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox t传真;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox t电话;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox t类型;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox t姓名;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox t编号;
         private System.Windows.Forms.Label label搜索栏目;
+        private System.Windows.Forms.Label label联系人;
     }
 }

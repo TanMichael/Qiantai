@@ -24,48 +24,16 @@ namespace QTsys
 
         private void 客户管理_Load(object sender, EventArgs e)
         {
-            //grid1
             try
             {
-                UserDAO con = new UserDAO();
-                dataGridView1.DataSource = con.GetAllUser();
+                CustomerDAO cdao = new CustomerDAO();
+                dataGridView1.DataSource = cdao.GetAllCustomers();
                 dataGridView1.Update();
+                dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                dataGridView2.Update();
                 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
-            //grid2
-            try
-            {
-                //对账户进行绑定读取mysql远程读取
-                //先读mysql_set.xml
-                XmlDocument doc = new XmlDocument();
-                doc.Load(@"mysql_set.xml");
-                XmlNode root = doc.SelectSingleNode("mysqlset");//指定一个节点
-                string str1 = root.Attributes["Server"].Value;//获取指定节点的指定属性值
-                string str2 = root.Attributes["Database"].Value;
-                string str3 = root.Attributes["DataSource"].Value;
-                string str4 = root.Attributes["UserId"].Value;
-                string str5 = root.Attributes["Password"].Value;
-                string str6 = root.Attributes["pooling"].Value;
-                string str7 = root.Attributes["CharSet"].Value;
-                string str8 = root.Attributes["port"].Value;
-                //连接数据库，读取数据
-                String mysqlStr = "Server=" + str1 + ";Database=" + str2 + ";Data Source=" + str3 + ";User Id=" + str4 + ";Password=" + str5 + ";pooling=" + str6 + ";CharSet=" + str7 + ";port=" + str8 + "";
-                MySqlConnection mysql = new MySqlConnection(mysqlStr);
-                String sql = "SELECT * FROM qiaotai.客户联系人;";
-                MySqlCommand cmd = new MySqlCommand(sql, mysql);
-                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-                DataTable DT = new DataTable();
-                mysql.Open();
-                ap.Fill(DT);
-                dataGridView2.DataSource = DT;
-                dataGridView2.Update();
-                mysql.Close();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
-
-
-
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -85,6 +53,10 @@ namespace QTsys
                 text结算方式.Text = dataGridView1.Rows[e.RowIndex].Cells["结算方式"].Value.ToString();
                 text流水号.Text = dataGridView1.Rows[e.RowIndex].Cells["流水号"].Value.ToString();
                 text备注.Text = dataGridView1.Rows[e.RowIndex].Cells["备注"].Value.ToString();
+                //联系人信息更新
+                CustomerDAO cus = new CustomerDAO();
+                dataGridView2.DataSource = cus.GetCustomerMembersByName("所属客户编号", text客户编号.Text);
+                dataGridView2.Update();
             }
             catch (Exception ex) { }
         }
@@ -98,48 +70,196 @@ namespace QTsys
         {
             try
             {
-                //对账户进行绑定读取mysql远程读取
-                //先读mysql_set.xml
-                XmlDocument doc = new XmlDocument();
-                doc.Load(@"mysql_set.xml");
-                XmlNode root = doc.SelectSingleNode("mysqlset");//指定一个节点
-                string str1 = root.Attributes["Server"].Value;//获取指定节点的指定属性值
-                string str2 = root.Attributes["Database"].Value;
-                string str3 = root.Attributes["DataSource"].Value;
-                string str4 = root.Attributes["UserId"].Value;
-                string str5 = root.Attributes["Password"].Value;
-                string str6 = root.Attributes["pooling"].Value;
-                string str7 = root.Attributes["CharSet"].Value;
-                string str8 = root.Attributes["port"].Value;
-                //连接数据库，读取数据
-                String mysqlStr = "Server=" + str1 + ";Database=" + str2 + ";Data Source=" + str3 + ";User Id=" + str4 + ";Password=" + str5 + ";pooling=" + str6 + ";CharSet=" + str7 + ";port=" + str8 + "";
-                MySqlConnection mysql = new MySqlConnection(mysqlStr);
-                String sql = "SELECT * FROM qiaotai.客户信息 WHERE " + label搜索栏目.Text + " LIKE '%" + textBox搜索内容.Text + "%';";
-                MySqlCommand cmd = new MySqlCommand(sql, mysql);
-                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-                DataTable DT = new DataTable();
-                mysql.Open();
-                ap.Fill(DT);
-                dataGridView1.DataSource = DT;
-                dataGridView1.Update();
-                mysql.Close();
+                CustomerDAO cdao = new CustomerDAO();
+                if (textBox搜索内容.Text != "")
+                {
+                    dataGridView1.DataSource = cdao.GetCustomerByName(label搜索栏目.Text, textBox搜索内容.Text);
+                    dataGridView1.Update();
+                }
+                else
+                {
+                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.Update();
+                }
             }
-            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+            catch (Exception ex) { }
         }
 
         private void button3_Click(object sender, EventArgs e)//新增
         {
-
+            try
+            {
+                CustomerDAO cdao = new CustomerDAO();
+                Customer cus = new Customer();
+                cus.Id = text客户编号.Text;
+                cus.Name = text客户名称.Text;
+                cus.Address = text客户地址.Text;
+                cus.Phone = text联系电话.Text;
+                cus.Fax = text传真.Text;
+                cus.Email = text电子邮箱.Text;
+                cus.Accounts = text结算方式.Text;
+                cus.Serial = text流水号.Text;
+                cus.Remarks = text备注.Text;
+                if (cdao.AddNewCustomer(cus))
+                {
+                    MessageBox.Show("客户[" + text客户编号.Text + "]新增成功！");
+                    //更新表格数据                    
+                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("新增失败！");
+            }
+            catch (Exception ex) { }
         }
 
         private void button2_Click(object sender, EventArgs e)//删除
         {
-
+            try
+            {
+                CustomerDAO cdao = new CustomerDAO();
+                if (cdao.DelCustomer(text客户编号.Text))
+                {
+                    MessageBox.Show("用户[" + text客户编号.Text + "]已被删除！");
+                    //更新表格数据                    
+                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("删除用户[" + text客户编号.Text + "]失败！");
+            }
+            catch (Exception ex) { }
         }
 
         private void button1_Click(object sender, EventArgs e)//修改
         {
+            try
+            {
+                CustomerDAO cdao = new CustomerDAO();
+                Customer cus = new Customer();
+                cus.Id = text客户编号.Text;
+                cus.Name = text客户名称.Text;
+                cus.Address = text客户地址.Text;
+                cus.Phone = text联系电话.Text;
+                cus.Fax = text传真.Text;
+                cus.Email = text电子邮箱.Text;
+                cus.Accounts = text结算方式.Text;
+                cus.Serial = text流水号.Text;
+                cus.Remarks = text备注.Text;
+                if (cdao.AltCustomer(cus))
+                {
+                    MessageBox.Show("客户[" + text客户编号.Text + "]数据修改成功！");
+                    //更新表格数据                    
+                    dataGridView1.DataSource = cdao.GetAllCustomers();
+                    dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("修改失败！");
+            }
+            catch (Exception ex) { }
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CustomerDAO cdao = new CustomerDAO();
+            if (textBox搜索联系人.Text != "")
+            {
+                
+                dataGridView2.DataSource = cdao.GetCustomerMembersByName(label联系人.Text, textBox搜索联系人.Text);
+                dataGridView2.Update();
+            }
+            else
+            {
+                dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                dataGridView2.Update();
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            label联系人.Text = dataGridView2.Columns[e.ColumnIndex].HeaderText.ToString();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                t编号.Text = dataGridView2.Rows[e.RowIndex].Cells["编号"].Value.ToString();
+                t姓名.Text = dataGridView2.Rows[e.RowIndex].Cells["姓名"].Value.ToString();
+                t类型.Text = dataGridView2.Rows[e.RowIndex].Cells["类型"].Value.ToString();
+                t电话.Text = dataGridView2.Rows[e.RowIndex].Cells["联系电话"].Value.ToString();
+                t电子邮件.Text = dataGridView2.Rows[e.RowIndex].Cells["电子邮件"].Value.ToString();
+                t所属客户.Text = dataGridView2.Rows[e.RowIndex].Cells["所属客户编号"].Value.ToString();
+            }
+            catch (Exception ex) { }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CustomerDAO cdao = new CustomerDAO();
+                CustomerMember cus = new CustomerMember();
+                cus.Id = t编号.Text;
+                cus.Name = t姓名.Text;
+                cus.Type = t类型.Text;
+                cus.Phone = t电话.Text;
+                cus.Email = t电子邮件.Text;
+                cus.CustomerId = t所属客户.Text;
+                if (cdao.AddNewCustomerMember(cus))
+                {
+                    MessageBox.Show("客户联系人[" + t编号.Text + "]新增成功！");
+                    //更新表格数据                    
+                    dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                    dataGridView2.Update();
+                }
+                else
+                    MessageBox.Show("新增失败！");
+            }
+            catch (Exception ex) { }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CustomerDAO cdao = new CustomerDAO();
+                if (cdao.DelCustomerMember(t编号.Text))
+                {
+                    MessageBox.Show("客户联系人[" + t编号.Text + "]已被删除！");
+                    //更新表格数据                    
+                    dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                    dataGridView2.Update();
+                }
+                else
+                    MessageBox.Show("删除客户联系人[" + t编号.Text + "]失败！");
+            }
+            catch (Exception ex) { }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CustomerDAO cdao = new CustomerDAO();
+                CustomerMember cus = new CustomerMember();
+                cus.Id = t编号.Text;
+                cus.Name = t姓名.Text;
+                cus.Type = t类型.Text;
+                cus.Phone = t电话.Text;
+                cus.Email = t电子邮件.Text;
+                cus.CustomerId = t所属客户.Text;
+                if (cdao.AltCustomerMember(cus))
+                {
+                    MessageBox.Show("客户联系人[" + t编号.Text + "]修改成功！");
+                    //更新表格数据                    
+                    dataGridView2.DataSource = cdao.GetAllCustomerMembers();
+                    dataGridView2.Update();
+                }
+                else
+                    MessageBox.Show("修改失败！");
+            }
+            catch (Exception ex) { }
         }
     }
 }
