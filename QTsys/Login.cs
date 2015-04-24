@@ -42,6 +42,9 @@ namespace QTsys
                 User user = new User();
                 user.UserName = comboBox1.Text;
                 user.Password = textBox1.Text;
+
+                // temp solution for fix the issue, which connection string doesn't change after user updating config.
+                this.userMgr.UpdateConnection();
                 User rUser = this.userMgr.Login(user);
                 if (rUser != null)
                 {
@@ -58,7 +61,7 @@ namespace QTsys
             catch (Exception ex)
             { 
                 //MessageBox.Show(ex.ToString()); 
-                MessageBox.Show("账号不存在或者密码错误！");
+                MessageBox.Show("登陆失败： " + ex.Message);
             }
         }
 
