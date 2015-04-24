@@ -120,7 +120,7 @@ namespace QTsys.DAO
                 return true;
             }
             catch (Exception ex) { return false; }
-        } 
+        }
 
         public bool AltCustomer(Customer cus)
         {
@@ -132,7 +132,7 @@ namespace QTsys.DAO
                 cmd.ExecuteNonQuery();
                 this.Connection.Close();
                 return true;
-            } 
+            }
             catch (Exception ex) { return false; }
         }
 
