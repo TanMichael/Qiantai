@@ -77,7 +77,20 @@ namespace QTsys
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (text搜索内容.Text != "")
+                {
+                    dataGridView1.DataSource = this.material.GetAllMaterialByName(label搜索栏目.Text, text搜索内容.Text);
+                    dataGridView1.Update();
+                }
+                else
+                {
+                    dataGridView1.DataSource = this.material.GetAllMaterials();
+                    dataGridView1.Update();
+                }
+            }
+            catch (Exception ex) {  }
         }
 
         private void button2_Click(object sender, EventArgs e)

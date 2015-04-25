@@ -50,6 +50,7 @@
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DAOBase.cs" />
     <Compile Include="DAO\MaterialDAO.cs" />
+    <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="dataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -62,6 +63,7 @@
     <Compile Include="DataObjects\LogonToken.cs" />
     <Compile Include="DataObjects\Material.cs" />
     <Compile Include="DataObjects\MaterialFlow.cs" />
+    <Compile Include="DataObjects\Product.cs" />
     <Compile Include="DataObjects\User.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
