@@ -38,20 +38,25 @@ namespace QTsys
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
            /* 原料数据修改 win = new 原料数据修改();
             win.ShowDialog();*/
-            Material mtl=new Material();
-            mtl.Id =Convert.ToInt16( text原料编号.Text);
-            mtl.Name = text原料名称.Text;
-            mtl.Unit = text单位.Text;
-            mtl.StockCount =Convert.ToInt16( text库存数量.Text);
-            if (this.material.AltMaterials(mtl))
+            try
             {
-                MessageBox.Show("原料[" + text原料编号.Text + "]数据修改成功！");
-                dataGridView1.DataSource = this.material.GetAllMaterials();
-                dataGridView1.Update();
+                Material mtl = new Material();
+                mtl.Id = Convert.ToInt16(text原料编号.Text);
+                mtl.Name = text原料名称.Text;
+                mtl.Unit = text单位.Text;
+                mtl.StockCount = Convert.ToInt16(text库存数量.Text);
+                if (this.material.AltMaterials(mtl))
+                {
+                    MessageBox.Show("原料[" + text原料编号.Text + "]数据修改成功！");
+                    dataGridView1.DataSource = this.material.GetAllMaterials();
+                    dataGridView1.Update();
+                }
+                else { MessageBox.Show("修改失败！"); }
             }
-            else { MessageBox.Show("修改失败！"); }
+            catch (Exception ex) { MessageBox.Show("数据修改失败！"); }
         }
 
         private void 原料管理_Load(object sender, EventArgs e)

@@ -42,6 +42,7 @@ namespace QTsys
                 User user = new User();
                 user.UserName = comboBox1.Text;
                 user.Password = textBox1.Text;
+                this.userMgr.UpdateConnection(); 
                 User rUser = this.userMgr.Login(user);
                 if (rUser != null)
                 {

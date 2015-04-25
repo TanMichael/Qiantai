@@ -40,6 +40,12 @@ namespace QTsys.Manager
             return result;    // resultObj.success;
         }
 
+        public void UpdateConnection()
+        {
+            this.userDao = new UserDAO();
+            this.customerDao = new CustomerDAO();
+        }
+
         public DataTable GetAllUser()
         {
             return this.userDao.GetAllUser();

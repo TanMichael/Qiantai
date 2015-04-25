@@ -201,6 +201,9 @@
     <EmbeddedResource Include="产品管理.resx">
       <DependentUpon>产品管理.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="原料入仓.resx">
+      <DependentUpon>原料入仓.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="原料管理.resx">
       <DependentUpon>原料管理.cs</DependentUpon>
     </EmbeddedResource>

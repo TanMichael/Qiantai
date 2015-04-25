@@ -96,7 +96,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.员工信息(员工编号,账户名,密码,姓名,系统角色,职位,手机,办公电话,电子邮箱,部门) VALUES ('" + user.Id + "','" + user.UserName + "','" + user.Password + "','" + user.Name + "','" + user.Role + "','" + user.JobTitle + "','" + user.Mobile + "','" + user.Phone + "','" + user.Email + "','" + user.Department + "');";
+                string sql = "INSERT INTO qiaotai.员工信息(账户名,密码,姓名,系统角色,职位,手机,办公电话,电子邮箱,部门) VALUES ('" + user.UserName + "','" + user.Password + "','" + user.Name + "','" + user.Role + "','" + user.JobTitle + "','" + user.Mobile + "','" + user.Phone + "','" + user.Email + "','" + user.Department + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
