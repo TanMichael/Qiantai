@@ -58,10 +58,12 @@ namespace QTsys.DAO
         }
 
         // TODO consider paging
-        public DataTable GetAllCustomerMembers()//更新
+        public DataTable GetCustomerMembersByCustomer(string cId)//更新
         {
             Customer cus = new Customer();
-            string sql = "SELECT * FROM qiaotai.客户联系人;";
+            string sql = "SELECT cm.编号,cm.姓名,cm.类型,cm.联系电话,cm.电子邮件,cm.所属客户编号,c.客户名称 " +
+                "FROM qiaotai.客户联系人 cm inner join qiaotai.客户信息 c on cm.所属客户编号 = c.客户编号 " +
+                "where c.客户编号 =" + cId;
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -82,10 +84,14 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
-        public DataTable SearchCustomerMemberByCol(string Col, string Name)//更新
+        public DataTable SearchCustomerMemberByCol(string Col, string Name, string cId="")//更新
         {
             Customer cus = new Customer();
-            string sql = "SELECT * FROM qiaotai.客户联系人 WHERE " + Col + " LIKE '%" + Name + "%';";
+            string sql = "SELECT * FROM qiaotai.客户联系人 WHERE " + Col + " LIKE '%" + Name + "%'";
+            if (cId != "")
+            {
+                sql += " and 所属客户编号=" + cId;
+            }
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCustomer = new System.Windows.Forms.TabControl();
+            this.tabPageCustomer = new System.Windows.Forms.TabPage();
             this.label搜索栏目 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.text客户名称 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.text客户编号 = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageCMember = new System.Windows.Forms.TabPage();
             this.label联系人 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -87,61 +87,62 @@
             this.label22 = new System.Windows.Forms.Label();
             this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabCustomer.SuspendLayout();
+            this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPageCMember.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabCustomer
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(20, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1051, 585);
-            this.tabControl1.TabIndex = 5;
+            this.tabCustomer.Controls.Add(this.tabPageCustomer);
+            this.tabCustomer.Controls.Add(this.tabPageCMember);
+            this.tabCustomer.Location = new System.Drawing.Point(20, 12);
+            this.tabCustomer.Name = "tabCustomer";
+            this.tabCustomer.SelectedIndex = 0;
+            this.tabCustomer.Size = new System.Drawing.Size(1051, 585);
+            this.tabCustomer.TabIndex = 5;
+            this.tabCustomer.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabCustomer_Selected);
             // 
-            // tabPage1
+            // tabPageCustomer
             // 
-            this.tabPage1.Controls.Add(this.label搜索栏目);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.textBox搜索内容);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.text备注);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.text收货地址);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.text流水号);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.text电子邮箱);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.text结算方式);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.text传真);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.text联系电话);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.text客户地址);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.text客户名称);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.text客户编号);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1043, 559);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "客户信息";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPageCustomer.Controls.Add(this.label搜索栏目);
+            this.tabPageCustomer.Controls.Add(this.button4);
+            this.tabPageCustomer.Controls.Add(this.label11);
+            this.tabPageCustomer.Controls.Add(this.textBox搜索内容);
+            this.tabPageCustomer.Controls.Add(this.button3);
+            this.tabPageCustomer.Controls.Add(this.button2);
+            this.tabPageCustomer.Controls.Add(this.dataGridView1);
+            this.tabPageCustomer.Controls.Add(this.button1);
+            this.tabPageCustomer.Controls.Add(this.label10);
+            this.tabPageCustomer.Controls.Add(this.text备注);
+            this.tabPageCustomer.Controls.Add(this.label9);
+            this.tabPageCustomer.Controls.Add(this.text收货地址);
+            this.tabPageCustomer.Controls.Add(this.label8);
+            this.tabPageCustomer.Controls.Add(this.text流水号);
+            this.tabPageCustomer.Controls.Add(this.label7);
+            this.tabPageCustomer.Controls.Add(this.text电子邮箱);
+            this.tabPageCustomer.Controls.Add(this.label6);
+            this.tabPageCustomer.Controls.Add(this.text结算方式);
+            this.tabPageCustomer.Controls.Add(this.label5);
+            this.tabPageCustomer.Controls.Add(this.text传真);
+            this.tabPageCustomer.Controls.Add(this.label4);
+            this.tabPageCustomer.Controls.Add(this.text联系电话);
+            this.tabPageCustomer.Controls.Add(this.label3);
+            this.tabPageCustomer.Controls.Add(this.text客户地址);
+            this.tabPageCustomer.Controls.Add(this.label2);
+            this.tabPageCustomer.Controls.Add(this.text客户名称);
+            this.tabPageCustomer.Controls.Add(this.label1);
+            this.tabPageCustomer.Controls.Add(this.text客户编号);
+            this.tabPageCustomer.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCustomer.Name = "tabPageCustomer";
+            this.tabPageCustomer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCustomer.Size = new System.Drawing.Size(1043, 559);
+            this.tabPageCustomer.TabIndex = 0;
+            this.tabPageCustomer.Text = "客户信息";
+            this.tabPageCustomer.UseVisualStyleBackColor = true;
+            this.tabPageCustomer.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label搜索栏目
             // 
@@ -383,52 +384,53 @@
             this.text客户编号.Size = new System.Drawing.Size(100, 21);
             this.text客户编号.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPageCMember
             // 
-            this.tabPage2.Controls.Add(this.label联系人);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.textBox搜索联系人);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.t备注);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.t所属客户);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.t称呼);
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Controls.Add(this.t电子邮件);
-            this.tabPage2.Controls.Add(this.label17);
-            this.tabPage2.Controls.Add(this.t手机);
-            this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Controls.Add(this.t传真);
-            this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.t电话);
-            this.tabPage2.Controls.Add(this.label20);
-            this.tabPage2.Controls.Add(this.t类型);
-            this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.t姓名);
-            this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.t编号);
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1043, 559);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "客户联系人";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageCMember.Controls.Add(this.label联系人);
+            this.tabPageCMember.Controls.Add(this.button5);
+            this.tabPageCMember.Controls.Add(this.label12);
+            this.tabPageCMember.Controls.Add(this.textBox搜索联系人);
+            this.tabPageCMember.Controls.Add(this.button6);
+            this.tabPageCMember.Controls.Add(this.button7);
+            this.tabPageCMember.Controls.Add(this.button8);
+            this.tabPageCMember.Controls.Add(this.label13);
+            this.tabPageCMember.Controls.Add(this.t备注);
+            this.tabPageCMember.Controls.Add(this.label14);
+            this.tabPageCMember.Controls.Add(this.t所属客户);
+            this.tabPageCMember.Controls.Add(this.label15);
+            this.tabPageCMember.Controls.Add(this.t称呼);
+            this.tabPageCMember.Controls.Add(this.label16);
+            this.tabPageCMember.Controls.Add(this.t电子邮件);
+            this.tabPageCMember.Controls.Add(this.label17);
+            this.tabPageCMember.Controls.Add(this.t手机);
+            this.tabPageCMember.Controls.Add(this.label18);
+            this.tabPageCMember.Controls.Add(this.t传真);
+            this.tabPageCMember.Controls.Add(this.label19);
+            this.tabPageCMember.Controls.Add(this.t电话);
+            this.tabPageCMember.Controls.Add(this.label20);
+            this.tabPageCMember.Controls.Add(this.t类型);
+            this.tabPageCMember.Controls.Add(this.label21);
+            this.tabPageCMember.Controls.Add(this.t姓名);
+            this.tabPageCMember.Controls.Add(this.label22);
+            this.tabPageCMember.Controls.Add(this.t编号);
+            this.tabPageCMember.Controls.Add(this.dataGridView2);
+            this.tabPageCMember.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCMember.Name = "tabPageCMember";
+            this.tabPageCMember.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCMember.Size = new System.Drawing.Size(1043, 559);
+            this.tabPageCMember.TabIndex = 1;
+            this.tabPageCMember.Text = "客户联系人";
+            this.tabPageCMember.UseVisualStyleBackColor = true;
             // 
             // label联系人
             // 
             this.label联系人.AutoSize = true;
+            this.label联系人.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label联系人.Location = new System.Drawing.Point(72, 145);
             this.label联系人.Name = "label联系人";
-            this.label联系人.Size = new System.Drawing.Size(53, 12);
+            this.label联系人.Size = new System.Drawing.Size(29, 12);
             this.label联系人.TabIndex = 52;
-            this.label联系人.Text = "客户编号";
+            this.label联系人.Text = "编号";
             // 
             // button5
             // 
@@ -662,16 +664,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 609);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabCustomer);
             this.Name = "客户管理";
             this.Text = "客户管理";
             this.Load += new System.EventHandler(this.客户管理_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabCustomer.ResumeLayout(false);
+            this.tabPageCustomer.ResumeLayout(false);
+            this.tabPageCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageCMember.ResumeLayout(false);
+            this.tabPageCMember.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -679,8 +681,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabCustomer;
+        private System.Windows.Forms.TabPage tabPageCustomer;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -704,7 +706,7 @@
         private System.Windows.Forms.TextBox text客户名称;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text客户编号;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageCMember;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;

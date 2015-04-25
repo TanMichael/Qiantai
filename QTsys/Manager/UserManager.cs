@@ -79,9 +79,9 @@ namespace QTsys.Manager
         }
 
         // TODO consider paging
-        public DataTable GetAllCustomerMembers()
+        public DataTable GetCustomerMembersByCustomer(string cId)
         {
-            return this.customerDao.GetAllCustomerMembers();
+            return this.customerDao.GetCustomerMembersByCustomer(cId);
         }
 
         public DataTable SearchCustomerByCol(string col, string name)//更新
@@ -89,9 +89,9 @@ namespace QTsys.Manager
             return this.customerDao.SearchCustomerByCol(col, name);
         }
 
-        public DataTable SearchCustomerMemberByCol(string col, string name)//更新
+        public DataTable SearchCustomerMemberByCol(string col, string name, string cId="")//更新
         {
-            return this.customerDao.SearchCustomerMemberByCol(col, name);
+            return this.customerDao.SearchCustomerMemberByCol(col, name, cId);
         }
 
         public bool AddNewCustomer(Customer cus)

@@ -8,6 +8,8 @@ namespace QTsys
     public partial class 客户管理 : Form
     {
         private UserManager userMgr;
+        private string selectedCustomerId;
+        private string selectedCustomerName;
 
         public 客户管理()
         {
@@ -21,8 +23,8 @@ namespace QTsys
             {
                 dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                 dataGridView1.Update();
-                dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
-                dataGridView2.Update();
+                //dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
+                //dataGridView2.Update();
                 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -36,8 +38,8 @@ namespace QTsys
         {
             try
             {
-                text客户编号.Text = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
-                text客户名称.Text = dataGridView1.Rows[e.RowIndex].Cells["客户名称"].Value.ToString();
+                text客户编号.Text = selectedCustomerId = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
+                text客户名称.Text = selectedCustomerName = dataGridView1.Rows[e.RowIndex].Cells["客户名称"].Value.ToString();
                 text客户地址.Text = dataGridView1.Rows[e.RowIndex].Cells["地址"].Value.ToString();
                 text联系电话.Text = dataGridView1.Rows[e.RowIndex].Cells["联系电话"].Value.ToString();
                 text传真.Text = dataGridView1.Rows[e.RowIndex].Cells["传真"].Value.ToString();
@@ -46,7 +48,7 @@ namespace QTsys
                 text流水号.Text = dataGridView1.Rows[e.RowIndex].Cells["流水号"].Value.ToString();
                 text备注.Text = dataGridView1.Rows[e.RowIndex].Cells["备注"].Value.ToString();
                 //联系人信息更新
-                dataGridView2.DataSource = this.userMgr.SearchCustomerMemberByCol("所属客户编号", text客户编号.Text);
+                dataGridView2.DataSource = this.userMgr.GetCustomerMembersByCustomer(selectedCustomerId);
                 dataGridView2.Update();
             }
             catch (Exception ex) { }
@@ -152,19 +154,25 @@ namespace QTsys
             {
                 
                 //dataGridView2.DataSource = cdao.GetCustomerMembersByName(label联系人.Text, textBox搜索联系人.Text);
-                dataGridView2.DataSource = this.userMgr.SearchCustomerMemberByCol("编号", textBox搜索联系人.Text);
+                dataGridView2.DataSource = this.userMgr.SearchCustomerMemberByCol(label联系人.Text, textBox搜索联系人.Text, selectedCustomerId);
                 dataGridView2.Update();
             }
             else
             {
-                dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
+                dataGridView2.DataSource = this.userMgr.GetCustomerMembersByCustomer(selectedCustomerId);
                 dataGridView2.Update();
             }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            label联系人.Text = dataGridView2.Columns[e.ColumnIndex].HeaderText.ToString();
+            var header = dataGridView2.Columns[e.ColumnIndex].HeaderText.ToString();
+            if (header == "客户名称" || header == "所属客户编号")
+            {
+                MessageBox.Show("该列为当前页过滤条件，不能设为搜索列");
+                return;
+            }
+            label联系人.Text = header;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -196,7 +204,7 @@ namespace QTsys
                 {
                     MessageBox.Show("客户联系人[" + t编号.Text + "]新增成功！");
                     //更新表格数据                    
-                    dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
+                    dataGridView2.DataSource = this.userMgr.GetCustomerMembersByCustomer(selectedCustomerId);
                     dataGridView2.Update();
                 }
                 else
@@ -213,7 +221,7 @@ namespace QTsys
                 {
                     MessageBox.Show("客户联系人[" + t编号.Text + "]已被删除！");
                     //更新表格数据                    
-                    dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
+                    dataGridView2.DataSource = this.userMgr.GetCustomerMembersByCustomer(selectedCustomerId);
                     dataGridView2.Update();
                 }
                 else
@@ -237,13 +245,27 @@ namespace QTsys
                 {
                     MessageBox.Show("客户联系人[" + t编号.Text + "]修改成功！");
                     //更新表格数据                    
-                    dataGridView2.DataSource = this.userMgr.GetAllCustomerMembers();
+                    dataGridView2.DataSource = this.userMgr.GetCustomerMembersByCustomer(selectedCustomerId);
                     dataGridView2.Update();
                 }
                 else
                     MessageBox.Show("修改失败！");
             }
             catch (Exception ex) { }
+        }
+
+        private void tabCustomer_Selected(object sender, TabControlEventArgs e)
+        {
+
+            // change to customer member tab page
+            if (e.TabPageIndex == 1)
+            {
+                if (selectedCustomerId == null)
+                {
+                    MessageBox.Show("请从客户表中选中一个客户！");
+                    tabCustomer.SelectedTab = tabPageCustomer;
+                }
+            }
         }
     }
 }
