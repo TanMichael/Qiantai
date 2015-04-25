@@ -40,9 +40,9 @@ namespace QTsys.Manager
             return this.dao.AltMaterial(m);
         }
 
-        public String GetMaterialNameBySerial( string value)
+        public String GetMaterialNameBySerial(string value)
         {
-            return this.dao.GetMaterialNameBySerial( value);
+            return this.dao.GetMaterialNameBySerial(value);
         }
 
         public DataTable GetAllMaterialFlow()
@@ -50,7 +50,7 @@ namespace QTsys.Manager
             return this.dao.GetAllMaterialFlow();
         }
 
-        public bool AddNewMaterialEx(MaterialFlow material,String mtName,String mtUnit) 
+        public bool AddNewMaterialEx(MaterialFlow material, String mtName, String mtUnit)
         {
             if (this.dao.AddNewMaterialFlow(material, mtName, mtUnit))
             {
@@ -59,10 +59,11 @@ namespace QTsys.Manager
                 mt.Name = mtName;
                 mt.Unit = mtUnit;
                 mt.StockCount = material.StockCount;
-                if(this.dao.AddNewMaterial(mt))
+                if (this.dao.AddNewMaterialEx(mt))
                 {
                     return true;
-                }else
+                }
+                else
                 {
                     //对this.dao.AddNewMaterialFlow(material, mtName, mtUnit)进行逆操作,删除刚才加入的。
                     this.dao.DelMaterialFlow(material);
@@ -72,5 +73,12 @@ namespace QTsys.Manager
             else
                 return false;
         }
+
+        public bool AddNewMaterial(Material material)
+        {
+            return this.dao.AddNewMaterial(material);
+        }
+
+        public bool DelMaterial(String key) { return this.dao.DelMaterial(key); }
     }
 }

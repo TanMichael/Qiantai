@@ -35,7 +35,22 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
+
         public bool AddNewMaterial(Material material)
+        {
+            try
+            {
+                string sql = "INSERT INTO qiaotai.原材料(原料名称,单位,库存数量) VALUES ('" + material.Name + "','" + material.Unit + "','" + material.StockCount + "');";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+
+        public bool AddNewMaterialEx(Material material)
         {
             //增加仓库原料，先判断是否存在此种原料，如存在看单位是否一致，名称是否一致，一致则增加库存，否则报错。如没有这种原料则新增一行
             try
