@@ -275,6 +275,7 @@
             // label搜索栏目
             // 
             this.label搜索栏目.AutoSize = true;
+            this.label搜索栏目.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label搜索栏目.Location = new System.Drawing.Point(78, 151);
             this.label搜索栏目.Name = "label搜索栏目";
             this.label搜索栏目.Size = new System.Drawing.Size(53, 12);
