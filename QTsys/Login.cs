@@ -31,11 +31,6 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)//按登录按钮
         {
-            ////写禁止进入系统
-            //File.Delete(Directory.GetCurrentDirectory() + "\\login.txt");
-            //StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\login.txt", true, Encoding.GetEncoding("unicode"));
-            //wr.Write("no");
-            //wr.Close();
             //测试密码是否正确
             try
             {
@@ -57,8 +52,7 @@ namespace QTsys
                                
             }
             catch (Exception ex)
-            { 
-                //MessageBox.Show(ex.ToString()); 
+            {  
                 MessageBox.Show("账号不存在或者密码错误！");
             }
         }
