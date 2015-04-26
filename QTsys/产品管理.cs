@@ -54,12 +54,58 @@ namespace QTsys
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {
+                text产品编号.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                text产品名称.Text = dataGridView1.Rows[e.RowIndex].Cells["产品名称"].Value.ToString();
+                text规格.Text = dataGridView1.Rows[e.RowIndex].Cells["规格"].Value.ToString();
+                text材质.Text = dataGridView1.Rows[e.RowIndex].Cells["材质"].Value.ToString();
+                text变位.Text = dataGridView1.Rows[e.RowIndex].Cells["变位"].Value.ToString();
+                text实测变位.Text = dataGridView1.Rows[e.RowIndex].Cells["实测变位"].Value.ToString();
+                text温度.Text = dataGridView1.Rows[e.RowIndex].Cells["温度"].Value.ToString();
+                text生产耗时.Text = dataGridView1.Rows[e.RowIndex].Cells["生产耗时"].Value.ToString();
+                text压力.Text = dataGridView1.Rows[e.RowIndex].Cells["压力"].Value.ToString();
+                text树脂名称.Text = dataGridView1.Rows[e.RowIndex].Cells["树脂名称"].Value.ToString();
+                text树脂比重.Text = dataGridView1.Rows[e.RowIndex].Cells["树脂比重"].Value.ToString();
+                text含浸尺寸.Text = dataGridView1.Rows[e.RowIndex].Cells["含浸尺寸"].Value.ToString();
+                text外盘.Text = dataGridView1.Rows[e.RowIndex].Cells["外盘"].Value.ToString();
+                text内治具.Text = dataGridView1.Rows[e.RowIndex].Cells["内治具"].Value.ToString();
+                text重量.Text = dataGridView1.Rows[e.RowIndex].Cells["重量"].Value.ToString();
+                text成型模.Text = dataGridView1.Rows[e.RowIndex].Cells["成型模"].Value.ToString();
+                text切模号.Text = dataGridView1.Rows[e.RowIndex].Cells["切模号"].Value.ToString();
+                text单位.Text = dataGridView1.Rows[e.RowIndex].Cells["单位"].Value.ToString();
+                text单价.Text = dataGridView1.Rows[e.RowIndex].Cells["单价"].Value.ToString();
+                text库存数量.Text = dataGridView1.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
+            }
+            catch (Exception ex) { }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                label搜索栏目.Text = dataGridView1.Columns[e.ColumnIndex].HeaderText.ToString();
+            }
+            catch (Exception ex) { }
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (text搜索内容.Text != "")
+                {
+                    dataGridView1.DataSource = this.proman.GetAllProductsByName(label搜索栏目.Text, text搜索内容.Text);
+                    dataGridView1.Update();
+                }
+                else
+                {
+                    dataGridView1.DataSource = this.proman.GetAllProducts();
+                    dataGridView1.Update();
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
     }
 }

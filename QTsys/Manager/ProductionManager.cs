@@ -26,5 +26,10 @@ namespace QTsys.Manager
         {
             return this.pdao.GetAllProducts();
         }
+
+         public DataTable GetAllProductsByName(string col, string value)
+         {
+             return this.pdao.GetAllProductsByName(col, value);
+         }
     }
 }
