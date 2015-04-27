@@ -63,7 +63,14 @@
     <Compile Include="DataObjects\LogonToken.cs" />
     <Compile Include="DataObjects\Material.cs" />
     <Compile Include="DataObjects\MaterialFlow.cs" />
+    <Compile Include="DataObjects\OperationAudit.cs" />
+    <Compile Include="DataObjects\Order.cs" />
+    <Compile Include="DataObjects\OrderDetaol.cs" />
     <Compile Include="DataObjects\Product.cs" />
+    <Compile Include="DataObjects\ProductFlow.cs" />
+    <Compile Include="DataObjects\ProductionPlan.cs" />
+    <Compile Include="DataObjects\ProductMaterial.cs" />
+    <Compile Include="DataObjects\QiaotaiObject.cs" />
     <Compile Include="DataObjects\User.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>

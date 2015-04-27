@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QTsys.DataObjects
 {
-    class Order
+    class Order : QiaotaiObject
     {
         public string OrderId { get; set; }
         public string OrderStatus { get; set; }

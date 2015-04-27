@@ -82,5 +82,17 @@ namespace QTsys.Common
             _logonToken = new LogonToken { Status = false, UserName = "", Role = "" };
         }
 
+        public static string GetCurrentUsername()
+        {
+            if (_logonToken.Status != false)
+            {
+                return _logonToken.UserName;
+            }
+            else
+            {
+                // TODO log out
+                return "";
+            }
+        }
     }
 }

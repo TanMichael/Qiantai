@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QTsys.DataObjects
 {
-    class LogonToken
+    class LogonToken : QiaotaiObject
     {
         public bool Status { get; set; }
         public string UserName { get; set; }

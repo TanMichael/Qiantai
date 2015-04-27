@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using QTsys.Common;
+using QTsys.DataObjects;
+using System;
 
 namespace QTsys.DAO
 {
@@ -25,6 +22,16 @@ namespace QTsys.DAO
                     config.CharSet + ";port=" + config.Port + "";
                 this._conn = new MySqlConnection(mysqlStr);
             }
+        }
+
+        protected void LogAction(OperationAudit audit)
+        {
+            string sql = "INSERT INTO qiaotai.操作记录 (操作员,操作动作,操作对象,操作结果,操作时间) VALUES ('" +
+                audit.Operator + "','" + audit.Action + "','" + audit.OperateObject + "','" + audit.Result + "','" + audit.OperateTime + "');";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            this.Connection.Open();
+            cmd.ExecuteNonQuery();
+            this.Connection.Close();
         }
 
         public MySqlConnection Connection

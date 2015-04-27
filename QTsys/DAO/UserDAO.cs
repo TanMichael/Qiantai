@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using QTsys.Common;
 using QTsys.DataObjects;
 using System;
 using System.Collections.Generic;
@@ -96,11 +97,21 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.员工信息(账户名,密码,姓名,系统角色,职位,手机,办公电话,电子邮箱,部门) VALUES ('" + user.UserName + "','" + user.Password + "','" + user.Name + "','" + user.Role + "','" + user.JobTitle + "','" + user.Mobile + "','" + user.Phone + "','" + user.Email + "','" + user.Department + "');";
+                string sql = "INSERT INTO qiaotai.员工信息 (账户名,密码,姓名,系统角色,职位,手机,办公电话,电子邮箱,部门) VALUES ('" + user.UserName + "','" + user.Password + "','" + user.Name + "','" + user.Role + "','" + user.JobTitle + "','" + user.Mobile + "','" + user.Phone + "','" + user.Email + "','" + user.Department + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
                 this.Connection.Close();
+
+                // Audit
+                this.LogAction(new OperationAudit
+                                {
+                                    Operator = Utils.GetCurrentUsername(),
+                                    Action = "添加新员工",
+                                    OperateObject = "qiaotai.员工信息",
+                                    OperateTime = DateTime.Now,
+                                    Result = "新员工： " + user.UserName
+                                });
                 return true;
             }
             catch (Exception ex) {  return false; }
@@ -115,6 +126,16 @@ namespace QTsys.DAO
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
                 this.Connection.Close();
+
+                // Audit
+                this.LogAction(new OperationAudit
+                {
+                    Operator = Utils.GetCurrentUsername(),
+                    Action = "删除员工",
+                    OperateObject = "qiaotai.员工信息",
+                    OperateTime = DateTime.Now,
+                    Result = "员工编号： " + key
+                });
                 return true;
             }
             catch (Exception ex) { return false; }
@@ -129,6 +150,16 @@ namespace QTsys.DAO
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
                 this.Connection.Close();
+
+                // Audit
+                this.LogAction(new OperationAudit
+                {
+                    Operator = Utils.GetCurrentUsername(),
+                    Action = "修改员工",
+                    OperateObject = "qiaotai.员工信息",
+                    OperateTime = DateTime.Now,
+                    Result = "员工： " + user.ToString()
+                });
                 return true;
             }
             catch (Exception ex) { return false; }

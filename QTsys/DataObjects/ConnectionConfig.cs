@@ -1,7 +1,7 @@
 ﻿
 namespace QTsys.DataObjects
 {
-    class ConnectionConfig
+    class ConnectionConfig : QiaotaiObject
     {
         public string Server { get; set; }
         public string Database { get; set; }

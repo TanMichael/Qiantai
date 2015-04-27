@@ -1,7 +1,7 @@
 ﻿
 namespace QTsys.DataObjects
 {
-    class Material
+    class Material : QiaotaiObject
     {
         public int Id { get; set; }
         public string Name { get; set; }

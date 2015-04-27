@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QTsys.DataObjects
 {
-    class ProductionPlan
+    class ProductionPlan : QiaotaiObject
     {
         public string Id { get; set; }
         public string ProductId { get; set; }

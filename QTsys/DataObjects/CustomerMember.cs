@@ -1,7 +1,7 @@
 ﻿
 namespace QTsys.DataObjects
 {
-    class CustomerMember
+    class CustomerMember : QiaotaiObject
     {
         public string Id { get; set; }
         public string Name { get; set; }

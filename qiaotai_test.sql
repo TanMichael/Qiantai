@@ -84,7 +84,7 @@ create table 产品进出库
 (
    编号                   int primary key auto_increment,
    产品编号                 int,
-   发生时间                 date,
+   发生时间                 DATETIME,
    类型                   nvarchar(128),
    相关订单编号               int,
    相关计划编号               int,
@@ -110,23 +110,15 @@ create table 原材料进出仓
    操作员                 nvarchar(128)
 );
 
-create table 操作记录
-(
-   记录编号                 int primary key auto_increment,
-   操作员编号               int not null,
-   操作动作                 nvarchar(128) not null,
-   操作时间                 datetime not null
-);
-
 create table 生产计划
 (
    编号                     int primary key auto_increment,
    产品编号                 int not null,
    客户编号                 int,
-   下单日期                 date not null,
+   下单日期                 DATETIME not null,
    产品数量                 int not null,
-   交付时间                 date,
-   实际完成时间             date,
+   交付时间                 DATETIME,
+   实际完成时间             DATETIME,
    计划类型                 nvarchar(128),
    相关订单编号             int,
    负责人                   nvarchar(128)
@@ -135,9 +127,9 @@ create table 生产计划
 create table 订单
 (
    订单编号                 int primary key auto_increment,
-   创建时间                 date not null,
-   发货时间                 date,
-   最后更新时间             date,
+   创建时间                 DATETIME not null,
+   发货时间                 DATETIME,
+   最后更新时间             DATETIME,
    订单状态                 nvarchar(128),
    快递单号                 nvarchar(128),
    订金方式                 nvarchar(128),
@@ -157,6 +149,16 @@ create table 订单明细
    成交价                 decimal(7,2),
    是否库存               bool,
    primary key (订单编号, 产品编号)
+);
+
+create table 操作记录
+(
+   记录编号               int primary key auto_increment,
+   操作员                 nvarchar(128) not null,
+   操作动作               nvarchar(256) not null,
+   操作对象               nvarchar(128) not null,
+   操作结果               nvarchar(512),
+   操作时间               DATETIME not null
 );
 
 insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("michaeltan", "Abcd1234", "Weihua", "管理员");
