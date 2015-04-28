@@ -32,13 +32,11 @@ namespace QTsys
         {
             //弹出登录对话框
             Login win = new Login();
-            
             win.ShowDialog();
-
-            //win.Parent = this;
-
             //读取是否成功登录
             var token = Utils.GetLogonToken();
+            toolStripStatusLabel1.Text = token.Role.ToString();
+            toolStripStatusLabel3.Text = token.UserName.ToString();
             if (token.Status == false)
             {
                 this.Close();

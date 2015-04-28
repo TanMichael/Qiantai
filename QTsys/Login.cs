@@ -59,12 +59,6 @@ namespace QTsys
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ////设置登录失败
-            //File.Delete(Directory.GetCurrentDirectory() + "\\login.txt");
-            //StreamWriter wr2 = new StreamWriter(Directory.GetCurrentDirectory() + "\\login.txt", true, Encoding.GetEncoding("unicode"));
-            //wr2.Write("no");
-            //wr2.Close(); 
-            //关闭窗口
             this.Close();
         }
 
@@ -85,10 +79,8 @@ namespace QTsys
             try
             {
                 comboBox1.Items.Clear();
-
                 QTsys.DAO.UserDAO dao = new DAO.UserDAO();
                 var names = dao.GetAllUserNames();
-
                 comboBox1.Items.AddRange(names.ToArray());
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }

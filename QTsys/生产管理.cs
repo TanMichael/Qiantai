@@ -16,5 +16,10 @@ namespace QTsys
         {
             InitializeComponent();
         }
+
+        private void 生产管理_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

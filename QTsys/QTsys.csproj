@@ -50,6 +50,7 @@
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DAOBase.cs" />
     <Compile Include="DAO\MaterialDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="dataDataSet.Designer.cs">
@@ -65,7 +66,7 @@
     <Compile Include="DataObjects\MaterialFlow.cs" />
     <Compile Include="DataObjects\OperationAudit.cs" />
     <Compile Include="DataObjects\Order.cs" />
-    <Compile Include="DataObjects\OrderDetaol.cs" />
+    <Compile Include="DataObjects\OrderDetail.cs" />
     <Compile Include="DataObjects\Product.cs" />
     <Compile Include="DataObjects\ProductFlow.cs" />
     <Compile Include="DataObjects\ProductionPlan.cs" />
@@ -85,6 +86,7 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\MaterialManager.cs" />
+    <Compile Include="Manager\OrderManager.cs" />
     <Compile Include="Manager\ProductionManager.cs" />
     <Compile Include="Manager\SalesManager.cs" />
     <Compile Include="Manager\UserManager.cs" />

@@ -346,6 +346,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "生产管理";
             this.Text = "生产管理";
+            this.Load += new System.EventHandler(this.生产管理_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
