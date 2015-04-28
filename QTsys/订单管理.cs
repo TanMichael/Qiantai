@@ -183,26 +183,25 @@ namespace QTsys
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            if (e.TabPageIndex == 0)
+            try
             {
-                try
+                if (e.TabPageIndex == 0)
                 {
                     tab = true;
                     dataGridView1.DataSource = tempData;
                     dataGridView1.Update();
                 }
-                catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
-            }
-            if (e.TabPageIndex == 1)
-            {
-                try
+
+                if (e.TabPageIndex == 1)
                 {
                     tab = false;
                     tempData = (DataTable)dataGridView1.DataSource;
                     dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
                     dataGridView1.Update();
                 }
-                catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+            }
+            catch (Exception ex) { 
+                MessageBox.Show(ex.ToString() + "加载失败！"); 
             }
         }
 
@@ -227,7 +226,7 @@ namespace QTsys
                 else
                     MessageBox.Show("订单明细修改失败！");
             }
-            catch (Exception ex) { MessageBox.Show("订单明细修改失败！"); }
+            catch (Exception ex) { MessageBox.Show("订单明细 修改 失败！"); }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -251,7 +250,7 @@ namespace QTsys
                 else
                     MessageBox.Show("订单明细建立失败！");
             }
-            catch (Exception ex) { MessageBox.Show("订单明细建立失败！"); }
+            catch (Exception ex) { MessageBox.Show("订单明细 建立 失败！"); }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -275,7 +274,7 @@ namespace QTsys
                 else
                     MessageBox.Show("订单明细删除失败！");
             }
-            catch (Exception ex) { MessageBox.Show("订单明细删除失败！"); }
+            catch (Exception ex) { MessageBox.Show("订单明细 删除 失败！"); }
         }
     }
 }
