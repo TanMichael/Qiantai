@@ -98,10 +98,7 @@ namespace QTsys
                     t单价.Text = dataGridView1.Rows[e.RowIndex].Cells["单价"].Value.ToString();
                     t折扣.Text = dataGridView1.Rows[e.RowIndex].Cells["折扣"].Value.ToString();
                     t成交价.Text = dataGridView1.Rows[e.RowIndex].Cells["成交价"].Value.ToString();
-                    if ((bool)dataGridView1.Rows[e.RowIndex].Cells["是否库存"].Value == true)
-                    c是否库存.Text = "是";
-                    else
-                    c是否库存.Text = "否" ;
+                    c是否库存.Text=dataGridView1.Rows[e.RowIndex].Cells["是否库存"].Value.ToString();
                 }
             }
             catch (Exception ex) { }
@@ -220,10 +217,7 @@ namespace QTsys
                 od.Price = Convert.ToDouble(t单价.Text);
                 od.Discount = Convert.ToDouble(t折扣.Text);
                 od.RealPrice = Convert.ToDouble(t成交价.Text);
-                if (c是否库存.Text == "是")
-                    od.IsStorage = true;
-                else
-                    od.IsStorage = false;
+                od.IsStorage = c是否库存.Text;
                 if (this.odm.AltOrderDetail(od))
                 {
                     MessageBox.Show("新订单明细修改成功！");
@@ -247,13 +241,10 @@ namespace QTsys
                 od.Price = Convert.ToDouble(t单价.Text);
                 od.Discount = Convert.ToDouble(t折扣.Text);
                 od.RealPrice = Convert.ToDouble(t成交价.Text);
-                if (c是否库存.Text == "是")
-                    od.IsStorage = true;
-                else
-                    od.IsStorage = false;
+                od.IsStorage = c是否库存.Text;
                 if (this.odm.AddNewOrderDetail(od))
                 {
-                    MessageBox.Show("新订单明细建立成功！");
+                    MessageBox.Show("新订单明细新增成功！");
                     dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
                     dataGridView1.Update();
                 }
@@ -274,10 +265,7 @@ namespace QTsys
                 od.Price = Convert.ToDouble(t单价.Text);
                 od.Discount = Convert.ToDouble(t折扣.Text);
                 od.RealPrice = Convert.ToDouble(t成交价.Text);
-                if (c是否库存.Text == "是")
-                    od.IsStorage = true;
-                else
-                    od.IsStorage = false;
+                od.IsStorage = c是否库存.Text;
                 if (this.odm.DelOrderDetail(od))
                 {
                     MessageBox.Show("订单明细 删除 成功！");
