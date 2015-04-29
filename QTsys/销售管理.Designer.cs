@@ -112,6 +112,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(86, 15);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 21);
@@ -332,6 +333,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "销售管理";
             this.Text = "销售管理";
+            this.Load += new System.EventHandler(this.销售管理_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

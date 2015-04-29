@@ -67,23 +67,23 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label17 = new System.Windows.Forms.Label();
-            this.t订单编号 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.t产品编号 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.t数量 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.t单价 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.t折扣 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.t成交价 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.c是否库存 = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.c是否库存 = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.t成交价 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.t折扣 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.t单价 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.t数量 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.t产品编号 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.t订单编号 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -103,6 +103,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(857, 346);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button3
             // 
@@ -487,119 +488,15 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // label17
+            // button6
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(16, 25);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 12);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "订单编号：";
-            // 
-            // t订单编号
-            // 
-            this.t订单编号.Location = new System.Drawing.Point(87, 22);
-            this.t订单编号.Name = "t订单编号";
-            this.t订单编号.Size = new System.Drawing.Size(121, 21);
-            this.t订单编号.TabIndex = 29;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(16, 57);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 12);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "产品编号：";
-            // 
-            // t产品编号
-            // 
-            this.t产品编号.Location = new System.Drawing.Point(87, 54);
-            this.t产品编号.Name = "t产品编号";
-            this.t产品编号.Size = new System.Drawing.Size(121, 21);
-            this.t产品编号.TabIndex = 31;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(40, 92);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 12);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "数量：";
-            // 
-            // t数量
-            // 
-            this.t数量.Location = new System.Drawing.Point(87, 89);
-            this.t数量.Name = "t数量";
-            this.t数量.Size = new System.Drawing.Size(121, 21);
-            this.t数量.TabIndex = 33;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(40, 123);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 12);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "单价：";
-            // 
-            // t单价
-            // 
-            this.t单价.Location = new System.Drawing.Point(87, 120);
-            this.t单价.Name = "t单价";
-            this.t单价.Size = new System.Drawing.Size(121, 21);
-            this.t单价.TabIndex = 35;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(252, 25);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 12);
-            this.label21.TabIndex = 36;
-            this.label21.Text = "折扣：";
-            // 
-            // t折扣
-            // 
-            this.t折扣.Location = new System.Drawing.Point(299, 22);
-            this.t折扣.Name = "t折扣";
-            this.t折扣.Size = new System.Drawing.Size(121, 21);
-            this.t折扣.TabIndex = 37;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(240, 57);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(53, 12);
-            this.label22.TabIndex = 38;
-            this.label22.Text = "成交价：";
-            // 
-            // t成交价
-            // 
-            this.t成交价.Location = new System.Drawing.Point(299, 54);
-            this.t成交价.Name = "t成交价";
-            this.t成交价.Size = new System.Drawing.Size(121, 21);
-            this.t成交价.TabIndex = 39;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(228, 89);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(65, 12);
-            this.label23.TabIndex = 40;
-            this.label23.Text = "是否库存：";
-            // 
-            // c是否库存
-            // 
-            this.c是否库存.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.c是否库存.FormattingEnabled = true;
-            this.c是否库存.Location = new System.Drawing.Point(300, 83);
-            this.c是否库存.Name = "c是否库存";
-            this.c是否库存.Size = new System.Drawing.Size(121, 20);
-            this.c是否库存.TabIndex = 41;
+            this.button6.Location = new System.Drawing.Point(762, 145);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 44;
+            this.button6.Text = "删除";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button4
             // 
@@ -621,15 +518,119 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // c是否库存
             // 
-            this.button6.Location = new System.Drawing.Point(762, 145);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 44;
-            this.button6.Text = "删除";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.c是否库存.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.c是否库存.FormattingEnabled = true;
+            this.c是否库存.Location = new System.Drawing.Point(300, 83);
+            this.c是否库存.Name = "c是否库存";
+            this.c是否库存.Size = new System.Drawing.Size(121, 20);
+            this.c是否库存.TabIndex = 41;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(228, 89);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 12);
+            this.label23.TabIndex = 40;
+            this.label23.Text = "是否库存：";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(240, 57);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 12);
+            this.label22.TabIndex = 38;
+            this.label22.Text = "成交价：";
+            // 
+            // t成交价
+            // 
+            this.t成交价.Location = new System.Drawing.Point(299, 54);
+            this.t成交价.Name = "t成交价";
+            this.t成交价.Size = new System.Drawing.Size(121, 21);
+            this.t成交价.TabIndex = 39;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(252, 25);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.TabIndex = 36;
+            this.label21.Text = "折扣：";
+            // 
+            // t折扣
+            // 
+            this.t折扣.Location = new System.Drawing.Point(299, 22);
+            this.t折扣.Name = "t折扣";
+            this.t折扣.Size = new System.Drawing.Size(121, 21);
+            this.t折扣.TabIndex = 37;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(40, 123);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 12);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "单价：";
+            // 
+            // t单价
+            // 
+            this.t单价.Location = new System.Drawing.Point(87, 120);
+            this.t单价.Name = "t单价";
+            this.t单价.Size = new System.Drawing.Size(121, 21);
+            this.t单价.TabIndex = 35;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(40, 92);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 12);
+            this.label19.TabIndex = 32;
+            this.label19.Text = "数量：";
+            // 
+            // t数量
+            // 
+            this.t数量.Location = new System.Drawing.Point(87, 89);
+            this.t数量.Name = "t数量";
+            this.t数量.Size = new System.Drawing.Size(121, 21);
+            this.t数量.TabIndex = 33;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(16, 57);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 12);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "产品编号：";
+            // 
+            // t产品编号
+            // 
+            this.t产品编号.Location = new System.Drawing.Point(87, 54);
+            this.t产品编号.Name = "t产品编号";
+            this.t产品编号.Size = new System.Drawing.Size(121, 21);
+            this.t产品编号.TabIndex = 31;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(16, 25);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 12);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "订单编号：";
+            // 
+            // t订单编号
+            // 
+            this.t订单编号.Location = new System.Drawing.Point(87, 22);
+            this.t订单编号.Name = "t订单编号";
+            this.t订单编号.Size = new System.Drawing.Size(121, 21);
+            this.t订单编号.TabIndex = 29;
             // 
             // 订单管理
             // 

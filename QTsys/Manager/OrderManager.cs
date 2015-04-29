@@ -40,5 +40,7 @@ namespace QTsys.Manager
         public bool DelOrderDetail(OrderDetail order) { return this.odao.DelOrderDetail(order); }
 
         public bool AltOrderDetail(OrderDetail order) { return this.odao.AltOrderDetail(order); }
+
+        public DataTable GetAllSells() { return this.odao.GetAllSells(); }
     }
 }

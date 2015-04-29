@@ -23,6 +23,20 @@ namespace QTsys.DAO
             return dt;
         }
 
+
+        public DataTable GetAllSells()//为销售显示
+        {
+            string sql = "SELECT * FROM qiaotai.订单 INNER qiaotai.订单明细 ON qiaotai.订单.订单编号=qiaotai.订单明细.订单编号;";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
+
         public DataTable GetAllOrderDetails(String key)
         {
             DataTable dt = new DataTable();
