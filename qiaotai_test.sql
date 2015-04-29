@@ -127,6 +127,7 @@ create table 生产计划
 create table 订单
 (
    订单编号                 int primary key auto_increment,
+   客户编号                 int,
    创建时间                 DATETIME not null,
    发货时间                 DATETIME,
    最后更新时间             DATETIME,
