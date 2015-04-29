@@ -147,7 +147,7 @@ create table 订单明细
    单价                   decimal(7,2) not null,
    折扣                   decimal(3,2),
    成交价                 decimal(7,2),
-   是否库存               bool,
+   是否库存               nvarchar(128),
    primary key (订单编号, 产品编号)
 );
 
