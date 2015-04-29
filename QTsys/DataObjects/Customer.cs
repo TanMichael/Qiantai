@@ -9,7 +9,7 @@ namespace QTsys.DataObjects
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Fax { get; set; }
-        public string Accounts { get; set; }
+        public string PaymentMode { get; set; }
         public string Serial { get; set; }
         public string Remarks { get; set; }
     }

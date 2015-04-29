@@ -35,9 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.text订单编号 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.com客户编号 = new System.Windows.Forms.ComboBox();
+            this.com客户名 = new System.Windows.Forms.ComboBox();
             this.date创建时间 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label客户名 = new System.Windows.Forms.Label();
             this.date发货时间 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.date最后更新时间 = new System.Windows.Forms.DateTimePicker();
@@ -161,13 +161,13 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "创建时间：";
             // 
-            // com客户编号
+            // com客户名
             // 
-            this.com客户编号.FormattingEnabled = true;
-            this.com客户编号.Location = new System.Drawing.Point(90, 73);
-            this.com客户编号.Name = "com客户编号";
-            this.com客户编号.Size = new System.Drawing.Size(121, 20);
-            this.com客户编号.TabIndex = 29;
+            this.com客户名.FormattingEnabled = true;
+            this.com客户名.Location = new System.Drawing.Point(90, 73);
+            this.com客户名.Name = "com客户名";
+            this.com客户名.Size = new System.Drawing.Size(121, 20);
+            this.com客户名.TabIndex = 29;
             // 
             // date创建时间
             // 
@@ -176,14 +176,14 @@
             this.date创建时间.Size = new System.Drawing.Size(121, 21);
             this.date创建时间.TabIndex = 30;
             // 
-            // label3
+            // label客户名
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "客户编号：";
+            this.label客户名.AutoSize = true;
+            this.label客户名.Location = new System.Drawing.Point(17, 76);
+            this.label客户名.Name = "label客户名";
+            this.label客户名.Size = new System.Drawing.Size(53, 12);
+            this.label客户名.TabIndex = 31;
+            this.label客户名.Text = "客户名：";
             // 
             // date发货时间
             // 
@@ -204,6 +204,7 @@
             // 
             // date最后更新时间
             // 
+            this.date最后更新时间.Enabled = false;
             this.date最后更新时间.Location = new System.Drawing.Point(306, 43);
             this.date最后更新时间.Name = "date最后更新时间";
             this.date最后更新时间.Size = new System.Drawing.Size(121, 21);
@@ -433,11 +434,11 @@
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.com收货联系人);
-            this.tabPage1.Controls.Add(this.com客户编号);
+            this.tabPage1.Controls.Add(this.com客户名);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.date创建时间);
             this.tabPage1.Controls.Add(this.text收货地址);
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label客户名);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label10);
@@ -663,9 +664,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text订单编号;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox com客户编号;
+        private System.Windows.Forms.ComboBox com客户名;
         private System.Windows.Forms.DateTimePicker date创建时间;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label客户名;
         private System.Windows.Forms.DateTimePicker date发货时间;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker date最后更新时间;

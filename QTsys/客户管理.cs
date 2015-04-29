@@ -88,7 +88,7 @@ namespace QTsys
                 cus.Phone = text联系电话.Text;
                 cus.Fax = text传真.Text;
                 cus.Email = text电子邮箱.Text;
-                cus.Accounts = text结算方式.Text;
+                cus.PaymentMode = text结算方式.Text;
                 cus.Serial = text流水号.Text;
                 cus.Remarks = text备注.Text;
                 if (this.userMgr.AddNewCustomer(cus))
@@ -132,7 +132,7 @@ namespace QTsys
                 cus.Phone = text联系电话.Text;
                 cus.Fax = text传真.Text;
                 cus.Email = text电子邮箱.Text;
-                cus.Accounts = text结算方式.Text;
+                cus.PaymentMode = text结算方式.Text;
                 cus.Serial = text流水号.Text;
                 cus.Remarks = text备注.Text;
                 if (this.userMgr.UpdateCustomer(cus))

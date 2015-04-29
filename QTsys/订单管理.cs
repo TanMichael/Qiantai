@@ -18,13 +18,16 @@ namespace QTsys
     {
 
         private OrderManager odm;
+        private UserManager userMgr;
         private DataTable tempData1,tempData2;
         private bool tab;//true为tab0(订单)，false为tab1（订单明细）.
+        private List<Customer> customers;
 
         public 订单管理()
         {
             InitializeComponent();
             odm = new OrderManager();
+            userMgr = new UserManager();
         }
 
         private void 订单管理_Load(object sender, EventArgs e)
@@ -40,6 +43,13 @@ namespace QTsys
                 c是否库存.Items.Add("是");
                 c是否库存.Items.Add("否");
                 text订单编号.Text = "1";
+
+                // 初始化客户信息
+                customers = userMgr.GetAllCustomerList();
+                com客户名.Items.AddRange((from c in customers
+                                          select new { Text = c.Name, Value = c.Id}).ToArray());
+                com客户名.DisplayMember = "Text";
+                com客户名.ValueMember = "Value";
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }

@@ -1,6 +1,7 @@
 ﻿using QTsys.Common;
 using QTsys.DAO;
 using QTsys.DataObjects;
+using System.Collections.Generic;
 using System.Data;
 
 namespace QTsys.Manager
@@ -76,6 +77,33 @@ namespace QTsys.Manager
         public DataTable GetAllCustomers()
         {
             return this.customerDao.GetAllCustomers();
+        }
+
+        public List<Customer> GetAllCustomerList()
+        {
+            List<Customer> customers = new List<Customer>();
+            var dt =  this.customerDao.GetAllCustomers();
+
+            var l = dt.Rows.Count;
+            for (int i = 0; i < l; i++)
+            {
+                var rs = dt.Rows[i];
+                Customer customer = new Customer();
+
+                customer.Id = rs["客户编号"].ToString();
+                customer.Name = rs["客户名称"].ToString();
+                customer.Address = rs["地址"].ToString();
+                customer.Phone = rs["联系电话"].ToString();
+                customer.Fax = rs["传真"].ToString();
+                customer.Email = rs["电子邮箱"].ToString();
+                customer.PaymentMode = rs["结算方式"].ToString();
+                customer.Serial = rs["流水号"].ToString();
+                customer.Remarks = rs["备注"].ToString();
+
+                customers.Add(customer);
+            }
+
+            return customers;
         }
 
         // TODO consider paging
