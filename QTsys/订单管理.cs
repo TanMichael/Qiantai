@@ -18,7 +18,7 @@ namespace QTsys
     {
 
         private OrderManager odm;
-        private DataTable tempData;
+        private DataTable tempData1,tempData2;
         private bool tab;//true为tab0(订单)，false为tab1（订单明细）.
 
         public 订单管理()
@@ -31,8 +31,11 @@ namespace QTsys
         {
             try
             {
+             //   text订单编号.Text = "1";
                 tab = true;
-                dataGridView1.DataSource = this.odm.GetAllOrders();
+                tempData1 = this.odm.GetAllOrders();
+             //   tempData2 = this.odm.GetAllOrderDetails(text订单编号.Text);
+                dataGridView1.DataSource = tempData1;
                 dataGridView1.Update();
                 c是否库存.Items.Add("是");
                 c是否库存.Items.Add("否");
@@ -188,14 +191,14 @@ namespace QTsys
                 if (e.TabPageIndex == 0)
                 {
                     tab = true;
-                    dataGridView1.DataSource = tempData;
+                    dataGridView1.DataSource = tempData1;
+                    tempData1 = (DataTable)dataGridView1.DataSource;
                     dataGridView1.Update();
                 }
 
                 if (e.TabPageIndex == 1)
                 {
                     tab = false;
-                    tempData = (DataTable)dataGridView1.DataSource;
                     dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
                     dataGridView1.Update();
                 }
@@ -224,7 +227,7 @@ namespace QTsys
                     dataGridView1.Update();
                 }
                 else
-                    MessageBox.Show("订单明细修改失败！");
+                    MessageBox.Show("修改失败！");
             }
             catch (Exception ex) { MessageBox.Show("订单明细 修改 失败！"); }
         }
@@ -248,7 +251,7 @@ namespace QTsys
                     dataGridView1.Update();
                 }
                 else
-                    MessageBox.Show("订单明细建立失败！");
+                    MessageBox.Show("建立失败！");
             }
             catch (Exception ex) { MessageBox.Show("订单明细 建立 失败！"); }
         }
@@ -272,7 +275,7 @@ namespace QTsys
                     dataGridView1.Update();
                 }
                 else
-                    MessageBox.Show("订单明细删除失败！");
+                    MessageBox.Show("删除失败！");
             }
             catch (Exception ex) { MessageBox.Show("订单明细 删除 失败！"); }
         }

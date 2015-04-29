@@ -25,14 +25,18 @@ namespace QTsys.DAO
 
         public DataTable GetAllOrderDetails(String key)
         {
-            string sql = "SELECT * FROM qiaotai.订单明细 WHERE 订单编号='"+key+"';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单明细 WHERE 订单编号='" + key + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd); 
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
         }
         public DataTable GetAllOrdersByTime(DateTime date1, DateTime date2)
         {
