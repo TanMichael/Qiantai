@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.date_down = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date_up = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,12 +62,12 @@
             this.checkBox1.Text = "是否显示产品单价";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // date_down
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(71, 181);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker2.TabIndex = 61;
+            this.date_down.Location = new System.Drawing.Point(71, 181);
+            this.date_down.Name = "date_down";
+            this.date_down.Size = new System.Drawing.Size(200, 21);
+            this.date_down.TabIndex = 61;
             // 
             // label7
             // 
@@ -78,12 +78,12 @@
             this.label7.TabIndex = 60;
             this.label7.Text = "终止时间";
             // 
-            // dateTimePicker1
+            // date_up
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(71, 150);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 59;
+            this.date_up.Location = new System.Drawing.Point(71, 150);
+            this.date_up.Name = "date_up";
+            this.date_up.Size = new System.Drawing.Size(200, 21);
+            this.date_up.TabIndex = 59;
             // 
             // label6
             // 
@@ -237,9 +237,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 643);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.date_down);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.date_up);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -259,6 +259,7 @@
             this.Controls.Add(this.webBrowser2);
             this.Name = "送货单";
             this.Text = "送货单";
+            this.Load += new System.EventHandler(this.送货单_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -268,9 +269,9 @@
         #endregion
 
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker date_down;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date_up;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

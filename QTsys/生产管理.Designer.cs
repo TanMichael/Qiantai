@@ -60,6 +60,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label搜索栏目 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -241,7 +242,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(528, 12);
+            this.button1.Location = new System.Drawing.Point(482, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 45;
@@ -251,7 +252,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(528, 49);
+            this.button2.Location = new System.Drawing.Point(482, 46);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 46;
@@ -261,7 +262,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(528, 87);
+            this.button3.Location = new System.Drawing.Point(482, 84);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 47;
@@ -288,7 +289,7 @@
             // 
             // date_down
             // 
-            this.date_down.Location = new System.Drawing.Point(742, 47);
+            this.date_down.Location = new System.Drawing.Point(702, 39);
             this.date_down.Name = "date_down";
             this.date_down.Size = new System.Drawing.Size(121, 21);
             this.date_down.TabIndex = 53;
@@ -297,7 +298,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(647, 53);
+            this.label11.Location = new System.Drawing.Point(607, 45);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 12);
             this.label11.TabIndex = 52;
@@ -305,7 +306,7 @@
             // 
             // date_up
             // 
-            this.date_up.Location = new System.Drawing.Point(742, 20);
+            this.date_up.Location = new System.Drawing.Point(702, 12);
             this.date_up.Name = "date_up";
             this.date_up.Size = new System.Drawing.Size(121, 21);
             this.date_up.TabIndex = 51;
@@ -314,7 +315,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(647, 26);
+            this.label12.Location = new System.Drawing.Point(607, 18);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 12);
             this.label12.TabIndex = 50;
@@ -340,11 +341,22 @@
             this.label13.TabIndex = 54;
             this.label13.Text = "检索";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(649, 71);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(137, 23);
+            this.button5.TabIndex = 56;
+            this.button5.Text = "产品原料关系设定";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // 生产管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 604);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label搜索栏目);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.date_down);
@@ -420,5 +432,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label搜索栏目;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button5;
     }
 }
