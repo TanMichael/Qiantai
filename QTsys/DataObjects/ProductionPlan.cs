@@ -12,6 +12,7 @@ namespace QTsys.DataObjects
         public string ProductId { get; set; }
         public string CustomerId { get; set; }
         public DateTime OrderTime { get; set; }
+        public int Count { get; set; }
         public DateTime PlanningTime { get; set; }
         public DateTime FinishTime { get; set; }
         public string PlanType { get; set; }

@@ -52,6 +52,7 @@
     <Compile Include="DAO\MaterialDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\ProductPlanDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="dataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -88,6 +89,7 @@
     <Compile Include="Manager\MaterialManager.cs" />
     <Compile Include="Manager\OrderManager.cs" />
     <Compile Include="Manager\ProductionManager.cs" />
+    <Compile Include="Manager\ProductPlanManager.cs" />
     <Compile Include="Manager\SalesManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Program.cs" />
