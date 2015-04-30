@@ -59,7 +59,7 @@ namespace QTsys
             try
             {
                 text员工编号.Text = dataGridView1.Rows[e.RowIndex].Cells["员工编号"].Value.ToString();
-                text账户号.Text = dataGridView1.Rows[e.RowIndex].Cells["账户名"].Value.ToString();
+                text账户名.Text = dataGridView1.Rows[e.RowIndex].Cells["账户名"].Value.ToString();
                 text密码.Text = dataGridView1.Rows[e.RowIndex].Cells["密码"].Value.ToString();
                 text姓名.Text = dataGridView1.Rows[e.RowIndex].Cells["姓名"].Value.ToString();
                 text角色.Text = dataGridView1.Rows[e.RowIndex].Cells["系统角色"].Value.ToString();
@@ -88,7 +88,7 @@ namespace QTsys
             {
                 User newuser=new User();
                 newuser.Id=text员工编号.Text;
-                newuser.UserName= text账户号.Text;
+                newuser.UserName= text账户名.Text;
                 newuser.Password="c4ca4238a0b923820dcc509a6f75849b";
                 newuser.Name=text姓名.Text;
                 newuser.Role=text角色.Text;
@@ -133,7 +133,7 @@ namespace QTsys
             {
                 User newuser = new User();
                 newuser.Id = text员工编号.Text;
-                newuser.UserName = text账户号.Text;
+                newuser.UserName = text账户名.Text;
                 newuser.Password = text密码.Text;
                 newuser.Name = text姓名.Text;
                 newuser.Role = text角色.Text;
@@ -153,6 +153,15 @@ namespace QTsys
                     MessageBox.Show("修改失败！");
             }
             catch (Exception ex) { }
+        }
+
+        private void text账户名_Leave(object sender, EventArgs e)
+        {
+            string name = text账户名.Text;
+            if (!this.userMgr.ValidateUserName(name))
+            {
+                MessageBox.Show("账户名已被使用，请修改！");
+            }
         }
     }
 }

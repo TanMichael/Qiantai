@@ -46,7 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.text密码 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.text账户号 = new System.Windows.Forms.TextBox();
+            this.text账户名 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.text员工编号 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -209,14 +209,15 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 43;
-            this.label2.Text = "账户号";
+            this.label2.Text = "账户名";
             // 
-            // text账户号
+            // text账户名
             // 
-            this.text账户号.Location = new System.Drawing.Point(80, 46);
-            this.text账户号.Name = "text账户号";
-            this.text账户号.Size = new System.Drawing.Size(171, 21);
-            this.text账户号.TabIndex = 42;
+            this.text账户名.Location = new System.Drawing.Point(80, 46);
+            this.text账户名.Name = "text账户名";
+            this.text账户名.Size = new System.Drawing.Size(171, 21);
+            this.text账户名.TabIndex = 42;
+            this.text账户名.Leave += new System.EventHandler(this.text账户名_Leave);
             // 
             // label1
             // 
@@ -327,7 +328,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.text密码);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.text账户号);
+            this.Controls.Add(this.text账户名);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.text员工编号);
             this.Controls.Add(this.dataGridView1);
@@ -360,7 +361,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox text密码;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox text账户号;
+        private System.Windows.Forms.TextBox text账户名;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text员工编号;
         private System.Windows.Forms.DataGridView dataGridView1;

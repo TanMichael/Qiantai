@@ -46,10 +46,9 @@ namespace QTsys
 
                 // 初始化客户信息
                 customers = userMgr.GetAllCustomerList();
-                com客户名.Items.AddRange((from c in customers
-                                          select new { Text = c.Name, Value = c.Id}).ToArray());
-                com客户名.DisplayMember = "Text";
-                com客户名.ValueMember = "Value";
+                com客户名.Items.AddRange(customers.ToArray());
+                com客户名.DisplayMember = "Name";
+                com客户名.ValueMember = "Id";
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }

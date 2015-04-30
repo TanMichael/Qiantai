@@ -72,6 +72,11 @@ namespace QTsys.Manager
             return this.userDao.AltUser(user);
         }
 
+        public bool ValidateUserName(string name)
+        {
+            return !this.userDao.GetAllUserNames().Contains(name);
+        }
+
         # region customer management
 
         public DataTable GetAllCustomers()
