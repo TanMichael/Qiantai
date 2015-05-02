@@ -36,7 +36,6 @@
             this.text联系电话 = new System.Windows.Forms.TextBox();
             this.text收货地址 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.text订金方式 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.check样品 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
+            this.com订金方式 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -140,13 +140,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "收货地址";
             // 
-            // text订金方式
-            // 
-            this.text订金方式.Location = new System.Drawing.Point(79, 131);
-            this.text订金方式.Name = "text订金方式";
-            this.text订金方式.Size = new System.Drawing.Size(121, 21);
-            this.text订金方式.TabIndex = 9;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -177,11 +170,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.com订金方式);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.com客户名);
             this.groupBox1.Controls.Add(this.check样品);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.text订金方式);
             this.groupBox1.Controls.Add(this.com客户联系人);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -349,6 +342,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "确定";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -358,6 +352,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox3
             // 
@@ -412,6 +407,14 @@
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
             // 
+            // com订金方式
+            // 
+            this.com订金方式.FormattingEnabled = true;
+            this.com订金方式.Location = new System.Drawing.Point(79, 131);
+            this.com订金方式.Name = "com订金方式";
+            this.com订金方式.Size = new System.Drawing.Size(121, 20);
+            this.com订金方式.TabIndex = 11;
+            // 
             // 新增订单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -448,7 +451,6 @@
         private System.Windows.Forms.TextBox text联系电话;
         private System.Windows.Forms.TextBox text收货地址;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox text订金方式;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox check样品;
         private System.Windows.Forms.Label label6;
@@ -475,5 +477,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 成交价;
         private System.Windows.Forms.TextBox textBox总金额;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox com订金方式;
     }
 }

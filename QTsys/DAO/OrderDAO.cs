@@ -23,6 +23,23 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public string GetAutoNum()
+        {
+            //string sql = "SELECT LAST_INSERT_ID();";
+            string sql = "select max(订单编号) from 订单";
+            //string sql = "select @订单编号";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+           // MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+           
+           // DataTable dt = new DataTable();
+            this.Connection.Open();
+           // ap.Fill(dt); 
+            string a  = cmd.ExecuteScalar().ToString();
+            this.Connection.Close();          
+            return a;
+        }
+
+
 
         public DataTable GetAllSells()//为销售显示
         {

@@ -157,7 +157,7 @@ namespace QTsys
                 dt = userMgr.SearchCustomerByCol("客户编号", customers[com客户名.SelectedIndex].Id);
                 text联系电话.Text = dt.Rows[0][3].ToString();
                 text收货地址.Text = dt.Rows[0][2].ToString();
-                text订金方式.Text = dt.Rows[0][6].ToString();
+                com订金方式.Text = dt.Rows[0][6].ToString();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -167,6 +167,76 @@ namespace QTsys
             com客户联系人.Items.Clear();
             cm = userMgr.GetAllCustomerMemberList();
             com客户联系人.Items.AddRange(customers.ToArray());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /* try
+            {
+                MessageBox.Show(odm.GetAutoNum().ToString());
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }*/
+            try
+            {
+                Order od = new Order();
+                OrderDetail odd = new OrderDetail();
+                string id = "0";
+              //  od.OrderId = text订单编号.Text;
+                od.CreateTime = System.DateTime.Now;
+                od.DeliverTime = DateTime.Now;
+                od.LastUpdateTime = DateTime.Now;
+                od.OrderStatus = "已订";
+                od.ExpressNO = "";
+                od.DepositMode = com订金方式.Text;
+                od.RecieverAddress = text收货地址.Text;
+                od.RecieverName = com客户联系人.Text;
+                od.RecieverPhone = text联系电话.Text;
+                od.Creator = "";
+                //插入order
+
+                if (this.odm.AddNewOrder(od))
+                {
+                    MessageBox.Show("新订单建立成功！");
+                   // dataGridView1.DataSource = this.odm.GetAllOrders();
+                  //  dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("订单建立失败！");
+                //select @@IDENTITY
+               // MessageBox.Show(odm.GetAutoNum().ToString()); ;
+               // odd.ProductId = t产品编号.Text;
+               id=odm.GetAutoNum().ToString();
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    odd.Count = Convert.ToInt16(dataGridView2.Rows[i].Cells["数量"].Value.ToString());
+                    odd.Price = Convert.ToDouble(dataGridView2.Rows[i].Cells["单价"].Value.ToString());
+                    odd.Discount = Convert.ToDouble(dataGridView2.Rows[i].Cells["折扣"].Value.ToString());
+                    odd.RealPrice = Convert.ToDouble(dataGridView2.Rows[i].Cells["成交价"].Value.ToString());
+                    odd.OrderId = id;
+                    odd.ProductId = dataGridView2.Rows[i].Cells["产品编号"].Value.ToString();
+                    if (check库存.Checked == true)
+                        odd.IsStorage = "是";
+                    else
+                        odd.IsStorage = "否";
+                  //插入订单编号
+                    if (this.odm.AddNewOrderDetail(odd))
+                    {
+                        MessageBox.Show("新订单明细新增成功！");
+                       // dataGridView2.DataSource = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                       // dataGridView2.Update();
+                    }
+                    else
+                        MessageBox.Show("建立失败！");
+                    //od.OrderId = "";
+                    //插入orderdetail
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("订单明细 建立 失败！"); }
         }
     }
 }
