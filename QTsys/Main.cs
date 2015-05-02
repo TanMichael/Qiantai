@@ -111,5 +111,11 @@ namespace QTsys
         {
 
         }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            新增订单 win = new 新增订单();
+            win.ShowDialog();
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace QTsys.DAO
 
         public DataTable GetAllSells()//为销售显示
         {
-            string sql = "SELECT * FROM qiaotai.订单 INNER qiaotai.订单明细 ON qiaotai.订单.订单编号=qiaotai.订单明细.订单编号;";
+            string sql = "SELECT 订单.发货时间,订单.最后更新时间,订单.收货联系人,订单.订单编号,订单明细.产品编号,订单明细.数量,订单明细.单价,订单明细.数量*订单明细.单价 AS 金额 FROM 订单 LEFT JOIN 订单明细 ON 订单.订单编号=订单明细.订单编号;";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -37,7 +37,7 @@ namespace QTsys.DAO
         }
 
 
-        public DataTable GetAllOrderDetails(String key)
+        public DataTable GetAllOrderDetailsBySerial(String key)
         {
             DataTable dt = new DataTable();
             try
@@ -52,6 +52,23 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
+
+        public DataTable GetAllOrderDetails()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单明细;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
+        }
+
         public DataTable GetAllOrdersByTime(DateTime date1, DateTime date2)
         {
             string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1.ToString() + "' AND 创建时间<'" + date2.ToString() + "';";

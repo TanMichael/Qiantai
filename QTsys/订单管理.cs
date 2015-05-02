@@ -37,7 +37,7 @@ namespace QTsys
              //   text订单编号.Text = "1";
                 tab = true;
                 tempData1 = this.odm.GetAllOrders();
-             //   tempData2 = this.odm.GetAllOrderDetails(text订单编号.Text);
+                //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
                 dataGridView1.DataSource = tempData1;
                 dataGridView1.Update();
                 c是否库存.Items.Add("是");
@@ -88,8 +88,6 @@ namespace QTsys
         {
             try
             {
-                if (tab == true)
-                {
                     text订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["订单编号"].Value.ToString();
                     date创建时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["创建时间"].Value);
                     date发货时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["发货时间"].Value);
@@ -101,17 +99,6 @@ namespace QTsys
                     com收货联系人.Text = dataGridView1.Rows[e.RowIndex].Cells["收货联系人"].Value.ToString();
                     text收货电话.Text = dataGridView1.Rows[e.RowIndex].Cells["收货电话"].Value.ToString();
                     com创建人.Text = dataGridView1.Rows[e.RowIndex].Cells["创建人"].Value.ToString();
-                }
-                else
-                {
-                    t订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["订单编号"].Value.ToString();
-                    t产品编号.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-                    t数量.Text = dataGridView1.Rows[e.RowIndex].Cells["数量"].Value.ToString();
-                    t单价.Text = dataGridView1.Rows[e.RowIndex].Cells["单价"].Value.ToString();
-                    t折扣.Text = dataGridView1.Rows[e.RowIndex].Cells["折扣"].Value.ToString();
-                    t成交价.Text = dataGridView1.Rows[e.RowIndex].Cells["成交价"].Value.ToString();
-                    c是否库存.Text=dataGridView1.Rows[e.RowIndex].Cells["是否库存"].Value.ToString();
-                }
             }
             catch (Exception ex) { }
         }
@@ -195,21 +182,22 @@ namespace QTsys
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
+            
             try
             {
-                if (e.TabPageIndex == 0)
+                /*if (e.TabPageIndex == 0)
                 {
                     tab = true;
                     dataGridView1.DataSource = tempData1;
                     tempData1 = (DataTable)dataGridView1.DataSource;
                     dataGridView1.Update();
-                }
+                }*/
 
                 if (e.TabPageIndex == 1)
                 {
-                    tab = false;
-                    dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
-                    dataGridView1.Update();
+                    //tab = false;
+                    dataGridView2.DataSource = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                    dataGridView2.Update();
                 }
             }
             catch (Exception ex) { 
@@ -232,8 +220,8 @@ namespace QTsys
                 if (this.odm.AltOrderDetail(od))
                 {
                     MessageBox.Show("新订单明细修改成功！");
-                    dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
-                    dataGridView1.Update();
+                    dataGridView2.DataSource = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                    dataGridView2.Update();
                 }
                 else
                     MessageBox.Show("修改失败！");
@@ -256,8 +244,8 @@ namespace QTsys
                 if (this.odm.AddNewOrderDetail(od))
                 {
                     MessageBox.Show("新订单明细新增成功！");
-                    dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
-                    dataGridView1.Update();
+                    dataGridView2.DataSource = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                    dataGridView2.Update();
                 }
                 else
                     MessageBox.Show("建立失败！");
@@ -280,8 +268,8 @@ namespace QTsys
                 if (this.odm.DelOrderDetail(od))
                 {
                     MessageBox.Show("订单明细 删除 成功！");
-                    dataGridView1.DataSource = this.odm.GetAllOrderDetails(text订单编号.Text);
-                    dataGridView1.Update();
+                    dataGridView2.DataSource = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                    dataGridView2.Update();
                 }
                 else
                     MessageBox.Show("删除失败！");
@@ -292,6 +280,30 @@ namespace QTsys
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+               
+            }
+            catch (Exception ex) { MessageBox.Show("加载失败！"); }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+            t订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["订单编号"].Value.ToString();
+            t产品编号.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+            t数量.Text = dataGridView1.Rows[e.RowIndex].Cells["数量"].Value.ToString();
+            t单价.Text = dataGridView1.Rows[e.RowIndex].Cells["单价"].Value.ToString();
+            t折扣.Text = dataGridView1.Rows[e.RowIndex].Cells["折扣"].Value.ToString();
+            t成交价.Text = dataGridView1.Rows[e.RowIndex].Cells["成交价"].Value.ToString();
+            c是否库存.Text = dataGridView1.Rows[e.RowIndex].Cells["是否库存"].Value.ToString();
+            }
+            catch (Exception ex) { MessageBox.Show("加载失败！"); }
         }
     }
 }

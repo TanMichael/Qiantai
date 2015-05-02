@@ -25,7 +25,9 @@ namespace QTsys.Manager
         //-------------------------------------------------------------------------------------------------------------
         public DataTable GetAllOrders() { return this.odao.GetAllOrders(); }
 
-        public DataTable GetAllOrderDetails(String key) { return this.odao.GetAllOrderDetails(key); }
+        public DataTable GetAllOrderDetailsBySerial(String key) { return this.odao.GetAllOrderDetailsBySerial(key); }
+
+        public DataTable GetAllOrderDetails() { return this.odao.GetAllOrderDetails(); }
 
         public DataTable GetAllOrdersByTime(DateTime date1, DateTime date2) { return this.odao.GetAllOrdersByTime(date1, date2); }
 

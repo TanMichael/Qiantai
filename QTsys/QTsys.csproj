@@ -160,6 +160,12 @@
     <Compile Include="客户管理.Designer.cs">
       <DependentUpon>客户管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="新增订单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增订单.Designer.cs">
+      <DependentUpon>新增订单.cs</DependentUpon>
+    </Compile>
     <Compile Include="服务器设置.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="客户管理.resx">
       <DependentUpon>客户管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增订单.resx">
+      <DependentUpon>新增订单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="服务器设置.resx">
       <DependentUpon>服务器设置.cs</DependentUpon>
