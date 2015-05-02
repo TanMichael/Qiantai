@@ -88,6 +88,7 @@
             this.com客户名.Size = new System.Drawing.Size(275, 20);
             this.com客户名.TabIndex = 1;
             this.com客户名.DropDown += new System.EventHandler(this.comboBox1_DropDown);
+            this.com客户名.SelectedIndexChanged += new System.EventHandler(this.com客户名_SelectedIndexChanged);
             // 
             // com客户联系人
             // 
@@ -96,6 +97,7 @@
             this.com客户联系人.Name = "com客户联系人";
             this.com客户联系人.Size = new System.Drawing.Size(121, 20);
             this.com客户联系人.TabIndex = 3;
+            this.com客户联系人.DragDrop += new System.Windows.Forms.DragEventHandler(this.com客户联系人_DragDrop);
             // 
             // label2
             // 

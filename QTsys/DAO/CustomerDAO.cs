@@ -57,7 +57,6 @@ namespace QTsys.DAO
             return dt;
         }
 
-        // TODO consider paging
         public DataTable GetCustomerMembersByCustomer(string cId)//更新
         {
             Customer cus = new Customer();

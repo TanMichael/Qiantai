@@ -111,6 +111,29 @@ namespace QTsys.Manager
             return customers;
         }
 
+        public List<CustomerMember> GetAllCustomerMemberList()
+        {
+            List<CustomerMember> customers = new List<CustomerMember>();
+            var dt = this.customerDao.GetAllCustomers();
+            var l = dt.Rows.Count;
+            for (int i = 0; i < l; i++)
+            {
+                var rs = dt.Rows[i];
+                CustomerMember customer = new CustomerMember();
+                customer.Id = rs["编号"].ToString();
+                customer.Name = rs["姓名"].ToString();
+                customer.Type = rs["类型"].ToString();
+                customer.Phone = rs["联系电话"].ToString();
+                customer.Email = rs["电子邮箱"].ToString();
+                customer.CustomerId = rs["所属客户编号"].ToString();
+                customers.Add(customer);
+            }
+
+            return customers;
+        }
+
+
+
         // TODO consider paging
         public DataTable GetCustomerMembersByCustomer(string cId)
         {

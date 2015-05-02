@@ -22,6 +22,7 @@ namespace QTsys
         private int selectorder;
         private int selectpro;
         private List<Customer> customers;
+        private List<CustomerMember> cm;
 
         public 新增订单()
         {
@@ -142,9 +143,30 @@ namespace QTsys
             com客户名.Items.AddRange(customers.ToArray());
             com客户名.DisplayMember = "Name";
             com客户名.ValueMember = "Id";
+           // com客户名.
+            //--------------------------------------
+        }
 
+        private void com客户名_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //com客户联系人
+                DataTable dt = new DataTable();
+                // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
+                dt = userMgr.SearchCustomerByCol("客户编号", customers[com客户名.SelectedIndex].Id);
+                text联系电话.Text = dt.Rows[0][3].ToString();
+                text收货地址.Text = dt.Rows[0][2].ToString();
+                text订金方式.Text = dt.Rows[0][6].ToString();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+        }
 
-
+        private void com客户联系人_DragDrop(object sender, DragEventArgs e)
+        {
+            com客户联系人.Items.Clear();
+            cm = userMgr.GetAllCustomerMemberList();
+            com客户联系人.Items.AddRange(customers.ToArray());
         }
     }
 }
