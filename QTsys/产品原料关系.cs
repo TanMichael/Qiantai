@@ -20,7 +20,7 @@ namespace QTsys
         private UserManager userMgr;
         private ProductionManager pm;
         private MaterialManager mm;
-        public 原料选择 win;
+        
         public string 产品编号;
         public 产品原料关系()
         {
@@ -29,7 +29,7 @@ namespace QTsys
             userMgr = new UserManager();
             pm = new ProductionManager();
             mm = new MaterialManager();
-            win = new 原料选择();
+           // win = new 原料选择();
             产品编号 = "0";
         }
 
@@ -126,7 +126,10 @@ namespace QTsys
 
         private void button2_Click(object sender, EventArgs e)
         {
+            原料选择 win = new 原料选择(textBox产品.Text);
             win.ShowDialog();
+            dataGridView2.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
+            dataGridView2.Update();
         }
     }
 }

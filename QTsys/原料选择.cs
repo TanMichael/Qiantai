@@ -20,13 +20,22 @@ namespace QTsys
         private ProductionManager pm;
         private MaterialManager mm;
         private int index;
-
+        private string PID;
         public 原料选择()
         {
             InitializeComponent();
             mm = new MaterialManager();
             pm = new ProductionManager();
             index = 0;
+        }
+
+        public 原料选择(string str)
+        {
+            InitializeComponent();
+            mm = new MaterialManager();
+            pm = new ProductionManager();
+            index = 0;
+            PID = str;
         }
 
         private void 原料选择_Load(object sender, EventArgs e)
@@ -67,17 +76,18 @@ namespace QTsys
                 {
                     ProductMaterial pmr = new ProductMaterial();
                     pmr.MaterialCount = Convert.ToInt16(textBox1.Text);
-                    pmr.ProductId = newform.产品编号;
+                    pmr.ProductId = PID;
                     pmr.MaterialId = dataGridView1.Rows[index].Cells["原料编号"].Value.ToString();
                     if (pm.AddMaterialProductRelation(pmr))
                     {
-                        // MessageBox.Show("！");
+                        MessageBox.Show("新原料产品关系建立成功！");
+                        this.Close();
                     }
                 }
                 else
                     MessageBox.Show("请输入产品-原材料比例的数量！");
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show("此原料添加失败！"); }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
