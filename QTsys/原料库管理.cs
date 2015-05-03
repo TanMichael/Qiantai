@@ -14,11 +14,11 @@ using QTsys.Manager;
 
 namespace QTsys
 {
-    public partial class 原料管理 : Form
+    public partial class 原料库管理 : Form
     {
         private MaterialManager material;
 
-        public 原料管理()
+        public 原料库管理()
         {
             InitializeComponent();
             this.material = MaterialManager.getMaterialManager();

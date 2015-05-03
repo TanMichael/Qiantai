@@ -1,6 +1,6 @@
 ﻿namespace QTsys
 {
-    partial class 原料管理
+    partial class 原料库管理
     {
         /// <summary>
         /// Required designer variable.

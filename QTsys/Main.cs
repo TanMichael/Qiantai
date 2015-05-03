@@ -57,7 +57,7 @@ namespace QTsys
 
         private void button4_Click(object sender, EventArgs e)
         {
-            原料管理 win = new 原料管理();
+            原料库管理 win = new 原料库管理();
             win.ShowDialog();
         }
 
@@ -115,6 +115,12 @@ namespace QTsys
         private void button9_Click_1(object sender, EventArgs e)
         {
             新增订单 win = new 新增订单();
+            win.ShowDialog();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            产品库管理 win = new 产品库管理();
             win.ShowDialog();
         }
     }

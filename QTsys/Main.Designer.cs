@@ -38,7 +38,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.相关设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button9 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,7 +106,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.button4);
             this.groupBox5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox5.Location = new System.Drawing.Point(12, 39);
@@ -121,7 +121,7 @@
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Font = new System.Drawing.Font("黑体", 16F);
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(158, 25);
+            this.button5.Location = new System.Drawing.Point(15, 25);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(146, 150);
             this.button5.TabIndex = 8;
@@ -139,15 +139,15 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 150);
             this.button4.TabIndex = 7;
-            this.button4.Text = "仓库管理";
+            this.button4.Text = "原料";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.button8);
@@ -159,19 +159,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "生产/销售";
             // 
-            // button3
+            // button9
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("黑体", 16F);
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(15, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 150);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "样品生产";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.Font = new System.Drawing.Font("黑体", 16F);
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.Location = new System.Drawing.Point(167, 25);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(146, 150);
+            this.button9.TabIndex = 12;
+            this.button9.Text = "新增订单";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
             // 
             // button6
             // 
@@ -358,19 +358,19 @@
             this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.关于ToolStripMenuItem.Text = "关于";
             // 
-            // button9
+            // button3
             // 
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Font = new System.Drawing.Font("黑体", 16F);
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(167, 25);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(146, 150);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "新增订单";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Font = new System.Drawing.Font("黑体", 16F);
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(165, 25);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(146, 150);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "产品";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // Main
             // 
@@ -416,7 +416,6 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 批处理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导入ToolStripMenuItem;
@@ -434,6 +433,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button3;
     }
 }
 
