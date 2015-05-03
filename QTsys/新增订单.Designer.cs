@@ -59,6 +59,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxHistory = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -368,6 +369,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBoxHistory);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.dataGridView1);
@@ -378,6 +380,17 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "选择产品";
+            // 
+            // checkBoxHistory
+            // 
+            this.checkBoxHistory.AutoSize = true;
+            this.checkBoxHistory.Location = new System.Drawing.Point(20, 54);
+            this.checkBoxHistory.Name = "checkBoxHistory";
+            this.checkBoxHistory.Size = new System.Drawing.Size(120, 16);
+            this.checkBoxHistory.TabIndex = 15;
+            this.checkBoxHistory.Text = "从曾经购买中选择";
+            this.checkBoxHistory.UseVisualStyleBackColor = true;
+            this.checkBoxHistory.CheckedChanged += new System.EventHandler(this.checkBoxHistory_CheckedChanged);
             // 
             // button5
             // 
@@ -404,11 +417,11 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 54);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(386, 381);
+            this.dataGridView1.Size = new System.Drawing.Size(386, 358);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -482,5 +495,6 @@
         private System.Windows.Forms.TextBox textBox总金额;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox com订金方式;
+        private System.Windows.Forms.CheckBox checkBoxHistory;
     }
 }

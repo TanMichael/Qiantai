@@ -66,6 +66,8 @@ namespace QTsys
         {
             try
             {
+                checkBoxHistory.Checked = false;
+
                 dataGridView1.DataSource = this.pm.GetAllProducts();
                 dataGridView1.Update();
             }
@@ -258,6 +260,23 @@ namespace QTsys
                 }
             }
             catch (Exception ex) { MessageBox.Show("订单 建立 失败！"); }
+        }
+
+        private void checkBoxHistory_CheckedChanged(object sender, EventArgs e)
+        {
+            var oCustomer = com客户名.SelectedItem;
+
+            if (oCustomer != null && checkBoxHistory.Checked == true)
+            {
+                string customerId = ((Customer)oCustomer).Id;
+                dataGridView1.DataSource = this.pm.GetProductsWithCustomer(customerId);
+                dataGridView1.Update();
+            }
+            else
+            {
+                dataGridView1.DataSource = this.pm.GetAllProducts();
+                dataGridView1.Update();
+            }
         }
     }
 }
