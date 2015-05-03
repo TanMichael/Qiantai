@@ -15,5 +15,6 @@ namespace QTsys.DataObjects
         public string RelatedOrderId { get; set; }
         public string RelatedPlanId { get; set; }
         public int UnqualifiedCount { get; set; }
+        public string Status { get; set; }
     }
 }

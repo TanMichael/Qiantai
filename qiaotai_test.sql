@@ -84,9 +84,9 @@ create table 产品客户关系
 (
    客户编号                 int,
    产品编号                 int,
-   订单编号                 int,
-   成交价                 decimal(7,2),
-   primary key (客户编号,产品编号,订单编号)
+   成交次数                 int,
+   最近成交价               decimal(7,2),
+   primary key (客户编号,产品编号)
 );
 
 create table 产品进出库
