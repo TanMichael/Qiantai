@@ -69,6 +69,7 @@
     <Compile Include="DataObjects\Order.cs" />
     <Compile Include="DataObjects\OrderDetail.cs" />
     <Compile Include="DataObjects\Product.cs" />
+    <Compile Include="DataObjects\ProductCustomer.cs" />
     <Compile Include="DataObjects\ProductFlow.cs" />
     <Compile Include="DataObjects\ProductionPlan.cs" />
     <Compile Include="DataObjects\ProductMaterial.cs" />
