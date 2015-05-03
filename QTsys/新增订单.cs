@@ -74,7 +74,7 @@ namespace QTsys
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "0", "0" };
+            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "1", "0" };
             dataGridView2.Rows.Add(rowadd);
         }
 
@@ -176,17 +176,12 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /* try
-            {
-                MessageBox.Show(odm.GetAutoNum().ToString());
-            }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }*/
+            bool right = false;//生成订单成功与否
             try
             {
                 Order od = new Order();
                 OrderDetail odd = new OrderDetail();
                 string id = "0";
-              //  od.OrderId = text订单编号.Text;
                 od.CreateTime = System.DateTime.Now;
                 od.DeliverTime = DateTime.Now;
                 od.LastUpdateTime = DateTime.Now;
@@ -198,45 +193,71 @@ namespace QTsys
                 od.RecieverPhone = text联系电话.Text;
                 od.Creator = "";
                 //插入order
-
                 if (this.odm.AddNewOrder(od))
                 {
-                    MessageBox.Show("新订单建立成功！");
-                   // dataGridView1.DataSource = this.odm.GetAllOrders();
-                  //  dataGridView1.Update();
-                }
-                else
-                    MessageBox.Show("订单建立失败！");
-                //select @@IDENTITY
-               // MessageBox.Show(odm.GetAutoNum().ToString()); ;
-               // odd.ProductId = t产品编号.Text;
-               id=odm.GetAutoNum().ToString();
-                for (int i = 0; i < dataGridView2.Rows.Count; i++)
-                {
-                    odd.Count = Convert.ToInt16(dataGridView2.Rows[i].Cells["数量"].Value.ToString());
-                    odd.Price = Convert.ToDouble(dataGridView2.Rows[i].Cells["单价"].Value.ToString());
-                    odd.Discount = Convert.ToDouble(dataGridView2.Rows[i].Cells["折扣"].Value.ToString());
-                    odd.RealPrice = Convert.ToDouble(dataGridView2.Rows[i].Cells["成交价"].Value.ToString());
-                    odd.OrderId = id;
-                    odd.ProductId = dataGridView2.Rows[i].Cells["产品编号"].Value.ToString();
-                    if (check库存.Checked == true)
-                        odd.IsStorage = "是";
-                    else
-                        odd.IsStorage = "否";
-                  //插入订单编号
-                    if (this.odm.AddNewOrderDetail(odd))
+                    right = true;
+                    id = odm.GetAutoNum().ToString();
+                    for (int i = 0; i < dataGridView2.Rows.Count; i++)
                     {
-                        MessageBox.Show("新订单明细新增成功！");
-                       // dataGridView2.DataSource = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
-                       // dataGridView2.Update();
+                        odd.Count = Convert.ToInt16(dataGridView2.Rows[i].Cells["数量"].Value.ToString());
+                        odd.Price = Convert.ToDouble(dataGridView2.Rows[i].Cells["单价"].Value.ToString());
+                        odd.Discount = Convert.ToDouble(dataGridView2.Rows[i].Cells["折扣"].Value.ToString());
+                        odd.RealPrice = Convert.ToDouble(dataGridView2.Rows[i].Cells["成交价"].Value.ToString());
+                        odd.OrderId = id;
+                        odd.ProductId = dataGridView2.Rows[i].Cells["产品编号"].Value.ToString();
+                        if (check库存.Checked == true)
+                            odd.IsStorage = "是";
+                        else
+                            odd.IsStorage = "否";
+                        //插入订单编号
+                        if (this.odm.AddNewOrderDetail(odd))
+                        {
+                            right = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("订单建立异常！订单建立失败！");
+                            right = false;
+                            break;
+                        }
+                    }
+                    //订单生产成功后，对订单后续操作
+                    if (right == true)
+                    {
+                        MessageBox.Show("订单建立成功！");
+                       /* if (check样品.Checked == true)//生产样品
+                        {
+                            if (MessageBox.Show("是否自动生成样品制造清单?", "样品制造", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                            {
+                                MessageBox.Show("样品制造ing");
+                            }
+                        }
+                        if (check库存.Checked == true)//优先使用库存
+                        {
+                            if (MessageBox.Show("是否减少库存?", "库存清理", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                            {
+                                MessageBox.Show("减少库存ing");
+                            }
+                            else
+                            {
+                                if (MessageBox.Show("是否自动生产计划?", "生产计划", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                                {
+                                    MessageBox.Show("生产计划");
+                                }
+                            }
+                        }*/
+                        WinSendMsg.IsSampleProduct = check样品.Checked;
+                        WinSendMsg.IsMeterialReduce = check库存.Checked;
+                        WinSendMsg.row = dataGridView2.Rows.Count;
+                        WinSendMsg.Oid = id;
+                        样品库存自动生成 win = new 样品库存自动生成();
+                        win.ShowDialog();
                     }
                     else
-                        MessageBox.Show("建立失败！");
-                    //od.OrderId = "";
-                    //插入orderdetail
+                        MessageBox.Show("订单建立失败！");
                 }
             }
-            catch (Exception ex) { MessageBox.Show("订单明细 建立 失败！"); }
+            catch (Exception ex) { MessageBox.Show("订单 建立 失败！"); }
         }
     }
 }

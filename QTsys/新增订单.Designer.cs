@@ -40,6 +40,7 @@
             this.check样品 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.com订金方式 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox总金额 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
-            this.com订金方式 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -152,6 +152,8 @@
             // check样品
             // 
             this.check样品.AutoSize = true;
+            this.check样品.Checked = true;
+            this.check样品.CheckState = System.Windows.Forms.CheckState.Checked;
             this.check样品.Location = new System.Drawing.Point(441, 31);
             this.check样品.Name = "check样品";
             this.check样品.Size = new System.Drawing.Size(96, 16);
@@ -187,6 +189,14 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
+            // 
+            // com订金方式
+            // 
+            this.com订金方式.FormattingEnabled = true;
+            this.com订金方式.Location = new System.Drawing.Point(79, 131);
+            this.com订金方式.Name = "com订金方式";
+            this.com订金方式.Size = new System.Drawing.Size(121, 20);
+            this.com订金方式.TabIndex = 11;
             // 
             // groupBox2
             // 
@@ -294,6 +304,8 @@
             // check库存
             // 
             this.check库存.AutoSize = true;
+            this.check库存.Checked = true;
+            this.check库存.CheckState = System.Windows.Forms.CheckState.Checked;
             this.check库存.Location = new System.Drawing.Point(241, 37);
             this.check库存.Name = "check库存";
             this.check库存.Size = new System.Drawing.Size(96, 16);
@@ -406,14 +418,6 @@
             this.textBox产品名称搜索.Name = "textBox产品名称搜索";
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
-            // 
-            // com订金方式
-            // 
-            this.com订金方式.FormattingEnabled = true;
-            this.com订金方式.Location = new System.Drawing.Point(79, 131);
-            this.com订金方式.Name = "com订金方式";
-            this.com订金方式.Size = new System.Drawing.Size(121, 20);
-            this.com订金方式.TabIndex = 11;
             // 
             // 新增订单
             // 
