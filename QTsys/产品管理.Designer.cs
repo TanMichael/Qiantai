@@ -99,31 +99,31 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1020, 12);
+            this.button3.Location = new System.Drawing.Point(900, 73);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(100, 23);
             this.button3.TabIndex = 9;
-            this.button3.Text = "数据修正";
+            this.button3.Text = "产品数据修改";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(926, 12);
+            this.button2.Location = new System.Drawing.Point(900, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 8;
-            this.button2.Text = "产品入库";
+            this.button2.Text = "增加新产品";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(926, 41);
+            this.button1.Location = new System.Drawing.Point(1017, 42);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "产品出库";
+            this.button1.Text = "删除该产品";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -484,7 +484,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1020, 62);
+            this.button5.Location = new System.Drawing.Point(1123, 74);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(91, 23);
             this.button5.TabIndex = 54;

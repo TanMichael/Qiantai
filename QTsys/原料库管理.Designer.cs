@@ -105,6 +105,7 @@
             this.text搜索内容.Name = "text搜索内容";
             this.text搜索内容.Size = new System.Drawing.Size(187, 21);
             this.text搜索内容.TabIndex = 5;
+            this.text搜索内容.TextChanged += new System.EventHandler(this.text搜索内容_TextChanged);
             // 
             // label1
             // 
@@ -179,6 +180,7 @@
             this.label搜索栏目.Size = new System.Drawing.Size(53, 12);
             this.label搜索栏目.TabIndex = 14;
             this.label搜索栏目.Text = "原料名称";
+            this.label搜索栏目.Click += new System.EventHandler(this.label搜索栏目_Click);
             // 
             // label6
             // 
@@ -188,8 +190,9 @@
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 15;
             this.label6.Text = "搜索";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // 原料管理
+            // 原料库管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -210,7 +213,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "原料管理";
+            this.Name = "原料库管理";
             this.Text = "原料管理";
             this.Load += new System.EventHandler(this.原料管理_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

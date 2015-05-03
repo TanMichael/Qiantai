@@ -23,9 +23,33 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public DataTable GetAllProductFlow()
+        {
+            string sql = "SELECT * FROM qiaotai.产品进出库;";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
         public DataTable GetAllProductsByName(string col, string value)
         {
             string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " LIKE '%" + value + "%';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
+        public DataTable GetAllProductFlowByName(string col, string value)
+        {
+            string sql = "SELECT * FROM qiaotai.产品进出库 WHERE " + col + " LIKE '%" + value + "%';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -93,6 +117,45 @@ namespace QTsys.DAO
             catch (Exception ex) { return false; }
         }
 
-
+        //产品信息增删改
+        public bool AddNewProduct(Product pdt)
+        {
+            try
+            {
+                string sql = "INSERT INTO qiaotai.产品信息(产品名称,规格,材质,变位,实测变位,温度,生产耗时,压力,树脂名称,树脂比例,含浸尺寸,外盘,内治具,重量,成型模,切模号,单位,单价,库存数量) VALUES ('" + pdt.Name + "','" + pdt.Standard + "','" + pdt.Texture + "','" + pdt.Shift + "','" + pdt.RealShift + "','" + pdt.Temperate + "','" + pdt.ElapsedTime + "','" + pdt.Presure + "','" + pdt.ResinName + "','" + pdt.ResinProportion + "','" + pdt.Soak + "','" + pdt.Outsize + "','" + pdt.Jig + "','" + pdt.Weight + "','" + pdt.Formingdie + "','" + pdt.ModingNum + "','" + pdt.Unit + "','" + pdt.Price + "','" + pdt.StockCount + "');";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+        public bool DelProduct(String key)
+        {
+            try
+            {
+                string sql = "DELETE FROM qiaotai.产品信息 WHERE 产品编号='" + key + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+        public bool AltProduct(Product pdt)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.产品信息 SET 产品名称='" + pdt.Id + "',产品名称='" + pdt.Name + "',规格='" + pdt.Standard + "',材质='" + pdt.Texture + "',变位='" + pdt.Shift + "',实测变位='" + pdt.RealShift + "',温度='" + pdt.Temperate + "',生产耗时='" + pdt.ElapsedTime + "',压力='" + pdt.Presure + "',树脂名称='" + pdt.ResinName + "',树脂比重='" + pdt.ResinProportion + "',含浸尺寸='" + pdt.Soak + "',外盘='" + pdt.Outsize + "',内治具='" + pdt.Jig + "',重量='" + pdt.Weight + "',成型模='" + pdt.Formingdie + "',切模号='" + pdt.ModingNum + "',单位='" + pdt.Unit + "',单价='" + pdt.Price + "',库存数量='" + pdt.StockCount + "' WHERE 产品编号='" + pdt.Id + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
     }
 }

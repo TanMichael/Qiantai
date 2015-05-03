@@ -44,5 +44,17 @@ namespace QTsys.Manager
          { return this.pdao.DelMaterialProductRelation(pmr); }
          public bool AddMaterialProductRelation(ProductMaterial pmr)
          { return this.pdao.AddMaterialProductRelation(pmr); }
+
+         public DataTable GetAllProductFlow()
+         { return this.pdao.GetAllProductFlow(); }
+        
+        public DataTable GetAllProductFlowByName(string col, string value)
+         {
+             return this.pdao.GetAllProductFlowByName(col, value);
+         }
+
+        public bool AddNewProduct(Product pdt) { return pdao.AddNewProduct(pdt); }
+        public bool DelProduct(String key) { return pdao.DelProduct(key); }
+        public bool AltProduct(Product pdt) { return pdao.AltProduct(pdt); }
     }
 }

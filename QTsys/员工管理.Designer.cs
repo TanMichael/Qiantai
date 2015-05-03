@@ -40,7 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.text手机 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.text角色 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.text姓名 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.label搜索栏目 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.text职位 = new System.Windows.Forms.TextBox();
+            this.com角色 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,13 +161,6 @@
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 49;
             this.label5.Text = "角色";
-            // 
-            // text角色
-            // 
-            this.text角色.Location = new System.Drawing.Point(321, 52);
-            this.text角色.Name = "text角色";
-            this.text角色.Size = new System.Drawing.Size(168, 21);
-            this.text角色.TabIndex = 48;
             // 
             // label4
             // 
@@ -299,11 +292,27 @@
             this.text职位.Size = new System.Drawing.Size(168, 21);
             this.text职位.TabIndex = 65;
             // 
+            // com角色
+            // 
+            this.com角色.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.com角色.FormattingEnabled = true;
+            this.com角色.Items.AddRange(new object[] {
+            "系统管理员",
+            "产品管理员",
+            "销售",
+            "财务",
+            "工人"});
+            this.com角色.Location = new System.Drawing.Point(321, 52);
+            this.com角色.Name = "com角色";
+            this.com角色.Size = new System.Drawing.Size(168, 20);
+            this.com角色.TabIndex = 67;
+            // 
             // 员工管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 644);
+            this.Controls.Add(this.com角色);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.text职位);
             this.Controls.Add(this.label搜索栏目);
@@ -322,7 +331,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.text手机);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.text角色);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.text姓名);
             this.Controls.Add(this.label3);
@@ -355,7 +363,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox text手机;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox text角色;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox text姓名;
         private System.Windows.Forms.Label label3;
@@ -371,5 +378,6 @@
         private System.Windows.Forms.Label label搜索栏目;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox text职位;
+        private System.Windows.Forms.ComboBox com角色;
     }
 }

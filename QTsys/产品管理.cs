@@ -26,20 +26,90 @@ namespace QTsys
 
         private void button2_Click(object sender, EventArgs e)
         {
-            产品入库 win = new 产品入库();
-            win.ShowDialog();
+            try
+            {
+                Product pdt = new Product();
+                pdt.Name = text产品名称.Text;
+                pdt.Standard = text规格.Text;
+                pdt.Texture = text材质.Text;
+                pdt.Shift = text变位.Text;
+                pdt.RealShift = text实测变位.Text;
+                pdt.Temperate = text温度.Text;
+                pdt.ElapsedTime = text生产耗时.Text;
+                pdt.Presure = text压力.Text;
+                pdt.ResinName = text树脂名称.Text;
+                pdt.ResinProportion = text树脂比重.Text;
+                pdt.Soak = text含浸尺寸.Text;
+                pdt.Outsize = text外盘.Text;
+                pdt.Jig = text内治具.Text;
+                pdt.Weight = text重量.Text;
+                pdt.Formingdie = text成型模.Text;
+                pdt.ModingNum = text切模号.Text;
+                pdt.Unit = text单位.Text;
+                pdt.Price = Convert.ToDouble(text单价.Text);
+                pdt.StockCount = Convert.ToInt16(text库存数量.Text);
+                if (proman.AddNewProduct(pdt))
+                {
+                    MessageBox.Show("增加新产品成功！");
+                    dataGridView1.DataSource = this.proman.GetAllProducts();
+                    dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("增加失败！");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            产品出库 win = new 产品出库();
-            win.ShowDialog();
+            try
+            {
+                if (proman.DelProduct(text产品编号.Text))
+                {
+                    MessageBox.Show("删除产品成功！");
+                    dataGridView1.DataSource = this.proman.GetAllProducts();
+                    dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("删除失败！");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            产品数据修改 win = new 产品数据修改();
-            win.ShowDialog();
+            try
+            {
+                Product pdt = new Product();
+                pdt.Name = text产品名称.Text;
+                pdt.Standard = text规格.Text;
+                pdt.Texture = text材质.Text;
+                pdt.Shift = text变位.Text;
+                pdt.RealShift = text实测变位.Text;
+                pdt.Temperate = text温度.Text;
+                pdt.ElapsedTime = text生产耗时.Text;
+                pdt.Presure = text压力.Text;
+                pdt.ResinName = text树脂名称.Text;
+                pdt.ResinProportion = text树脂比重.Text;
+                pdt.Soak = text含浸尺寸.Text;
+                pdt.Outsize = text外盘.Text;
+                pdt.Jig = text内治具.Text;
+                pdt.Weight = text重量.Text;
+                pdt.Formingdie = text成型模.Text;
+                pdt.ModingNum = text切模号.Text;
+                pdt.Unit = text单位.Text;
+                pdt.Price = Convert.ToDouble(text单价.Text);
+                pdt.StockCount = Convert.ToInt16(text库存数量.Text);
+                if (proman.AltProduct(pdt))
+                {
+                    MessageBox.Show("修改产品成功！");
+                    dataGridView1.DataSource = this.proman.GetAllProducts();
+                    dataGridView1.Update();
+                }
+                else
+                    MessageBox.Show("修改失败！");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
         private void 产品管理_Load(object sender, EventArgs e)
@@ -110,7 +180,7 @@ namespace QTsys
 
         private void button5_Click(object sender, EventArgs e)
         {
-            产品原料关系 win = new 产品原料关系();
+            产品原料关系 win = new 产品原料关系(text产品编号.Text);
             win.ShowDialog();
         }
     }

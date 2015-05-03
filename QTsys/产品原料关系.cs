@@ -20,8 +20,10 @@ namespace QTsys
         private UserManager userMgr;
         private ProductionManager pm;
         private MaterialManager mm;
+        private string PID;
         
         public string 产品编号;
+       
         public 产品原料关系()
         {
             InitializeComponent();
@@ -29,8 +31,18 @@ namespace QTsys
             userMgr = new UserManager();
             pm = new ProductionManager();
             mm = new MaterialManager();
-           // win = new 原料选择();
             产品编号 = "0";
+        }
+
+        public 产品原料关系(string ProID)
+        {
+            InitializeComponent();
+            odm = new OrderManager();
+            userMgr = new UserManager();
+            pm = new ProductionManager();
+            mm = new MaterialManager();
+            产品编号 = "0";
+            PID = ProID;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -38,6 +50,7 @@ namespace QTsys
             try
             {
                 dataGridView2.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+                textBox产品.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
                 dataGridView2.Update();
             }
             catch (Exception ex){};
@@ -47,8 +60,18 @@ namespace QTsys
         {
             try
             {
-                dataGridView1.DataSource = this.pm.GetAllProducts();
-                dataGridView1.Update();
+                if (PID == "0")
+                {
+                    dataGridView1.DataSource = this.pm.GetAllProducts();
+                    dataGridView1.Update();
+                }
+                else
+                {
+                    dataGridView1.DataSource = this.pm.GetAllProductsByName("产品编号",PID);
+                    dataGridView2.DataSource = this.pm.GetMaterialProductRelationByProduct(PID);
+                    textBox产品.Text = PID;
+                    dataGridView1.Update();
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }

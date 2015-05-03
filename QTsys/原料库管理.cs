@@ -109,5 +109,20 @@ namespace QTsys
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
+
+        private void label搜索栏目_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void text搜索内容_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

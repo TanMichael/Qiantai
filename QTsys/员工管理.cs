@@ -62,7 +62,7 @@ namespace QTsys
                 text账户名.Text = dataGridView1.Rows[e.RowIndex].Cells["账户名"].Value.ToString();
                 text密码.Text = dataGridView1.Rows[e.RowIndex].Cells["密码"].Value.ToString();
                 text姓名.Text = dataGridView1.Rows[e.RowIndex].Cells["姓名"].Value.ToString();
-                text角色.Text = dataGridView1.Rows[e.RowIndex].Cells["系统角色"].Value.ToString();
+                com角色.Text = dataGridView1.Rows[e.RowIndex].Cells["系统角色"].Value.ToString();
                 text职位.Text = dataGridView1.Rows[e.RowIndex].Cells["职位"].Value.ToString();
                 text手机.Text = dataGridView1.Rows[e.RowIndex].Cells["手机"].Value.ToString();
                 text办公电话.Text = dataGridView1.Rows[e.RowIndex].Cells["办公电话"].Value.ToString();
@@ -91,7 +91,7 @@ namespace QTsys
                 newuser.UserName= text账户名.Text;
                 newuser.Password="c4ca4238a0b923820dcc509a6f75849b";
                 newuser.Name=text姓名.Text;
-                newuser.Role=text角色.Text;
+                newuser.Role=com角色.Text;
                 newuser.JobTitle = text职位.Text;
                 newuser.Mobile=text手机.Text;
                 newuser.Phone=text办公电话.Text;
@@ -136,7 +136,7 @@ namespace QTsys
                 newuser.UserName = text账户名.Text;
                 newuser.Password = text密码.Text;
                 newuser.Name = text姓名.Text;
-                newuser.Role = text角色.Text;
+                newuser.Role = com角色.Text;
                 newuser.JobTitle = text职位.Text;
                 newuser.Mobile = text手机.Text;
                 newuser.Phone = text办公电话.Text;
