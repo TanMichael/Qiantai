@@ -115,6 +115,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "产品入库";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
@@ -485,7 +486,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(926, 66);
+            this.button5.Location = new System.Drawing.Point(1020, 62);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(91, 23);
             this.button5.TabIndex = 54;

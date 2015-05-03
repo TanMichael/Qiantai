@@ -19,6 +19,7 @@ namespace QTsys
         private OrderManager odm;
         private UserManager userMgr;
         private ProductionManager pm;
+        private MaterialManager mt;
         private int index3;
 
         public 样品库存自动生成()
@@ -27,6 +28,7 @@ namespace QTsys
             odm = new OrderManager();
             userMgr = new UserManager();
             pm = new ProductionManager();
+            mt = new MaterialManager();
             index3 = 0;
         }
 
@@ -37,6 +39,7 @@ namespace QTsys
             dataGridView1.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
             dataGridView4.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
             dataGridView5.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
+            
             if (!WinSendMsg.IsSampleProduct)//是否订制样品
             {
                 this.tabPage1.Parent = null;
@@ -74,7 +77,9 @@ namespace QTsys
         {
             index3 = e.RowIndex;
             text原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
-            l原料数量.Text ="生产产品【"+dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString()+"】1件须消耗原料【"+ dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString()+"】";
+            l原料数量.Text = "生产产品【" + dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString() + "】1件须消耗原料【" + dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString() + "】";
+            dataGridView7.DataSource = mt.GetAllMaterialByName("原料编号", dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
+            dataGridView7.Update();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

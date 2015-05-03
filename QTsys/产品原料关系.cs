@@ -35,8 +35,12 @@ namespace QTsys
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView2.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
-            dataGridView2.Update();
+            try
+            {
+                dataGridView2.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+                dataGridView2.Update();
+            }
+            catch (Exception ex){};
         }
 
         private void 产品原料关系_Load(object sender, EventArgs e)
@@ -99,13 +103,13 @@ namespace QTsys
                 pmt.MaterialCount = Convert.ToInt16(textBox原料数量.Text);
                 if (pm.AltMaterialProductRelation(pmt))
                 {
-                    MessageBox.Show("修改成功！");
+                   // MessageBox.Show("修改成功！");
                     dataGridView2.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
                     dataGridView2.Update();
                 }
                 else
                 {
-                    MessageBox.Show("修改失败！"); ;
+                    MessageBox.Show("修改失败！"); 
                 }
             }
             catch (Exception ex) { };
