@@ -107,5 +107,11 @@ namespace QTsys
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            产品原料关系 win = new 产品原料关系();
+            win.ShowDialog();
+        }
     }
 }

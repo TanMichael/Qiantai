@@ -76,6 +76,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.text成型模 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +99,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1012, 37);
+            this.button3.Location = new System.Drawing.Point(1020, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 9;
@@ -108,7 +109,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(918, 37);
+            this.button2.Location = new System.Drawing.Point(926, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -118,12 +119,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(918, 66);
+            this.button1.Location = new System.Drawing.Point(926, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "产品出库";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
@@ -481,11 +483,22 @@
             this.label21.TabIndex = 44;
             this.label21.Text = "成型模";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(926, 66);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(91, 23);
+            this.button5.TabIndex = 54;
+            this.button5.Text = "产品原料关系";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // 产品管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 639);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.text库存数量);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.text单价);
@@ -593,5 +606,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox text成型模;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button5;
     }
 }

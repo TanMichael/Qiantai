@@ -148,6 +148,12 @@
     <Compile Include="原料管理.Designer.cs">
       <DependentUpon>原料管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="原料选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="原料选择.Designer.cs">
+      <DependentUpon>原料选择.cs</DependentUpon>
+    </Compile>
     <Compile Include="员工管理.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="产品原料关系.resx">
+      <DependentUpon>产品原料关系.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="产品管理.resx">
       <DependentUpon>产品管理.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="原料管理.resx">
       <DependentUpon>原料管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="原料选择.resx">
+      <DependentUpon>原料选择.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="员工管理.resx">
       <DependentUpon>员工管理.cs</DependentUpon>
