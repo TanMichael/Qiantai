@@ -80,6 +80,15 @@ create table 产品原料关系
    primary key (原料编号,产品编号)
 );
 
+create table 产品客户关系
+(
+   客户编号                 int,
+   产品编号                 int,
+   订单编号                 int,
+   成交价                 decimal(7,2),
+   primary key (客户编号,产品编号,订单编号)
+);
+
 create table 产品进出库
 (
    编号                   int primary key auto_increment,
@@ -88,7 +97,8 @@ create table 产品进出库
    类型                   nvarchar(128),
    相关订单编号               int,
    相关计划编号               int,
-   不合格产品数               int
+   不合格产品数               int,
+   当前状态               nvarchar(128)
 );
 
 create table 原材料
