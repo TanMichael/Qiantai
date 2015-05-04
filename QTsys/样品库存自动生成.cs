@@ -51,8 +51,8 @@ namespace QTsys
            // WinSendMsg.Oid = id;
             text订单编号.Text = 订单编号.ToString();
             dataGridView1.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
-            dataGridView4.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
-            dataGridView5.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
+           // dataGridView4.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
+          //  dataGridView5.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
            /* 
             if (!WinSendMsg.IsSampleProduct)//是否订制样品
             {
@@ -114,7 +114,7 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1 ;
+           // tabControl1.SelectedIndex = 1 ;
         }
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)//产品原料关系
