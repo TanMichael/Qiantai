@@ -41,6 +41,7 @@ namespace QTsys
                 text客户编号.Text = selectedCustomerId = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
                 text客户名称.Text = selectedCustomerName = dataGridView1.Rows[e.RowIndex].Cells["客户名称"].Value.ToString();
                 text客户地址.Text = dataGridView1.Rows[e.RowIndex].Cells["地址"].Value.ToString();
+                textBox联系人.Text = dataGridView1.Rows[e.RowIndex].Cells["默认联系人"].Value.ToString();
                 text联系电话.Text = dataGridView1.Rows[e.RowIndex].Cells["联系电话"].Value.ToString();
                 text传真.Text = dataGridView1.Rows[e.RowIndex].Cells["传真"].Value.ToString();
                 text电子邮箱.Text = dataGridView1.Rows[e.RowIndex].Cells["电子邮箱"].Value.ToString();
@@ -84,6 +85,7 @@ namespace QTsys
                 Customer cus = new Customer();
                 cus.Id = text客户编号.Text;
                 cus.Name = text客户名称.Text;
+                cus.DefaultContact = textBox联系人.Text;
                 cus.Address = text客户地址.Text;
                 cus.Phone = text联系电话.Text;
                 cus.Fax = text传真.Text;
@@ -128,6 +130,7 @@ namespace QTsys
                 Customer cus = new Customer();
                 cus.Id = text客户编号.Text;
                 cus.Name = text客户名称.Text;
+                cus.DefaultContact = textBox联系人.Text;
                 cus.Address = text客户地址.Text;
                 cus.Phone = text联系电话.Text;
                 cus.Fax = text传真.Text;

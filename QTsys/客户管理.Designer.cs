@@ -87,6 +87,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox联系人 = new System.Windows.Forms.TextBox();
             this.tabCustomer.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -107,6 +109,8 @@
             // 
             // tabPageCustomer
             // 
+            this.tabPageCustomer.Controls.Add(this.textBox联系人);
+            this.tabPageCustomer.Controls.Add(this.label23);
             this.tabPageCustomer.Controls.Add(this.label搜索栏目);
             this.tabPageCustomer.Controls.Add(this.button4);
             this.tabPageCustomer.Controls.Add(this.label11);
@@ -181,7 +185,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(819, 74);
+            this.button3.Location = new System.Drawing.Point(849, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 22;
@@ -258,7 +262,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(502, 51);
+            this.label8.Location = new System.Drawing.Point(689, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 15;
@@ -266,7 +270,7 @@
             // 
             // text流水号
             // 
-            this.text流水号.Location = new System.Drawing.Point(561, 42);
+            this.text流水号.Location = new System.Drawing.Point(736, 50);
             this.text流水号.Name = "text流水号";
             this.text流水号.Size = new System.Drawing.Size(100, 21);
             this.text流水号.TabIndex = 14;
@@ -306,7 +310,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(328, 56);
+            this.label5.Location = new System.Drawing.Point(526, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 9;
@@ -314,7 +318,7 @@
             // 
             // text传真
             // 
-            this.text传真.Location = new System.Drawing.Point(363, 47);
+            this.text传真.Location = new System.Drawing.Point(561, 47);
             this.text传真.Name = "text传真";
             this.text传真.Size = new System.Drawing.Size(100, 21);
             this.text传真.TabIndex = 8;
@@ -659,6 +663,22 @@
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(292, 53);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 12);
+            this.label23.TabIndex = 27;
+            this.label23.Text = "默认联系人";
+            // 
+            // textBox联系人
+            // 
+            this.textBox联系人.Location = new System.Drawing.Point(363, 44);
+            this.textBox联系人.Name = "textBox联系人";
+            this.textBox联系人.Size = new System.Drawing.Size(100, 21);
+            this.textBox联系人.TabIndex = 28;
+            // 
             // 客户管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -740,5 +760,7 @@
         private System.Windows.Forms.TextBox t编号;
         private System.Windows.Forms.Label label搜索栏目;
         private System.Windows.Forms.Label label联系人;
+        private System.Windows.Forms.TextBox textBox联系人;
+        private System.Windows.Forms.Label label23;
     }
 }

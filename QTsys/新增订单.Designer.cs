@@ -40,7 +40,7 @@
             this.check样品 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.com订金方式 = new System.Windows.Forms.ComboBox();
+            this.com结算方式 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox总金额 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@
             this.com客户联系人.Name = "com客户联系人";
             this.com客户联系人.Size = new System.Drawing.Size(121, 20);
             this.com客户联系人.TabIndex = 3;
-            this.com客户联系人.DragDrop += new System.Windows.Forms.DragEventHandler(this.com客户联系人_DragDrop);
+            this.com客户联系人.DropDown += new System.EventHandler(this.com客户联系人_DragDrop);
             // 
             // label2
             // 
@@ -147,7 +147,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 8;
-            this.label5.Text = "订金方式";
+            this.label5.Text = "结算方式";
             // 
             // check样品
             // 
@@ -172,7 +172,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.com订金方式);
+            this.groupBox1.Controls.Add(this.com结算方式);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.com客户名);
             this.groupBox1.Controls.Add(this.check样品);
@@ -190,13 +190,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
             // 
-            // com订金方式
+            // com结算方式
             // 
-            this.com订金方式.FormattingEnabled = true;
-            this.com订金方式.Location = new System.Drawing.Point(79, 131);
-            this.com订金方式.Name = "com订金方式";
-            this.com订金方式.Size = new System.Drawing.Size(121, 20);
-            this.com订金方式.TabIndex = 11;
+            this.com结算方式.FormattingEnabled = true;
+            this.com结算方式.Location = new System.Drawing.Point(79, 131);
+            this.com结算方式.Name = "com结算方式";
+            this.com结算方式.Size = new System.Drawing.Size(121, 20);
+            this.com结算方式.TabIndex = 11;
             // 
             // groupBox2
             // 
@@ -479,7 +479,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 成交价;
         private System.Windows.Forms.TextBox textBox总金额;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox com订金方式;
+        private System.Windows.Forms.ComboBox com结算方式;
         private System.Windows.Forms.CheckBox checkBoxHistory;
     }
 }

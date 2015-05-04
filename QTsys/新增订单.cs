@@ -157,14 +157,15 @@ namespace QTsys
                 DataTable dt = new DataTable();
                 // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
                 dt = userMgr.SearchCustomerByCol("客户编号", customers[com客户名.SelectedIndex].Id);
-                text联系电话.Text = dt.Rows[0][3].ToString();
-                text收货地址.Text = dt.Rows[0][2].ToString();
-                com订金方式.Text = dt.Rows[0][6].ToString();
+                com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
+                text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
+                text收货地址.Text = dt.Rows[0]["地址"].ToString();
+                com结算方式.Text = dt.Rows[0]["结算方式"].ToString();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
-        private void com客户联系人_DragDrop(object sender, DragEventArgs e)
+        private void com客户联系人_DragDrop(object sender, EventArgs e)
         {
             com客户联系人.Items.Clear();
             cm = userMgr.GetAllCustomerMemberList();
@@ -189,7 +190,7 @@ namespace QTsys
                 od.LastUpdateTime = DateTime.Now;
                 od.OrderStatus = "已订";
                 od.ExpressNO = "";
-                od.DepositMode = com订金方式.Text;
+                od.DepositMode = com结算方式.Text;
                 od.RecieverAddress = text收货地址.Text;
                 od.RecieverName = com客户联系人.Text;
                 od.RecieverPhone = text联系电话.Text;
@@ -278,5 +279,6 @@ namespace QTsys
                 dataGridView1.Update();
             }
         }
+
     }
 }

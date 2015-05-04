@@ -103,7 +103,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.客户信息(客户名称,地址,联系电话,传真,电子邮箱,结算方式,流水号,备注) VALUES ('" + cus.Name + "','" + cus.Address + "','" + cus.Phone + "','" + cus.Fax + "','" + cus.Email + "','" + cus.PaymentMode + "','" + cus.Serial + "','" + cus.Remarks + "')";
+                string sql = "INSERT INTO qiaotai.客户信息(客户名称,地址,默认联系人,联系电话,传真,电子邮箱,结算方式,流水号,备注) VALUES ('" + cus.Name + "','" + cus.Address + "','" + cus.DefaultContact + "','" + cus.Phone + "','" + cus.Fax + "','" + cus.Email + "','" + cus.PaymentMode + "','" + cus.Serial + "','" + cus.Remarks + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection); 
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -131,7 +131,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.客户信息 SET 客户编号='" + cus.Id + "',客户名称='" + cus.Name + "',地址='" + cus.Address + "',联系电话='" + cus.Phone + "',传真='" + cus.Fax + "',电子邮箱='" + cus.Email + "',结算方式='" + cus.PaymentMode + "',流水号='" + cus.Serial + "',备注='" + cus.Remarks + "' WHERE 客户编号='" + cus.Id + "';";
+                string sql = "UPDATE qiaotai.客户信息 SET 客户编号='" + cus.Id + "',客户名称='" + cus.Name + "',地址='" + cus.Address + "',默认联系人='" + cus.DefaultContact + "',联系电话='" + cus.Phone + "',传真='" + cus.Fax + "',电子邮箱='" + cus.Email + "',结算方式='" + cus.PaymentMode + "',流水号='" + cus.Serial + "',备注='" + cus.Remarks + "' WHERE 客户编号='" + cus.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
