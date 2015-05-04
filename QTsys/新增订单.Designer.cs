@@ -52,7 +52,6 @@
             this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.成交价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.check库存 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.text折扣 = new System.Windows.Forms.TextBox();
@@ -205,7 +204,6 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.check库存);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.numericUpDown1);
             this.groupBox2.Controls.Add(this.text折扣);
@@ -301,18 +299,6 @@
             this.成交价.HeaderText = "成交价";
             this.成交价.Name = "成交价";
             this.成交价.ReadOnly = true;
-            // 
-            // check库存
-            // 
-            this.check库存.AutoSize = true;
-            this.check库存.Checked = true;
-            this.check库存.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.check库存.Location = new System.Drawing.Point(241, 37);
-            this.check库存.Name = "check库存";
-            this.check库存.Size = new System.Drawing.Size(96, 16);
-            this.check库存.TabIndex = 11;
-            this.check库存.Text = "是否优先库存";
-            this.check库存.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -475,7 +461,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.CheckBox check库存;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.TextBox text折扣;

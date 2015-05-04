@@ -207,10 +207,10 @@ namespace QTsys
                         odd.RealPrice = Convert.ToDouble(dataGridView2.Rows[i].Cells["成交价"].Value.ToString());
                         odd.OrderId = id;
                         odd.ProductId = dataGridView2.Rows[i].Cells["产品编号"].Value.ToString();
-                        if (check库存.Checked == true)
-                            odd.IsStorage = "是";
-                        else
-                            odd.IsStorage = "否";
+                        //if (check库存.Checked == true)
+                        //    odd.IsStorage = "是";
+                        //else
+                        //    odd.IsStorage = "否";
                         //插入订单编号
                         if (this.odm.AddNewOrderDetail(odd))
                         {
@@ -249,7 +249,7 @@ namespace QTsys
                              }
                          }*/
                         WinSendMsg.IsSampleProduct = check样品.Checked;
-                        WinSendMsg.IsMeterialReduce = check库存.Checked;
+                        //WinSendMsg.IsMeterialReduce = check库存.Checked;
                         WinSendMsg.row = dataGridView2.Rows.Count;
                         WinSendMsg.Oid = id;
                         样品库存自动生成 win = new 样品库存自动生成(Convert.ToInt16(id));

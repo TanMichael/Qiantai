@@ -40,8 +40,8 @@ namespace QTsys
                 //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
                 dataGridView1.DataSource = tempData1;
                 dataGridView1.Update();
-                c是否库存.Items.Add("是");
-                c是否库存.Items.Add("否");
+                //c是否库存.Items.Add("是");
+                //c是否库存.Items.Add("否");
                 text订单编号.Text = "1";
 
                 // 初始化客户信息
@@ -216,7 +216,7 @@ namespace QTsys
                 od.Price = Convert.ToDouble(t单价.Text);
                 od.Discount = Convert.ToDouble(t折扣.Text);
                 od.RealPrice = Convert.ToDouble(t成交价.Text);
-                od.IsStorage = c是否库存.Text;
+                //od.IsStorage = c是否库存.Text;
                 if (this.odm.AltOrderDetail(od))
                 {
                     MessageBox.Show("新订单明细修改成功！");
@@ -240,7 +240,7 @@ namespace QTsys
                 od.Price = Convert.ToDouble(t单价.Text);
                 od.Discount = Convert.ToDouble(t折扣.Text);
                 od.RealPrice = Convert.ToDouble(t成交价.Text);
-                od.IsStorage = c是否库存.Text;
+                //od.IsStorage = c是否库存.Text;
                 if (this.odm.AddNewOrderDetail(od))
                 {
                     MessageBox.Show("新订单明细新增成功！");
@@ -264,7 +264,7 @@ namespace QTsys
                 od.Price = Convert.ToDouble(t单价.Text);
                 od.Discount = Convert.ToDouble(t折扣.Text);
                 od.RealPrice = Convert.ToDouble(t成交价.Text);
-                od.IsStorage = c是否库存.Text;
+                //od.IsStorage = c是否库存.Text;
                 if (this.odm.DelOrderDetail(od))
                 {
                     MessageBox.Show("订单明细 删除 成功！");
@@ -301,7 +301,7 @@ namespace QTsys
             t单价.Text = dataGridView1.Rows[e.RowIndex].Cells["单价"].Value.ToString();
             t折扣.Text = dataGridView1.Rows[e.RowIndex].Cells["折扣"].Value.ToString();
             t成交价.Text = dataGridView1.Rows[e.RowIndex].Cells["成交价"].Value.ToString();
-            c是否库存.Text = dataGridView1.Rows[e.RowIndex].Cells["是否库存"].Value.ToString();
+            //c是否库存.Text = dataGridView1.Rows[e.RowIndex].Cells["是否库存"].Value.ToString();
             }
             catch (Exception ex) { MessageBox.Show("加载失败！"); }
         }

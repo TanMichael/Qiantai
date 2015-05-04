@@ -14,6 +14,6 @@ namespace QTsys.DataObjects
         public double Price { get; set; }
         public double Discount { get; set; }
         public double RealPrice { get; set; }
-        public string IsStorage { get; set; }
+        //public string IsStorage { get; set; }
     }
 }

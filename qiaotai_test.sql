@@ -20,6 +20,7 @@ create table 客户信息
 (
 	客户编号 int primary key auto_increment,
 	客户名称 nvarchar(128) not null,
+   默认联系人 nvarchar(128),
 	地址 nvarchar(256) not null,
 	联系电话 varchar(32) not null,
 	传真 varchar(32),
@@ -165,7 +166,6 @@ create table 订单明细
    单价                   decimal(7,2) not null,
    折扣                   decimal(3,2),
    成交价                 decimal(7,2),
-   是否库存               nvarchar(128),
    primary key (订单编号, 产品编号)
 );
 

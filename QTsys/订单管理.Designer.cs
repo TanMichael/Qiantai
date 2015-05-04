@@ -67,11 +67,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.c是否库存 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.t成交价 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -84,7 +83,6 @@
             this.t产品编号 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.t订单编号 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -471,8 +469,6 @@
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.c是否库存);
-            this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.t成交价);
             this.tabPage2.Controls.Add(this.label21);
@@ -493,6 +489,17 @@
             this.tabPage2.Text = "订单明细";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 156);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(823, 342);
+            this.dataGridView2.TabIndex = 45;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // button6
             // 
@@ -524,24 +531,6 @@
             this.button5.Text = "新增";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // c是否库存
-            // 
-            this.c是否库存.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.c是否库存.FormattingEnabled = true;
-            this.c是否库存.Location = new System.Drawing.Point(300, 83);
-            this.c是否库存.Name = "c是否库存";
-            this.c是否库存.Size = new System.Drawing.Size(121, 20);
-            this.c是否库存.TabIndex = 41;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(228, 89);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(65, 12);
-            this.label23.TabIndex = 40;
-            this.label23.Text = "是否库存：";
             // 
             // label22
             // 
@@ -639,17 +628,6 @@
             this.t订单编号.Size = new System.Drawing.Size(121, 21);
             this.t订单编号.TabIndex = 29;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 156);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(823, 342);
-            this.dataGridView2.TabIndex = 45;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
             // 订单管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -716,8 +694,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox c是否库存;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox t成交价;
         private System.Windows.Forms.Label label21;
