@@ -197,6 +197,12 @@
     <Compile Include="样品生产.Designer.cs">
       <DependentUpon>样品生产.cs</DependentUpon>
     </Compile>
+    <Compile Include="添加产品.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="添加产品.Designer.cs">
+      <DependentUpon>添加产品.cs</DependentUpon>
+    </Compile>
     <Compile Include="生产管理.cs">
       <SubType>Form</SubType>
     </Compile>

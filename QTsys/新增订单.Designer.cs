@@ -63,6 +63,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
+            this.button新产品 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -355,6 +356,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button新产品);
             this.groupBox3.Controls.Add(this.checkBoxHistory);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.button3);
@@ -417,6 +419,16 @@
             this.textBox产品名称搜索.Name = "textBox产品名称搜索";
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
+            // 
+            // button新产品
+            // 
+            this.button新产品.Location = new System.Drawing.Point(271, 442);
+            this.button新产品.Name = "button新产品";
+            this.button新产品.Size = new System.Drawing.Size(115, 23);
+            this.button新产品.TabIndex = 16;
+            this.button新产品.Text = "从选中增加新产品";
+            this.button新产品.UseVisualStyleBackColor = true;
+            this.button新产品.Click += new System.EventHandler(this.button新产品_Click);
             // 
             // 新增订单
             // 
@@ -481,5 +493,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox com结算方式;
         private System.Windows.Forms.CheckBox checkBoxHistory;
+        private System.Windows.Forms.Button button新产品;
     }
 }

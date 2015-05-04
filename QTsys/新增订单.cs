@@ -280,5 +280,11 @@ namespace QTsys
             }
         }
 
+        private void button新产品_Click(object sender, EventArgs e)
+        {
+            添加产品 form = new 添加产品();
+            form.ShowDialog();
+        }
+
     }
 }
