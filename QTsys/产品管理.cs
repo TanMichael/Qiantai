@@ -81,6 +81,7 @@ namespace QTsys
             try
             {
                 Product pdt = new Product();
+                pdt.Id =Convert.ToInt16( text产品编号.Text);
                 pdt.Name = text产品名称.Text;
                 pdt.Standard = text规格.Text;
                 pdt.Texture = text材质.Text;
