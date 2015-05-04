@@ -227,32 +227,32 @@ namespace QTsys
                     if (right == true)
                     {
                         MessageBox.Show("订单建立成功！");
-                       /* if (check样品.Checked == true)//生产样品
-                        {
-                            if (MessageBox.Show("是否自动生成样品制造清单?", "样品制造", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                            {
-                                MessageBox.Show("样品制造ing");
-                            }
-                        }
-                        if (check库存.Checked == true)//优先使用库存
-                        {
-                            if (MessageBox.Show("是否减少库存?", "库存清理", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                            {
-                                MessageBox.Show("减少库存ing");
-                            }
-                            else
-                            {
-                                if (MessageBox.Show("是否自动生产计划?", "生产计划", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                                {
-                                    MessageBox.Show("生产计划");
-                                }
-                            }
-                        }*/
+                        /* if (check样品.Checked == true)//生产样品
+                         {
+                             if (MessageBox.Show("是否自动生成样品制造清单?", "样品制造", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                             {
+                                 MessageBox.Show("样品制造ing");
+                             }
+                         }
+                         if (check库存.Checked == true)//优先使用库存
+                         {
+                             if (MessageBox.Show("是否减少库存?", "库存清理", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                             {
+                                 MessageBox.Show("减少库存ing");
+                             }
+                             else
+                             {
+                                 if (MessageBox.Show("是否自动生产计划?", "生产计划", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                                 {
+                                     MessageBox.Show("生产计划");
+                                 }
+                             }
+                         }*/
                         WinSendMsg.IsSampleProduct = check样品.Checked;
                         WinSendMsg.IsMeterialReduce = check库存.Checked;
                         WinSendMsg.row = dataGridView2.Rows.Count;
                         WinSendMsg.Oid = id;
-                        样品库存自动生成 win = new 样品库存自动生成();
+                        样品库存自动生成 win = new 样品库存自动生成(Convert.ToInt16(id));
                         win.ShowDialog();
                     }
                     else

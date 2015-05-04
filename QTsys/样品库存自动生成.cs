@@ -21,6 +21,7 @@ namespace QTsys
         private ProductionManager pm;
         private MaterialManager mt;
         private int index3;
+        private int 订单编号;
 
         public 样品库存自动生成()
         {
@@ -30,16 +31,29 @@ namespace QTsys
             pm = new ProductionManager();
             mt = new MaterialManager();
             index3 = 0;
+            
+        }
+
+        public 样品库存自动生成(int IDnum)
+        {
+            InitializeComponent();
+            odm = new OrderManager();
+            userMgr = new UserManager();
+            pm = new ProductionManager();
+            mt = new MaterialManager();
+            index3 = 0;
+            订单编号 = IDnum;
         }
 
         private void 样品库存自动生成_Load(object sender, EventArgs e)
         {
            // WinSendMsg.row = dataGridView2.Rows.Count;
            // WinSendMsg.Oid = id;
+            text订单编号.Text = 订单编号.ToString();
             dataGridView1.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
             dataGridView4.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
             dataGridView5.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
-            
+           /* 
             if (!WinSendMsg.IsSampleProduct)//是否订制样品
             {
                 this.tabPage1.Parent = null;
@@ -47,7 +61,7 @@ namespace QTsys
             if (!WinSendMsg.IsMeterialReduce)//是否从库存取产品
             {
                 this.tabPage2.Parent = null;
-            }
+            }*/
         }
 
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
@@ -59,8 +73,38 @@ namespace QTsys
         {
             //根据产品编号查询数据
             //dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString()
-            dataGridView2.DataSource= pm.GetAllProductsByName("产品编号", dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
-            dataGridView3.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+            try
+            { dataGridView2.DataSource = pm.GetAllProductsByName("产品编号", dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+                dataGridView3.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+                dataGridView2.Update();
+                dataGridView3.Update();
+                //
+                text产品编号.Text = dataGridView2.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                text产品名称.Text = dataGridView2.Rows[e.RowIndex].Cells["产品名称"].Value.ToString();
+                text规格.Text = dataGridView2.Rows[e.RowIndex].Cells["规格"].Value.ToString();
+                text材质.Text = dataGridView2.Rows[e.RowIndex].Cells["材质"].Value.ToString();
+                text变位.Text = dataGridView2.Rows[e.RowIndex].Cells["变位"].Value.ToString();
+                text实测变位.Text = dataGridView2.Rows[e.RowIndex].Cells["实测变位"].Value.ToString();
+                text温度.Text = dataGridView2.Rows[e.RowIndex].Cells["温度"].Value.ToString();
+                text生产耗时.Text = dataGridView2.Rows[e.RowIndex].Cells["生产耗时"].Value.ToString();
+                text压力.Text = dataGridView2.Rows[e.RowIndex].Cells["压力"].Value.ToString();
+                text树脂名称.Text = dataGridView2.Rows[e.RowIndex].Cells["树脂名称"].Value.ToString();
+                text树脂比重.Text = dataGridView2.Rows[e.RowIndex].Cells["树脂比重"].Value.ToString();
+                text含浸尺寸.Text = dataGridView2.Rows[e.RowIndex].Cells["含浸尺寸"].Value.ToString();
+                text外盘.Text = dataGridView2.Rows[e.RowIndex].Cells["外盘"].Value.ToString();
+                text内治具.Text = dataGridView2.Rows[e.RowIndex].Cells["内治具"].Value.ToString();
+                text重量.Text = dataGridView2.Rows[e.RowIndex].Cells["重量"].Value.ToString();
+                text成型模.Text = dataGridView2.Rows[e.RowIndex].Cells["成型模"].Value.ToString();
+                text切模号.Text = dataGridView2.Rows[e.RowIndex].Cells["切模号"].Value.ToString();
+                text单位.Text = dataGridView2.Rows[e.RowIndex].Cells["单位"].Value.ToString();
+                text单价.Text = dataGridView2.Rows[e.RowIndex].Cells["单价"].Value.ToString();
+                text库存数量.Text = dataGridView2.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
+                ////////
+               
+                
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -76,15 +120,18 @@ namespace QTsys
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)//产品原料关系
         {
             index3 = e.RowIndex;
-            text原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
-            l原料数量.Text = "生产产品【" + dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString() + "】1件须消耗原料【" + dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString() + "】";
+          //  text原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
+           // l原料数量.Text = "生产产品【" + dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString() + "】1件须消耗原料【" + dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString() + "】";
+            textBox产品.Text = dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+            textBox原料.Text = dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
+            textBox原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
             dataGridView7.DataSource = mt.GetAllMaterialByName("原料编号", dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
             dataGridView7.Update();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dataGridView3.Rows[index3].Cells["原料数量"].Value = text原料数量.Text;
+            dataGridView3.Rows[index3].Cells["原料数量"].Value = textBox原料数量.Text;
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

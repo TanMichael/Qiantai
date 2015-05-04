@@ -157,9 +157,9 @@
             this.check样品.CheckState = System.Windows.Forms.CheckState.Checked;
             this.check样品.Location = new System.Drawing.Point(441, 31);
             this.check样品.Name = "check样品";
-            this.check样品.Size = new System.Drawing.Size(96, 16);
+            this.check样品.Size = new System.Drawing.Size(108, 16);
             this.check样品.TabIndex = 10;
-            this.check样品.Text = "是否订制样品";
+            this.check样品.Text = "是否为样品订单";
             this.check样品.UseVisualStyleBackColor = true;
             // 
             // label6
@@ -186,7 +186,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(543, 169);
+            this.groupBox1.Size = new System.Drawing.Size(568, 169);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
