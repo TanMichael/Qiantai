@@ -184,7 +184,8 @@ namespace QTsys
             {
                 Order od = new Order();
                 OrderDetail odd = new OrderDetail();
-                string id = "0";
+                string id = Convert.ToString((Convert.ToInt16(odm.GetAutoNum().ToString()) + 1));
+                od.OrderId = id;
                 od.CreateTime = System.DateTime.Now;
                 od.DeliverTime = DateTime.Now;
                 od.LastUpdateTime = DateTime.Now;
@@ -199,7 +200,7 @@ namespace QTsys
                 if (this.odm.AddNewOrder(od))
                 {
                     right = true;
-                    id = odm.GetAutoNum().ToString();
+                    
                     for (int i = 0; i < dataGridView2.Rows.Count; i++)
                     {
                         odd.Count = Convert.ToInt16(dataGridView2.Rows[i].Cells["数量"].Value.ToString());
