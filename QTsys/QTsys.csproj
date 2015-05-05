@@ -131,6 +131,18 @@
     <Compile Include="产品管理.Designer.cs">
       <DependentUpon>产品管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="修改密码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="修改密码.Designer.cs">
+      <DependentUpon>修改密码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="关于.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="关于.Designer.cs">
+      <DependentUpon>关于.cs</DependentUpon>
+    </Compile>
     <Compile Include="原料入仓.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +184,12 @@
     </Compile>
     <Compile Include="客户管理.Designer.cs">
       <DependentUpon>客户管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="批量导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="批量导入.Designer.cs">
+      <DependentUpon>批量导入.cs</DependentUpon>
     </Compile>
     <Compile Include="新增订单.cs">
       <SubType>Form</SubType>
@@ -251,6 +269,9 @@
     <EmbeddedResource Include="产品管理.resx">
       <DependentUpon>产品管理.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="修改密码.resx">
+      <DependentUpon>修改密码.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="原料入仓.resx">
       <DependentUpon>原料入仓.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="客户管理.resx">
       <DependentUpon>客户管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="批量导入.resx">
+      <DependentUpon>批量导入.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="新增订单.resx">
       <DependentUpon>新增订单.cs</DependentUpon>
@@ -329,6 +353,35 @@
     <Content Include="data.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

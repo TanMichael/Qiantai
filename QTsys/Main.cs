@@ -123,5 +123,28 @@ namespace QTsys
             产品库管理 win = new 产品库管理();
             win.ShowDialog();
         }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            关于 win = new 关于();
+            win.ShowDialog();
+        }
+
+        private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            修改密码 win = new 修改密码(toolStripStatusLabel1.Text, toolStripStatusLabel3.Text);
+            win.ShowDialog();
+        }
+
+        private void 员工数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void 导入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            批量导入 win = new 批量导入();
+            win.ShowDialog();
+        }
     }
 }
