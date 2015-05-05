@@ -282,7 +282,30 @@ namespace QTsys
 
         private void button新产品_Click(object sender, EventArgs e)
         {
-            添加产品 form = new 添加产品();
+            Product pdt = new Product
+            {
+                Name = dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(),
+                Standard = dataGridView1.Rows[selectpro].Cells["规格"].Value.ToString(),
+                Texture = dataGridView1.Rows[selectpro].Cells["材质"].Value.ToString(),
+                Shift = dataGridView1.Rows[selectpro].Cells["变位"].Value.ToString(),
+                RealShift = dataGridView1.Rows[selectpro].Cells["实测变位"].Value.ToString(),
+                Temperate = dataGridView1.Rows[selectpro].Cells["温度"].Value.ToString(),
+                ElapsedTime = dataGridView1.Rows[selectpro].Cells["生产耗时"].Value.ToString(),
+                Presure = dataGridView1.Rows[selectpro].Cells["压力"].Value.ToString(),
+                ResinName = dataGridView1.Rows[selectpro].Cells["树脂名称"].Value.ToString(),
+                ResinProportion = dataGridView1.Rows[selectpro].Cells["树脂比重"].Value.ToString(),
+                Soak = dataGridView1.Rows[selectpro].Cells["含浸尺寸"].Value.ToString(),
+                Outsize = dataGridView1.Rows[selectpro].Cells["外盘"].Value.ToString(),
+                Jig = dataGridView1.Rows[selectpro].Cells["内治具"].Value.ToString(),
+                Weight = dataGridView1.Rows[selectpro].Cells["重量"].Value.ToString(),
+                Formingdie = dataGridView1.Rows[selectpro].Cells["成型模"].Value.ToString(),
+                ModingNum = dataGridView1.Rows[selectpro].Cells["切模号"].Value.ToString(),
+                Unit = dataGridView1.Rows[selectpro].Cells["单位"].Value.ToString(),
+                Price = double.Parse(dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString()),
+            };
+            
+            
+            添加产品 form = new 添加产品(pdt, this);
             form.ShowDialog();
         }
 

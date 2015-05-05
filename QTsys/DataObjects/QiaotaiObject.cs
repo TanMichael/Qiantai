@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QTsys.DataObjects
 {
-    class QiaotaiObject
+    public class QiaotaiObject
     {
         public string ToString()
         {

@@ -68,7 +68,7 @@ namespace QTsys.Manager
              return this.pdao.GetAllProductFlowByName(col, value);
          }
 
-        public bool AddNewProduct(Product pdt) { return pdao.AddNewProduct(pdt); }
+        public int AddNewProduct(Product pdt) { return pdao.AddNewProduct(pdt); }
         public bool DelProduct(String key) { return pdao.DelProduct(key); }
         public bool AltProduct(Product pdt) { return pdao.AltProduct(pdt); }
 

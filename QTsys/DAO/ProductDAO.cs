@@ -119,7 +119,7 @@ namespace QTsys.DAO
 
 
         //产品信息增删改
-        public bool AddNewProduct(Product pdt)
+        public int AddNewProduct(Product pdt)
         {
             try
             {
@@ -127,10 +127,11 @@ namespace QTsys.DAO
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
+                var id = cmd.LastInsertedId;
                 this.Connection.Close();
-                return true;
+                return (int)id;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { return 0; }
         }
         public bool DelProduct(String key)
         {

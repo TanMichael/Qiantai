@@ -281,6 +281,9 @@
     <EmbeddedResource Include="样品生产.resx">
       <DependentUpon>样品生产.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="添加产品.resx">
+      <DependentUpon>添加产品.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="生产管理.resx">
       <DependentUpon>生产管理.cs</DependentUpon>
     </EmbeddedResource>

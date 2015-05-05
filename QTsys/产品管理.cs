@@ -48,7 +48,7 @@ namespace QTsys
                 pdt.Unit = text单位.Text;
                 pdt.Price = Convert.ToDouble(text单价.Text);
                 pdt.StockCount = Convert.ToInt16(text库存数量.Text);
-                if (proman.AddNewProduct(pdt))
+                if (proman.AddNewProduct(pdt) > 0)
                 {
                     MessageBox.Show("增加新产品成功！");
                     dataGridView1.DataSource = this.proman.GetAllProducts();
