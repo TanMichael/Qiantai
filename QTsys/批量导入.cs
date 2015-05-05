@@ -190,7 +190,7 @@ namespace QTsys
                     pdt.Unit = ds.Tables[0].Rows[i][16].ToString();
                     pdt.Price = Convert.ToDouble(ds.Tables[0].Rows[i][17].ToString());
                     pdt.StockCount = Convert.ToInt16(ds.Tables[0].Rows[i][18].ToString());
-                    if (pdtMgr.AddNewProduct(pdt))
+                    if (pdtMgr.AddNewProduct(pdt)!=0)
                     {
                         richTextBox1.Text += "新产品[" + pdt.Name + "]生成成功！\r\n";
                     }
