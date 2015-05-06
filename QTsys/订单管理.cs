@@ -11,6 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
+using QTsys.Common.Constants;
 
 namespace QTsys
 {
@@ -49,6 +50,17 @@ namespace QTsys
                 com客户名.Items.AddRange(customers.ToArray());
                 com客户名.DisplayMember = "Name";
                 com客户名.ValueMember = "Id";
+
+                // order status
+                com订单状态.Items.AddRange(new string[]
+                {
+                    OrderStatus.PENDING,
+                    OrderStatus.PROCESSING,
+                    OrderStatus.PACKING,
+                    OrderStatus.SHIPPED,
+                    OrderStatus.SUCCEED,
+                    OrderStatus.CANCEL
+                });
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }

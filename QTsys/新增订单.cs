@@ -11,6 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
+using QTsys.Common.Constants;
 
 namespace QTsys
 {
@@ -202,7 +203,7 @@ namespace QTsys
                 od.CreateTime = System.DateTime.Now;
                 od.DeliverTime = DateTime.Now;
                 od.LastUpdateTime = DateTime.Now;
-                od.OrderStatus = "已订";
+                od.OrderStatus = OrderStatus.PENDING;
                 od.ExpressNO = "";
                 od.DepositMode = com结算方式.Text;
                 od.RecieverAddress = text收货地址.Text;
