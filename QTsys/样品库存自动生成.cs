@@ -21,7 +21,10 @@ namespace QTsys
         private ProductionManager pm;
         private MaterialManager mt;
         private int index3;
-        private int 订单编号;
+        private int OrderId;
+        private ProductPlanManager ppm;
+        private ProductionPlan plan;
+
 
         public 样品库存自动生成()
         {
@@ -30,27 +33,35 @@ namespace QTsys
             userMgr = new UserManager();
             pm = new ProductionManager();
             mt = new MaterialManager();
+            ppm = new ProductPlanManager();
             index3 = 0;
-            
         }
 
-        public 样品库存自动生成(int IDnum)
+        public 样品库存自动生成(string 是否样品, string 订单编号,string 客户编号)
+      //  public 样品库存自动生成(ProductionPlan plant)
         {
             InitializeComponent();
             odm = new OrderManager();
             userMgr = new UserManager();
             pm = new ProductionManager();
             mt = new MaterialManager();
+            ppm = new ProductPlanManager();
+            plan = new ProductionPlan();
+       //     plan = plant;
             index3 = 0;
-            订单编号 = IDnum;
+          //  OrderId =Convert.ToInt16( plant.RelatedOrderId);
+            OrderId = Convert.ToInt16(订单编号);
+            plan.PlanType = 是否样品;
+            plan.CustomerId = 客户编号;
+           plan.RelatedOrderId = 订单编号;
         }
 
         private void 样品库存自动生成_Load(object sender, EventArgs e)
         {
            // WinSendMsg.row = dataGridView2.Rows.Count;
            // WinSendMsg.Oid = id;
-            text订单编号.Text = 订单编号.ToString();
-            dataGridView1.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
+            text订单编号.Text = OrderId.ToString();
+            dataGridView1.DataSource = odm.GetAllOrderDetailsBySerial(text订单编号.Text);
            // dataGridView4.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
           //  dataGridView5.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
            /* 
@@ -74,7 +85,7 @@ namespace QTsys
             //根据产品编号查询数据
             //dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString()
             try
-            { dataGridView2.DataSource = pm.GetAllProductsByName("产品编号", dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+            { dataGridView2.DataSource = pm.GetAllProductsByNameEX("产品编号", dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
                 dataGridView3.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
                 dataGridView2.Update();
                 dataGridView3.Update();
@@ -100,10 +111,8 @@ namespace QTsys
                 text单价.Text = dataGridView2.Rows[e.RowIndex].Cells["单价"].Value.ToString();
                 text库存数量.Text = dataGridView2.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
                 ////////
-               
-                
             }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            catch (Exception ex) { };
 
         }
 
@@ -154,6 +163,29 @@ namespace QTsys
         private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)//制定生产计划
+        {
+            bool planok = true;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                plan.RelatedOrderId = text订单编号.Text;
+                plan.ProductId = dataGridView1.Rows[i].Cells["产品编号"].Value.ToString();
+               // plan.CustomerId = l编号.Text;
+                plan.OrderTime = DateTime.Now;
+                plan.Count =Convert.ToInt16(dataGridView1.Rows[i].Cells["数量"].Value);
+                plan.PlanningTime = date交付时间.Value;
+                plan.FinishTime = date完成时间.Value;
+                plan.InChargePerson = Utils.GetCurrentUsername();
+                if (!ppm.AddNewPlan(plan)) { MessageBox.Show("插入计划失败"); planok = false; break; };
+            }
+            if (planok = true) { MessageBox.Show("生产计划生成成功！"); this.Close(); }
         }
     }
 }

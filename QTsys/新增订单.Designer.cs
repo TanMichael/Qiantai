@@ -64,6 +64,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
+            this.l编号 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -173,6 +174,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.l编号);
             this.groupBox1.Controls.Add(this.com结算方式);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.com客户名);
@@ -431,6 +433,15 @@
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
             // 
+            // l编号
+            // 
+            this.l编号.AutoSize = true;
+            this.l编号.Location = new System.Drawing.Point(364, 29);
+            this.l编号.Name = "l编号";
+            this.l编号.Size = new System.Drawing.Size(11, 12);
+            this.l编号.TabIndex = 12;
+            this.l编号.Text = "0";
+            // 
             // 新增订单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -495,5 +506,6 @@
         private System.Windows.Forms.ComboBox com结算方式;
         private System.Windows.Forms.CheckBox checkBoxHistory;
         private System.Windows.Forms.Button button新产品;
+        private System.Windows.Forms.Label l编号;
     }
 }

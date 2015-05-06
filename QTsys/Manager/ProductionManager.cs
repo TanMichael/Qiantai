@@ -31,7 +31,10 @@ namespace QTsys.Manager
         {
             return this.pdao.GetAllProductsByName(col, value);
         }
-
+        public DataTable GetAllProductsByNameEX(string col, string value)
+        {
+            return this.pdao.GetAllProductsByNameEX(col, value);
+        }
 
         public DataTable GetMaterialProductRelationByProduct(String ID)
         {

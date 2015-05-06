@@ -86,6 +86,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.date交付时间 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.date完成时间 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -562,7 +568,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(705, 436);
+            this.label7.Location = new System.Drawing.Point(15, 480);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 103;
@@ -573,7 +579,7 @@
             this.dataGridView7.AllowUserToAddRows = false;
             this.dataGridView7.AllowUserToDeleteRows = false;
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(460, 451);
+            this.dataGridView7.Location = new System.Drawing.Point(14, 495);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.RowTemplate.Height = 23;
             this.dataGridView7.Size = new System.Drawing.Size(515, 75);
@@ -592,12 +598,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(158, 491);
+            this.button1.Location = new System.Drawing.Point(677, 536);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 23);
             this.button1.TabIndex = 100;
-            this.button1.Text = "加入样品制造计划";
+            this.button1.Text = "加入生产计划";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dataGridView2
             // 
@@ -640,12 +647,68 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(970, 163);
             this.dataGridView1.TabIndex = 96;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(714, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 115;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(649, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 114;
+            this.label4.Text = "订单类型：";
+            // 
+            // date交付时间
+            // 
+            this.date交付时间.Location = new System.Drawing.Point(632, 447);
+            this.date交付时间.Name = "date交付时间";
+            this.date交付时间.Size = new System.Drawing.Size(200, 21);
+            this.date交付时间.TabIndex = 116;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(561, 453);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 117;
+            this.label5.Text = "交付时间：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(537, 486);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 12);
+            this.label6.TabIndex = 119;
+            this.label6.Text = "实际完成时间：";
+            // 
+            // date完成时间
+            // 
+            this.date完成时间.Location = new System.Drawing.Point(632, 480);
+            this.date完成时间.Name = "date完成时间";
+            this.date完成时间.Size = new System.Drawing.Size(200, 21);
+            this.date完成时间.TabIndex = 118;
             // 
             // 样品库存自动生成
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 571);
+            this.ClientSize = new System.Drawing.Size(986, 571);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.date完成时间);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.date交付时间);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox原料数量);
@@ -738,6 +801,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker date交付时间;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker date完成时间;
 
     }
 }

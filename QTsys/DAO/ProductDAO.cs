@@ -34,7 +34,17 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
-
+        public DataTable GetAllProductsByNameEX(string col, string value)
+        {
+            string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " = '" + value + "';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
         public DataTable GetAllProductsByName(string col, string value)
         {
             string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " LIKE '%" + value + "%';";
