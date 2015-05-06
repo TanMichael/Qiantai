@@ -147,7 +147,7 @@ namespace QTsys
                 od.RecieverName = com收货联系人.Text;
                 od.RecieverPhone = text收货电话.Text;
                 od.Creator = com创建人.Text;
-                if (this.odm.AddNewOrder(od))
+                if (this.odm.AddNewOrder(od)>0)
                 {
                     MessageBox.Show("新订单建立成功！");
                     dataGridView1.DataSource = this.odm.GetAllOrders();

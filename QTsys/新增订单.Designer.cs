@@ -58,12 +58,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button新产品 = new System.Windows.Forms.Button();
             this.checkBoxHistory = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
-            this.button新产品 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -369,6 +369,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "选择产品";
             // 
+            // button新产品
+            // 
+            this.button新产品.Location = new System.Drawing.Point(271, 442);
+            this.button新产品.Name = "button新产品";
+            this.button新产品.Size = new System.Drawing.Size(115, 23);
+            this.button新产品.TabIndex = 16;
+            this.button新产品.Text = "从选中增加新产品";
+            this.button新产品.UseVisualStyleBackColor = true;
+            this.button新产品.Click += new System.EventHandler(this.button新产品_Click);
+            // 
             // checkBoxHistory
             // 
             this.checkBoxHistory.AutoSize = true;
@@ -412,6 +422,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(386, 358);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // textBox产品名称搜索
             // 
@@ -419,16 +430,6 @@
             this.textBox产品名称搜索.Name = "textBox产品名称搜索";
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
-            // 
-            // button新产品
-            // 
-            this.button新产品.Location = new System.Drawing.Point(271, 442);
-            this.button新产品.Name = "button新产品";
-            this.button新产品.Size = new System.Drawing.Size(115, 23);
-            this.button新产品.TabIndex = 16;
-            this.button新产品.Text = "从选中增加新产品";
-            this.button新产品.UseVisualStyleBackColor = true;
-            this.button新产品.Click += new System.EventHandler(this.button新产品_Click);
             // 
             // 新增订单
             // 

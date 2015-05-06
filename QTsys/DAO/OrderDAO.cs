@@ -98,7 +98,7 @@ namespace QTsys.DAO
             return dt;
         }
 
-        public bool AddNewOrder(Order order)
+        public int AddNewOrder(Order order)
         {
             try
             {
@@ -106,10 +106,11 @@ namespace QTsys.DAO
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
+                var id = cmd.LastInsertedId;
                 this.Connection.Close();
-                return true;
+                return (int)id;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { return 0; }
         }
         public bool DelOrder(String key)
         {
@@ -131,7 +132,7 @@ namespace QTsys.DAO
                 string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime + "',最后更新时间='" + order.LastUpdateTime + "',订单状态='" + order.OrderStatus + "',快递单号='" + order.ExpressNO + "',订金方式='" + order.DepositMode + "',收货地址='" + order.RecieverAddress + "',收货联系人='" + order.RecieverName + "',收货电话='" + order.RecieverPhone + "',创建人='" + order.Creator + "' WHERE 订单编号='" + order.OrderId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery(); 
                 this.Connection.Close();
                 return true;
             }
@@ -142,10 +143,11 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.订单明细(订单编号,产品编号,数量,单价,折扣,成交价,是否库存) VALUES ('" + order.OrderId+ "','" + order.ProductId + "','" + order.Count + "','" + order.Price + "','" + order.Discount + "','" + order.RealPrice + "')";
+                string sql = "INSERT INTO qiaotai.订单明细(订单编号,产品编号,数量,单价,折扣,成交价) VALUES ('" + order.OrderId+ "','" + order.ProductId + "','" + order.Count + "','" + order.Price + "','" + order.Discount + "','" + order.RealPrice + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
+                //var id = cmd.LastInsertedId;
                 this.Connection.Close();
                 return true;
             }

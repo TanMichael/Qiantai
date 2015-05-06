@@ -33,7 +33,7 @@ namespace QTsys.Manager
 
         public DataTable GetAllOrdersByTime(DateTime date1, DateTime date2) { return this.odao.GetAllOrdersByTime(date1, date2); }
 
-        public bool AddNewOrder(Order order) { return this.odao.AddNewOrder(order); }
+        public int AddNewOrder(Order order) { return this.odao.AddNewOrder(order); }
 
         public bool DelOrder(String key) { return this.odao.DelOrder(key); }
 
