@@ -58,21 +58,9 @@ namespace QTsys
 
         private void 样品库存自动生成_Load(object sender, EventArgs e)
         {
-           // WinSendMsg.row = dataGridView2.Rows.Count;
-           // WinSendMsg.Oid = id;
             text订单编号.Text = OrderId.ToString();
             dataGridView1.DataSource = odm.GetAllOrderDetailsBySerial(text订单编号.Text);
-           // dataGridView4.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
-          //  dataGridView5.DataSource = odm.GetAllOrderDetailsBySerial(WinSendMsg.Oid);
-           /* 
-            if (!WinSendMsg.IsSampleProduct)//是否订制样品
-            {
-                this.tabPage1.Parent = null;
-            }
-            if (!WinSendMsg.IsMeterialReduce)//是否从库存取产品
-            {
-                this.tabPage2.Parent = null;
-            }*/
+
         }
 
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
