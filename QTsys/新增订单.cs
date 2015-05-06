@@ -23,6 +23,7 @@ namespace QTsys
         private int selectpro;
         private List<Customer> customers;
         private List<CustomerMember> cm;
+        private ProductPlanManager ppm;
 
         public 新增订单()
         {
@@ -30,6 +31,7 @@ namespace QTsys
             odm = new OrderManager();
             userMgr = new UserManager();
             pm = new ProductionManager();
+            ppm = new ProductPlanManager();
             selectorder = 0;
             selectpro = 0;
         }
@@ -39,7 +41,7 @@ namespace QTsys
             try
             {
                 dataGridView2.Rows[selectorder].Cells["折扣"].Value = text折扣.Text;
-                dataGridView2.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["单价"].Value) * Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["折扣"].Value);
+                dataGridView2.Rows[selectorder].Cells["成交价"].Value =  Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["折扣"].Value.ToString() )* Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["单价"].Value.ToString());
                 CalMoney();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -76,8 +78,19 @@ namespace QTsys
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "1", "0" };
-            dataGridView2.Rows.Add(rowadd);
+            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "1", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString() };
+            bool ins=true;
+            for(int i=0;i<dataGridView2.Rows.Count;i++)
+            {
+                if (dataGridView2.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
+                {
+                    MessageBox.Show("["+dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString()+"]已经被添加，请选择新产品！");
+                    ins=false;
+                    break;
+                }
+            }
+            if(ins==true){
+            dataGridView2.Rows.Add(rowadd);}
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -90,7 +103,7 @@ namespace QTsys
             try
             {
                 dataGridView2.Rows[selectorder].Cells["数量"].Value = numericUpDown1.Value;
-                dataGridView2.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["单价"].Value) * Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["折扣"].Value);
+                dataGridView2.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["单价"].Value) * Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["折扣"].Value); 
                 CalMoney();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -157,6 +170,7 @@ namespace QTsys
                 DataTable dt = new DataTable();
                 // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
                 dt = userMgr.SearchCustomerByCol("客户编号", customers[com客户名.SelectedIndex].Id);
+               l编号.Text= dt.Rows[0]["客户编号"].ToString();
                 com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
                 text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
                 text收货地址.Text = dt.Rows[0]["地址"].ToString();
@@ -184,7 +198,7 @@ namespace QTsys
             {
                 Order od = new Order();
                 OrderDetail odd = new OrderDetail();
-                string id = "0";
+                int id = 0;
                 od.CreateTime = System.DateTime.Now;
                 od.DeliverTime = DateTime.Now;
                 od.LastUpdateTime = DateTime.Now;
@@ -196,30 +210,25 @@ namespace QTsys
                 od.RecieverPhone = text联系电话.Text;
                 od.Creator = "";
                 //插入order
-                if (this.odm.AddNewOrder(od))
+                id = this.odm.AddNewOrder(od);
+                if (id > 0)
                 {
+                 //   MessageBox.Show("订单建立成功！等订单明细生成...............");//test
                     right = true;
-                    id = odm.GetAutoNum().ToString();
-                    for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                    // id = odm.GetAutoNum().ToString();
+                    int j=dataGridView2.Rows.Count;
+                   // MessageBox.Show(j.ToString());
+                    for (int i = 0; i < j; i++)
                     {
+                        odd.OrderId = id.ToString();
+                        odd.ProductId = dataGridView2.Rows[i].Cells["产品编号"].Value.ToString();
                         odd.Count = Convert.ToInt16(dataGridView2.Rows[i].Cells["数量"].Value.ToString());
                         odd.Price = Convert.ToDouble(dataGridView2.Rows[i].Cells["单价"].Value.ToString());
                         odd.Discount = Convert.ToDouble(dataGridView2.Rows[i].Cells["折扣"].Value.ToString());
                         odd.RealPrice = Convert.ToDouble(dataGridView2.Rows[i].Cells["成交价"].Value.ToString());
-                        odd.OrderId = id;
-                        odd.ProductId = dataGridView2.Rows[i].Cells["产品编号"].Value.ToString();
-                        //if (check库存.Checked == true)
-                        //    odd.IsStorage = "是";
-                        //else
-                        //    odd.IsStorage = "否";
-                        //插入订单编号
-                        if (this.odm.AddNewOrderDetail(odd))
+                        if (!this.odm.AddNewOrderDetail(odd))
                         {
-                            right = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("订单建立异常！订单建立失败！");
+                            MessageBox.Show("订单建立失败!!!");
                             right = false;
                             break;
                         }
@@ -227,40 +236,33 @@ namespace QTsys
                     //订单生产成功后，对订单后续操作
                     if (right == true)
                     {
-                        MessageBox.Show("订单建立成功！");
-                        /* if (check样品.Checked == true)//生产样品
-                         {
-                             if (MessageBox.Show("是否自动生成样品制造清单?", "样品制造", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                             {
-                                 MessageBox.Show("样品制造ing");
-                             }
-                         }
-                         if (check库存.Checked == true)//优先使用库存
-                         {
-                             if (MessageBox.Show("是否减少库存?", "库存清理", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                             {
-                                 MessageBox.Show("减少库存ing");
-                             }
-                             else
-                             {
-                                 if (MessageBox.Show("是否自动生产计划?", "生产计划", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                                 {
-                                     MessageBox.Show("生产计划");
-                                 }
-                             }
-                         }*/
+                        MessageBox.Show("订单建立成功！正在生成生产计划表……");//test
                         WinSendMsg.IsSampleProduct = check样品.Checked;
                         //WinSendMsg.IsMeterialReduce = check库存.Checked;
                         WinSendMsg.row = dataGridView2.Rows.Count;
-                        WinSendMsg.Oid = id;
-                        样品库存自动生成 win = new 样品库存自动生成(Convert.ToInt16(id));
+                        WinSendMsg.Oid = id.ToString();
+                        ProductionPlan plan=new ProductionPlan();
+                        plan.RelatedOrderId = id.ToString();
+                        plan.ProductId = "";
+                        plan.CustomerId = l编号.Text;
+                        plan.OrderTime = DateTime.Now;
+                        plan.Count = 0;
+                        plan.PlanningTime = DateTime.Now;
+                        plan.FinishTime = DateTime.Now;
+                        if (check样品.Checked == true)
+                            plan.PlanType = "样品";
+                        else
+                            plan.PlanType = "正品";
+                        plan.InChargePerson = Utils.GetCurrentUsername();
+                        样品库存自动生成 win = new 样品库存自动生成(plan.PlanType,plan.RelatedOrderId, plan.CustomerId);
                         win.ShowDialog();
                     }
-                    else
-                        MessageBox.Show("订单建立失败！");
                 }
+                else
+                    MessageBox.Show("订单建立失败！");
+
             }
-            catch (Exception ex) { MessageBox.Show("订单 建立 失败！"); }
+            catch (Exception ex) { MessageBox.Show("订单建立失败！原因是：" + ex.ToString()); }
         }
 
         private void checkBoxHistory_CheckedChanged(object sender, EventArgs e)
@@ -303,10 +305,25 @@ namespace QTsys
                 Unit = dataGridView1.Rows[selectpro].Cells["单位"].Value.ToString(),
                 Price = double.Parse(dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString()),
             };
-            
-            
             添加产品 form = new 添加产品(pdt, this);
             form.ShowDialog();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "1", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString() };
+            bool ins=true;
+            for(int i=0;i<dataGridView2.Rows.Count;i++)
+            {
+                if (dataGridView2.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
+                {
+                    MessageBox.Show("["+dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString()+"]已经被添加，请选择新产品！");
+                    ins=false;
+                    break;
+                }
+            }
+            if(ins==true){
+            dataGridView2.Rows.Add(rowadd);}
         }
 
     }
