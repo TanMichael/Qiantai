@@ -143,6 +143,7 @@
             // 
             // text操作员
             // 
+            this.text操作员.Enabled = false;
             this.text操作员.Location = new System.Drawing.Point(71, 246);
             this.text操作员.Name = "text操作员";
             this.text操作员.Size = new System.Drawing.Size(119, 21);

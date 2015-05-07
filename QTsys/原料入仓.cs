@@ -32,6 +32,7 @@ namespace QTsys
                 dataGridView1.Update();
                 dataGridView2.DataSource = this.material.GetAllMaterialFlow();
                 dataGridView2.Update();
+                text操作员.Text = Utils.GetCurrentUsername();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }

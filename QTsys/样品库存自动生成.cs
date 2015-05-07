@@ -169,7 +169,7 @@ namespace QTsys
                 plan.OrderTime = DateTime.Now;
                 plan.Count =Convert.ToInt16(dataGridView1.Rows[i].Cells["数量"].Value);
                 plan.PlanningTime = date交付时间.Value;
-                plan.FinishTime = date完成时间.Value;
+                plan.FinishTime = DateTime.Parse("2000-01-01");
                 plan.InChargePerson = Utils.GetCurrentUsername();
                 if (!ppm.AddNewPlan(plan)) { MessageBox.Show("插入计划失败"); planok = false; break; };
             }

@@ -33,6 +33,8 @@ namespace QTsys.Manager
             return this.pdao.GetAllProductPlanByName(col, value);
         }
 
+        public DataTable GetAllProductPlanByTime(string value)
+        { return this.pdao.GetAllProductPlanByTime(value); }
         public DataTable GetAllProductPlanByTime(DateTime date1, DateTime date2)
         {
             return this.pdao.GetAllProductPlanByTime(date1, date2);

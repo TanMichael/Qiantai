@@ -32,7 +32,9 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            原料出仓 win = new 原料出仓();
+            /*原料出仓 win = new 原料出仓();
+            win.ShowDialog();*/
+            领料生产 win = new 领料生产();
             win.ShowDialog();
         }
 

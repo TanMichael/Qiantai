@@ -35,6 +35,19 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public DataTable GetAllProductPlanByTime(string value)
+        {
+            string sql = "SELECT * FROM qiaotai.生产计划 WHERE 实际完成时间 = '2000-01-01';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
+
         public DataTable GetAllProductPlanByTime(DateTime date1, DateTime date2)
         {
             string sql = "SELECT * FROM qiaotai.生产计划 WHERE 下单日期>'" + date1.ToString() + "' AND 下单日期<'" + date2.ToString() + "';";

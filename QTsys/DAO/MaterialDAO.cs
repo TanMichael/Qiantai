@@ -50,7 +50,7 @@ namespace QTsys.DAO
             catch (Exception ex) { return false; }
         }
 
-        public bool AddNewMaterialEx(Material material)
+        public bool AddNewMaterialEx(Material material)//增加进仓原料
         {
             //增加仓库原料，先判断是否存在此种原料，如存在看单位是否一致，名称是否一致，一致则增加库存，否则报错。如没有这种原料则新增一行
             try
