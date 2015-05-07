@@ -113,7 +113,8 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //确定领料生产
+            //在仓库原料里减少相关数量料
         }
     }
 }

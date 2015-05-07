@@ -131,6 +131,7 @@ create table 生产计划
    交付时间                 DATETIME,
    实际完成时间             DATETIME,
    计划类型                 nvarchar(128),
+   生产状态                 nvarchar(128),
    相关订单编号             int,
    负责人                   nvarchar(128)
 );

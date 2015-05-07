@@ -94,6 +94,7 @@ namespace QTsys
 
         private void button5_Click(object sender, EventArgs e)
         {
+            //产品出库操作
             送货单 win = new 送货单();
             win.ShowDialog();
         }

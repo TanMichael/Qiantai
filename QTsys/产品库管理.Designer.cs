@@ -211,7 +211,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(715, 17);
+            this.button3.Location = new System.Drawing.Point(533, 17);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 32;
@@ -227,11 +227,12 @@
             this.button2.TabIndex = 31;
             this.button2.Text = "产品入库";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(620, 46);
+            this.button1.Location = new System.Drawing.Point(620, 50);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 30;
@@ -348,11 +349,11 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(807, 46);
+            this.button5.Location = new System.Drawing.Point(757, 50);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(167, 23);
             this.button5.TabIndex = 91;
-            this.button5.Text = "打印送货单";
+            this.button5.Text = "产品出库并生成送货单";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 

@@ -16,6 +16,7 @@ namespace QTsys.DataObjects
         public DateTime PlanningTime { get; set; }
         public DateTime FinishTime { get; set; }
         public string PlanType { get; set; }
+        public string PlanState { get; set; }
         public string RelatedOrderId { get; set; }
         public string InChargePerson { get; set; }
     }

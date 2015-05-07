@@ -36,6 +36,8 @@ namespace QTsys
             win.ShowDialog();*/
             领料生产 win = new 领料生产();
             win.ShowDialog();
+            dataGridView1.DataSource = this.material.GetAllMaterials();
+            dataGridView1.Update();
         }
 
         private void button3_Click(object sender, EventArgs e)

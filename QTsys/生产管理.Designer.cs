@@ -61,6 +61,11 @@
             this.label搜索栏目 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.com生产状态 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label_num = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +75,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 163);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(863, 429);
+            this.dataGridView1.Size = new System.Drawing.Size(1019, 387);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -148,6 +153,7 @@
             this.text产品数量.Name = "text产品数量";
             this.text产品数量.Size = new System.Drawing.Size(121, 21);
             this.text产品数量.TabIndex = 34;
+            this.text产品数量.TextChanged += new System.EventHandler(this.text产品数量_TextChanged);
             // 
             // label5
             // 
@@ -209,7 +215,7 @@
             // 
             // text相关订单编号
             // 
-            this.text相关订单编号.Location = new System.Drawing.Point(333, 97);
+            this.text相关订单编号.Location = new System.Drawing.Point(333, 118);
             this.text相关订单编号.Name = "text相关订单编号";
             this.text相关订单编号.Size = new System.Drawing.Size(121, 21);
             this.text相关订单编号.TabIndex = 42;
@@ -217,7 +223,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(238, 100);
+            this.label9.Location = new System.Drawing.Point(238, 121);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 12);
             this.label9.TabIndex = 41;
@@ -226,7 +232,7 @@
             // com负责人
             // 
             this.com负责人.FormattingEnabled = true;
-            this.com负责人.Location = new System.Drawing.Point(333, 121);
+            this.com负责人.Location = new System.Drawing.Point(516, 119);
             this.com负责人.Name = "com负责人";
             this.com负责人.Size = new System.Drawing.Size(121, 20);
             this.com负责人.TabIndex = 44;
@@ -234,7 +240,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 124);
+            this.label10.Location = new System.Drawing.Point(457, 122);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 43;
@@ -242,7 +248,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(482, 9);
+            this.button1.Location = new System.Drawing.Point(484, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 45;
@@ -252,7 +258,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(482, 46);
+            this.button2.Location = new System.Drawing.Point(484, 86);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 46;
@@ -262,7 +268,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(482, 84);
+            this.button3.Location = new System.Drawing.Point(484, 47);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 47;
@@ -272,14 +278,14 @@
             // 
             // text搜索内容
             // 
-            this.text搜索内容.Location = new System.Drawing.Point(610, 120);
+            this.text搜索内容.Location = new System.Drawing.Point(766, 122);
             this.text搜索内容.Name = "text搜索内容";
             this.text搜索内容.Size = new System.Drawing.Size(159, 21);
             this.text搜索内容.TabIndex = 48;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(775, 119);
+            this.button4.Location = new System.Drawing.Point(931, 121);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 49;
@@ -289,7 +295,7 @@
             // 
             // date_down
             // 
-            this.date_down.Location = new System.Drawing.Point(702, 39);
+            this.date_down.Location = new System.Drawing.Point(858, 41);
             this.date_down.Name = "date_down";
             this.date_down.Size = new System.Drawing.Size(121, 21);
             this.date_down.TabIndex = 53;
@@ -298,7 +304,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(607, 45);
+            this.label11.Location = new System.Drawing.Point(763, 47);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 12);
             this.label11.TabIndex = 52;
@@ -306,7 +312,7 @@
             // 
             // date_up
             // 
-            this.date_up.Location = new System.Drawing.Point(702, 12);
+            this.date_up.Location = new System.Drawing.Point(858, 14);
             this.date_up.Name = "date_up";
             this.date_up.Size = new System.Drawing.Size(121, 21);
             this.date_up.TabIndex = 51;
@@ -315,7 +321,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(607, 18);
+            this.label12.Location = new System.Drawing.Point(763, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 12);
             this.label12.TabIndex = 50;
@@ -326,7 +332,7 @@
             this.label搜索栏目.AutoSize = true;
             this.label搜索栏目.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label搜索栏目.ForeColor = System.Drawing.Color.Red;
-            this.label搜索栏目.Location = new System.Drawing.Point(526, 123);
+            this.label搜索栏目.Location = new System.Drawing.Point(683, 126);
             this.label搜索栏目.Name = "label搜索栏目";
             this.label搜索栏目.Size = new System.Drawing.Size(31, 12);
             this.label搜索栏目.TabIndex = 55;
@@ -335,7 +341,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(491, 123);
+            this.label13.Location = new System.Drawing.Point(648, 126);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 54;
@@ -343,7 +349,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(649, 71);
+            this.button5.Location = new System.Drawing.Point(805, 73);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(137, 23);
             this.button5.TabIndex = 56;
@@ -351,11 +357,59 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // com生产状态
+            // 
+            this.com生产状态.FormattingEnabled = true;
+            this.com生产状态.Location = new System.Drawing.Point(333, 94);
+            this.com生产状态.Name = "com生产状态";
+            this.com生产状态.Size = new System.Drawing.Size(121, 20);
+            this.com生产状态.TabIndex = 58;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(262, 97);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "生产状态：";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(444, 569);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(115, 23);
+            this.button6.TabIndex = 59;
+            this.button6.Text = "确认生产成功";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(299, 569);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 21);
+            this.textBox1.TabIndex = 60;
+            // 
+            // label_num
+            // 
+            this.label_num.AutoSize = true;
+            this.label_num.Location = new System.Drawing.Point(153, 572);
+            this.label_num.Name = "label_num";
+            this.label_num.Size = new System.Drawing.Size(77, 12);
+            this.label_num.TabIndex = 61;
+            this.label_num.Text = "实际生产数量";
+            // 
             // 生产管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 604);
+            this.ClientSize = new System.Drawing.Size(1043, 604);
+            this.Controls.Add(this.label_num);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.com生产状态);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label搜索栏目);
             this.Controls.Add(this.label13);
@@ -433,5 +487,10 @@
         private System.Windows.Forms.Label label搜索栏目;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox com生产状态;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label_num;
     }
 }

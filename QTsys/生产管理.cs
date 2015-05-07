@@ -64,6 +64,7 @@ namespace QTsys
                 date交付时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["交付时间"].Value.ToString());
                 date实际完成时间.Value =Convert.ToDateTime( dataGridView1.Rows[e.RowIndex].Cells["实际完成时间"].Value.ToString());
                 com计划类型.Text = dataGridView1.Rows[e.RowIndex].Cells["计划类型"].Value.ToString();
+                com生产状态.Text = dataGridView1.Rows[e.RowIndex].Cells["生产状态"].Value.ToString();
                 text相关订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString();
                 com负责人.Text = dataGridView1.Rows[e.RowIndex].Cells["负责人"].Value.ToString();
             }
@@ -112,6 +113,7 @@ namespace QTsys
                 pp.PlanningTime = date交付时间.Value;
                 pp.FinishTime = date实际完成时间.Value;
                 pp.PlanType = com计划类型.Text;
+                pp.PlanState = com生产状态.Text;
                 pp.RelatedOrderId = text相关订单编号.Text;
                 pp.InChargePerson = com负责人.Text;
                 if (ppm.AltPlan(pp))
@@ -139,6 +141,7 @@ namespace QTsys
                 pp.PlanningTime = date交付时间.Value;
                 pp.FinishTime = date实际完成时间.Value;
                 pp.PlanType = com计划类型.Text;
+                pp.PlanState = com生产状态.Text;
                 pp.RelatedOrderId = text相关订单编号.Text;
                 pp.InChargePerson = com负责人.Text;
                 if (ppm.AddNewPlan(pp))
@@ -166,6 +169,7 @@ namespace QTsys
                 pp.PlanningTime = date交付时间.Value;
                 pp.FinishTime = date实际完成时间.Value;
                 pp.PlanType = com计划类型.Text;
+                pp.PlanState = com生产状态.Text;
                 pp.RelatedOrderId = text相关订单编号.Text;
                 pp.InChargePerson = com负责人.Text;
                 if (ppm.DelPlan(pp.Id.ToString()))
@@ -183,6 +187,18 @@ namespace QTsys
         private void button5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void text产品数量_TextChanged(object sender, EventArgs e)
+        {
+            label_num.Text = "计划生产数为" + text产品数量.Text + "，实际生产：";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //确认生产
+            //如失败，计划-实际，生成新的订单列表（以补充形式出现订单）
+            //同时合格产品入产品仓库
         }
     }
 }
