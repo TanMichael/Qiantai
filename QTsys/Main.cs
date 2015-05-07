@@ -132,7 +132,7 @@ namespace QTsys
 
         private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            修改密码 win = new 修改密码(toolStripStatusLabel1.Text, toolStripStatusLabel3.Text);
+            修改密码 win = new 修改密码(toolStripStatusLabel3.Text, toolStripStatusLabel1.Text);
             win.ShowDialog();
         }
 

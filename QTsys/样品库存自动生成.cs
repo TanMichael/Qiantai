@@ -174,7 +174,7 @@ namespace QTsys
                 plan.InChargePerson = Utils.GetCurrentUsername();
                 if (!ppm.AddNewPlan(plan)) { MessageBox.Show("插入计划失败"); planok = false; break; };
             }
-            if (planok = true) { MessageBox.Show("生产计划生成成功！"); this.Close(); }
+            if (planok == true) { MessageBox.Show("生产计划生成成功！"); this.Close(); }
         }
     }
 }

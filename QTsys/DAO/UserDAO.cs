@@ -164,5 +164,22 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return false; }
         }
+
+        public bool AltUserPwd(string IDname, string Pwd)
+        {
+            User a = new User();
+            a.UserName = IDname;
+            a.Password = Pwd;
+            try
+            {
+                string sql = "UPDATE qiaotai.员工信息 SET 密码='" + a.Password + "' WHERE 账户名='" + a.UserName + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
     }
 }

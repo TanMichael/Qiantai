@@ -10,7 +10,7 @@ namespace QTsys.Common
     static class Utils
     {
         private const string CONN_CONFIG_PATH = @"..\..\mysql_set.xml";
-        private static LogonToken _logonToken = new LogonToken { Status = false, UserName = "", Role = "" };
+        private static LogonToken _logonToken = new LogonToken { Status = false, UserName = "", Role = "" ,PWD=""};
 
         public static string GetMD5String(string source)
         {
@@ -68,12 +68,12 @@ namespace QTsys.Common
             return _logonToken;
         }
 
-        public static void SetLogonToken(string userName, string role, bool status = true)
+        public static void SetLogonToken(string userName, string role, string pwds,bool status = true)
         {
             _logonToken.UserName = userName;
             _logonToken.Role = role;
             _logonToken.Status = status;
-
+            _logonToken.PWD = pwds;
             _logonToken.LogonTime = _logonToken.LastOperationTime = DateTime.Now;
         }
 
@@ -94,5 +94,19 @@ namespace QTsys.Common
                 return "";
             }
         }
+
+        public static string GetCurrentPWD()
+        {
+            if (_logonToken.Status != false)
+            {
+                return _logonToken.PWD;
+            }
+            else
+            {
+                // TODO log out
+                return "";
+            }
+        }
+
     }
 }

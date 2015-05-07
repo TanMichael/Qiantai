@@ -72,6 +72,11 @@ namespace QTsys.Manager
             return this.userDao.AltUser(user);
         }
 
+        public bool AltUserPwd(string IDname, string Pwd)
+        {
+            return this.userDao.AltUserPwd(IDname,Pwd);
+        }
+
         public bool ValidateUserName(string name)
         {
             return !this.userDao.GetAllUserNames().Contains(name);
