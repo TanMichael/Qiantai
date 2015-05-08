@@ -13,6 +13,7 @@ using QTsys.DataObjects;
 using System.Diagnostics;
 using System.Data.OleDb;
 using System.IO;
+using QTsys.Common.Constants;
 
 namespace QTsys
 {
@@ -28,7 +29,7 @@ namespace QTsys
 
         }
 
-        private void checkLoginStatus()
+        private void CheckLoginStatus()
         {
             //弹出登录对话框
             Login win = new Login();
@@ -41,11 +42,71 @@ namespace QTsys
             {
                 this.Close();
             }
+            else
+            {
+                Rights right = Utils.MapRightsToRole(token.Role);
+                SetButtonStatus(right);
+            }
+        }
+
+        private void SetButtonStatus(Rights right)
+        {
+            if ((right & Rights.SYS_ADMIN) == Rights.SYS_ADMIN)
+            {
+                button员工管理.Visible = true;
+                button客户管理.Visible = true;
+                button预警统计.Visible = true;
+            }
+            else
+            {
+                button员工管理.Visible = false;
+                button客户管理.Visible = false;
+                button预警统计.Visible = false;
+            }
+
+            if ((right & Rights.SALES) == Rights.SALES)
+            {
+                button订单管理.Visible = true;
+                button新增订单.Visible = true;
+                button销售管理.Visible = true;
+            }
+            else
+            {
+                button订单管理.Visible = false;
+                button新增订单.Visible = false;
+                button销售管理.Visible = false;
+            }
+
+            if ((right & Rights.PRODUCTION) == Rights.PRODUCTION)
+            {
+                button产品管理.Visible = true;
+                button产品.Visible = true;
+                button生产管理.Visible = true;
+            }
+            else
+            {
+                button产品管理.Visible = false;
+                button产品.Visible = false;
+                button生产管理.Visible = false;
+            }
+
+            if ((right & Rights.STORAGE) == Rights.STORAGE)
+            {
+                button原料.Visible = true;
+                //button产品.Visible = true;
+                //button生产管理.Visible = true;
+            }
+            else
+            {
+                button原料.Visible = false;
+                //button产品.Visible = false;
+                //button生产管理.Visible = false;
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            checkLoginStatus();
+            CheckLoginStatus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -155,7 +216,7 @@ namespace QTsys
         private void 注销ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Utils.ClearLogonToken();
-            checkLoginStatus();
+            CheckLoginStatus();
         }
     }
 }

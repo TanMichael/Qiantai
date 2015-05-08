@@ -1,4 +1,5 @@
-﻿using QTsys.DataObjects;
+﻿using QTsys.Common.Constants;
+using QTsys.DataObjects;
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -106,6 +107,34 @@ namespace QTsys.Common
                 // TODO log out
                 return "";
             }
+        }
+
+        public static Rights MapRightsToRole(string role)
+        {
+            Rights rights = 0;
+            switch (role)
+            { 
+                case UserRoles.SYS_ADMIN:
+                    rights = Rights.SYS_ADMIN;
+                    break;
+                case UserRoles.SALES:
+                    rights = Rights.SALES;
+                    break;
+                case UserRoles.ENGINEER:
+                    rights = Rights.PRODUCTION;
+                    break;
+                case UserRoles.STORAGE:
+                    rights = Rights.STORAGE;
+                    break;
+                case UserRoles.ADMIN:
+                    rights = Rights.SYS_ADMIN | Rights.SALES | Rights.STORAGE | Rights.PRODUCTION;
+                    break;
+                case UserRoles.WORKER:
+                default:
+                    break;
+            }
+
+            return rights;
         }
 
     }

@@ -35,18 +35,18 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button产品 = new System.Windows.Forms.Button();
+            this.button原料 = new System.Windows.Forms.Button();
+            this.button产品管理 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.button新增订单 = new System.Windows.Forms.Button();
+            this.button生产管理 = new System.Windows.Forms.Button();
+            this.button订单管理 = new System.Windows.Forms.Button();
+            this.button销售管理 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button预警统计 = new System.Windows.Forms.Button();
+            this.button员工管理 = new System.Windows.Forms.Button();
+            this.button客户管理 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.批处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,8 +106,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.button4);
+            this.groupBox5.Controls.Add(this.button产品);
+            this.groupBox5.Controls.Add(this.button原料);
             this.groupBox5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox5.Location = new System.Drawing.Point(12, 39);
             this.groupBox5.Name = "groupBox5";
@@ -116,55 +116,55 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "仓库管理";
             // 
-            // button3
+            // button产品
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("黑体", 16F);
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(165, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 150);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "产品";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.button产品.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button产品.Font = new System.Drawing.Font("黑体", 16F);
+            this.button产品.Image = ((System.Drawing.Image)(resources.GetObject("button产品.Image")));
+            this.button产品.Location = new System.Drawing.Point(165, 25);
+            this.button产品.Name = "button产品";
+            this.button产品.Size = new System.Drawing.Size(146, 150);
+            this.button产品.TabIndex = 8;
+            this.button产品.Text = "产品";
+            this.button产品.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button产品.UseVisualStyleBackColor = true;
+            this.button产品.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // button4
+            // button原料
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Font = new System.Drawing.Font("黑体", 16F);
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(6, 25);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 150);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "原料";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button原料.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button原料.Font = new System.Drawing.Font("黑体", 16F);
+            this.button原料.Image = ((System.Drawing.Image)(resources.GetObject("button原料.Image")));
+            this.button原料.Location = new System.Drawing.Point(6, 25);
+            this.button原料.Name = "button原料";
+            this.button原料.Size = new System.Drawing.Size(146, 150);
+            this.button原料.TabIndex = 7;
+            this.button原料.Text = "原料";
+            this.button原料.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button原料.UseVisualStyleBackColor = true;
+            this.button原料.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // button产品管理
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Font = new System.Drawing.Font("黑体", 16F);
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(15, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 150);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "产品管理";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button产品管理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button产品管理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button产品管理.Image = ((System.Drawing.Image)(resources.GetObject("button产品管理.Image")));
+            this.button产品管理.Location = new System.Drawing.Point(15, 25);
+            this.button产品管理.Name = "button产品管理";
+            this.button产品管理.Size = new System.Drawing.Size(146, 150);
+            this.button产品管理.TabIndex = 8;
+            this.button产品管理.Text = "产品管理";
+            this.button产品管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button产品管理.UseVisualStyleBackColor = true;
+            this.button产品管理.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.button产品管理);
+            this.groupBox3.Controls.Add(this.button新增订单);
+            this.groupBox3.Controls.Add(this.button生产管理);
+            this.groupBox3.Controls.Add(this.button订单管理);
+            this.groupBox3.Controls.Add(this.button销售管理);
             this.groupBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(17, 227);
             this.groupBox3.Name = "groupBox3";
@@ -173,67 +173,67 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "生产/销售";
             // 
-            // button9
+            // button新增订单
             // 
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Font = new System.Drawing.Font("黑体", 16F);
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(167, 25);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(146, 150);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "新增订单";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            this.button新增订单.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button新增订单.Font = new System.Drawing.Font("黑体", 16F);
+            this.button新增订单.Image = ((System.Drawing.Image)(resources.GetObject("button新增订单.Image")));
+            this.button新增订单.Location = new System.Drawing.Point(167, 25);
+            this.button新增订单.Name = "button新增订单";
+            this.button新增订单.Size = new System.Drawing.Size(146, 150);
+            this.button新增订单.TabIndex = 12;
+            this.button新增订单.Text = "新增订单";
+            this.button新增订单.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button新增订单.UseVisualStyleBackColor = true;
+            this.button新增订单.Click += new System.EventHandler(this.button9_Click_1);
             // 
-            // button6
+            // button生产管理
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Font = new System.Drawing.Font("黑体", 16F);
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(476, 25);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 150);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "生产管理";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button生产管理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button生产管理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button生产管理.Image = ((System.Drawing.Image)(resources.GetObject("button生产管理.Image")));
+            this.button生产管理.Location = new System.Drawing.Point(476, 25);
+            this.button生产管理.Name = "button生产管理";
+            this.button生产管理.Size = new System.Drawing.Size(146, 150);
+            this.button生产管理.TabIndex = 10;
+            this.button生产管理.Text = "生产管理";
+            this.button生产管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button生产管理.UseVisualStyleBackColor = true;
+            this.button生产管理.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // button订单管理
             // 
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.Font = new System.Drawing.Font("黑体", 16F);
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(318, 25);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(146, 150);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "订单管理";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button订单管理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button订单管理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button订单管理.Image = ((System.Drawing.Image)(resources.GetObject("button订单管理.Image")));
+            this.button订单管理.Location = new System.Drawing.Point(318, 25);
+            this.button订单管理.Name = "button订单管理";
+            this.button订单管理.Size = new System.Drawing.Size(146, 150);
+            this.button订单管理.TabIndex = 6;
+            this.button订单管理.Text = "订单管理";
+            this.button订单管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button订单管理.UseVisualStyleBackColor = true;
+            this.button订单管理.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button8
+            // button销售管理
             // 
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Font = new System.Drawing.Font("黑体", 16F);
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(628, 25);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(146, 150);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "销售管理";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button销售管理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button销售管理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button销售管理.Image = ((System.Drawing.Image)(resources.GetObject("button销售管理.Image")));
+            this.button销售管理.Location = new System.Drawing.Point(628, 25);
+            this.button销售管理.Name = "button销售管理";
+            this.button销售管理.Size = new System.Drawing.Size(146, 150);
+            this.button销售管理.TabIndex = 7;
+            this.button销售管理.Text = "销售管理";
+            this.button销售管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button销售管理.UseVisualStyleBackColor = true;
+            this.button销售管理.Click += new System.EventHandler(this.button8_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button11);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button预警统计);
+            this.groupBox1.Controls.Add(this.button员工管理);
+            this.groupBox1.Controls.Add(this.button客户管理);
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(335, 39);
             this.groupBox1.Name = "groupBox1";
@@ -243,47 +243,47 @@
             this.groupBox1.Text = "客户/员工管理";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button11
+            // button预警统计
             // 
-            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button11.Font = new System.Drawing.Font("黑体", 16F);
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(310, 26);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(146, 150);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "预警/统计";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button预警统计.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button预警统计.Font = new System.Drawing.Font("黑体", 16F);
+            this.button预警统计.Image = ((System.Drawing.Image)(resources.GetObject("button预警统计.Image")));
+            this.button预警统计.Location = new System.Drawing.Point(310, 26);
+            this.button预警统计.Name = "button预警统计";
+            this.button预警统计.Size = new System.Drawing.Size(146, 150);
+            this.button预警统计.TabIndex = 6;
+            this.button预警统计.Text = "预警/统计";
+            this.button预警统计.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button预警统计.UseVisualStyleBackColor = true;
+            this.button预警统计.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button2
+            // button员工管理
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("黑体", 16F);
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(158, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 150);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "员工管理";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button员工管理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button员工管理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button员工管理.Image = ((System.Drawing.Image)(resources.GetObject("button员工管理.Image")));
+            this.button员工管理.Location = new System.Drawing.Point(158, 26);
+            this.button员工管理.Name = "button员工管理";
+            this.button员工管理.Size = new System.Drawing.Size(146, 150);
+            this.button员工管理.TabIndex = 5;
+            this.button员工管理.Text = "员工管理";
+            this.button员工管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button员工管理.UseVisualStyleBackColor = true;
+            this.button员工管理.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // button客户管理
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("黑体", 16F);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(6, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 150);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "客户管理";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button客户管理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button客户管理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button客户管理.Image = ((System.Drawing.Image)(resources.GetObject("button客户管理.Image")));
+            this.button客户管理.Location = new System.Drawing.Point(6, 25);
+            this.button客户管理.Name = "button客户管理";
+            this.button客户管理.Size = new System.Drawing.Size(146, 150);
+            this.button客户管理.TabIndex = 4;
+            this.button客户管理.Text = "客户管理";
+            this.button客户管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button客户管理.UseVisualStyleBackColor = true;
+            this.button客户管理.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -410,16 +410,16 @@
 
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button产品管理;
+        private System.Windows.Forms.Button button原料;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button生产管理;
+        private System.Windows.Forms.Button button订单管理;
+        private System.Windows.Forms.Button button销售管理;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button预警统计;
+        private System.Windows.Forms.Button button员工管理;
+        private System.Windows.Forms.Button button客户管理;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 批处理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导入ToolStripMenuItem;
@@ -433,8 +433,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button新增订单;
+        private System.Windows.Forms.Button button产品;
         private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 注销ToolStripMenuItem;

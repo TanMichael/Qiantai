@@ -11,6 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
+using QTsys.Common.Constants;
 
 namespace QTsys
 {
@@ -30,6 +31,16 @@ namespace QTsys
             {
                 dataGridView1.DataSource = this.userMgr.GetAllUser();
                 dataGridView1.Update();
+
+                com角色.Items.AddRange(new string[]
+                    {
+                        UserRoles.WORKER,
+                        UserRoles.ADMIN,
+                        UserRoles.ENGINEER,
+                        UserRoles.SALES,
+                        UserRoles.STORAGE,
+                        UserRoles.SYS_ADMIN
+                    });
 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }

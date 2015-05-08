@@ -49,6 +49,7 @@
     <Compile Include="Common\Constants\OrderStatus.cs" />
     <Compile Include="Common\Constants\ProductionPlanStatus.cs" />
     <Compile Include="Common\Constants\Rights.cs" />
+    <Compile Include="Common\Constants\UserRoles.cs" />
     <Compile Include="Common\Utils.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DAOBase.cs" />

@@ -296,12 +296,12 @@
             // 
             this.com角色.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.com角色.FormattingEnabled = true;
-            this.com角色.Items.AddRange(new object[] {
-            "系统管理员",
-            "产品管理员",
-            "销售",
-            "财务",
-            "工人"});
+            //this.com角色.Items.AddRange(new object[] {
+            //"系统管理员",
+            //"产品管理员",
+            //"销售",
+            //"财务",
+            //"工人"});
             this.com角色.Location = new System.Drawing.Point(321, 52);
             this.com角色.Name = "com角色";
             this.com角色.Size = new System.Drawing.Size(168, 20);
