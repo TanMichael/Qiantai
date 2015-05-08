@@ -54,6 +54,7 @@
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DAOBase.cs" />
     <Compile Include="DAO\MaterialDAO.cs" />
+    <Compile Include="DAO\OperationAuditDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\ProductPlanDAO.cs" />
@@ -302,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="员工管理.resx">
       <DependentUpon>员工管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="审核.resx">
+      <DependentUpon>审核.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="客户管理.resx">
       <DependentUpon>客户管理.cs</DependentUpon>
