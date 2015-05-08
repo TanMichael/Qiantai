@@ -8,7 +8,7 @@ namespace QTsys.DataObjects
 {
     public class QiaotaiObject
     {
-        public string ToString()
+        public override string ToString()
         {
             string result = "";
             var t = this.GetType();

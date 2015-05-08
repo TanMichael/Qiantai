@@ -28,7 +28,7 @@ namespace QTsys
 
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void checkLoginStatus()
         {
             //弹出登录对话框
             Login win = new Login();
@@ -41,6 +41,11 @@ namespace QTsys
             {
                 this.Close();
             }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            checkLoginStatus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -145,6 +150,12 @@ namespace QTsys
         {
             批量导入 win = new 批量导入();
             win.ShowDialog();
+        }
+
+        private void 注销ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Utils.ClearLogonToken();
+            checkLoginStatus();
         }
     }
 }
