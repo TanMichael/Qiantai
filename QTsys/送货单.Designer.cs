@@ -84,6 +84,7 @@
             this.date_up.Name = "date_up";
             this.date_up.Size = new System.Drawing.Size(200, 21);
             this.date_up.TabIndex = 59;
+            this.date_up.ValueChanged += new System.EventHandler(this.date_up_ValueChanged);
             // 
             // label6
             // 

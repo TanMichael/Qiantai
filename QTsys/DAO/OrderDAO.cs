@@ -70,6 +70,23 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
 
+        public DataTable GetAllOrderByState(String key)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 订单状态 LIKE '%" + key + "%';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
+        }
+
+
         public DataTable GetAllOrderDetails()
         {
             DataTable dt = new DataTable();

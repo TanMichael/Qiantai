@@ -25,5 +25,10 @@ namespace QTsys
             date_down.Value = DateTime.Now;
             webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\HTMLPRINT_EMPTY.htm");//显示网页
         }
+
+        private void date_up_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

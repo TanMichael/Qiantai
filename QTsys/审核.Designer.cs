@@ -30,11 +30,35 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.date_up = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.date_down = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox动作 = new System.Windows.Forms.TextBox();
+            this.label_搜索栏目 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView生产计划 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView订单 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView订单明细 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单明细)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -49,6 +73,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.textBox动作);
+            this.tabPage1.Controls.Add(this.label_搜索栏目);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -58,8 +87,118 @@
             this.tabPage1.Text = "操作记录";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.date_up);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.date_down);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(437, 409);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(253, 100);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "时间范围";
+            // 
+            // date_up
+            // 
+            this.date_up.Location = new System.Drawing.Point(37, 20);
+            this.date_up.Name = "date_up";
+            this.date_up.Size = new System.Drawing.Size(200, 21);
+            this.date_up.TabIndex = 5;
+            this.date_up.ValueChanged += new System.EventHandler(this.date_up_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "到";
+            // 
+            // date_down
+            // 
+            this.date_down.Location = new System.Drawing.Point(37, 57);
+            this.date_down.Name = "date_down";
+            this.date_down.Size = new System.Drawing.Size(200, 21);
+            this.date_down.TabIndex = 6;
+            this.date_down.ValueChanged += new System.EventHandler(this.date_down_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "从";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(297, 404);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "筛选";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox动作
+            // 
+            this.textBox动作.Location = new System.Drawing.Point(145, 406);
+            this.textBox动作.Name = "textBox动作";
+            this.textBox动作.Size = new System.Drawing.Size(129, 21);
+            this.textBox动作.TabIndex = 3;
+            // 
+            // label_搜索栏目
+            // 
+            this.label_搜索栏目.AutoSize = true;
+            this.label_搜索栏目.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_搜索栏目.ForeColor = System.Drawing.Color.Red;
+            this.label_搜索栏目.Location = new System.Drawing.Point(74, 409);
+            this.label_搜索栏目.Name = "label_搜索栏目";
+            this.label_搜索栏目.Size = new System.Drawing.Size(44, 12);
+            this.label_搜索栏目.TabIndex = 2;
+            this.label_搜索栏目.Text = "操作员";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "筛选";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(746, 378);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.dataGridView订单明细);
+            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.dataGridView订单);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.dataGridView生产计划);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -68,14 +207,111 @@
             this.tabPage2.Text = "审核流程";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView生产计划
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(746, 378);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView生产计划.AllowUserToAddRows = false;
+            this.dataGridView生产计划.AllowUserToDeleteRows = false;
+            this.dataGridView生产计划.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView生产计划.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView生产计划.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView生产计划.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView生产计划.Name = "dataGridView生产计划";
+            this.dataGridView生产计划.ReadOnly = true;
+            this.dataGridView生产计划.RowTemplate.Height = 23;
+            this.dataGridView生产计划.Size = new System.Drawing.Size(616, 150);
+            this.dataGridView生产计划.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "生产计划";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(655, 64);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "通过审核";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(655, 240);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "通过审核";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 181);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "订单";
+            // 
+            // dataGridView订单
+            // 
+            this.dataGridView订单.AllowUserToAddRows = false;
+            this.dataGridView订单.AllowUserToDeleteRows = false;
+            this.dataGridView订单.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView订单.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView订单.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView订单.Location = new System.Drawing.Point(6, 201);
+            this.dataGridView订单.Name = "dataGridView订单";
+            this.dataGridView订单.ReadOnly = true;
+            this.dataGridView订单.RowTemplate.Height = 23;
+            this.dataGridView订单.Size = new System.Drawing.Size(616, 150);
+            this.dataGridView订单.TabIndex = 3;
+            this.dataGridView订单.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView订单_CellClick);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(655, 117);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "审核不通过";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(655, 295);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "审核不通过";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 356);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "订单明细";
+            // 
+            // dataGridView订单明细
+            // 
+            this.dataGridView订单明细.AllowUserToAddRows = false;
+            this.dataGridView订单明细.AllowUserToDeleteRows = false;
+            this.dataGridView订单明细.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView订单明细.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView订单明细.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView订单明细.Location = new System.Drawing.Point(6, 376);
+            this.dataGridView订单明细.Name = "dataGridView订单明细";
+            this.dataGridView订单明细.ReadOnly = true;
+            this.dataGridView订单明细.RowTemplate.Height = 23;
+            this.dataGridView订单明细.Size = new System.Drawing.Size(616, 150);
+            this.dataGridView订单明细.TabIndex = 8;
             // 
             // 审核
             // 
@@ -89,7 +325,15 @@
             this.Load += new System.EventHandler(this.审核_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单明细)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -100,5 +344,24 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox动作;
+        private System.Windows.Forms.Label label_搜索栏目;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker date_up;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker date_down;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView订单;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView生产计划;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridView订单明细;
     }
 }

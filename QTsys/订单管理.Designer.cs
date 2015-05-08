@@ -152,6 +152,7 @@
             this.text订单编号.Name = "text订单编号";
             this.text订单编号.Size = new System.Drawing.Size(121, 21);
             this.text订单编号.TabIndex = 27;
+            this.text订单编号.TextChanged += new System.EventHandler(this.text订单编号_TextChanged);
             // 
             // label2
             // 

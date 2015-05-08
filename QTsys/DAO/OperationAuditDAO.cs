@@ -11,11 +11,11 @@ namespace QTsys.DAO
 {
     class OperationAuditDAO : DAOBase
     {
-        
-        public DataTable GetAllMsg()//更新
+
+        public DataTable GetAllMsg(DateTime up, DateTime down)//更新
         {
             Customer cus = new Customer();
-            string sql = "SELECT * FROM qiaotai.操作记录;";
+            string sql = "SELECT * FROM qiaotai.操作记录 WHERE 操作时间>'"+up.ToString()+"' AND 操作时间<'"+down.ToString()+"';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -25,10 +25,10 @@ namespace QTsys.DAO
             return dt;
         }
 
-        public DataTable GetGetAllMsgByAction(string action)//更新
+        public DataTable GetGetAllMsgByAction(string type, string action, DateTime up, DateTime down)//更新
         {
             Customer cus = new Customer();
-            string sql = "SELECT * FROM qiaotai.操作记录 WHERE 操作动作='"+action+"';";
+            string sql = "SELECT * FROM qiaotai.操作记录 WHERE " + type + " LIKE '%" + action + "%' AND 操作时间>'" + up.ToString() + "' AND 操作时间<'" + down.ToString() + "';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();

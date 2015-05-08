@@ -317,5 +317,10 @@ namespace QTsys
             }
             catch (Exception ex) { MessageBox.Show("加载失败！"); }
         }
+
+        private void text订单编号_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
