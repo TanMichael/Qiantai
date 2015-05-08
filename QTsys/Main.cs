@@ -218,5 +218,11 @@ namespace QTsys
             Utils.ClearLogonToken();
             CheckLoginStatus();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            审核 win = new 审核();
+            win.ShowDialog();
+        }
     }
 }

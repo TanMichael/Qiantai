@@ -183,6 +183,12 @@
     <Compile Include="员工管理.Designer.cs">
       <DependentUpon>员工管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="审核.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="审核.Designer.cs">
+      <DependentUpon>审核.cs</DependentUpon>
+    </Compile>
     <Compile Include="客户管理.cs">
       <SubType>Form</SubType>
     </Compile>
