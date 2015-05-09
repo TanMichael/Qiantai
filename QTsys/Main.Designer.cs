@@ -48,11 +48,6 @@
             this.button客户管理 = new System.Windows.Forms.Button();
             this.button预警统计 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.批处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -61,6 +56,7 @@
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button审核 = new System.Windows.Forms.Button();
+            this.button批处理 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -289,7 +285,6 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.批处理ToolStripMenuItem,
             this.系统管理ToolStripMenuItem,
             this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -297,41 +292,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(667, 25);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 批处理ToolStripMenuItem
-            // 
-            this.批处理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.导入ToolStripMenuItem,
-            this.导出ToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.退出ToolStripMenuItem});
-            this.批处理ToolStripMenuItem.Name = "批处理ToolStripMenuItem";
-            this.批处理ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
-            this.批处理ToolStripMenuItem.Text = "批处理";
-            // 
-            // 导入ToolStripMenuItem
-            // 
-            this.导入ToolStripMenuItem.Name = "导入ToolStripMenuItem";
-            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.导入ToolStripMenuItem.Text = "导入";
-            this.导入ToolStripMenuItem.Click += new System.EventHandler(this.导入ToolStripMenuItem_Click);
-            // 
-            // 导出ToolStripMenuItem
-            // 
-            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.导出ToolStripMenuItem.Text = "导出";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(97, 6);
-            // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
             // 
             // 系统管理ToolStripMenuItem
             // 
@@ -379,6 +339,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button批处理);
             this.groupBox2.Controls.Add(this.button预警统计);
             this.groupBox2.Controls.Add(this.button审核);
             this.groupBox2.Controls.Add(this.button销售管理);
@@ -402,6 +363,20 @@
             this.button审核.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button批处理
+            // 
+            this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
+            this.button批处理.Location = new System.Drawing.Point(475, 27);
+            this.button批处理.Name = "button批处理";
+            this.button批处理.Size = new System.Drawing.Size(146, 150);
+            this.button批处理.TabIndex = 14;
+            this.button批处理.Text = "批处理";
+            this.button批处理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button批处理.UseVisualStyleBackColor = true;
+            this.button批处理.Click += new System.EventHandler(this.button批处理_Click);
             // 
             // Main
             // 
@@ -450,11 +425,6 @@
         private System.Windows.Forms.Button button员工管理;
         private System.Windows.Forms.Button button客户管理;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 批处理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 导入ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 导出ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 相关设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
@@ -469,6 +439,7 @@
         private System.Windows.Forms.ToolStripMenuItem 注销ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button审核;
+        private System.Windows.Forms.Button button批处理;
     }
 }
 

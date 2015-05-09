@@ -55,11 +55,13 @@ namespace QTsys
             {
                 button员工管理.Visible = true;
                 button预警统计.Visible = true;
+                button批处理.Visible = true;
             }
             else
             {
                 button员工管理.Visible = false;
                 button预警统计.Visible = false;
+                button批处理.Visible = false;
             }
 
             if ((right & Rights.CUSTOMER) == Rights.CUSTOMER)
@@ -232,8 +234,7 @@ namespace QTsys
 
         private void 导入ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            批量导入 win = new 批量导入();
-            win.ShowDialog();
+           
         }
 
         private void 注销ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -245,6 +246,12 @@ namespace QTsys
         private void button1_Click_1(object sender, EventArgs e)
         {
             审核 win = new 审核();
+            win.ShowDialog();
+        }
+
+        private void button批处理_Click(object sender, EventArgs e)
+        {
+            批量导入 win = new 批量导入();
             win.ShowDialog();
         }
     }
