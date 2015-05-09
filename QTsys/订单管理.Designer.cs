@@ -31,7 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button修改并保存 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.text订单编号 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -126,15 +126,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // button修改并保存
             // 
-            this.button1.Location = new System.Drawing.Point(654, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "修改并保存";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button修改并保存.Location = new System.Drawing.Point(654, 16);
+            this.button修改并保存.Name = "button修改并保存";
+            this.button修改并保存.Size = new System.Drawing.Size(75, 23);
+            this.button修改并保存.TabIndex = 23;
+            this.button修改并保存.Text = "修改并保存";
+            this.button修改并保存.UseVisualStyleBackColor = true;
+            this.button修改并保存.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -427,7 +427,7 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.button修改并保存);
             this.tabPage1.Controls.Add(this.com创建人);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.label14);
@@ -656,7 +656,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button修改并保存;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text订单编号;
         private System.Windows.Forms.Label label2;

@@ -23,7 +23,8 @@ namespace QTsys
         private int selectorder;
         private int selectpro;
         private List<Customer> customers;
-        private List<CustomerMember> cm;
+        private string selectedCustomerId;
+        private List<CustomerMember> cMembers;
         private ProductPlanManager ppm;
 
         public 新增订单()
@@ -73,6 +74,18 @@ namespace QTsys
 
                 dataGridView1.DataSource = this.pm.GetAllProducts();
                 dataGridView1.Update();
+
+
+                com客户名.Items.Clear();
+                // 初始化客户信息
+                customers = userMgr.GetAllCustomerList();
+                customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
+                //use dataSource make selectedValue works;
+                com客户名.DisplayMember = "Name";
+                com客户名.ValueMember = "Id";
+                com客户名.DataSource = customers;
+                //com客户名.Items.AddRange(customers.ToArray());
+                
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -151,14 +164,17 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
-        private void comboBox1_DropDown(object sender, EventArgs e)
+        private void com客户名_DropDown(object sender, EventArgs e)
         {
-            com客户名.Items.Clear();
-            // 初始化客户信息
-            customers = userMgr.GetAllCustomerList();
-            com客户名.Items.AddRange(customers.ToArray());
-            com客户名.DisplayMember = "Name";
-            com客户名.ValueMember = "Id";
+            //com客户名.Items.Clear();
+            //// 初始化客户信息
+            //customers = userMgr.GetAllCustomerList();
+            //customers.Insert(0, new Customer() { Id="-9999", Name=""});
+            ////use dataSource make selectedValue works;
+            //com客户名.DataSource = customers;
+            ////com客户名.Items.AddRange(customers.ToArray());
+            //com客户名.DisplayMember = "Name";
+            //com客户名.ValueMember = "Id";
            // com客户名.
             //--------------------------------------
         }
@@ -167,10 +183,15 @@ namespace QTsys
         {
             try
             {
+                selectedCustomerId = com客户名.SelectedValue.ToString();//customers[com客户名.SelectedIndex].Id;
+                if (selectedCustomerId == "-9999")
+                {
+                    return;
+                }
                 //com客户联系人
                 DataTable dt = new DataTable();
                 // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
-                dt = userMgr.SearchCustomerByCol("客户编号", customers[com客户名.SelectedIndex].Id);
+                dt = userMgr.SearchCustomerByCol("客户编号", selectedCustomerId);
                l编号.Text= dt.Rows[0]["客户编号"].ToString();
                 com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
                 text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
@@ -180,11 +201,29 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
-        private void com客户联系人_DragDrop(object sender, EventArgs e)
+        private void com客户联系人_DropDown(object sender, EventArgs e)
         {
+            CustomerMember[] result = new CustomerMember[]{};
             com客户联系人.Items.Clear();
-            cm = userMgr.GetAllCustomerMemberList();
-            com客户联系人.Items.AddRange(customers.ToArray());
+            if (selectedCustomerId != "")
+            {
+                cMembers = userMgr.GetCustomerMembersByCId(selectedCustomerId);
+                result = cMembers.ToArray();
+            }
+
+            com客户联系人.Items.AddRange(result);
+            com客户联系人.DisplayMember = "Name";
+            com客户联系人.ValueMember = "Id";
+        }
+
+
+        private void com客户联系人_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // update address, phone etc.
+            var cMember = (CustomerMember)(com客户联系人.SelectedItem);
+
+            text联系电话.Text = cMember.Phone;
+            //text收货地址.Text = cMember.add;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -195,11 +234,18 @@ namespace QTsys
         private void button1_Click(object sender, EventArgs e)
         {
             bool right = false;//生成订单成功与否
+            if (selectedCustomerId == "-9999")
+            {
+                MessageBox.Show("请选择客户！");
+                return;
+            }
+
             try
             {
                 Order od = new Order();
                 OrderDetail odd = new OrderDetail();
                 int id = 0;
+                od.CustomerId = selectedCustomerId;
                 od.CreateTime = System.DateTime.Now;
                 od.DeliverTime = DateTime.Now;
                 od.LastUpdateTime = DateTime.Now;
@@ -209,7 +255,7 @@ namespace QTsys
                 od.RecieverAddress = text收货地址.Text;
                 od.RecieverName = com客户联系人.Text;
                 od.RecieverPhone = text联系电话.Text;
-                od.Creator = "";
+                od.Creator = Utils.GetCurrentUsername();
                 //插入order
                 id = this.odm.AddNewOrder(od);
                 if (id > 0)
@@ -326,6 +372,7 @@ namespace QTsys
             if(ins==true){
             dataGridView2.Rows.Add(rowadd);}
         }
+
 
     }
 }

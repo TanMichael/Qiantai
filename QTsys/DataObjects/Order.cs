@@ -10,6 +10,7 @@ namespace QTsys.DataObjects
     {
         public string OrderId { get; set; }
         public string OrderStatus { get; set; }
+        public string CustomerId { get; set; }
         public string ExpressNO { get; set; }
         public DateTime CreateTime { get; set; }
         public DateTime DeliverTime { get; set; }

@@ -116,26 +116,26 @@ namespace QTsys.Manager
             return customers;
         }
 
-        public List<CustomerMember> GetAllCustomerMemberList()
-        {
-            List<CustomerMember> customers = new List<CustomerMember>();
-            var dt = this.customerDao.GetAllCustomers();
-            var l = dt.Rows.Count;
-            for (int i = 0; i < l; i++)
-            {
-                var rs = dt.Rows[i];
-                CustomerMember customer = new CustomerMember();
-                customer.Id = rs["编号"].ToString();
-                customer.Name = rs["姓名"].ToString();
-                customer.Type = rs["类型"].ToString();
-                customer.Phone = rs["联系电话"].ToString();
-                customer.Email = rs["电子邮箱"].ToString();
-                customer.CustomerId = rs["所属客户编号"].ToString();
-                customers.Add(customer);
-            }
+        //public List<CustomerMember> GetAllCustomerMemberList()
+        //{
+        //    List<CustomerMember> customers = new List<CustomerMember>();
+        //    var dt = this.customerDao.GetAllCustomers();
+        //    var l = dt.Rows.Count;
+        //    for (int i = 0; i < l; i++)
+        //    {
+        //        var rs = dt.Rows[i];
+        //        CustomerMember customer = new CustomerMember();
+        //        customer.Id = rs["编号"].ToString();
+        //        customer.Name = rs["姓名"].ToString();
+        //        customer.Type = rs["类型"].ToString();
+        //        customer.Phone = rs["联系电话"].ToString();
+        //        customer.Email = rs["电子邮箱"].ToString();
+        //        customer.CustomerId = rs["所属客户编号"].ToString();
+        //        customers.Add(customer);
+        //    }
 
-            return customers;
-        }
+        //    return customers;
+        //}
 
 
 
@@ -143,6 +143,27 @@ namespace QTsys.Manager
         public DataTable GetCustomerMembersByCustomer(string cId)
         {
             return this.customerDao.GetCustomerMembersByCustomer(cId);
+        }
+
+        public List<CustomerMember> GetCustomerMembersByCId(string cId)
+        {
+            List<CustomerMember> cMembers = new List<CustomerMember>();
+            var dt = this.customerDao.GetCustomerMembersByCustomer(cId);
+            var l = dt.Rows.Count;
+            for (int i = 0; i < l; i++)
+            {
+                var rs = dt.Rows[i];
+                CustomerMember member = new CustomerMember();
+                member.Id = rs["编号"].ToString();
+                member.Name = rs["姓名"].ToString();
+                member.Type = rs["类型"].ToString();
+                member.Phone = rs["联系电话"].ToString();
+                member.Email = rs["电子邮件"].ToString();
+                member.CustomerId = rs["所属客户编号"].ToString();
+                cMembers.Add(member);
+            }
+
+            return cMembers;
         }
 
         public DataTable SearchCustomerByCol(string col, string name)//更新

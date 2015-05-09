@@ -41,24 +41,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView生产计划 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView订单 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView订单明细 = new System.Windows.Forms.DataGridView();
+            this.button拒绝订单 = new System.Windows.Forms.Button();
+            this.button拒绝计划 = new System.Windows.Forms.Button();
+            this.button通过订单 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView订单 = new System.Windows.Forms.DataGridView();
+            this.button通过计划 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView生产计划 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单明细)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -191,12 +191,12 @@
             // 
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.dataGridView订单明细);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.button拒绝订单);
+            this.tabPage2.Controls.Add(this.button拒绝计划);
+            this.tabPage2.Controls.Add(this.button通过订单);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.dataGridView订单);
-            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button通过计划);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.dataGridView生产计划);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -207,46 +207,55 @@
             this.tabPage2.Text = "审核流程";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView生产计划
+            // label6
             // 
-            this.dataGridView生产计划.AllowUserToAddRows = false;
-            this.dataGridView生产计划.AllowUserToDeleteRows = false;
-            this.dataGridView生产计划.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView生产计划.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView生产计划.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView生产计划.Location = new System.Drawing.Point(6, 27);
-            this.dataGridView生产计划.Name = "dataGridView生产计划";
-            this.dataGridView生产计划.ReadOnly = true;
-            this.dataGridView生产计划.RowTemplate.Height = 23;
-            this.dataGridView生产计划.Size = new System.Drawing.Size(616, 150);
-            this.dataGridView生产计划.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 356);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "订单明细";
             // 
-            // label4
+            // dataGridView订单明细
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "生产计划";
+            this.dataGridView订单明细.AllowUserToAddRows = false;
+            this.dataGridView订单明细.AllowUserToDeleteRows = false;
+            this.dataGridView订单明细.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView订单明细.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView订单明细.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView订单明细.Location = new System.Drawing.Point(6, 376);
+            this.dataGridView订单明细.Name = "dataGridView订单明细";
+            this.dataGridView订单明细.ReadOnly = true;
+            this.dataGridView订单明细.RowTemplate.Height = 23;
+            this.dataGridView订单明细.Size = new System.Drawing.Size(616, 150);
+            this.dataGridView订单明细.TabIndex = 8;
             // 
-            // button2
+            // button拒绝订单
             // 
-            this.button2.Location = new System.Drawing.Point(655, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "通过审核";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button拒绝订单.Location = new System.Drawing.Point(655, 295);
+            this.button拒绝订单.Name = "button拒绝订单";
+            this.button拒绝订单.Size = new System.Drawing.Size(75, 23);
+            this.button拒绝订单.TabIndex = 7;
+            this.button拒绝订单.Text = "审核不通过";
+            this.button拒绝订单.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button拒绝计划
             // 
-            this.button3.Location = new System.Drawing.Point(655, 240);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "通过审核";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button拒绝计划.Location = new System.Drawing.Point(655, 117);
+            this.button拒绝计划.Name = "button拒绝计划";
+            this.button拒绝计划.Size = new System.Drawing.Size(75, 23);
+            this.button拒绝计划.TabIndex = 6;
+            this.button拒绝计划.Text = "审核不通过";
+            this.button拒绝计划.UseVisualStyleBackColor = true;
+            // 
+            // button通过订单
+            // 
+            this.button通过订单.Location = new System.Drawing.Point(655, 240);
+            this.button通过订单.Name = "button通过订单";
+            this.button通过订单.Size = new System.Drawing.Size(75, 23);
+            this.button通过订单.TabIndex = 5;
+            this.button通过订单.Text = "通过审核";
+            this.button通过订单.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -272,46 +281,37 @@
             this.dataGridView订单.TabIndex = 3;
             this.dataGridView订单.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView订单_CellClick);
             // 
-            // button4
+            // button通过计划
             // 
-            this.button4.Location = new System.Drawing.Point(655, 117);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "审核不通过";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button通过计划.Location = new System.Drawing.Point(655, 64);
+            this.button通过计划.Name = "button通过计划";
+            this.button通过计划.Size = new System.Drawing.Size(75, 23);
+            this.button通过计划.TabIndex = 2;
+            this.button通过计划.Text = "通过审核";
+            this.button通过计划.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // label4
             // 
-            this.button5.Location = new System.Drawing.Point(655, 295);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "审核不通过";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "生产计划";
             // 
-            // label6
+            // dataGridView生产计划
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 356);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "订单明细";
-            // 
-            // dataGridView订单明细
-            // 
-            this.dataGridView订单明细.AllowUserToAddRows = false;
-            this.dataGridView订单明细.AllowUserToDeleteRows = false;
-            this.dataGridView订单明细.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView订单明细.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView订单明细.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView订单明细.Location = new System.Drawing.Point(6, 376);
-            this.dataGridView订单明细.Name = "dataGridView订单明细";
-            this.dataGridView订单明细.ReadOnly = true;
-            this.dataGridView订单明细.RowTemplate.Height = 23;
-            this.dataGridView订单明细.Size = new System.Drawing.Size(616, 150);
-            this.dataGridView订单明细.TabIndex = 8;
+            this.dataGridView生产计划.AllowUserToAddRows = false;
+            this.dataGridView生产计划.AllowUserToDeleteRows = false;
+            this.dataGridView生产计划.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView生产计划.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView生产计划.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView生产计划.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView生产计划.Name = "dataGridView生产计划";
+            this.dataGridView生产计划.ReadOnly = true;
+            this.dataGridView生产计划.RowTemplate.Height = 23;
+            this.dataGridView生产计划.Size = new System.Drawing.Size(616, 150);
+            this.dataGridView生产计划.TabIndex = 0;
             // 
             // 审核
             // 
@@ -331,9 +331,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单明细)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -353,12 +353,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker date_down;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button拒绝订单;
+        private System.Windows.Forms.Button button拒绝计划;
+        private System.Windows.Forms.Button button通过订单;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView订单;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button通过计划;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView生产计划;
         private System.Windows.Forms.Label label6;

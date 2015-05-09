@@ -47,7 +47,9 @@ namespace QTsys
 
                 // 初始化客户信息
                 customers = userMgr.GetAllCustomerList();
-                com客户名.Items.AddRange(customers.ToArray());
+                customers.Insert(0, new Customer());
+                //use dataSource make selectedValue works;
+                com客户名.DataSource = customers;
                 com客户名.DisplayMember = "Name";
                 com客户名.ValueMember = "Id";
 
@@ -111,6 +113,21 @@ namespace QTsys
                     com收货联系人.Text = dataGridView1.Rows[e.RowIndex].Cells["收货联系人"].Value.ToString();
                     text收货电话.Text = dataGridView1.Rows[e.RowIndex].Cells["收货电话"].Value.ToString();
                     com创建人.Text = dataGridView1.Rows[e.RowIndex].Cells["创建人"].Value.ToString();
+
+                    //var temp = from it in (com客户名.Items.Cast<Customer>())
+                    //            where it.Id == selectedCId
+                    //            select it;
+                    //com客户名.SelectedItem = temp.First();
+                    com客户名.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
+
+                    if (com订单状态.Text == "待审核")
+                    {
+                        button修改并保存.Enabled = false;
+                    }
+                    else
+                    {
+                        button修改并保存.Enabled = true;
+                    }
             }
             catch (Exception ex) { }
         }

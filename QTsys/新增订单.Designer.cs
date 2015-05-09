@@ -40,6 +40,7 @@
             this.check样品 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.l编号 = new System.Windows.Forms.Label();
             this.com结算方式 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox总金额 = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
-            this.l编号 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -89,7 +89,7 @@
             this.com客户名.Name = "com客户名";
             this.com客户名.Size = new System.Drawing.Size(275, 20);
             this.com客户名.TabIndex = 1;
-            this.com客户名.DropDown += new System.EventHandler(this.comboBox1_DropDown);
+            this.com客户名.DropDown += new System.EventHandler(this.com客户名_DropDown);
             this.com客户名.SelectedIndexChanged += new System.EventHandler(this.com客户名_SelectedIndexChanged);
             // 
             // com客户联系人
@@ -99,7 +99,8 @@
             this.com客户联系人.Name = "com客户联系人";
             this.com客户联系人.Size = new System.Drawing.Size(121, 20);
             this.com客户联系人.TabIndex = 3;
-            this.com客户联系人.DropDown += new System.EventHandler(this.com客户联系人_DragDrop);
+            this.com客户联系人.DropDown += new System.EventHandler(this.com客户联系人_DropDown);
+            this.com客户联系人.SelectedIndexChanged += new System.EventHandler(this.com客户联系人_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -192,6 +193,15 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
+            // 
+            // l编号
+            // 
+            this.l编号.AutoSize = true;
+            this.l编号.Location = new System.Drawing.Point(364, 29);
+            this.l编号.Name = "l编号";
+            this.l编号.Size = new System.Drawing.Size(11, 12);
+            this.l编号.TabIndex = 12;
+            this.l编号.Text = "0";
             // 
             // com结算方式
             // 
@@ -432,15 +442,6 @@
             this.textBox产品名称搜索.Name = "textBox产品名称搜索";
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
-            // 
-            // l编号
-            // 
-            this.l编号.AutoSize = true;
-            this.l编号.Location = new System.Drawing.Point(364, 29);
-            this.l编号.Name = "l编号";
-            this.l编号.Size = new System.Drawing.Size(11, 12);
-            this.l编号.TabIndex = 12;
-            this.l编号.Text = "0";
             // 
             // 新增订单
             // 
