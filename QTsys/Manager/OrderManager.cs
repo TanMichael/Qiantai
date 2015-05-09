@@ -28,6 +28,7 @@ namespace QTsys.Manager
         public string GetAutoNum() { return this.odao.GetAutoNum(); }
 
         public DataTable GetAllOrderDetailsBySerial(string key) { return this.odao.GetAllOrderDetailsBySerial(key); }
+        public DataTable GetAllOrderDetailsBySerialEx(string key) { return this.odao.GetAllOrderDetailsBySerialEx(key); }
         public DataTable GetAllOrderByState(string key) { return this.odao.GetAllOrderByState(key); }
 
         public DataTable GetOrderByCreator(string userName)

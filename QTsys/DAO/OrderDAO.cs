@@ -70,6 +70,24 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
 
+        public DataTable GetAllOrderDetailsBySerialEx(string key)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT 产品信息.产品名称,产品信息.规格,订单明细.数量,订单明细.单价,订单明细.折扣,订单明细.成交价 FROM 订单明细  LEFT JOIN 产品信息 ON 订单明细.产品编号=产品信息.产品编号 WHERE 订单明细.订单编号='" + key + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
+        }
+
+
+
         public DataTable GetAllOrderByState(string key)
         {
             DataTable dt = new DataTable();
