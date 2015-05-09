@@ -37,7 +37,7 @@ namespace QTsys
             {
              //   text订单编号.Text = "1";
                 tab = true;
-                tempData1 = this.odm.GetAllOrders();
+                tempData1 = this.odm.GetOrderByCreator(Utils.GetCurrentUsername());
                 //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
                 dataGridView1.DataSource = tempData1;
                 dataGridView1.Update();

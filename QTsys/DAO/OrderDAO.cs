@@ -54,7 +54,7 @@ namespace QTsys.DAO
         }
 
 
-        public DataTable GetAllOrderDetailsBySerial(String key)
+        public DataTable GetAllOrderDetailsBySerial(string key)
         {
             DataTable dt = new DataTable();
             try
@@ -70,7 +70,7 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
 
-        public DataTable GetAllOrderByState(String key)
+        public DataTable GetAllOrderByState(string key)
         {
             DataTable dt = new DataTable();
             try
@@ -86,6 +86,21 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
 
+        public DataTable GetOrderByCreator(string userName)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建人='" + userName + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
+        }
 
         public DataTable GetAllOrderDetails()
         {
