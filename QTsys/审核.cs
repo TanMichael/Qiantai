@@ -33,13 +33,14 @@ namespace QTsys
         {
             try
             {
+                this.tabControl1.SelectedIndex = 1;
                 date_down.Value = DateTime.Now;
                 date_up.Value = DateTime.Now.AddMonths(-1);
                 dataGridView1.DataSource = this.showdata.GetAllMsg(date_up.Value, date_down.Value);
                 dataGridView1.Update();
-                dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", "审核");
+                dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", "待审核");
                 dataGridView生产计划.Update();
-                dataGridView订单.DataSource = this.odm.GetAllOrderByState("审核");
+                dataGridView订单.DataSource = this.odm.GetAllOrderByState("待审核");
                 dataGridView订单.Update();
             }
             catch (Exception ex) { };

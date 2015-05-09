@@ -12,5 +12,6 @@ namespace QTsys.Common.Constants
         public const string PREPARING = "备货中";
         public const string PROCESSING = "生产中";
         public const string STORED = "入库";
+        public const string CANCEL = "取消";
     }
 }
