@@ -164,21 +164,6 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
-        private void com客户名_DropDown(object sender, EventArgs e)
-        {
-            //com客户名.Items.Clear();
-            //// 初始化客户信息
-            //customers = userMgr.GetAllCustomerList();
-            //customers.Insert(0, new Customer() { Id="-9999", Name=""});
-            ////use dataSource make selectedValue works;
-            //com客户名.DataSource = customers;
-            ////com客户名.Items.AddRange(customers.ToArray());
-            //com客户名.DisplayMember = "Name";
-            //com客户名.ValueMember = "Id";
-           // com客户名.
-            //--------------------------------------
-        }
-
         private void com客户名_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -260,11 +245,11 @@ namespace QTsys
                 id = this.odm.AddNewOrder(od);
                 if (id > 0)
                 {
-                 //   MessageBox.Show("订单建立成功！等订单明细生成...............");//test
+                    //   MessageBox.Show("订单建立成功！等订单明细生成...............");//test
                     right = true;
                     // id = odm.GetAutoNum().ToString();
-                    int j=dataGridView2.Rows.Count;
-                   // MessageBox.Show(j.ToString());
+                    int j = dataGridView2.Rows.Count;
+                    // MessageBox.Show(j.ToString());
                     for (int i = 0; i < j; i++)
                     {
                         odd.OrderId = id.ToString();
@@ -283,30 +268,33 @@ namespace QTsys
                     //订单生产成功后，对订单后续操作
                     if (right == true)
                     {
-                        MessageBox.Show("订单建立成功！正在生成生产计划表……");//test
-                        WinSendMsg.IsSampleProduct = check样品.Checked;
-                        //WinSendMsg.IsMeterialReduce = check库存.Checked;
-                        WinSendMsg.row = dataGridView2.Rows.Count;
-                        WinSendMsg.Oid = id.ToString();
-                        ProductionPlan plan=new ProductionPlan();
-                        plan.RelatedOrderId = id.ToString();
-                        plan.ProductId = "";
-                        plan.CustomerId = l编号.Text;
-                        plan.OrderTime = DateTime.Now;
-                        plan.Count = 0;
-                        plan.PlanningTime = DateTime.Now;
-                        plan.FinishTime = DateTime.Now;
-                        if (check样品.Checked == true)
-                            plan.PlanType = "样品";
-                        else
-                            plan.PlanType = "正品";
-                        plan.InChargePerson = Utils.GetCurrentUsername();
-                        样品库存自动生成 win = new 样品库存自动生成(plan.PlanType,plan.RelatedOrderId, plan.CustomerId);
-                        win.ShowDialog();
+                        MessageBox.Show("订单建立成功！待审核中。。。");//test
+                        
+                        //WinSendMsg.IsSampleProduct = check样品.Checked;
+                        ////WinSendMsg.IsMeterialReduce = check库存.Checked;
+                        //WinSendMsg.row = dataGridView2.Rows.Count;
+                        //WinSendMsg.Oid = id.ToString();
+                        //ProductionPlan plan = new ProductionPlan();
+                        //plan.RelatedOrderId = id.ToString();
+                        //plan.ProductId = "";
+                        //plan.CustomerId = l编号.Text;
+                        //plan.OrderTime = DateTime.Now;
+                        //plan.Count = 0;
+                        //plan.PlanningTime = DateTime.Now;
+                        //plan.FinishTime = DateTime.Now;
+                        //if (check样品.Checked == true)
+                        //    plan.PlanType = "样品";
+                        //else
+                        //    plan.PlanType = "正品";
+                        //plan.InChargePerson = Utils.GetCurrentUsername();
+                        //样品库存自动生成 win = new 样品库存自动生成(plan.PlanType, plan.RelatedOrderId, plan.CustomerId);
+                        //win.ShowDialog();
                     }
                 }
                 else
+                {
                     MessageBox.Show("订单建立失败！");
+                }
 
             }
             catch (Exception ex) { MessageBox.Show("订单建立失败！原因是：" + ex.ToString()); }
