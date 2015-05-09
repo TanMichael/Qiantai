@@ -44,9 +44,9 @@
             this.button订单管理 = new System.Windows.Forms.Button();
             this.button销售管理 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button预警统计 = new System.Windows.Forms.Button();
             this.button员工管理 = new System.Windows.Forms.Button();
             this.button客户管理 = new System.Windows.Forms.Button();
+            this.button预警统计 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.批处理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +60,7 @@
             this.注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button审核 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -244,20 +244,6 @@
             this.groupBox1.Text = "客户/员工管理";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button预警统计
-            // 
-            this.button预警统计.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button预警统计.Font = new System.Drawing.Font("黑体", 16F);
-            this.button预警统计.Image = ((System.Drawing.Image)(resources.GetObject("button预警统计.Image")));
-            this.button预警统计.Location = new System.Drawing.Point(323, 27);
-            this.button预警统计.Name = "button预警统计";
-            this.button预警统计.Size = new System.Drawing.Size(146, 150);
-            this.button预警统计.TabIndex = 6;
-            this.button预警统计.Text = "预警/统计";
-            this.button预警统计.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button预警统计.UseVisualStyleBackColor = true;
-            this.button预警统计.Click += new System.EventHandler(this.button11_Click);
-            // 
             // button员工管理
             // 
             this.button员工管理.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -285,6 +271,20 @@
             this.button客户管理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button客户管理.UseVisualStyleBackColor = true;
             this.button客户管理.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button预警统计
+            // 
+            this.button预警统计.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button预警统计.Font = new System.Drawing.Font("黑体", 16F);
+            this.button预警统计.Image = ((System.Drawing.Image)(resources.GetObject("button预警统计.Image")));
+            this.button预警统计.Location = new System.Drawing.Point(323, 27);
+            this.button预警统计.Name = "button预警统计";
+            this.button预警统计.Size = new System.Drawing.Size(146, 150);
+            this.button预警统计.TabIndex = 6;
+            this.button预警统计.Text = "预警/统计";
+            this.button预警统计.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button预警统计.UseVisualStyleBackColor = true;
+            this.button预警统计.Click += new System.EventHandler(this.button11_Click);
             // 
             // menuStrip1
             // 
@@ -347,26 +347,26 @@
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.修改密码ToolStripMenuItem.Text = "修改密码";
             this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
             // 
             // 相关设置ToolStripMenuItem
             // 
             this.相关设置ToolStripMenuItem.Name = "相关设置ToolStripMenuItem";
-            this.相关设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.相关设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.相关设置ToolStripMenuItem.Text = "其他相关设置";
             this.相关设置ToolStripMenuItem.Click += new System.EventHandler(this.相关设置ToolStripMenuItem_Click);
             // 
             // 注销ToolStripMenuItem
             // 
             this.注销ToolStripMenuItem.Name = "注销ToolStripMenuItem";
-            this.注销ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.注销ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.注销ToolStripMenuItem.Text = "注销";
             this.注销ToolStripMenuItem.Click += new System.EventHandler(this.注销ToolStripMenuItem_Click);
             // 
@@ -380,7 +380,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button预警统计);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.button审核);
             this.groupBox2.Controls.Add(this.button销售管理);
             this.groupBox2.Location = new System.Drawing.Point(18, 420);
             this.groupBox2.Name = "groupBox2";
@@ -389,19 +389,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "财务";
             // 
-            // button1
+            // button审核
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("黑体", 16F);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(14, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 150);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "审核";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button审核.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button审核.Font = new System.Drawing.Font("黑体", 16F);
+            this.button审核.Image = ((System.Drawing.Image)(resources.GetObject("button审核.Image")));
+            this.button审核.Location = new System.Drawing.Point(14, 27);
+            this.button审核.Name = "button审核";
+            this.button审核.Size = new System.Drawing.Size(146, 150);
+            this.button审核.TabIndex = 13;
+            this.button审核.Text = "审核";
+            this.button审核.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button审核.UseVisualStyleBackColor = true;
+            this.button审核.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Main
             // 
@@ -468,7 +468,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 注销ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button审核;
     }
 }
 

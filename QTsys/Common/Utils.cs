@@ -115,19 +115,22 @@ namespace QTsys.Common
             switch (role)
             { 
                 case UserRoles.SYS_ADMIN:
-                    rights = Rights.SYS_ADMIN;
+                    rights = Rights.EMPLOYEE | Rights.CUSTOMER;
                     break;
                 case UserRoles.SALES:
-                    rights = Rights.SALES;
+                    rights = Rights.SALES | Rights.CUSTOMER;
                     break;
                 case UserRoles.ENGINEER:
-                    rights = Rights.PRODUCTION;
+                    rights = Rights.PRODUCT | Rights.MANUFACTURE;
                     break;
                 case UserRoles.STORAGE:
                     rights = Rights.STORAGE;
                     break;
+                case UserRoles.FINANCE:
+                    rights = Rights.PRODUCT;    // TODO 对账单
+                    break;
                 case UserRoles.ADMIN:
-                    rights = Rights.SYS_ADMIN | Rights.SALES | Rights.STORAGE | Rights.PRODUCTION;
+                    rights = Rights.EMPLOYEE | Rights.CUSTOMER | Rights.SALES | Rights.STORAGE | Rights.PRODUCT | Rights.MANUFACTURE | Rights.REVIEWER;
                     break;
                 case UserRoles.WORKER:
                 default:

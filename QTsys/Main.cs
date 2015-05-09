@@ -51,17 +51,24 @@ namespace QTsys
 
         private void SetButtonStatus(Rights right)
         {
-            if ((right & Rights.SYS_ADMIN) == Rights.SYS_ADMIN)
+            if ((right & Rights.EMPLOYEE) == Rights.EMPLOYEE)
             {
                 button员工管理.Visible = true;
-                button客户管理.Visible = true;
                 button预警统计.Visible = true;
             }
             else
             {
                 button员工管理.Visible = false;
-                button客户管理.Visible = false;
                 button预警统计.Visible = false;
+            }
+
+            if ((right & Rights.CUSTOMER) == Rights.CUSTOMER)
+            {
+                button客户管理.Visible = true;
+            }
+            else
+            {
+                button客户管理.Visible = false;
             }
 
             if ((right & Rights.SALES) == Rights.SALES)
@@ -77,17 +84,33 @@ namespace QTsys
                 button销售管理.Visible = false;
             }
 
-            if ((right & Rights.PRODUCTION) == Rights.PRODUCTION)
+            if ((right & Rights.PRODUCT) == Rights.PRODUCT)
             {
                 button产品管理.Visible = true;
                 button产品.Visible = true;
-                button生产管理.Visible = true;
             }
             else
             {
                 button产品管理.Visible = false;
-                button产品.Visible = false;
+                button产品.Visible = false; 
+            }
+
+            if ((right & Rights.MANUFACTURE) == Rights.MANUFACTURE)
+            {
+                button生产管理.Visible = true;
+            }
+            else
+            {
                 button生产管理.Visible = false;
+            }
+
+            if ((right & Rights.REVIEWER) == Rights.REVIEWER)
+            {
+                button审核.Visible = true;
+            }
+            else
+            {
+                button审核.Visible = false;
             }
 
             if ((right & Rights.STORAGE) == Rights.STORAGE)

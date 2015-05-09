@@ -38,6 +38,7 @@ namespace QTsys
                         UserRoles.ADMIN,
                         UserRoles.ENGINEER,
                         UserRoles.SALES,
+                        UserRoles.FINANCE,
                         UserRoles.STORAGE,
                         UserRoles.SYS_ADMIN
                     });
