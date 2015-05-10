@@ -231,8 +231,8 @@ namespace QTsys
                 OrderDetail odd = new OrderDetail();
                 int id = 0;
                 od.CustomerId = selectedCustomerId;
-                od.CreateTime = System.DateTime.Now;
-                od.DeliverTime = DateTime.Now;
+                od.CreateTime = DateTime.Now;
+                od.DeliverTime = DateTime.Now;  // default null??
                 od.LastUpdateTime = DateTime.Now;
                 od.OrderStatus = OrderStatus.PENDING;
                 od.ExpressNO = "";
