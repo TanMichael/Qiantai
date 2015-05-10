@@ -30,21 +30,13 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-<<<<<<< HEAD
             this.button8 = new System.Windows.Forms.Button();
             this.label搜索待生产栏目 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.textBox搜索待生产内容 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-=======
             this.button生成生产计划 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView审核通过订单 = new System.Windows.Forms.DataGridView();
->>>>>>> origin/master
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox计划数 = new System.Windows.Forms.TextBox();
@@ -88,6 +80,8 @@
             this.text编号 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView审核通过订单)).BeginInit();
@@ -107,21 +101,14 @@
             // 
             // tabPage1
             // 
-<<<<<<< HEAD
+            this.tabPage1.Controls.Add(this.button9);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.label搜索待生产栏目);
-            this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.textBox搜索待生产内容);
-            this.tabPage1.Controls.Add(this.dataGridView2);
-=======
             this.tabPage1.Controls.Add(this.button生成生产计划);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.button7);
-            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.dataGridView审核通过订单);
->>>>>>> origin/master
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -130,9 +117,8 @@
             this.tabPage1.Text = "待生成生产计划";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button生成生产计划
+            // button8
             // 
-<<<<<<< HEAD
             this.button8.Location = new System.Drawing.Point(681, 536);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 23);
@@ -140,15 +126,6 @@
             this.button8.Text = "生成生产计划";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-=======
-            this.button生成生产计划.Location = new System.Drawing.Point(681, 536);
-            this.button生成生产计划.Name = "button生成生产计划";
-            this.button生成生产计划.Size = new System.Drawing.Size(100, 23);
-            this.button生成生产计划.TabIndex = 144;
-            this.button生成生产计划.Text = "生成生产计划";
-            this.button生成生产计划.UseVisualStyleBackColor = true;
-            this.button生成生产计划.Click += new System.EventHandler(this.button生成生产计划_Click);
->>>>>>> origin/master
             // 
             // label搜索待生产栏目
             // 
@@ -170,22 +147,29 @@
             this.label18.TabIndex = 142;
             this.label18.Text = "检索";
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(292, 489);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 23);
-            this.button7.TabIndex = 141;
-            this.button7.Text = "查询订单";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // textBox搜索待生产内容
             // 
             this.textBox搜索待生产内容.Location = new System.Drawing.Point(127, 490);
             this.textBox搜索待生产内容.Name = "textBox搜索待生产内容";
             this.textBox搜索待生产内容.Size = new System.Drawing.Size(159, 21);
             this.textBox搜索待生产内容.TabIndex = 140;
+            // 
+            // button生成生产计划
+            // 
+            this.button生成生产计划.Location = new System.Drawing.Point(681, 536);
+            this.button生成生产计划.Name = "button生成生产计划";
+            this.button生成生产计划.Size = new System.Drawing.Size(100, 23);
+            this.button生成生产计划.TabIndex = 144;
+            this.button生成生产计划.Text = "生成生产计划";
+            this.button生成生产计划.UseVisualStyleBackColor = true;
+            this.button生成生产计划.Click += new System.EventHandler(this.button生成生产计划_Click);
+            // 
+            // label17
+            // 
+            this.label17.Location = new System.Drawing.Point(305, 512);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 23);
+            this.label17.TabIndex = 146;
             // 
             // dataGridView审核通过订单
             // 
@@ -605,6 +589,26 @@
             this.dataGridView1.Size = new System.Drawing.Size(1019, 387);
             this.dataGridView1.TabIndex = 108;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(292, 489);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(100, 23);
+            this.button7.TabIndex = 141;
+            this.button7.Text = "查询订单";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(307, 488);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 147;
+            this.button9.Text = "搜索";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // 生产管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -629,21 +633,19 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-<<<<<<< HEAD
+
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label搜索待生产栏目;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox搜索待生产内容;
-        private System.Windows.Forms.DataGridView dataGridView2;
-=======
+
         private System.Windows.Forms.Button button生成生产计划;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
+       // private System.Windows.Forms.Label label18;
+        //   private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView审核通过订单;
->>>>>>> origin/master
+
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox计划数;
@@ -687,6 +689,7 @@
         private System.Windows.Forms.TextBox text编号;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button9;
 
     }
 }

@@ -214,17 +214,17 @@
     <Compile Include="服务器设置.Designer.cs">
       <DependentUpon>服务器设置.cs</DependentUpon>
     </Compile>
-    <Compile Include="样品库存自动生成.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="样品库存自动生成.Designer.cs">
-      <DependentUpon>样品库存自动生成.cs</DependentUpon>
-    </Compile>
     <Compile Include="样品生产.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="样品生产.Designer.cs">
       <DependentUpon>样品生产.cs</DependentUpon>
+    </Compile>
+    <Compile Include="根据订单生成计划.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="根据订单生成计划.designer.cs">
+      <DependentUpon>根据订单生成计划.cs</DependentUpon>
     </Compile>
     <Compile Include="添加产品.cs">
       <SubType>Form</SubType>
@@ -319,11 +319,11 @@
     <EmbeddedResource Include="服务器设置.resx">
       <DependentUpon>服务器设置.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="样品库存自动生成.resx">
-      <DependentUpon>样品库存自动生成.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="样品生产.resx">
       <DependentUpon>样品生产.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="根据订单生成计划.resx">
+      <DependentUpon>根据订单生成计划.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="添加产品.resx">
       <DependentUpon>添加产品.cs</DependentUpon>

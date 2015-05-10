@@ -10,11 +10,9 @@ using System.Windows.Forms;
 using QTsys.DataObjects;
 using QTsys.Manager;
 using QTsys.Common.Constants;
-<<<<<<< HEAD
-=======
 using QTsys.Common;
 
->>>>>>> origin/master
+
 namespace QTsys
 {
     public partial class 生产管理 : Form
@@ -36,10 +34,6 @@ namespace QTsys
             {
                 dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                 dataGridView1.Update();
-                dataGridView2.DataSource = this.ppm.GetAllProductPlanByName("生产状态", ProductionPlanStatus.PENDING);
-                dataGridView2.Update();
-
-
                 dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
                 dataGridView审核通过订单.Update();
 
@@ -215,7 +209,7 @@ namespace QTsys
             //同时合格产品入产品仓库
         }
 
-<<<<<<< HEAD
+
         private void button7_Click(object sender, EventArgs e)
         {
 
@@ -224,7 +218,7 @@ namespace QTsys
         private void button8_Click(object sender, EventArgs e)
         {
 
-=======
+        }
         private void button生成生产计划_Click(object sender, EventArgs e)
         {
             string id = dataGridView审核通过订单.Rows[index待生产订单].Cells["订单编号"].Value.ToString();
@@ -255,7 +249,11 @@ namespace QTsys
         private void dataGridView审核通过订单_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index待生产订单 = e.RowIndex;
->>>>>>> origin/master
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
