@@ -41,6 +41,11 @@ namespace QTsys.Manager
             return this.pdao.GetMaterialProductRelationByProduct(ID);
         }
 
+        public DataTable GetMaterialProductRelationByProductEx(String ID,int num)
+        {
+            return this.pdao.GetMaterialProductRelationByProductEx(ID,num);
+        }
+
         public bool AltMaterialProductRelation(ProductMaterial pmr)
         {
             return this.pdao.AltMaterialProductRelation(pmr);

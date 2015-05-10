@@ -142,6 +142,21 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return false; }
         }
+
+        public bool MaterialDesTo(string ID, int desnum)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.原材料 SET 库存数量='" + desnum + "' WHERE 原料编号='" + ID + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+
         public DataTable GetAllMaterialsByName(string col, string value)
         {
             Material material = new Material();

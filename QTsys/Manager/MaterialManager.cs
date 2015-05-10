@@ -40,6 +40,9 @@ namespace QTsys.Manager
             return this.dao.AltMaterial(m);
         }
 
+        public bool MaterialDesTo(string ID, int desnum)
+        { return this.dao.MaterialDesTo(ID, desnum); }
+
         public String GetMaterialNameBySerial(string value)
         {
             return this.dao.GetMaterialNameBySerial(value);

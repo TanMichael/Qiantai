@@ -20,6 +20,7 @@ namespace QTsys
         private ProductionManager pm;
         private int index3;
         private MaterialManager mt;
+        
 
         public 领料生产()
         {
@@ -27,6 +28,7 @@ namespace QTsys
             ppm = new ProductPlanManager();
             pm = new ProductionManager();
             mt = new MaterialManager();
+          //  mat = new Material();
             index3=0;
         }
 
@@ -50,6 +52,8 @@ namespace QTsys
                 dataGridView2.Update();
                 dataGridView3.Update();
                 textBox产品.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                textBox领料产品.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                textBox产品数量.Text = dataGridView1.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
                
             }
             catch (Exception ex) { };
@@ -115,8 +119,27 @@ namespace QTsys
         {
             //确定领料生产
             //在仓库原料里减少相关数量料
+            //1.原料--
+            //2.生产计划状态改变
+            if (textBox领料产品.Text == "")
+            {
+                MessageBox.Show("领料失败！");
+                return;
+            }
+            try
+            {
+                int[] 原料编号 = new int[dataGridView3.RowCount];
+                for (int i = 0; i < dataGridView3.RowCount; i++)
+                {
+                    原料编号[i] =Convert.ToInt16( dataGridView3.Rows[i].Cells["原料编号"].Value);
+                }
 
+                领料清单生成 win = new 领料清单生成(Convert.ToInt16(textBox领料产品.Text), Convert.ToInt16(textBox产品数量.Text), 原料编号);
+               // 领料清单生成 win=new 领料清单生成(Convert.ToInt16(textBox领料产品.Text));
+                win.ShowDialog();
 
+            }
+            catch (Exception ex) { };
 
 
 
