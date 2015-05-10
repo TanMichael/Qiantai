@@ -1,6 +1,6 @@
 ﻿namespace QTsys
 {
-    partial class 样品库存自动生成
+    partial class 根据订单生成计划
     {
         /// <summary>
         /// Required designer variable.

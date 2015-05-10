@@ -14,7 +14,7 @@ using QTsys.Manager;
 
 namespace QTsys
 {
-    public partial class 样品库存自动生成 : Form
+    public partial class 根据订单生成计划 : Form
     {
         private OrderManager odm;
         private UserManager userMgr;
@@ -26,7 +26,7 @@ namespace QTsys
         private ProductionPlan plan;
 
 
-        public 样品库存自动生成()
+        public 根据订单生成计划()
         {
             InitializeComponent();
             odm = new OrderManager();
@@ -37,7 +37,7 @@ namespace QTsys
             index3 = 0;
         }
 
-        public 样品库存自动生成(string 是否样品, string 订单编号,string 客户编号)
+        public 根据订单生成计划(string 是否样品, string 订单编号,string 客户编号)
       //  public 样品库存自动生成(ProductionPlan plant)
         {
             InitializeComponent();

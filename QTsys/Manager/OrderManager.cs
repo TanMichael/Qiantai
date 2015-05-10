@@ -46,6 +46,11 @@ namespace QTsys.Manager
 
         public bool AltOrder(Order order) { return this.odao.AltOrder(order); }
 
+        public bool UpdateOrderStatus(string status, string oId)
+        {
+            return this.odao.UpdateOrderStatus(status, oId);
+        }
+
         public bool AddNewOrderDetail(OrderDetail order) { return this.odao.AddNewOrderDetail(order); }
 
         public bool DelOrderDetail(OrderDetail order) { return this.odao.DelOrderDetail(order); }
