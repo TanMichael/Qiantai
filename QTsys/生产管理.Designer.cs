@@ -31,10 +31,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label搜索待生产栏目 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox搜索待生产内容 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
@@ -99,10 +99,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button8);
-            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.label搜索待生产栏目);
             this.tabPage1.Controls.Add(this.label18);
             this.tabPage1.Controls.Add(this.button7);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.textBox搜索待生产内容);
             this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -120,17 +120,18 @@
             this.button8.TabIndex = 144;
             this.button8.Text = "生成生产计划";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // label17
+            // label搜索待生产栏目
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(44, 494);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(31, 12);
-            this.label17.TabIndex = 143;
-            this.label17.Text = "编号";
+            this.label搜索待生产栏目.AutoSize = true;
+            this.label搜索待生产栏目.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label搜索待生产栏目.ForeColor = System.Drawing.Color.Red;
+            this.label搜索待生产栏目.Location = new System.Drawing.Point(44, 494);
+            this.label搜索待生产栏目.Name = "label搜索待生产栏目";
+            this.label搜索待生产栏目.Size = new System.Drawing.Size(31, 12);
+            this.label搜索待生产栏目.TabIndex = 143;
+            this.label搜索待生产栏目.Text = "编号";
             // 
             // label18
             // 
@@ -149,13 +150,14 @@
             this.button7.TabIndex = 141;
             this.button7.Text = "查询订单";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // textBox1
+            // textBox搜索待生产内容
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 490);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 21);
-            this.textBox1.TabIndex = 140;
+            this.textBox搜索待生产内容.Location = new System.Drawing.Point(127, 490);
+            this.textBox搜索待生产内容.Name = "textBox搜索待生产内容";
+            this.textBox搜索待生产内容.Size = new System.Drawing.Size(159, 21);
+            this.textBox搜索待生产内容.TabIndex = 140;
             // 
             // dataGridView2
             // 
@@ -599,10 +601,10 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label搜索待生产栏目;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox搜索待生产内容;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label16;

@@ -21,7 +21,7 @@ namespace QTsys
         private OrderManager odm;
         private UserManager userMgr;
         private DataTable tempData1,tempData2;
-        private bool tab;//true为tab0(订单)，false为tab1（订单明细）.
+      //  private bool tab;//true为tab0(订单)，false为tab1（订单明细）.
         private List<Customer> customers;
 
         public 订单管理()
@@ -36,7 +36,7 @@ namespace QTsys
             try
             {
              //   text订单编号.Text = "1";
-                tab = true;
+               // tab = true;
                 tempData1 = this.odm.GetOrderByCreator(Utils.GetCurrentUsername());
                 //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
                 dataGridView1.DataSource = tempData1;

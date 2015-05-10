@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QTsys.DataObjects;
 using QTsys.Manager;
-
+using QTsys.Common.Constants;
 namespace QTsys
 {
     public partial class 生产管理 : Form
@@ -28,6 +28,8 @@ namespace QTsys
             {
                 dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                 dataGridView1.Update();
+                dataGridView2.DataSource = this.ppm.GetAllProductPlanByName("生产状态", ProductionPlanStatus.PENDING);
+                dataGridView2.Update();
 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -199,6 +201,16 @@ namespace QTsys
             //确认生产
             //如失败，计划-实际，生成新的订单列表（以补充形式出现订单）
             //同时合格产品入产品仓库
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
