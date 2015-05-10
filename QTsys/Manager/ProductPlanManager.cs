@@ -45,7 +45,10 @@ namespace QTsys.Manager
         public bool AltPlan(ProductionPlan pp) { return this.pdao.AltPlan(pp); }
 
 
-
+        public bool UpdatePlanStatus(string status, string pId)
+        {
+            return this.pdao.UpdatePlanStatus(status, pId);
+        }
 
     }
 }

@@ -190,6 +190,20 @@ namespace QTsys.DAO
             catch (Exception ex) { return false; }
         }
 
+        public bool UpdateOrderStatus(string status, string oId)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.订单 SET 订单状态='" + status + "' WHERE 订单编号='" + oId + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+
         public bool AddNewOrderDetail(OrderDetail order)
         {
             try

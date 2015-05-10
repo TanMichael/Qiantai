@@ -119,22 +119,22 @@ namespace QTsys
             if (index生产计划 == 0) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
             try
             {
-                ProductionPlan pp = new ProductionPlan();
-                pp.Id = dataGridView生产计划.Rows[index生产计划].Cells["编号"].Value.ToString();
-                pp.ProductId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
-                pp.CustomerId = dataGridView生产计划.Rows[index生产计划].Cells["客户编号"].Value.ToString();
-                pp.OrderTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["下单日期"].Value.ToString());
-                pp.Count = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["产品数量"].Value);
-                pp.PlanningTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["交付时间"].Value.ToString());
-                pp.FinishTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["实际完成时间"].Value.ToString());
-                pp.PlanType = dataGridView生产计划.Rows[index生产计划].Cells["计划类型"].Value.ToString();
-                pp.PlanState = ProductionPlanStatus.PREPARING;
-                pp.RelatedOrderId = dataGridView生产计划.Rows[index生产计划].Cells["相关订单编号"].Value.ToString();
-                pp.InChargePerson = dataGridView生产计划.Rows[index生产计划].Cells["负责人"].Value.ToString();
-                if (ppm.AltPlan(pp))
+                //ProductionPlan pp = new ProductionPlan();
+                string pId = dataGridView生产计划.Rows[index生产计划].Cells["编号"].Value.ToString();
+                //pp.ProductId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
+                //pp.CustomerId = dataGridView生产计划.Rows[index生产计划].Cells["客户编号"].Value.ToString();
+                //pp.OrderTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["下单日期"].Value.ToString());
+                //pp.Count = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["产品数量"].Value);
+                //pp.PlanningTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["交付时间"].Value.ToString());
+                //pp.FinishTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["实际完成时间"].Value.ToString());
+                //pp.PlanType = dataGridView生产计划.Rows[index生产计划].Cells["计划类型"].Value.ToString();
+                //pp.PlanState = ProductionPlanStatus.PREPARING;
+                //pp.RelatedOrderId = dataGridView生产计划.Rows[index生产计划].Cells["相关订单编号"].Value.ToString();
+                //pp.InChargePerson = dataGridView生产计划.Rows[index生产计划].Cells["负责人"].Value.ToString();
+                if (ppm.UpdatePlanStatus(ProductionPlanStatus.PREPARING, pId))
                 {
                     MessageBox.Show("生产状态更新成功！");
-                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", "待审核");
+                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", ProductionPlanStatus.PENDING);
                     dataGridView生产计划.Update();
                 }
                 else
@@ -148,22 +148,22 @@ namespace QTsys
             if (index生产计划 == 0) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
             try
             {
-                ProductionPlan pp = new ProductionPlan();
-                pp.Id = dataGridView生产计划.Rows[index生产计划].Cells["编号"].Value.ToString();
-                pp.ProductId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
-                pp.CustomerId = dataGridView生产计划.Rows[index生产计划].Cells["客户编号"].Value.ToString();
-                pp.OrderTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["下单日期"].Value.ToString());
-                pp.Count = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["产品数量"].Value);
-                pp.PlanningTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["交付时间"].Value.ToString());
-                pp.FinishTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["实际完成时间"].Value.ToString());
-                pp.PlanType = dataGridView生产计划.Rows[index生产计划].Cells["计划类型"].Value.ToString();
-                pp.PlanState = ProductionPlanStatus.CANCEL;
-                pp.RelatedOrderId = dataGridView生产计划.Rows[index生产计划].Cells["相关订单编号"].Value.ToString();
-                pp.InChargePerson = dataGridView生产计划.Rows[index生产计划].Cells["负责人"].Value.ToString();
-                if (ppm.AltPlan(pp))
+                //ProductionPlan pp = new ProductionPlan();
+                string pId = dataGridView生产计划.Rows[index生产计划].Cells["编号"].Value.ToString();
+                //pp.ProductId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
+                //pp.CustomerId = dataGridView生产计划.Rows[index生产计划].Cells["客户编号"].Value.ToString();
+                //pp.OrderTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["下单日期"].Value.ToString());
+                //pp.Count = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["产品数量"].Value);
+                //pp.PlanningTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["交付时间"].Value.ToString());
+                //pp.FinishTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["实际完成时间"].Value.ToString());
+                //pp.PlanType = dataGridView生产计划.Rows[index生产计划].Cells["计划类型"].Value.ToString();
+                //pp.PlanState = ProductionPlanStatus.CANCEL;
+                //pp.RelatedOrderId = dataGridView生产计划.Rows[index生产计划].Cells["相关订单编号"].Value.ToString();
+                //pp.InChargePerson = dataGridView生产计划.Rows[index生产计划].Cells["负责人"].Value.ToString();
+                if (ppm.UpdatePlanStatus(ProductionPlanStatus.CANCEL, pId))
                 {
                     MessageBox.Show("生产状态更新成功！");
-                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", "待审核");
+                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", ProductionPlanStatus.PENDING);
                     dataGridView生产计划.Update();
                 }
                 else
@@ -177,22 +177,22 @@ namespace QTsys
             if (index订单 == 0) { MessageBox.Show("请逐个审核订单！"); return; }
             try
             {
-                Order od = new Order();
-                od.OrderId = dataGridView订单.Rows[index订单].Cells["订单编号"].Value.ToString();
-                od.CreateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["创建时间"].Value);
-                od.DeliverTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["发货时间"].Value);
-                od.LastUpdateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["最后更新时间"].Value);
-                od.OrderStatus = OrderStatus.PASS;
-                od.ExpressNO = dataGridView订单.Rows[index订单].Cells["快递单号"].Value.ToString();
-                od.DepositMode = dataGridView订单.Rows[index订单].Cells["订金方式"].Value.ToString();
-                od.RecieverAddress = dataGridView订单.Rows[index订单].Cells["收货地址"].Value.ToString();
-                od.RecieverName = dataGridView订单.Rows[index订单].Cells["收货联系人"].Value.ToString();
-                od.RecieverPhone = dataGridView订单.Rows[index订单].Cells["收货电话"].Value.ToString();
-                od.Creator = dataGridView订单.Rows[index订单].Cells["创建人"].Value.ToString();
-                if (this.odm.AltOrder(od))
+                //Order od = new Order();
+                string oId = dataGridView订单.Rows[index订单].Cells["订单编号"].Value.ToString();
+                //od.CreateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["创建时间"].Value);
+                //od.DeliverTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["发货时间"].Value);
+                //od.LastUpdateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["最后更新时间"].Value);
+                //od.OrderStatus = OrderStatus.PASS;
+                //od.ExpressNO = dataGridView订单.Rows[index订单].Cells["快递单号"].Value.ToString();
+                //od.DepositMode = dataGridView订单.Rows[index订单].Cells["订金方式"].Value.ToString();
+                //od.RecieverAddress = dataGridView订单.Rows[index订单].Cells["收货地址"].Value.ToString();
+                //od.RecieverName = dataGridView订单.Rows[index订单].Cells["收货联系人"].Value.ToString();
+                //od.RecieverPhone = dataGridView订单.Rows[index订单].Cells["收货电话"].Value.ToString();
+                //od.Creator = dataGridView订单.Rows[index订单].Cells["创建人"].Value.ToString();
+                if (this.odm.UpdateOrderStatus(OrderStatus.PASS, oId))
                 {
                     MessageBox.Show("订单状态修改成功！");
-                    dataGridView订单.DataSource = this.odm.GetAllOrderByState("待审核");
+                    dataGridView订单.DataSource = this.odm.GetAllOrderByState(OrderStatus.PENDING);
                     dataGridView订单.Update();
                 }
                 else
@@ -206,22 +206,22 @@ namespace QTsys
             if (index订单 == 0) { MessageBox.Show("请逐个审核订单！"); return; }
             try
             {
-                Order od = new Order();
-                od.OrderId = dataGridView订单.Rows[index订单].Cells["订单编号"].Value.ToString();
-                od.CreateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["创建时间"].Value);
-                od.DeliverTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["发货时间"].Value);
-                od.LastUpdateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["最后更新时间"].Value);
-                od.OrderStatus = OrderStatus.CANCEL;
-                od.ExpressNO = dataGridView订单.Rows[index订单].Cells["快递单号"].Value.ToString();
-                od.DepositMode = dataGridView订单.Rows[index订单].Cells["订金方式"].Value.ToString();
-                od.RecieverAddress = dataGridView订单.Rows[index订单].Cells["收货地址"].Value.ToString();
-                od.RecieverName = dataGridView订单.Rows[index订单].Cells["收货联系人"].Value.ToString();
-                od.RecieverPhone = dataGridView订单.Rows[index订单].Cells["收货电话"].Value.ToString();
-                od.Creator = dataGridView订单.Rows[index订单].Cells["创建人"].Value.ToString();
-                if (this.odm.AltOrder(od))
+                //Order od = new Order();
+                string oId = dataGridView订单.Rows[index订单].Cells["订单编号"].Value.ToString();
+                //od.CreateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["创建时间"].Value);
+                //od.DeliverTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["发货时间"].Value);
+                //od.LastUpdateTime = Convert.ToDateTime(dataGridView订单.Rows[index订单].Cells["最后更新时间"].Value);
+                //od.OrderStatus = OrderStatus.CANCEL;
+                //od.ExpressNO = dataGridView订单.Rows[index订单].Cells["快递单号"].Value.ToString();
+                //od.DepositMode = dataGridView订单.Rows[index订单].Cells["订金方式"].Value.ToString();
+                //od.RecieverAddress = dataGridView订单.Rows[index订单].Cells["收货地址"].Value.ToString();
+                //od.RecieverName = dataGridView订单.Rows[index订单].Cells["收货联系人"].Value.ToString();
+                //od.RecieverPhone = dataGridView订单.Rows[index订单].Cells["收货电话"].Value.ToString();
+                //od.Creator = dataGridView订单.Rows[index订单].Cells["创建人"].Value.ToString();
+                if (this.odm.UpdateOrderStatus(OrderStatus.CANCEL, oId))
                 {
                     MessageBox.Show("订单状态修改成功！");
-                    dataGridView订单.DataSource = this.odm.GetAllOrderByState("待审核");
+                    dataGridView订单.DataSource = this.odm.GetAllOrderByState(OrderStatus.PENDING);
                     dataGridView订单.Update();
                 }
                 else

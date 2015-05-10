@@ -99,6 +99,20 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return false; }
         }
+
+        public bool UpdatePlanStatus(string status, string pId)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.生产计划 SET 生产状态='" + status + "' WHERE 编号='" + pId + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
      //---------------------------------------------- 
     }
 }
