@@ -9,17 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QTsys.DataObjects;
 using QTsys.Manager;
+using QTsys.Common.Constants;
+using QTsys.Common;
 
 namespace QTsys
 {
     public partial class 生产管理 : Form
     {
         private ProductPlanManager ppm;
+        private OrderManager oMgr;
+        private int index待生产订单 = -1;
 
         public 生产管理()
         {
             InitializeComponent();
             ppm = new ProductPlanManager();
+            oMgr = new OrderManager();
         }
 
         private void 生产管理_Load(object sender, EventArgs e)
@@ -28,6 +33,10 @@ namespace QTsys
             {
                 dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                 dataGridView1.Update();
+
+
+                dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
+                dataGridView审核通过订单.Update();
 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -199,6 +208,38 @@ namespace QTsys
             //确认生产
             //如失败，计划-实际，生成新的订单列表（以补充形式出现订单）
             //同时合格产品入产品仓库
+        }
+
+        private void button生成生产计划_Click(object sender, EventArgs e)
+        {
+            string id = dataGridView审核通过订单.Rows[index待生产订单].Cells["订单编号"].Value.ToString();
+            string cId = dataGridView审核通过订单.Rows[index待生产订单].Cells["客户编号"].Value.ToString();
+            bool isSample = dataGridView审核通过订单.Rows[index待生产订单].Cells["是否样品订单"].Value.ToString() == "是";
+
+            WinSendMsg.IsSampleProduct = isSample;
+            //WinSendMsg.IsMeterialReduce = check库存.Checked;
+            WinSendMsg.row = dataGridView审核通过订单.Rows.Count;
+            WinSendMsg.Oid = id;
+            ProductionPlan plan = new ProductionPlan();
+            plan.RelatedOrderId = id;
+            plan.ProductId = "";
+            plan.CustomerId = cId;
+            plan.OrderTime = DateTime.Now;
+            plan.Count = 0;
+            plan.PlanningTime = DateTime.Now;
+            plan.FinishTime = DateTime.Now;
+            if (isSample == true)
+                plan.PlanType = "样品";
+            else
+                plan.PlanType = "正品";
+            plan.InChargePerson = Utils.GetCurrentUsername();
+            根据订单生成计划 win = new 根据订单生成计划(plan.PlanType, plan.RelatedOrderId, plan.CustomerId);
+            win.ShowDialog();
+        }
+
+        private void dataGridView审核通过订单_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index待生产订单 = e.RowIndex;
         }
     }
 }

@@ -152,8 +152,9 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人) VALUES ('" +
-                    order.CreateTime + "','" + order.DeliverTime + "','" + order.LastUpdateTime + "','" + order.CustomerId + "','" + order.OrderStatus + "','" + order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "')";
+                string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人) VALUES ('" +
+                    order.CreateTime + "','" + order.DeliverTime + "','" + order.LastUpdateTime + "','" + order.CustomerId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
+                    order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
