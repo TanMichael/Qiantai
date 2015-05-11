@@ -84,7 +84,7 @@ namespace QTsys.Manager
         {
             if (pdao.AddNewProductFlow(pdt))
             {
-                if (pdao.AddProductCount(pdt.ProductId, num))
+                if (pdao.AddProductCount(pdt.ProductId,num))
                 {
                     return true;
                 }

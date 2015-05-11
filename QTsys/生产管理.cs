@@ -268,7 +268,7 @@ namespace QTsys
                 plan.FinishTime = DateTime.Parse("2000-01-01");
                // plan.PlanState = ProductionPlanStatus.PREPARING;
                 plan.PlanType = "补充生产";
-                plan.PlanState = "备货中";
+                plan.PlanState = ProductionPlanStatus.PREPARING;
                 plan.InChargePerson = com负责人.Text;
                 if (ppm.AddNewPlan(plan)) { MessageBox.Show("补充计划成功！！！"); }
                 else
