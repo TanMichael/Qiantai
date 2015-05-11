@@ -35,6 +35,8 @@ namespace QTsys.Manager
 
         public DataTable GetAllProductPlanByStates(string value)
         { return this.pdao.GetAllProductPlanByStates(value); }
+
+
         public DataTable GetAllProductPlanByTime(DateTime date1, DateTime date2)
         {
             return this.pdao.GetAllProductPlanByTime(date1, date2);
