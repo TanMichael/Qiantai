@@ -18,6 +18,7 @@ namespace QTsys
     public partial class 生产管理 : Form
     {
         private ProductPlanManager ppm;
+        private ProductionManager product;
         private OrderManager oMgr;
         private int index待生产订单 = -1;
 
@@ -26,6 +27,7 @@ namespace QTsys
             InitializeComponent();
             ppm = new ProductPlanManager();
             oMgr = new OrderManager();
+            product = new ProductionManager();
         }
 
         private void 生产管理_Load(object sender, EventArgs e)
@@ -75,8 +77,13 @@ namespace QTsys
                 com生产状态.Text = dataGridView1.Rows[e.RowIndex].Cells["生产状态"].Value.ToString();
                 text相关订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString();
                 com负责人.Text = dataGridView1.Rows[e.RowIndex].Cells["负责人"].Value.ToString();
+                //-----------------------------------------------------------------------------------------------
+                textBox计划数.Text = text产品数量.Text;
+
+
             }
             catch (Exception ex) { }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -207,8 +214,39 @@ namespace QTsys
             //确认生产
             //如失败，计划-实际，生成新的订单列表（以补充形式出现订单）
             //同时合格产品入产品仓库
+            if (Convert.ToInt16(textBox计划数.Text) == Convert.ToInt16(textBox实际数.Text)) //正好生产
+            {
+                产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text),0);
+            }
+            if (Convert.ToInt16(textBox计划数.Text) > Convert.ToInt16(textBox实际数.Text))//生产少了
+            {
+                产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
+                补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
+            }
+            if (Convert.ToInt16(textBox计划数.Text) < Convert.ToInt16(textBox实际数.Text))//生产多了
+            {
+                产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
+            }
         }
 
+        public void 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
+        {
+            Product pro = new Product();
+            ProductFlow proflow = new ProductFlow();
+            proflow.ProductId = 产品编号;
+            proflow.OccurredTime = DateTime.Now;
+            proflow.Type = "生产入库";
+            proflow.RelatedOrderId = text相关订单编号.Text;
+            proflow.RelatedPlanId = com计划类型.Text;
+            proflow.UnqualifiedCount = 不合格产品数;
+            proflow.Status = "生产完成入库";
+            
+        }
+
+        public void 补充生产(string 产品编号, int 产品数量)
+        {
+
+        }
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -217,8 +255,9 @@ namespace QTsys
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+           
         }
+
         private void button生成生产计划_Click(object sender, EventArgs e)
         {
             string id = dataGridView审核通过订单.Rows[index待生产订单].Cells["订单编号"].Value.ToString();
@@ -254,6 +293,25 @@ namespace QTsys
         private void button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox实际数_TextChanged(object sender, EventArgs e)
+        {
+            try {
+                //textBox计划数-textBox实际数=textBox补充数
+                textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
+            }
+            catch (Exception ex) { };
         }
     }
 }

@@ -11,7 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
-
+using QTsys.Common.Constants;
 namespace QTsys
 {
     public partial class 领料生产 : Form
@@ -37,8 +37,8 @@ namespace QTsys
             try
             {
                 string a = "";
-                dataGridView1.DataSource = this.ppm.GetAllProductPlanByTime(a);
-                dataGridView1.Update();
+                dataGrid未生产.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PREPARING);
+                dataGrid未生产.Update();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -47,13 +47,14 @@ namespace QTsys
         {
             try
             {
-                dataGridView2.DataSource = pm.GetAllProductsByNameEX("产品编号", dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
-                dataGridView3.DataSource = pm.GetMaterialProductRelationByProduct(dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
-                dataGridView2.Update();
-                dataGridView3.Update();
-                textBox产品.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-                textBox领料产品.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-                textBox产品数量.Text = dataGridView1.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
+                dataGrid产品.DataSource = pm.GetAllProductsByNameEX("产品编号", dataGrid未生产.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+                dataGrid产品原料关系.DataSource = pm.GetMaterialProductRelationByProduct(dataGrid未生产.Rows[e.RowIndex].Cells["产品编号"].Value.ToString());
+                dataGrid产品.Update();
+                dataGrid产品原料关系.Update();
+                textBox产品.Text = dataGrid未生产.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                textBox领料产品.Text = dataGrid未生产.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                textBox产品数量.Text = dataGrid未生产.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
+                textBox订单编号.Text = dataGrid未生产.Rows[e.RowIndex].Cells["编号"].Value.ToString();
                
             }
             catch (Exception ex) { };
@@ -63,8 +64,8 @@ namespace QTsys
         {
             原料选择 win = new 原料选择(textBox产品.Text);
             win.ShowDialog();
-            dataGridView3.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
-            dataGridView3.Update();
+            dataGrid产品原料关系.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
+            dataGrid产品原料关系.Update();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -76,7 +77,7 @@ namespace QTsys
             if (pm.DelMaterialProductRelation(pmt))
             {
                 MessageBox.Show("删除成功");
-                dataGridView2.Rows.Remove(dataGridView2.CurrentRow);
+                dataGrid产品原料关系.Rows.Remove(dataGrid产品原料关系.CurrentRow);
             }
             else { MessageBox.Show("删除失败！"); }
         }
@@ -92,8 +93,8 @@ namespace QTsys
                 if (pm.AltMaterialProductRelation(pmt))
                 {
                     // MessageBox.Show("修改成功！");
-                    dataGridView2.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
-                    dataGridView2.Update();
+                    dataGrid产品原料关系.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
+                    dataGrid产品原料关系.Update();
                 }
                 else
                 {
@@ -108,11 +109,11 @@ namespace QTsys
             index3 = e.RowIndex;
             //  text原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
             // l原料数量.Text = "生产产品【" + dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString() + "】1件须消耗原料【" + dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString() + "】";
-            textBox产品.Text = dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-            textBox原料.Text = dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
-            textBox原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
-            dataGridView7.DataSource = mt.GetAllMaterialByName("原料编号", dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
-            dataGridView7.Update();
+            textBox产品.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+            textBox原料.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
+            textBox原料数量.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
+            dataGrid原料.DataSource = mt.GetAllMaterialByName("原料编号", dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
+            dataGrid原料.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,13 +129,13 @@ namespace QTsys
             }
             try
             {
-                int[] 原料编号 = new int[dataGridView3.RowCount];
-                for (int i = 0; i < dataGridView3.RowCount; i++)
+                int[] 原料编号 = new int[dataGrid产品原料关系.RowCount];
+                for (int i = 0; i < dataGrid产品原料关系.RowCount; i++)
                 {
-                    原料编号[i] =Convert.ToInt16( dataGridView3.Rows[i].Cells["原料编号"].Value);
+                    原料编号[i] =Convert.ToInt16( dataGrid产品原料关系.Rows[i].Cells["原料编号"].Value);
                 }
 
-                领料清单生成 win = new 领料清单生成(Convert.ToInt16(textBox领料产品.Text), Convert.ToInt16(textBox产品数量.Text), 原料编号);
+                领料清单生成 win = new 领料清单生成(textBox订单编号.Text,Convert.ToInt16(textBox领料产品.Text), Convert.ToInt16(textBox产品数量.Text), 原料编号);
                // 领料清单生成 win=new 领料清单生成(Convert.ToInt16(textBox领料产品.Text));
                 win.ShowDialog();
 

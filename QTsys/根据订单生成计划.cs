@@ -11,7 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
-
+using QTsys.Common.Constants;
 namespace QTsys
 {
     public partial class 根据订单生成计划 : Form
@@ -170,11 +170,21 @@ namespace QTsys
                 plan.Count =Convert.ToInt16(dataGridView1.Rows[i].Cells["数量"].Value);
                 plan.PlanningTime = date交付时间.Value;
                 plan.FinishTime = DateTime.Parse("2000-01-01");
-                plan.PlanState = "等待取料";
+                plan.PlanState = ProductionPlanStatus.PENDING;
                 plan.InChargePerson = Utils.GetCurrentUsername();
                 if (!ppm.AddNewPlan(plan)) { MessageBox.Show("插入计划失败"); planok = false; break; };
             }
-            if (planok == true) { MessageBox.Show("生产计划生成成功！"); this.Close(); }
+            if (planok == true)
+            {
+                if (odm.UpdateOrderStatus(OrderStatus.PROCESSING, text订单编号.Text))
+                {
+                    MessageBox.Show("生产计划生成成功！"); this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("生产计划生成失败！");
+                }
+            }
         }
     }
 }

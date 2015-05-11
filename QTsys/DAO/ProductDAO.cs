@@ -34,6 +34,8 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
+
+
         public DataTable GetAllProductsByNameEX(string col, string value)
         {
             string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " = '" + value + "';";
@@ -156,6 +158,10 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return 0; }
         }
+
+
+
+
         public bool DelProduct(String key)
         {
             try
@@ -195,6 +201,42 @@ namespace QTsys.DAO
             return dt;
 
         }
+
+        //产品进出仓
+
+        public bool AddNewProductFlow(ProductFlow pdt)
+        {
+            try
+            {
+                string sql = "INSERT INTO qiaotai.产品进出库(产品编号,发生时间,类型,相关订单编号,相关计划编号,不合格产品数,当前状态) VALUES ('" + pdt.ProductId + "','" + pdt.OccurredTime+ "','" + pdt.Type + "','" + pdt.RelatedPlanId + "','" + pdt.RelatedOrderId + "','" + pdt.UnqualifiedCount + "','" + pdt.Status  + "');";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+            //    var id = cmd.LastInsertedId;
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+
+        public bool AddProductCount(string 产品编号,int 产品数量)
+        {
+            try
+            {
+
+
+
+                string sql = "UPDATE qiaotai.产品信息 SET 库存数量='" + 产品数量 + "' WHERE 产品编号='" + 产品编号 + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                //    var id = cmd.LastInsertedId;
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
+
        
     }
 }
