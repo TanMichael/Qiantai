@@ -20,6 +20,7 @@ namespace QTsys
         private ProductPlanManager ppm;
         private ProductionManager product;
         private OrderManager oMgr;
+        private ProductionPlan plan;
         private int index待生产订单 = -1;
 
         public 生产管理()
@@ -28,6 +29,7 @@ namespace QTsys
             ppm = new ProductPlanManager();
             oMgr = new OrderManager();
             product = new ProductionManager();
+            plan = new ProductionPlan();
         }
 
         private void 生产管理_Load(object sender, EventArgs e)
@@ -227,11 +229,15 @@ namespace QTsys
             {
                 产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
             }
+            dataGridView1.DataSource = this.ppm.GetAllProductPlan();
+            dataGridView1.Update();
+
         }
 
         public void 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
         {
-            Product pro = new Product();
+            try{
+          //  Product pro = new Product();
             ProductFlow proflow = new ProductFlow();
             proflow.ProductId = 产品编号;
             proflow.OccurredTime = DateTime.Now;
@@ -240,12 +246,35 @@ namespace QTsys
             proflow.RelatedPlanId = com计划类型.Text;
             proflow.UnqualifiedCount = 不合格产品数;
             proflow.Status = "生产完成入库";
-            
+            if (product.AddProduct(proflow, 产品数量))
+            {
+                MessageBox.Show("产品增加成功！！！");
+            }else
+                MessageBox.Show("产品增加失败！！！");
+            }
+             catch (Exception ex) { }
         }
 
         public void 补充生产(string 产品编号, int 产品数量)
         {
-
+            try
+            {
+                plan.RelatedOrderId = text相关订单编号.Text;
+                plan.ProductId = com产品编号.Text;
+                plan.CustomerId = com客户编号.Text;
+                plan.OrderTime = DateTime.Now;
+                plan.Count = 产品数量;
+                plan.PlanningTime = date交付时间.Value;
+                plan.FinishTime = DateTime.Parse("2000-01-01");
+               // plan.PlanState = ProductionPlanStatus.PREPARING;
+                plan.PlanType = "补充生产";
+                plan.PlanState = "备货中";
+                plan.InChargePerson = com负责人.Text;
+                if (ppm.AddNewPlan(plan)) { MessageBox.Show("补充计划成功！！！"); }
+                else
+                MessageBox.Show("补充生产失败！！！");
+            }
+            catch (Exception ex) { }
         }
 
         private void button7_Click(object sender, EventArgs e)

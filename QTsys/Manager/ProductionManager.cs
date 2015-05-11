@@ -80,5 +80,20 @@ namespace QTsys.Manager
         public bool DelProduct(String key) { return pdao.DelProduct(key); }
         public bool AltProduct(Product pdt) { return pdao.AltProduct(pdt); }
 
+        public bool AddProduct(ProductFlow pdt,int num) 
+        {
+            if (pdao.AddNewProductFlow(pdt))
+            {
+                if (pdao.AddProductCount(pdt.ProductId, num))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+
     }
 }

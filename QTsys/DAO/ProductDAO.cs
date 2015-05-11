@@ -208,7 +208,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.产品进出库(产品编号,发生时间,类型,相关订单编号,相关计划编号,不合格产品数,当前状态) VALUES ('" + pdt.ProductId + "','" + pdt.OccurredTime+ "','" + pdt.Type + "','" + pdt.RelatedPlanId + "','" + pdt.RelatedOrderId + "','" + pdt.UnqualifiedCount + "','" + pdt.Status  + "');";
+                string sql = "INSERT INTO qiaotai.产品进出库(产品编号,发生时间,类型,相关订单编号,相关计划编号,不合格产品数,当前状态) VALUES ('" + pdt.ProductId + "','" + pdt.OccurredTime + "','" + pdt.Type + "','" + pdt.RelatedOrderId + "','" + pdt.RelatedPlanId + "','" + pdt.UnqualifiedCount + "','" + pdt.Status + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -223,10 +223,7 @@ namespace QTsys.DAO
         {
             try
             {
-
-
-
-                string sql = "UPDATE qiaotai.产品信息 SET 库存数量='" + 产品数量 + "' WHERE 产品编号='" + 产品编号 + "';";
+                string sql = "UPDATE qiaotai.产品信息 SET 库存数量= 库存数量 +" + 产品数量 + " WHERE 产品编号='" + 产品编号 + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
