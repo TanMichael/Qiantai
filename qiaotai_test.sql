@@ -114,7 +114,7 @@ create table 原材料进出仓
 (
    编号                   int primary key auto_increment,
    类型                   nvarchar(128),
-   库存数量               int,
+   数量                   int,
    原料编号               int,
    供应商                 nvarchar(256),
    供应单价               decimal(7,2),

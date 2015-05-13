@@ -27,6 +27,29 @@ namespace QTsys.Manager
         {
             return this.dao.GetAllMaterials();
         }
+
+        public List<Material> GetAllMaterials(bool b)
+        {
+            List<Material> results = new List<Material>();
+            DataTable dt = this.dao.GetAllMaterials();
+
+            var l = dt.Rows.Count;
+            for (int i = 0; i < l; i++)
+            {
+                var rs = dt.Rows[i];
+                Material mt = new Material();
+
+                mt.Id = (int)rs["原料编号"];
+                mt.Name = rs["原料名称"].ToString();
+                mt.Unit = rs["单位"].ToString();
+                mt.StockCount = (int)rs["库存数量"];
+                
+                results.Add(mt);
+            }
+
+            return results;
+        }
+
         public DataTable GetAllMaterialByName(string col, string value)
         {
             return this.dao.GetAllMaterialsByName(col, value);
@@ -55,29 +78,25 @@ namespace QTsys.Manager
 
         public bool AddNewMaterialEx(MaterialFlow material, String mtName, String mtUnit)
         {
-            if (this.dao.AddNewMaterialFlow(material, mtName, mtUnit))
+            Material mt = new Material();
+            mt.Id = material.MaterialId;
+            mt.Unit = mtUnit;
+            mt.StockCount = material.FlowCount;
+
+            if (mt.Id == -1)
             {
-                Material mt = new Material();
-                mt.Id = material.MaterialId;
                 mt.Name = mtName;
-                mt.Unit = mtUnit;
-                mt.StockCount = material.StockCount;
-                if (this.dao.AddNewMaterialEx(mt))
-                {
-                    return true;
-                }
-                else
-                {
-                    //对this.dao.AddNewMaterialFlow(material, mtName, mtUnit)进行逆操作,删除刚才加入的。
-                    this.dao.DelMaterialFlow(material);
-                    return false;
-                }
+                material.MaterialId = mt.Id = this.dao.AddNewMaterial(mt);
             }
             else
-                return false;
+            {
+                this.dao.UpdateMaterial(mt);
+            }
+            
+            return this.dao.AddNewMaterialFlow(material, mtName, mtUnit);
         }
 
-        public bool AddNewMaterial(Material material)
+        public int AddNewMaterial(Material material)
         {
             return this.dao.AddNewMaterial(material);
         }

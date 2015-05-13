@@ -101,7 +101,7 @@ namespace QTsys
                 mt.Name = text原料名称.Text;
                 mt.Unit = text单位.Text;
                 mt.StockCount = Convert.ToInt16(text库存数量.Text);
-                if (this.material.AddNewMaterial(mt))
+                if (this.material.AddNewMaterial(mt) > 0)
                 {
                     MessageBox.Show("原料[" + text原料名称.Text + "]插入成功！");
                     dataGridView1.DataSource = this.material.GetAllMaterials();

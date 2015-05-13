@@ -28,11 +28,17 @@ namespace QTsys
         {
             try
             {
+                com原料编号.ValueMember = "Id";
+                com原料编号.DisplayMember = "Name";
+                var mts = this.material.GetAllMaterials(true);
+                mts.Insert(0, new Material() { Id = -1, Name = "新增原料" });
+                com原料编号.DataSource = mts;
+
                 dataGridView1.DataSource = this.material.GetAllMaterials();
                 dataGridView1.Update();
                 dataGridView2.DataSource = this.material.GetAllMaterialFlow();
                 dataGridView2.Update();
-                text操作员.Text = Utils.GetCurrentUsername();
+                //text操作员.Text = Utils.GetCurrentUsername();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -42,12 +48,12 @@ namespace QTsys
             try
             {
 
-                com原料编号.Text= dataGridView1.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
-                text原料名称.Text = this.material.GetMaterialNameBySerial(com原料编号.Text);
+                com原料编号.SelectedValue = (int)(dataGridView1.Rows[e.RowIndex].Cells["原料编号"].Value);
+                //text原料名称.Text = this.material.GetMaterialNameBySerial(com原料编号.Text);
                 text单位.Text = dataGridView1.Rows[e.RowIndex].Cells["单位"].Value.ToString();
                // text编号.Text = dataGridView2.Rows[e.RowIndex].Cells["编号"].Value.ToString();
-                text类型.Text = "";
-                text库存数量.Text = "";
+                //text类型.Text = "";
+                text库存数量.Text = dataGridView1.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
                 //com原料编号.Text = dataGridView2.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
                // com供应商.Text = dataGridView2.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
                // text供应单价.Text = dataGridView2.Rows[e.RowIndex].Cells["供应单价"].Value.ToString();
@@ -90,14 +96,14 @@ namespace QTsys
         {
             try
             {
-                text编号.Text = dataGridView2.Rows[e.RowIndex].Cells["编号"].Value.ToString();
-                text类型.Text = dataGridView2.Rows[e.RowIndex].Cells["类型"].Value.ToString();
-                text库存数量.Text = dataGridView2.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
-                com原料编号.Text = dataGridView2.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
+                //text编号.Text = dataGridView2.Rows[e.RowIndex].Cells["编号"].Value.ToString();
+                //text类型.Text = dataGridView2.Rows[e.RowIndex].Cells["类型"].Value.ToString();
+                textBox进出数量.Text = dataGridView2.Rows[e.RowIndex].Cells["数量"].Value.ToString();
+                com原料编号.SelectedValue = (int)(dataGridView2.Rows[e.RowIndex].Cells["原料编号"].Value);
                 com供应商.Text = dataGridView2.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
                 text供应单价.Text = dataGridView2.Rows[e.RowIndex].Cells["供应单价"].Value.ToString();
                // text操作员.Text = dataGridView2.Rows[e.RowIndex].Cells["操作员"].Value.ToString();
-                text原料名称.Text = this.material.GetMaterialNameBySerial(com原料编号.Text);
+                //text原料名称.Text = this.material.GetMaterialNameBySerial(com原料编号.Text);
             }
             catch (Exception ex) { }
         }
@@ -141,15 +147,15 @@ namespace QTsys
             {
                 MaterialDAO at = new MaterialDAO();
                 MaterialFlow mtf = new MaterialFlow();
-                mtf.Id = Convert.ToUInt16(text编号.Text);
-                mtf.Type = text类型.Text;
-                mtf.StockCount = Convert.ToUInt16(text库存数量.Text);
-                mtf.MaterialId = Convert.ToUInt16(com原料编号.Text);
+                //mtf.Id = Convert.ToUInt16(text编号.Text);
+                mtf.Type = "入仓";
+                mtf.FlowCount = Convert.ToInt32(textBox进出数量.Text);
+                mtf.MaterialId = Convert.ToInt32(com原料编号.SelectedValue);
                 mtf.Supplier = com供应商.Text;
                 mtf.Price = Convert.ToDouble(text供应单价.Text);
-                mtf.Operator = text操作员.Text;
+                mtf.Operator = Utils.GetCurrentUsername();
                 //原料名称this.material.GetMaterialNameBySerial(com原料编号.Text);
-                String name = this.material.GetMaterialNameBySerial(com原料编号.Text);
+                String name = textBoxNewName.Text;
                 if (material.AddNewMaterialEx(mtf, name, text单位.Text))
                 // if(at.AddNewMaterialFlow(mtf, name, text单位.Text))
                 {
@@ -163,6 +169,23 @@ namespace QTsys
             catch (Exception ex)
             {
                 MessageBox.Show("更新库存失败！" + ex.ToString());
+            }
+        }
+
+        private void com原料编号_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Material mt = (Material)(com原料编号.SelectedItem);
+            if (mt.Id == -1)
+            {
+                text单位.Text = "";
+                text库存数量.Text = "";
+                textBoxNewName.Visible = true;
+            }
+            else
+            {
+                text单位.Text = mt.Unit;
+                text库存数量.Text = mt.StockCount.ToString();
+                textBoxNewName.Visible = false;
             }
         }
     }
