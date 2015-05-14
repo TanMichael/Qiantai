@@ -326,6 +326,7 @@
             // 
             // textBox单价
             // 
+            this.textBox单价.Enabled = false;
             this.textBox单价.Location = new System.Drawing.Point(236, 340);
             this.textBox单价.Name = "textBox单价";
             this.textBox单价.Size = new System.Drawing.Size(100, 21);

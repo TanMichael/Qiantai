@@ -154,8 +154,6 @@
             // check样品
             // 
             this.check样品.AutoSize = true;
-            this.check样品.Checked = true;
-            this.check样品.CheckState = System.Windows.Forms.CheckState.Checked;
             this.check样品.Location = new System.Drawing.Point(441, 31);
             this.check样品.Name = "check样品";
             this.check样品.Size = new System.Drawing.Size(108, 16);
@@ -479,7 +477,7 @@
         private System.Windows.Forms.TextBox text收货地址;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox check样品;
+        public System.Windows.Forms.CheckBox check样品;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;

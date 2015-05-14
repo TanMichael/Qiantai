@@ -92,7 +92,22 @@ namespace QTsys
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "1", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString() };
+            double selectedPrice = Convert.ToDouble(dataGridView1.Rows[selectpro].Cells["单价"].Value);
+            if (selectedPrice == 0d)
+            {
+                check样品.Checked = true;
+                check样品.Enabled = false;
+                MessageBox.Show("有没有单价的产品被添加，该订单只能是样品订单。");
+            }
+            string[] rowadd = new string[]
+            { 
+                dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(),
+                dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(),
+                "0",
+                selectedPrice.ToString(),
+                "1",
+                dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString()
+            };
             bool ins=true;
             for(int i=0;i<dataGridView2.Rows.Count;i++)
             {
@@ -144,6 +159,30 @@ namespace QTsys
         private void button4_Click(object sender, EventArgs e)
         {
             dataGridView2.Rows.Remove(dataGridView2.CurrentRow);
+
+            bool containsSample = false;
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                var price = Convert.ToDouble(dataGridView2.Rows[i].Cells["单价"].Value);
+                if (price == 0d)
+                {
+                    containsSample = true;
+                }
+
+
+                //if (dataGridView2.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
+                //{
+                //    MessageBox.Show("[" + dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString() + "]已经被添加，请选择新产品！");
+                //    ins = false;
+                //    break;
+                //}
+            }
+
+            if (!containsSample)
+            {
+                check样品.Checked = false;
+                check样品.Enabled = true;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -32,7 +32,7 @@ namespace QTsys
             textBox实测变位.Text = pdt.RealShift;
             textBox材质.Text = pdt.Texture;
             textBox成型模.Text = pdt.Formingdie;
-            textBox单价.Text = pdt.Price.ToString();
+            //textBox单价.Text = pdt.Price.ToString();
             textBox单位.Text = pdt.Unit;
             textBox含浸尺寸.Text = pdt.Soak;
             textBox内治具.Text = pdt.Jig;
@@ -67,7 +67,7 @@ namespace QTsys
             pdt.RealShift = textBox实测变位.Text;
             pdt.Texture = textBox材质.Text;
             pdt.Formingdie = textBox成型模.Text;
-            pdt.Price = double.Parse(textBox单价.Text);
+            //pdt.Price = double.Parse(textBox单价.Text);
             pdt.Unit = textBox单位.Text;
             pdt.Soak = textBox含浸尺寸.Text;
             pdt.Jig = textBox内治具.Text;
@@ -86,6 +86,14 @@ namespace QTsys
                 var dataGridView2 = parent.dataGridView2;
                 string[] rowadd = new string[] { id.ToString(), pdt.Name, "0", pdt.Price.ToString(), "1", "0" };
                 dataGridView2.Rows.Add(rowadd);
+
+                // for no price item
+                parent.check样品.Checked = true;
+                parent.check样品.Enabled = false;
+
+                var dataGridView1 = parent.dataGridView1;
+                dataGridView1.DataSource = this.prdMgr.GetAllProducts();
+                dataGridView1.Update();
             }
 
             this.Close();
