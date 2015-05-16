@@ -77,6 +77,7 @@
             this.text成型模 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.labelNoPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -492,11 +493,21 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // labelNoPrice
+            // 
+            this.labelNoPrice.AutoSize = true;
+            this.labelNoPrice.Location = new System.Drawing.Point(841, 45);
+            this.labelNoPrice.Name = "labelNoPrice";
+            this.labelNoPrice.Size = new System.Drawing.Size(101, 12);
+            this.labelNoPrice.TabIndex = 55;
+            this.labelNoPrice.Text = "你的权限不能报价";
+            // 
             // 产品管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 639);
+            this.Controls.Add(this.labelNoPrice);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.text库存数量);
             this.Controls.Add(this.label17);
@@ -606,5 +617,6 @@
         private System.Windows.Forms.TextBox text成型模;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label labelNoPrice;
     }
 }

@@ -11,17 +11,30 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
+using QTsys.Common.Constants;
 
 namespace QTsys
 {
     public partial class 产品管理 : Form
     {
         private ProductionManager proman;
+        private bool canPricing;
 
         public 产品管理()
         {
             InitializeComponent();
             this.proman = ProductionManager.getProductionManager();
+            var role = Utils.GetLogonToken().Role;
+            if (role == UserRoles.FINANCE || role == UserRoles.ADMIN)    // 财务才能报价
+            {
+                text单价.Enabled = canPricing = true;
+                labelNoPrice.Visible = false;
+            }
+            else
+            {
+                text单价.Enabled = canPricing = false;
+                labelNoPrice.Visible = true;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -46,7 +59,7 @@ namespace QTsys
                 pdt.Formingdie = text成型模.Text;
                 pdt.ModingNum = text切模号.Text;
                 pdt.Unit = text单位.Text;
-                pdt.Price = Convert.ToDouble(text单价.Text);
+                pdt.Price = canPricing ? Convert.ToDouble(text单价.Text) : 0d;
                 pdt.StockCount = Convert.ToInt16(text库存数量.Text);
                 if (proman.AddNewProduct(pdt) > 0)
                 {
