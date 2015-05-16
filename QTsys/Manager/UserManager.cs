@@ -77,9 +77,14 @@ namespace QTsys.Manager
             return this.userDao.AltUserPwd(IDname,Pwd);
         }
 
-        public bool ValidateUserName(string name)
+        //public bool ValidateUserName(string name)
+        //{
+        //    return !this.userDao.GetAllUserNames().Contains(name);
+        //}
+
+        public bool CheckUsernameUnique(string userName)
         {
-            return !this.userDao.GetAllUserNames().Contains(name);
+            return this.userDao.CheckUsernameUnique(userName);
         }
 
         # region customer management

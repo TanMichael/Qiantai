@@ -98,8 +98,15 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (!this.userMgr.CheckUsernameUnique(text账户名.Text))
+                {
+                    MessageBox.Show("用户名已被使用，请修改！");
+                    return;
+                }
+
                 User newuser=new User();
-                newuser.Id=text员工编号.Text;
+                //newuser.Id=text员工编号.Text;
                 newuser.UserName= text账户名.Text;
                 newuser.Password="c4ca4238a0b923820dcc509a6f75849b";
                 newuser.Name=text姓名.Text;
@@ -170,7 +177,7 @@ namespace QTsys
         private void text账户名_Leave(object sender, EventArgs e)
         {
             string name = text账户名.Text;
-            if (!this.userMgr.ValidateUserName(name))
+            if (!this.userMgr.CheckUsernameUnique(name))
             {
                 MessageBox.Show("账户名已被使用，请修改！");
             }

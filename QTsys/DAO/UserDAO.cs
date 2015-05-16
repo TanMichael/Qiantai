@@ -181,5 +181,23 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return false; }
         }
+
+        public bool CheckUsernameUnique(string userName)
+        {
+            string sql = "select count(1) from qiaotai.员工信息 where 账户名='" + userName + "';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            this.Connection.Open();
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            int count = 0;
+            while (dr.Read())
+            {
+                count = Convert.ToInt32(dr[0]);
+            }
+            dr.Close();
+            this.Connection.Close();
+
+            return count == 0;
+        }
     }
 }
