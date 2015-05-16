@@ -59,10 +59,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label搜索列 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.button新产品 = new System.Windows.Forms.Button();
             this.checkBoxHistory = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button搜索 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -365,18 +367,39 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label搜索列);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.button新产品);
             this.groupBox3.Controls.Add(this.checkBoxHistory);
             this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.button搜索);
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.textBox产品名称搜索);
             this.groupBox3.Location = new System.Drawing.Point(717, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(417, 469);
+            this.groupBox3.Size = new System.Drawing.Size(583, 469);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "选择产品";
+            // 
+            // label搜索列
+            // 
+            this.label搜索列.AutoSize = true;
+            this.label搜索列.ForeColor = System.Drawing.Color.Red;
+            this.label搜索列.Location = new System.Drawing.Point(247, 27);
+            this.label搜索列.Name = "label搜索列";
+            this.label搜索列.Size = new System.Drawing.Size(53, 12);
+            this.label搜索列.TabIndex = 18;
+            this.label搜索列.Text = "产品名称";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(223, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(17, 12);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "按";
             // 
             // button新产品
             // 
@@ -409,28 +432,29 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button3
+            // button搜索
             // 
-            this.button3.Location = new System.Drawing.Point(233, 24);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "按产品名称搜索";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button搜索.Location = new System.Drawing.Point(306, 23);
+            this.button搜索.Name = "button搜索";
+            this.button搜索.Size = new System.Drawing.Size(50, 23);
+            this.button搜索.TabIndex = 2;
+            this.button搜索.Text = "搜索";
+            this.button搜索.UseVisualStyleBackColor = true;
+            this.button搜索.Click += new System.EventHandler(this.button搜索_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 77);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(386, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(571, 358);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // textBox产品名称搜索
@@ -444,7 +468,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 554);
+            this.ClientSize = new System.Drawing.Size(1312, 554);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -489,7 +513,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button搜索;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox产品名称搜索;
         private System.Windows.Forms.Button button5;
@@ -505,5 +529,7 @@
         private System.Windows.Forms.CheckBox checkBoxHistory;
         private System.Windows.Forms.Button button新产品;
         private System.Windows.Forms.Label l编号;
+        private System.Windows.Forms.Label label搜索列;
+        private System.Windows.Forms.Label label9;
     }
 }

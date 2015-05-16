@@ -185,14 +185,15 @@ namespace QTsys
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button搜索_Click(object sender, EventArgs e)
         {
             try
             {
                 if (textBox产品名称搜索.Text != "")
                 {
-                    dataGridView1.DataSource = this.pm.GetAllProductsByName("产品名称", textBox产品名称搜索.Text);
-                dataGridView1.Update();
+                    string searchField = label搜索列.Text;
+                    dataGridView1.DataSource = this.pm.GetAllProductsByName(searchField, textBox产品名称搜索.Text);
+                    dataGridView1.Update();
                 }
                 else
                 {
@@ -399,6 +400,11 @@ namespace QTsys
             }
             if(ins==true){
             dataGridView2.Rows.Add(rowadd);}
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            label搜索列.Text = dataGridView1.Columns[e.ColumnIndex].HeaderText.ToString();
         }
 
 
