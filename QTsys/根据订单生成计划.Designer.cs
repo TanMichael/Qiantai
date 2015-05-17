@@ -585,13 +585,13 @@
             this.dataGridView7.Size = new System.Drawing.Size(515, 86);
             this.dataGridView7.TabIndex = 102;
             // 
-            // dataGridView3
+            // dataGridView产品原料关系
             // 
             this.dataGridView产品原料关系.AllowUserToAddRows = false;
             this.dataGridView产品原料关系.AllowUserToDeleteRows = false;
             this.dataGridView产品原料关系.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView产品原料关系.Location = new System.Drawing.Point(14, 321);
-            this.dataGridView产品原料关系.Name = "dataGridView3";
+            this.dataGridView产品原料关系.Name = "dataGridView产品原料关系";
             this.dataGridView产品原料关系.RowTemplate.Height = 23;
             this.dataGridView产品原料关系.Size = new System.Drawing.Size(434, 145);
             this.dataGridView产品原料关系.TabIndex = 101;
@@ -618,15 +618,16 @@
             this.dataGridView参数修正.RowTemplate.Height = 23;
             this.dataGridView参数修正.Size = new System.Drawing.Size(434, 141);
             this.dataGridView参数修正.TabIndex = 99;
+            this.dataGridView参数修正.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView参数修正_CellClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 98;
-            this.label2.Text = "参数校正";
+            this.label2.Text = "产品参数校正";
             // 
             // label1
             // 
@@ -729,7 +730,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView产品订单数据);
             this.Name = "根据订单生成计划";
-            this.Text = "样品库存自动生成";
+            this.Text = "根据订单生成计划";
             this.Load += new System.EventHandler(this.样品库存自动生成_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

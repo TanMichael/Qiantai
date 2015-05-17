@@ -289,9 +289,16 @@ namespace QTsys
 
         private void button生成生产计划_Click(object sender, EventArgs e)
         {
+            if (index待生产订单 < 0)
+            {
+                MessageBox.Show("请先选中一行数据");
+                return;
+            }
+            
             string id = dataGridView审核通过订单.Rows[index待生产订单].Cells["订单编号"].Value.ToString();
             string cId = dataGridView审核通过订单.Rows[index待生产订单].Cells["客户编号"].Value.ToString();
             bool isSample = dataGridView审核通过订单.Rows[index待生产订单].Cells["是否样品订单"].Value.ToString() == "是";
+            DateTime oTime = DateTime.Parse(dataGridView审核通过订单.Rows[index待生产订单].Cells["创建时间"].Value.ToString());
 
             WinSendMsg.IsSampleProduct = isSample;
             //WinSendMsg.IsMeterialReduce = check库存.Checked;
@@ -301,14 +308,11 @@ namespace QTsys
             plan.RelatedOrderId = id;
             plan.ProductId = "";
             plan.CustomerId = cId;
-            plan.OrderTime = DateTime.Now;
+            plan.OrderTime = oTime;
             plan.Count = 0;
             plan.PlanningTime = DateTime.Now;
             plan.FinishTime = DateTime.Now;
-            if (isSample == true)
-                plan.PlanType = "样品";
-            else
-                plan.PlanType = "正品";
+            plan.PlanType = isSample ? "样品" : "正品";
             plan.InChargePerson = Utils.GetCurrentUsername();
             根据订单生成计划 win = new 根据订单生成计划(plan.PlanType, plan.RelatedOrderId, plan.CustomerId);
             win.ShowDialog();

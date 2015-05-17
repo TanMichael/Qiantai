@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.label搜索待生产栏目 = new System.Windows.Forms.Label();
             this.textBox搜索待生产内容 = new System.Windows.Forms.TextBox();
             this.button生成生产计划 = new System.Windows.Forms.Button();
@@ -102,7 +101,6 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button9);
-            this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.label搜索待生产栏目);
             this.tabPage1.Controls.Add(this.textBox搜索待生产内容);
             this.tabPage1.Controls.Add(this.button生成生产计划);
@@ -126,16 +124,6 @@
             this.button9.Text = "搜索";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(681, 536);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 23);
-            this.button8.TabIndex = 144;
-            this.button8.Text = "生成生产计划";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button生成生产计划_Click);
             // 
             // label搜索待生产栏目
             // 
@@ -637,8 +625,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label搜索待生产栏目;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button7;
