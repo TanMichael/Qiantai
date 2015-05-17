@@ -29,6 +29,18 @@ namespace QTsys
             InitializeComponent();
             odm = new OrderManager();
             userMgr = new UserManager();
+
+            var role = Utils.GetLogonToken().Role;
+            if (role == UserRoles.ADMIN)    // 超级管理员才能看所有人的订单
+            {
+                checkBox查看所有.Visible = true;
+                checkBox查看所有.Checked = true;
+            }
+            else
+            {
+                checkBox查看所有.Visible = false;
+                checkBox查看所有.Checked = false;
+            }
         }
 
         private void 订单管理_Load(object sender, EventArgs e)
@@ -37,10 +49,13 @@ namespace QTsys
             {
              //   text订单编号.Text = "1";
                // tab = true;
-                tempData1 = this.odm.GetOrderByCreator(Utils.GetCurrentUsername());
-                //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
-                dataGridView1.DataSource = tempData1;
-                dataGridView1.Update();
+                if (checkBox查看所有.Checked == false)
+                {
+                    tempData1 = this.odm.GetOrderByCreator(Utils.GetCurrentUsername());
+                    //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                    dataGridView1.DataSource = tempData1;
+                    dataGridView1.Update();
+                }
                 //c是否库存.Items.Add("是");
                 //c是否库存.Items.Add("否");
                 text订单编号.Text = "1";
@@ -338,6 +353,24 @@ namespace QTsys
         private void text订单编号_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox查看所有_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox查看所有.Checked)
+            {
+                tempData1 = this.odm.GetAllOrders();
+                //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                dataGridView1.DataSource = tempData1;
+                dataGridView1.Update();
+            }
+            else
+            {
+                tempData1 = this.odm.GetOrderByCreator(Utils.GetCurrentUsername());
+                //   tempData2 = this.odm.GetAllOrderDetailsBySerial(text订单编号.Text);
+                dataGridView1.DataSource = tempData1;
+                dataGridView1.Update();
+            }
         }
     }
 }
