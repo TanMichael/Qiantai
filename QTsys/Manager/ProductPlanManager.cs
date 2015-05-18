@@ -23,9 +23,9 @@ namespace QTsys.Manager
             return new ProductPlanManager();
         }
 
-        public DataTable GetAllProductPlan()
+        public DataTable GetAllProductPlan(bool reallyAll = false)
         {
-            return this.pdao.GetAllProductPlan();
+            return this.pdao.GetAllProductPlan(reallyAll);
         }
 
         public DataTable GetAllProductPlanByName(string col, string value)

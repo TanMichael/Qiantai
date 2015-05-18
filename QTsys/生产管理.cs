@@ -37,10 +37,22 @@ namespace QTsys
         {
             try
             {
-                dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
+                //dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
+                //get all for now
+                dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                 dataGridView1.Update();
                 dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
                 dataGridView审核通过订单.Update();
+
+                // plan status
+                com生产状态.Items.AddRange(new string[]
+                {
+                    //ProductionPlanStatus.PENDING,
+                    ProductionPlanStatus.PREPARING,
+                    ProductionPlanStatus.PROCESSING,
+                    ProductionPlanStatus.STORED,
+                    ProductionPlanStatus.CANCEL
+                });
 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -124,12 +136,19 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个产品！");
+                    return;
+                }
+
                 ProductionPlan pp = new ProductionPlan();
                 pp.Id = text编号.Text;
                 pp.ProductId = com产品编号.Text;
                 pp.CustomerId = com客户编号.Text;
                 pp.OrderTime = date下单日期.Value;
-                pp.Count =Convert.ToInt16( text产品数量.Text);
+                pp.Count =Convert.ToInt32(text产品数量.Text);
                 pp.PlanningTime = date交付时间.Value;
                 pp.FinishTime = date实际完成时间.Value;
                 pp.PlanType = com计划类型.Text;
@@ -157,16 +176,16 @@ namespace QTsys
                 pp.ProductId = com产品编号.Text;
                 pp.CustomerId = com客户编号.Text;
                 pp.OrderTime = date下单日期.Value;
-                pp.Count = Convert.ToInt16(text产品数量.Text);
+                pp.Count = Convert.ToInt32(text产品数量.Text);
                 pp.PlanningTime = date交付时间.Value;
                 pp.FinishTime = date实际完成时间.Value;
                 pp.PlanType = com计划类型.Text;
-                pp.PlanState = com生产状态.Text;
+                pp.PlanState = ProductionPlanStatus.PENDING;//com生产状态.Text;
                 pp.RelatedOrderId = text相关订单编号.Text;
                 pp.InChargePerson = com负责人.Text;
                 if (ppm.AddNewPlan(pp))
                 {
-                    MessageBox.Show("新计划建立成功！");
+                    MessageBox.Show("新计划建立成功！审核中");
                     dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                     dataGridView1.Update();
                 }
@@ -185,7 +204,7 @@ namespace QTsys
                 pp.ProductId = com产品编号.Text;
                 pp.CustomerId = com客户编号.Text;
                 pp.OrderTime = date下单日期.Value;
-                pp.Count = Convert.ToInt16(text产品数量.Text);
+                pp.Count = Convert.ToInt32(text产品数量.Text);
                 pp.PlanningTime = date交付时间.Value;
                 pp.FinishTime = date实际完成时间.Value;
                 pp.PlanType = com计划类型.Text;

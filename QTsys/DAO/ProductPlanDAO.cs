@@ -11,9 +11,14 @@ namespace QTsys.DAO
 {
     class ProductPlanDAO : DAOBase
     {
-        public DataTable GetAllProductPlan()
+        public DataTable GetAllProductPlan(bool reallyAll)
         {
-            string sql = "SELECT * FROM qiaotai.生产计划;";
+            string sql = "SELECT * FROM qiaotai.生产计划";
+            if (!reallyAll)
+            {
+                sql += " where 生产状态 <> '待审核' and 生产状态 <> '取消'";
+            }
+            sql += ";";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -108,7 +113,10 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.生产计划 SET 产品编号='" + pp.ProductId + "',客户编号='" + pp.CustomerId + "',下单日期='" +pp.OrderTime + "',产品数量='" + pp.Count + "',交付时间='" +pp.PlanningTime + "',实际完成时间='" + pp.FinishTime + "',计划类型='" + pp.PlanType + "',相关订单编号='" + pp.RelatedOrderId + "',负责人='" + pp.InChargePerson + "' WHERE 编号='" + pp.Id + "';";
+                string sql = "UPDATE qiaotai.生产计划 SET 产品编号='" + pp.ProductId + "',客户编号='" + pp.CustomerId + "',下单日期='" +
+                    pp.OrderTime + "',产品数量='" + pp.Count + "',交付时间='" +pp.PlanningTime + "',实际完成时间='" + pp.FinishTime +
+                    "',计划类型='" + pp.PlanType + "',生产状态='" + pp.PlanState + "',相关订单编号='" + pp.RelatedOrderId + "',负责人='" + pp.InChargePerson +
+                    "' WHERE 编号='" + pp.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
