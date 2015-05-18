@@ -344,7 +344,7 @@
             this.dataGridView完成情况.Name = "dataGridView完成情况";
             this.dataGridView完成情况.ReadOnly = true;
             this.dataGridView完成情况.RowTemplate.Height = 23;
-            this.dataGridView完成情况.Size = new System.Drawing.Size(477, 141);
+            this.dataGridView完成情况.Size = new System.Drawing.Size(912, 141);
             this.dataGridView完成情况.TabIndex = 43;
             // 
             // button5

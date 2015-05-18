@@ -58,8 +58,8 @@ namespace QTsys
             try
             {
                 text编号.Text = dataGridView产品进出库.Rows[e.RowIndex].Cells["编号"].Value.ToString();
-               text产品编号.Text=  dataGridView产品进出库.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-                date发生时间.Value=Convert.ToDateTime(dataGridView产品进出库.Rows[e.RowIndex].Cells["发生时间"].Value);
+                text产品编号.Text = dataGridView产品进出库.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                date发生时间.Value = Convert.ToDateTime(dataGridView产品进出库.Rows[e.RowIndex].Cells["发生时间"].Value);
                 text类型.Text = dataGridView产品进出库.Rows[e.RowIndex].Cells["类型"].Value.ToString();
                 text相关订单编号.Text = dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString();
                 text相关计划编号.Text = dataGridView产品进出库.Rows[e.RowIndex].Cells["相关计划编号"].Value.ToString();
@@ -71,10 +71,10 @@ namespace QTsys
                 dataGridView产品信息.Update();
                 dataGridView订单.DataSource = odm.GetOrderBySerial(dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
                 dataGridView订单.Update();
-               dataGridView完成情况.DataSource = ppm.GetAllProductPlanByNameEX("相关订单编号", dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
+                //_____________________________________________________
+                dataGridView完成情况.DataSource = odm.GetOrderFinish(dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
                 dataGridView完成情况.Update();
-                dataGridView订单明细.DataSource = odm.GetAllOrderDetailsBySerial(dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
-                dataGridView订单明细.Update();
+                //_____________________________________________________
             }
             catch (Exception ex) { }
         }
