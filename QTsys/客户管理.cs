@@ -83,7 +83,7 @@ namespace QTsys
             try
             {
                 Customer cus = new Customer();
-                cus.Id = text客户编号.Text;
+                //cus.Id = text客户编号.Text;
                 cus.Name = text客户名称.Text;
                 cus.DefaultContact = textBox联系人.Text;
                 cus.Address = text客户地址.Text;
@@ -95,7 +95,7 @@ namespace QTsys
                 cus.Remarks = text备注.Text;
                 if (this.userMgr.AddNewCustomer(cus))
                 {
-                    MessageBox.Show("客户[" + text客户编号.Text + "]新增成功！");
+                    MessageBox.Show("客户[" + cus.Name + "]新增成功！");
                     //更新表格数据                    
                     dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                     dataGridView1.Update();
@@ -110,6 +110,13 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text客户编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个客户！");
+                    return;
+                }
+
                 if (this.userMgr.DelCustomer(text客户编号.Text))
                 {
                     MessageBox.Show("用户[" + text客户编号.Text + "]已被删除！");
@@ -127,6 +134,13 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text客户编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个客户！");
+                    return;
+                }
+
                 Customer cus = new Customer();
                 cus.Id = text客户编号.Text;
                 cus.Name = text客户名称.Text;
@@ -140,7 +154,7 @@ namespace QTsys
                 cus.Remarks = text备注.Text;
                 if (this.userMgr.UpdateCustomer(cus))
                 {
-                    MessageBox.Show("客户[" + text客户编号.Text + "]数据修改成功！");
+                    MessageBox.Show("客户[" + cus.Name + "]数据修改成功！");
                     //更新表格数据                    
                     dataGridView1.DataSource = this.userMgr.GetAllCustomers();
                     dataGridView1.Update();

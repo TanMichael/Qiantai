@@ -118,7 +118,7 @@ namespace QTsys
                 newuser.Department = text部门.Text;
                 if (this.userMgr.AddNewUser(newuser))
                 {
-                    MessageBox.Show("新用户[" + text员工编号.Text + "]生成成功,默认密码为“1”！");
+                    MessageBox.Show("新用户[" + newuser.UserName + "]生成成功,默认密码为“1”！");
                     //更新表格数据                    
                     dataGridView1.DataSource = this.userMgr.GetAllUser();
                     dataGridView1.Update();
@@ -133,6 +133,13 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text员工编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个用户！");
+                    return;
+                }
+
                 if (this.userMgr.DelUser(text员工编号.Text))
                 {
                     MessageBox.Show("用户[" + text员工编号.Text + "]已被删除！");
@@ -150,6 +157,13 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text员工编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个用户！");
+                    return;
+                }
+
                 User newuser = new User();
                 newuser.Id = text员工编号.Text;
                 newuser.UserName = text账户名.Text;
@@ -163,7 +177,7 @@ namespace QTsys
                 newuser.Department = text部门.Text;
                 if (this.userMgr.UpdateUser(newuser))
                 {
-                    MessageBox.Show("用户[" + text员工编号.Text + "]数据修改成功！");
+                    MessageBox.Show("用户[" + newuser.UserName + "]数据修改成功！");
                     //更新表格数据                    
                     dataGridView1.DataSource = this.userMgr.GetAllUser();
                     dataGridView1.Update();

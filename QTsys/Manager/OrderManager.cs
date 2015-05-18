@@ -63,7 +63,8 @@ namespace QTsys.Manager
 
         public DataTable GetOrderFinish(String key)//将订单和产品入库情况进行比较，返回一个订单是否完成的比较表格
         { 
-            
+            // TODO
+            return null;
         }
 
     }

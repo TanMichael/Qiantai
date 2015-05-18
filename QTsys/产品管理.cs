@@ -77,6 +77,13 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text产品编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个产品！");
+                    return;
+                }
+
                 if (proman.DelProduct(text产品编号.Text))
                 {
                     MessageBox.Show("删除产品成功！");
@@ -93,8 +100,15 @@ namespace QTsys
         {
             try
             {
+                // validation
+                if (text产品编号.Text == "")
+                {
+                    MessageBox.Show("请先选择一个产品！");
+                    return;
+                }
+
                 Product pdt = new Product();
-                pdt.Id =Convert.ToInt16( text产品编号.Text);
+                pdt.Id = Convert.ToInt32(text产品编号.Text);
                 pdt.Name = text产品名称.Text;
                 pdt.Standard = text规格.Text;
                 pdt.Texture = text材质.Text;

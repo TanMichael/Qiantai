@@ -66,6 +66,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox查看所有 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
@@ -83,7 +84,6 @@
             this.t产品编号 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.t订单编号 = new System.Windows.Forms.TextBox();
-            this.checkBox查看所有 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -175,6 +175,7 @@
             // 
             // date创建时间
             // 
+            this.date创建时间.Enabled = false;
             this.date创建时间.Location = new System.Drawing.Point(90, 46);
             this.date创建时间.Name = "date创建时间";
             this.date创建时间.Size = new System.Drawing.Size(121, 21);
@@ -467,6 +468,17 @@
             this.tabPage1.Text = "订单";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // checkBox查看所有
+            // 
+            this.checkBox查看所有.AutoSize = true;
+            this.checkBox查看所有.Location = new System.Drawing.Point(666, 149);
+            this.checkBox查看所有.Name = "checkBox查看所有";
+            this.checkBox查看所有.Size = new System.Drawing.Size(96, 16);
+            this.checkBox查看所有.TabIndex = 57;
+            this.checkBox查看所有.Text = "查看所有订单";
+            this.checkBox查看所有.UseVisualStyleBackColor = true;
+            this.checkBox查看所有.CheckedChanged += new System.EventHandler(this.checkBox查看所有_CheckedChanged);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
@@ -488,7 +500,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(852, 504);
+            this.tabPage2.Size = new System.Drawing.Size(1131, 590);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "订单明细";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -631,17 +643,6 @@
             this.t订单编号.Name = "t订单编号";
             this.t订单编号.Size = new System.Drawing.Size(121, 21);
             this.t订单编号.TabIndex = 29;
-            // 
-            // checkBox查看所有
-            // 
-            this.checkBox查看所有.AutoSize = true;
-            this.checkBox查看所有.Location = new System.Drawing.Point(666, 149);
-            this.checkBox查看所有.Name = "checkBox查看所有";
-            this.checkBox查看所有.Size = new System.Drawing.Size(96, 16);
-            this.checkBox查看所有.TabIndex = 57;
-            this.checkBox查看所有.Text = "查看所有订单";
-            this.checkBox查看所有.UseVisualStyleBackColor = true;
-            this.checkBox查看所有.CheckedChanged += new System.EventHandler(this.checkBox查看所有_CheckedChanged);
             // 
             // 订单管理
             // 
