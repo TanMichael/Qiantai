@@ -102,7 +102,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.原材料进出仓(类型,库存数量,原料编号,供应商,供应单价,操作员) VALUES ('" + material.Type + "','" + material.FlowCount + "','" + material.MaterialId + "','" + material.Supplier + "','" + material.Price + "','" + material.Operator + "');";
+                string sql = "INSERT INTO qiaotai.原材料进出仓(类型,数量,原料编号,供应商,供应单价,操作员) VALUES ('" + material.Type + "','" + material.FlowCount + "','" + material.MaterialId + "','" + material.Supplier + "','" + material.Price + "','" + material.Operator + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();

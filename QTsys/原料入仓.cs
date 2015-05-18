@@ -157,7 +157,6 @@ namespace QTsys
                 //原料名称this.material.GetMaterialNameBySerial(com原料编号.Text);
                 String name = textBoxNewName.Text;
                 if (material.AddNewMaterialEx(mtf, name, text单位.Text))
-                // if(at.AddNewMaterialFlow(mtf, name, text单位.Text))
                 {
                     MessageBox.Show("[" + name + "]更新库存成功！");
                     dataGridView1.DataSource = this.material.GetAllMaterials();

@@ -28,6 +28,8 @@ namespace QTsys
         {
             原料入仓 win = new 原料入仓();
             win.ShowDialog();
+            dataGridView1.DataSource = this.material.GetAllMaterials();
+            dataGridView1.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)

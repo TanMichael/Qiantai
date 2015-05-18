@@ -87,13 +87,15 @@ namespace QTsys.Manager
             {
                 mt.Name = mtName;
                 material.MaterialId = mt.Id = this.dao.AddNewMaterial(mt);
+               
             }
             else
             {
-                this.dao.UpdateMaterial(mt);
+               this.dao.UpdateMaterial(mt);
             }
+
+             return this.dao.AddNewMaterialFlow(material, mtName, mtUnit);
             
-            return this.dao.AddNewMaterialFlow(material, mtName, mtUnit);
         }
 
         public int AddNewMaterial(Material material)
