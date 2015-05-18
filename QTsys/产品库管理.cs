@@ -71,8 +71,8 @@ namespace QTsys
                 dataGridView产品信息.Update();
                 dataGridView订单.DataSource = odm.GetOrderBySerial(dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
                 dataGridView订单.Update();
-               dataGridView生产计划.DataSource = ppm.GetAllProductPlanByNameEX("相关订单编号", dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
-                dataGridView生产计划.Update();
+               dataGridView完成情况.DataSource = ppm.GetAllProductPlanByNameEX("相关订单编号", dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
+                dataGridView完成情况.Update();
                 dataGridView订单明细.DataSource = odm.GetAllOrderDetailsBySerial(dataGridView产品进出库.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString());
                 dataGridView订单明细.Update();
             }

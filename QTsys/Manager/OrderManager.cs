@@ -60,5 +60,11 @@ namespace QTsys.Manager
         public bool AltOrderDetail(OrderDetail order) { return this.odao.AltOrderDetail(order); }
 
         public DataTable GetAllSells() { return this.odao.GetAllSells(); }
+
+        public DataTable GetOrderFinish(String key)//将订单和产品入库情况进行比较，返回一个订单是否完成的比较表格
+        { 
+            
+        }
+
     }
 }
