@@ -118,10 +118,6 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //确定领料生产
-            //在仓库原料里减少相关数量料
-            //1.原料--
-            //2.生产计划状态改变
             if (textBox领料产品.Text == "")
             {
                 MessageBox.Show("领料失败！");
@@ -138,6 +134,10 @@ namespace QTsys
                 领料清单生成 win = new 领料清单生成(textBox订单编号.Text,Convert.ToInt16(textBox领料产品.Text), Convert.ToInt16(textBox产品数量.Text), 原料编号);
                // 领料清单生成 win=new 领料清单生成(Convert.ToInt16(textBox领料产品.Text));
                 win.ShowDialog();
+                dataGrid未生产.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PREPARING);
+                dataGrid未生产.Update();
+
+
 
             }
             catch (Exception ex) { };

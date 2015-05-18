@@ -29,8 +29,8 @@ namespace QTsys
             showdata = new OperationAuditDAO();
             ppm = new ProductPlanManager();
             odm = new OrderManager();
-            index订单=0;
-            index生产计划 = 0;
+            index订单=-1;
+            index生产计划 = -1;
         }
 
         private void 审核_Load(object sender, EventArgs e)
@@ -108,15 +108,15 @@ namespace QTsys
         {
             try{
                 index订单 =e.RowIndex;
-                dataGridView订单明细.DataSource = this.odm.GetAllOrderDetailsBySerialEx(dataGridView订单.Rows[e.RowIndex].Cells["订单编号"].Value.ToString());
-                dataGridView订单明细.Update();
+          //      dataGridView订单明细.DataSource = this.odm.GetAllOrderDetailsBySerialEx(dataGridView订单.Rows[e.RowIndex].Cells["订单编号"].Value.ToString());
+             //   dataGridView订单明细.Update();
             }
             catch (Exception ex) { };
         }
 
         private void button通过计划_Click(object sender, EventArgs e)
         {
-            if (index生产计划 == 0) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
+            if (index生产计划 == -1) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
             try
             {
                 //ProductionPlan pp = new ProductionPlan();
@@ -145,7 +145,7 @@ namespace QTsys
 
         private void button拒绝计划_Click(object sender, EventArgs e)
         {
-            if (index生产计划 == 0) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
+            if (index生产计划 == -1) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
             try
             {
                 //ProductionPlan pp = new ProductionPlan();
@@ -174,7 +174,7 @@ namespace QTsys
 
         private void button通过订单_Click(object sender, EventArgs e)
         {
-            if (index订单 == 0) { MessageBox.Show("请逐个审核订单！"); return; }
+            if (index订单 == -1) { MessageBox.Show("请逐个审核订单！"); return; }
             try
             {
                 //Order od = new Order();
@@ -203,7 +203,7 @@ namespace QTsys
 
         private void button拒绝订单_Click(object sender, EventArgs e)
         {
-            if (index订单 == 0) { MessageBox.Show("请逐个审核订单！"); return; }
+            if (index订单 == -1) { MessageBox.Show("请逐个审核订单！"); return; }
             try
             {
                 //Order od = new Order();

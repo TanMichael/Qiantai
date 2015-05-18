@@ -208,11 +208,10 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.产品进出库(产品编号,发生时间,类型,相关订单编号,相关计划编号,不合格产品数,当前状态) VALUES ('" + pdt.ProductId + "','" + pdt.OccurredTime + "','" + pdt.Type + "','" + pdt.RelatedOrderId + "','" + pdt.RelatedPlanId + "','" + pdt.UnqualifiedCount + "','" + pdt.Status + "');";
+                string sql = "INSERT INTO qiaotai.产品进出库(产品编号,发生时间,类型,相关订单编号,相关计划编号,不合格产品数,当前状态) VALUES ('" + pdt.ProductId + "','" + pdt.OccurredTime + "','" + pdt.Type + "','" + pdt.RelatedOrderId + "','" + pdt.RelatedPlanId + "','" + pdt.UnqualifiedCount+ "','" + pdt.Status + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
-            //    var id = cmd.LastInsertedId;
                 this.Connection.Close();
                 return true;
             }
@@ -227,7 +226,6 @@ namespace QTsys.DAO
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
-                //    var id = cmd.LastInsertedId;
                 this.Connection.Close();
                 return true;
             }

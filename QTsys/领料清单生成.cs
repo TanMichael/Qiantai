@@ -77,6 +77,7 @@ namespace QTsys
                     if (ppm.UpdatePlanStatus(ProductionPlanStatus.PROCESSING, textBox订单.Text))
                     { 
                         MessageBox.Show("领料成功！！！");
+                        this.Close();
                     }else
                     {
                         MessageBox.Show("领料失败！");

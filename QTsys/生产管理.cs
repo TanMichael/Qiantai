@@ -11,6 +11,7 @@ using QTsys.DataObjects;
 using QTsys.Manager;
 using QTsys.Common.Constants;
 using QTsys.Common;
+using QTsys.DAO;
 
 
 namespace QTsys
@@ -36,7 +37,7 @@ namespace QTsys
         {
             try
             {
-                dataGridView1.DataSource = this.ppm.GetAllProductPlan();
+                dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
                 dataGridView1.Update();
                 dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
                 dataGridView审核通过订单.Update();
@@ -56,7 +57,7 @@ namespace QTsys
                 }
                 else
                 {
-                    dataGridView1.DataSource = this.ppm.GetAllProductPlan();
+                    dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
                     dataGridView1.Update();
                 }
 
@@ -71,16 +72,18 @@ namespace QTsys
                 text编号.Text = dataGridView1.Rows[e.RowIndex].Cells["编号"].Value.ToString();
                 com产品编号.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
                 com客户编号.Text = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
-                date下单日期.Value= Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["下单日期"].Value.ToString());
+                date下单日期.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["下单日期"].Value.ToString());
                 text产品数量.Text = dataGridView1.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
                 date交付时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["交付时间"].Value.ToString());
-                date实际完成时间.Value =Convert.ToDateTime( dataGridView1.Rows[e.RowIndex].Cells["实际完成时间"].Value.ToString());
+                date实际完成时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["实际完成时间"].Value.ToString());
                 com计划类型.Text = dataGridView1.Rows[e.RowIndex].Cells["计划类型"].Value.ToString();
                 com生产状态.Text = dataGridView1.Rows[e.RowIndex].Cells["生产状态"].Value.ToString();
                 text相关订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString();
                 com负责人.Text = dataGridView1.Rows[e.RowIndex].Cells["负责人"].Value.ToString();
                 //-----------------------------------------------------------------------------------------------
                 textBox计划数.Text = text产品数量.Text;
+
+                textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
 
 
             }
@@ -192,7 +195,7 @@ namespace QTsys
                 if (ppm.DelPlan(pp.Id.ToString()))
                 {
                     MessageBox.Show("删除成功！");
-                    dataGridView1.DataSource = this.ppm.GetAllProductPlan();
+                    dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
                     dataGridView1.Update();
                 }
                 else
@@ -213,46 +216,51 @@ namespace QTsys
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //确认生产
-            //如失败，计划-实际，生成新的订单列表（以补充形式出现订单）
-            //同时合格产品入产品仓库
-            if (Convert.ToInt16(textBox计划数.Text) == Convert.ToInt16(textBox实际数.Text)) //正好生产
+            try
             {
-                产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text),0);
+                if (Convert.ToInt16(textBox计划数.Text) == Convert.ToInt16(textBox实际数.Text)) //正好生产
+                {
+                    产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
+                }
+                if (Convert.ToInt16(textBox计划数.Text) > Convert.ToInt16(textBox实际数.Text))//生产少了
+                {
+                    if (产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text)))
+                    {
+                        补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
+                    }
+                }
+                if (Convert.ToInt16(textBox计划数.Text) < Convert.ToInt16(textBox实际数.Text))//生产多了
+                {
+                    产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
+                }
+                dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
+                dataGridView1.Update();
+               
             }
-            if (Convert.ToInt16(textBox计划数.Text) > Convert.ToInt16(textBox实际数.Text))//生产少了
-            {
-                产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
-                补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
-            }
-            if (Convert.ToInt16(textBox计划数.Text) < Convert.ToInt16(textBox实际数.Text))//生产多了
-            {
-                产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
-            }
-            dataGridView1.DataSource = this.ppm.GetAllProductPlan();
-            dataGridView1.Update();
-
+            catch (Exception ex) { }
         }
 
-        public void 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
+        public bool 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
         {
             try{
-          //  Product pro = new Product();
             ProductFlow proflow = new ProductFlow();
             proflow.ProductId = 产品编号;
             proflow.OccurredTime = DateTime.Now;
             proflow.Type = "生产入库";
             proflow.RelatedOrderId = text相关订单编号.Text;
-            proflow.RelatedPlanId = com计划类型.Text;
+            proflow.RelatedPlanId = text编号.Text;
             proflow.UnqualifiedCount = 不合格产品数;
-            proflow.Status = "生产完成入库";
+            proflow.Status = "生产完成入库";  
             if (product.AddProduct(proflow, 产品数量))
             {
+                ppm.UpdatePlanStatus(ProductionPlanStatus.STORED,text编号.Text);
                 MessageBox.Show("产品增加成功！！！");
+                return true;
             }else
                 MessageBox.Show("产品增加失败！！！");
+            return false;
             }
-             catch (Exception ex) { }
+            catch (Exception ex) { return false; }
         }
 
         public void 补充生产(string 产品编号, int 产品数量)
@@ -268,11 +276,14 @@ namespace QTsys
                 plan.FinishTime = DateTime.Parse("2000-01-01");
                // plan.PlanState = ProductionPlanStatus.PREPARING;
                 plan.PlanType = "补充生产";
-                plan.PlanState = ProductionPlanStatus.PREPARING;
+                plan.PlanState = ProductionPlanStatus.PROCESSING;
                 plan.InChargePerson = com负责人.Text;
-                if (ppm.AddNewPlan(plan)) { MessageBox.Show("补充计划成功！！！"); }
+                if (ppm.AddNewPlan(plan)) { MessageBox.Show("补充计划成功！！！");  }
                 else
-                MessageBox.Show("补充生产失败！！！");
+                {
+                    MessageBox.Show("补充生产失败！！！");
+
+                }
             }
             catch (Exception ex) { }
         }
@@ -294,7 +305,7 @@ namespace QTsys
                 MessageBox.Show("请先选中一行数据");
                 return;
             }
-            
+
             string id = dataGridView审核通过订单.Rows[index待生产订单].Cells["订单编号"].Value.ToString();
             string cId = dataGridView审核通过订单.Rows[index待生产订单].Cells["客户编号"].Value.ToString();
             bool isSample = dataGridView审核通过订单.Rows[index待生产订单].Cells["是否样品订单"].Value.ToString() == "是";
@@ -316,6 +327,10 @@ namespace QTsys
             plan.InChargePerson = Utils.GetCurrentUsername();
             根据订单生成计划 win = new 根据订单生成计划(plan.PlanType, plan.RelatedOrderId, plan.CustomerId);
             win.ShowDialog();
+            dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
+            dataGridView1.Update();
+            dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
+            dataGridView审核通过订单.Update();
         }
 
         private void dataGridView审核通过订单_CellClick(object sender, DataGridViewCellEventArgs e)
