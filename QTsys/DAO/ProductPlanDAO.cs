@@ -35,6 +35,19 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public DataTable GetAllProductPlanByNameEX(string col, string value)
+        {
+            string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " = '" + value + "';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
+
         public DataTable GetAllProductPlanByStates(string value)
         {
             string sql = "SELECT * FROM qiaotai.生产计划 WHERE 生产状态 = '"+value+"';";

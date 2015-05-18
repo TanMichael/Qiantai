@@ -108,8 +108,8 @@ namespace QTsys
         {
             try{
                 index订单 =e.RowIndex;
-          //      dataGridView订单明细.DataSource = this.odm.GetAllOrderDetailsBySerialEx(dataGridView订单.Rows[e.RowIndex].Cells["订单编号"].Value.ToString());
-             //   dataGridView订单明细.Update();
+                dataGridView订单明细.DataSource = this.odm.GetAllOrderDetailsBySerialEx(dataGridView订单.Rows[e.RowIndex].Cells["订单编号"].Value.ToString());
+                dataGridView订单明细.Update();
             }
             catch (Exception ex) { };
         }

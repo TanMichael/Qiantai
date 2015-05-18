@@ -23,6 +23,19 @@ namespace QTsys.DAO
             return dt;
         }
 
+
+        public DataTable GetOrderBySerial(string num)
+        {
+            string sql = "SELECT * FROM qiaotai.订单 WHERE 订单编号='"+num+"';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
         public string GetAutoNum()
         {
             //string sql = "SELECT LAST_INSERT_ID();";
