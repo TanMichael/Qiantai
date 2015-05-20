@@ -55,8 +55,9 @@
             this.注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button审核 = new System.Windows.Forms.Button();
             this.button批处理 = new System.Windows.Forms.Button();
+            this.button审核 = new System.Windows.Forms.Button();
+            this.button报价 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,7 +76,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 619);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 23, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(667, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(816, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -273,7 +274,7 @@
             this.button预警统计.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button预警统计.Font = new System.Drawing.Font("黑体", 16F);
             this.button预警统计.Image = ((System.Drawing.Image)(resources.GetObject("button预警统计.Image")));
-            this.button预警统计.Location = new System.Drawing.Point(323, 27);
+            this.button预警统计.Location = new System.Drawing.Point(475, 28);
             this.button预警统计.Name = "button预警统计";
             this.button预警统计.Size = new System.Drawing.Size(146, 150);
             this.button预警统计.TabIndex = 6;
@@ -289,7 +290,7 @@
             this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(667, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(816, 25);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -339,16 +340,31 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button报价);
             this.groupBox2.Controls.Add(this.button批处理);
             this.groupBox2.Controls.Add(this.button预警统计);
             this.groupBox2.Controls.Add(this.button审核);
             this.groupBox2.Controls.Add(this.button销售管理);
             this.groupBox2.Location = new System.Drawing.Point(18, 420);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(635, 183);
+            this.groupBox2.Size = new System.Drawing.Size(786, 183);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "财务";
+            // 
+            // button批处理
+            // 
+            this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
+            this.button批处理.Location = new System.Drawing.Point(634, 27);
+            this.button批处理.Name = "button批处理";
+            this.button批处理.Size = new System.Drawing.Size(146, 150);
+            this.button批处理.TabIndex = 14;
+            this.button批处理.Text = "批处理";
+            this.button批处理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button批处理.UseVisualStyleBackColor = true;
+            this.button批处理.Click += new System.EventHandler(this.button批处理_Click);
             // 
             // button审核
             // 
@@ -364,25 +380,25 @@
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button批处理
+            // button报价
             // 
-            this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
-            this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
-            this.button批处理.Location = new System.Drawing.Point(475, 27);
-            this.button批处理.Name = "button批处理";
-            this.button批处理.Size = new System.Drawing.Size(146, 150);
-            this.button批处理.TabIndex = 14;
-            this.button批处理.Text = "批处理";
-            this.button批处理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button批处理.UseVisualStyleBackColor = true;
-            this.button批处理.Click += new System.EventHandler(this.button批处理_Click);
+            this.button报价.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button报价.Font = new System.Drawing.Font("黑体", 16F);
+            this.button报价.Image = ((System.Drawing.Image)(resources.GetObject("button报价.Image")));
+            this.button报价.Location = new System.Drawing.Point(317, 27);
+            this.button报价.Name = "button报价";
+            this.button报价.Size = new System.Drawing.Size(146, 150);
+            this.button报价.TabIndex = 15;
+            this.button报价.Text = "报价";
+            this.button报价.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button报价.UseVisualStyleBackColor = true;
+            this.button报价.Click += new System.EventHandler(this.button报价_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 641);
+            this.ClientSize = new System.Drawing.Size(816, 641);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
@@ -440,6 +456,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button审核;
         private System.Windows.Forms.Button button批处理;
+        private System.Windows.Forms.Button button报价;
     }
 }
 

@@ -127,6 +127,16 @@ namespace QTsys
                 //button产品.Visible = false;
                 //button生产管理.Visible = false;
             }
+
+            if ((right & Rights.FIN) == Rights.FIN)
+            {
+                button报价.Visible = true;
+                // 对账单
+            }
+            else
+            {
+                button报价.Visible = false;
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -252,6 +262,12 @@ namespace QTsys
         private void button批处理_Click(object sender, EventArgs e)
         {
             批量导入 win = new 批量导入();
+            win.ShowDialog();
+        }
+
+        private void button报价_Click(object sender, EventArgs e)
+        {
+            报价 win = new 报价();
             win.ShowDialog();
         }
     }

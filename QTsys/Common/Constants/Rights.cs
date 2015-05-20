@@ -14,6 +14,7 @@ namespace QTsys.Common.Constants
         PRODUCT = 1 << 3,       // 00001000     产品，产品管理
         STORAGE = 1 << 4,       // 00010000     原材料管理， TODO: 产品进出库(仓库)
         MANUFACTURE = 1 << 5,   // 00100000     生产计划
-        REVIEWER = 1 << 6       // 01000000     审核
+        REVIEWER = 1 << 6,       // 01000000     审核
+        FIN = 1 << 7            // 10000000     报价，对账单
     }
 }
