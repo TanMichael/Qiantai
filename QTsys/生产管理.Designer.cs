@@ -81,6 +81,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView审核通过订单)).BeginInit();
@@ -181,6 +182,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.textBox计划数);
             this.tabPage2.Controls.Add(this.label15);
@@ -602,6 +604,16 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(652, 80);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 150;
+            this.button8.Text = "打印制造单";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            // 
             // 生产管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -681,6 +693,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
 
     }
 }

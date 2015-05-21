@@ -196,6 +196,12 @@
     <Compile Include="客户管理.Designer.cs">
       <DependentUpon>客户管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="打印制造单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="打印制造单.Designer.cs">
+      <DependentUpon>打印制造单.cs</DependentUpon>
+    </Compile>
     <Compile Include="批量导入.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,11 +256,11 @@
     <Compile Include="订单管理.Designer.cs">
       <DependentUpon>订单管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="送货单.cs">
+    <Compile Include="打印送货单.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="送货单.Designer.cs">
-      <DependentUpon>送货单.cs</DependentUpon>
+    <Compile Include="打印送货单.Designer.cs">
+      <DependentUpon>打印送货单.cs</DependentUpon>
     </Compile>
     <Compile Include="销售管理.cs">
       <SubType>Form</SubType>
@@ -322,6 +328,9 @@
     <EmbeddedResource Include="客户管理.resx">
       <DependentUpon>客户管理.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="打印制造单.resx">
+      <DependentUpon>打印制造单.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="批量导入.resx">
       <DependentUpon>批量导入.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,8 +358,8 @@
     <EmbeddedResource Include="订单管理.resx">
       <DependentUpon>订单管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="送货单.resx">
-      <DependentUpon>送货单.cs</DependentUpon>
+    <EmbeddedResource Include="打印送货单.resx">
+      <DependentUpon>打印送货单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="销售管理.resx">
       <DependentUpon>销售管理.cs</DependentUpon>

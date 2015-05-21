@@ -380,5 +380,11 @@ namespace QTsys
             }
             catch (Exception ex) { };
         }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            打印制造单 win = new 打印制造单(text编号.Text);
+            win.ShowDialog();
+        }
     }
 }

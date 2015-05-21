@@ -204,7 +204,7 @@ namespace QTsys
 
         private void button9_Click(object sender, EventArgs e)
         {
-            送货单 win = new 送货单();
+            打印送货单 win = new 打印送货单();
             win.ShowDialog();
         }
 

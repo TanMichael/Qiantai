@@ -1,6 +1,6 @@
 ﻿namespace QTsys
 {
-    partial class 送货单
+    partial class 打印送货单
     {
         /// <summary>
         /// Required designer variable.
