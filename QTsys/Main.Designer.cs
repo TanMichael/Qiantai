@@ -55,9 +55,9 @@
             this.注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button报价 = new System.Windows.Forms.Button();
             this.button批处理 = new System.Windows.Forms.Button();
             this.button审核 = new System.Windows.Forms.Button();
-            this.button报价 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -352,6 +352,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "财务";
             // 
+            // button报价
+            // 
+            this.button报价.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button报价.Font = new System.Drawing.Font("黑体", 16F);
+            this.button报价.Image = ((System.Drawing.Image)(resources.GetObject("button报价.Image")));
+            this.button报价.Location = new System.Drawing.Point(317, 27);
+            this.button报价.Name = "button报价";
+            this.button报价.Size = new System.Drawing.Size(146, 150);
+            this.button报价.TabIndex = 15;
+            this.button报价.Text = "报价";
+            this.button报价.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button报价.UseVisualStyleBackColor = true;
+            this.button报价.Click += new System.EventHandler(this.button报价_Click);
+            // 
             // button批处理
             // 
             this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -379,20 +393,6 @@
             this.button审核.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // button报价
-            // 
-            this.button报价.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button报价.Font = new System.Drawing.Font("黑体", 16F);
-            this.button报价.Image = ((System.Drawing.Image)(resources.GetObject("button报价.Image")));
-            this.button报价.Location = new System.Drawing.Point(317, 27);
-            this.button报价.Name = "button报价";
-            this.button报价.Size = new System.Drawing.Size(146, 150);
-            this.button报价.TabIndex = 15;
-            this.button报价.Text = "报价";
-            this.button报价.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button报价.UseVisualStyleBackColor = true;
-            this.button报价.Click += new System.EventHandler(this.button报价_Click);
             // 
             // Main
             // 
