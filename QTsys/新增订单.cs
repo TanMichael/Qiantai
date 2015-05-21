@@ -90,7 +90,7 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void addNewList()
         {
             double selectedPrice = Convert.ToDouble(dataGridView1.Rows[selectpro].Cells["单价"].Value);
             if (selectedPrice == 0d)
@@ -108,18 +108,25 @@ namespace QTsys
                 "1",
                 dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString()
             };
-            bool ins=true;
-            for(int i=0;i<dataGridView2.Rows.Count;i++)
+            bool ins = true;
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
                 if (dataGridView2.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
                 {
-                    MessageBox.Show("["+dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString()+"]已经被添加，请选择新产品！");
-                    ins=false;
+                    MessageBox.Show("[" + dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString() + "]已经被添加，请选择新产品！");
+                    ins = false;
                     break;
                 }
             }
-            if(ins==true){
-            dataGridView2.Rows.Add(rowadd);}
+            if (ins == true)
+            {
+                dataGridView2.Rows.Add(rowadd);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            addNewList();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -387,19 +394,7 @@ namespace QTsys
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string[] rowadd = new string[] { dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(), dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(), "0", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString(), "1", dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString() };
-            bool ins=true;
-            for(int i=0;i<dataGridView2.Rows.Count;i++)
-            {
-                if (dataGridView2.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
-                {
-                    MessageBox.Show("["+dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString()+"]已经被添加，请选择新产品！");
-                    ins=false;
-                    break;
-                }
-            }
-            if(ins==true){
-            dataGridView2.Rows.Add(rowadd);}
+            addNewList();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
