@@ -36,6 +36,16 @@ namespace QTsys.Manager
             return this.pdao.GetAllProductsByNameEX(col, value);
         }
 
+        public DataTable GetProductsByOrder(string oId)
+        {
+            return this.pdao.GetProductsByOrder(oId);
+        }
+
+        public DataTable GetProductsWithoutPrice()
+        {
+            return this.pdao.GetProductsWithoutPrice();
+        }
+
         public DataTable GetMaterialProductRelationByProduct(String ID)
         {
             return this.pdao.GetMaterialProductRelationByProduct(ID);
@@ -95,5 +105,10 @@ namespace QTsys.Manager
                 return false;
         }
 
+
+        public bool SetProductPrice(double price, string pId)
+        {
+            return this.pdao.SetProductPrice(price, pId);
+        }
     }
 }

@@ -117,6 +117,23 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
 
+        public DataTable GetFinishedSampleOrders()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT d.订单编号,c.客户名称,d.创建人,d.创建时间 FROM qiaotai.订单 d inner join qiaotai.客户信息 c " +
+                    "on d.客户编号=c.客户编号 WHERE d.订单状态='交易成功' and d.是否样品订单='是';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
+        }
+
         public DataTable GetOrderByCreator(string userName)
         {
             DataTable dt = new DataTable();
