@@ -49,7 +49,8 @@ namespace QTsys
         public void insetnewlist()//生成新的销售单表
         {
             //关于对送货单_OVER.htm的操作，让送货单_DATA.htm产生数据，取代送货单.htm
-            //用string类替换
+            //用string类替换html中的关键字
+            //空表格为“送货单.htm”，可替换送货单部分有“送货单_DATA.HTM”, 数据处理完存储在“送货单_OVER.htm”
             webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
         }
 
