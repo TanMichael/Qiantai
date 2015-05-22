@@ -16,4 +16,10 @@ namespace QTsys.Common.Constants
         public const string SUCCEED = "交易成功";
         public const string CANCEL = "取消";
     }
+
+    static class ProductionStatus
+    {
+        public const string IN = "已入库";
+        public const string OUT = "已出库";
+    }
 }

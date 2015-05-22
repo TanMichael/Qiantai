@@ -11,6 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
+using QTsys.Common.Constants;
 
 namespace QTsys
 {
@@ -96,7 +97,7 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            产品出库 win = new 产品出库();
+            产品出库 win = new 产品出库(text相关订单编号.Text);
             win.ShowDialog();
         }
 
@@ -111,6 +112,19 @@ namespace QTsys
             //产品出库操作
             打印送货单 win = new 打印送货单();
             win.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (odm.UpdateOrderStatus(OrderStatus.SHIPPED, text相关订单编号.Text))
+            {
+                pdm.UpdataProductByStatus(ProductionStatus.OUT, text相关订单编号.Text);
+                MessageBox.Show("订单产品确定打包发货！");
+                dataGridView产品进出库.DataSource = pdm.ge
+                dataGridView产品进出库.Update();
+            }else
+                MessageBox.Show("操作失败！");
+
         }
     }
 }

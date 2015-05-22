@@ -295,6 +295,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="产品出库.resx">
+      <DependentUpon>产品出库.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="产品原料关系.resx">
       <DependentUpon>产品原料关系.cs</DependentUpon>
     </EmbeddedResource>

@@ -94,6 +94,6 @@ namespace QTsys.Manager
             else
                 return false;
         }
-
+        public bool UpdataProductByStatus(string 状态, string 编号){ return pdao.UpdataProductByStatus(状态, 编号); }
     }
 }

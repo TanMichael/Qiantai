@@ -60,6 +60,7 @@
             this.dataGridView订单 = new System.Windows.Forms.DataGridView();
             this.dataGridView完成情况 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView产品进出库)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView产品信息)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
@@ -82,6 +83,7 @@
             // 
             // text类型
             // 
+            this.text类型.Enabled = false;
             this.text类型.Location = new System.Drawing.Point(77, 105);
             this.text类型.Name = "text类型";
             this.text类型.Size = new System.Drawing.Size(100, 21);
@@ -98,6 +100,7 @@
             // 
             // text产品编号
             // 
+            this.text产品编号.Enabled = false;
             this.text产品编号.Location = new System.Drawing.Point(77, 47);
             this.text产品编号.Name = "text产品编号";
             this.text产品编号.Size = new System.Drawing.Size(129, 21);
@@ -114,6 +117,7 @@
             // 
             // text相关订单编号
             // 
+            this.text相关订单编号.Enabled = false;
             this.text相关订单编号.Location = new System.Drawing.Point(368, 8);
             this.text相关订单编号.Name = "text相关订单编号";
             this.text相关订单编号.Size = new System.Drawing.Size(121, 21);
@@ -156,6 +160,7 @@
             // 
             // date发生时间
             // 
+            this.date发生时间.Enabled = false;
             this.date发生时间.Location = new System.Drawing.Point(77, 76);
             this.date发生时间.Name = "date发生时间";
             this.date发生时间.Size = new System.Drawing.Size(200, 21);
@@ -163,6 +168,7 @@
             // 
             // text相关计划编号
             // 
+            this.text相关计划编号.Enabled = false;
             this.text相关计划编号.Location = new System.Drawing.Point(368, 45);
             this.text相关计划编号.Name = "text相关计划编号";
             this.text相关计划编号.Size = new System.Drawing.Size(121, 21);
@@ -179,6 +185,7 @@
             // 
             // text不合格产品数
             // 
+            this.text不合格产品数.Enabled = false;
             this.text不合格产品数.Location = new System.Drawing.Point(368, 77);
             this.text不合格产品数.Name = "text不合格产品数";
             this.text不合格产品数.Size = new System.Drawing.Size(121, 21);
@@ -195,6 +202,7 @@
             // 
             // text当期状态
             // 
+            this.text当期状态.Enabled = false;
             this.text当期状态.Location = new System.Drawing.Point(368, 105);
             this.text当期状态.Name = "text当期状态";
             this.text当期状态.Size = new System.Drawing.Size(121, 21);
@@ -278,7 +286,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(381, 142);
+            this.label10.Location = new System.Drawing.Point(285, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(125, 12);
             this.label10.TabIndex = 37;
@@ -357,11 +365,23 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(512, 131);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 23);
+            this.button6.TabIndex = 92;
+            this.button6.Text = "确认此订单生产完成";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // 产品库管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 701);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.dataGridView完成情况);
             this.Controls.Add(this.dataGridView订单);
@@ -440,5 +460,6 @@
         private System.Windows.Forms.DataGridView dataGridView订单;
         private System.Windows.Forms.DataGridView dataGridView完成情况;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

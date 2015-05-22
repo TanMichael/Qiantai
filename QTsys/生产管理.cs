@@ -269,7 +269,7 @@ namespace QTsys
             proflow.RelatedOrderId = text相关订单编号.Text;
             proflow.RelatedPlanId = text编号.Text;
             proflow.UnqualifiedCount = 不合格产品数;
-            proflow.Status = "生产完成入库";  
+            proflow.Status = ProductionStatus.IN;  
             if (product.AddProduct(proflow, 产品数量))
             {
                 ppm.UpdatePlanStatus(ProductionPlanStatus.STORED,text编号.Text);

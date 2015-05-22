@@ -232,6 +232,19 @@ namespace QTsys.DAO
             catch (Exception ex) { return false; }
         }
 
+        public bool UpdataProductByStatus(string 状态, string 编号)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.产品进出库 SET 当前状态= " + 状态 + " WHERE 相关订单编号='" + 编号 + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { return false; }
+        }
        
     }
 }
