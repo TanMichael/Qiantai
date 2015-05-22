@@ -36,6 +36,16 @@ namespace QTsys.Manager
             return this.pdao.GetAllProductsByNameEX(col, value);
         }
 
+        public DataTable GetProductsByOrder(string oId)
+        {
+            return this.pdao.GetProductsByOrder(oId);
+        }
+
+        public DataTable GetProductsWithoutPrice()
+        {
+            return this.pdao.GetProductsWithoutPrice();
+        }
+
         public DataTable GetMaterialProductRelationByProduct(String ID)
         {
             return this.pdao.GetMaterialProductRelationByProduct(ID);
@@ -94,6 +104,15 @@ namespace QTsys.Manager
             else
                 return false;
         }
+<<<<<<< HEAD
         public bool UpdataProductByStatus(string 状态, string 编号){ return pdao.UpdataProductByStatus(状态, 编号); }
+=======
+
+
+        public bool SetProductPrice(double price, string pId)
+        {
+            return this.pdao.SetProductPrice(price, pId);
+        }
+>>>>>>> origin/master
     }
 }

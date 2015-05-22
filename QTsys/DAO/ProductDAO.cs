@@ -47,9 +47,34 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
+
         public DataTable GetAllProductsByName(string col, string value)
         {
             string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " LIKE '%" + value + "%';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
+        public DataTable GetProductsByOrder(string oId)
+        {
+            string sql = "SELECT p.产品编号,p.产品名称,p.规格,p.单位,p.单价 FROM qiaotai.产品信息 p inner join qiaotai.订单明细 o on p.产品编号 = o.产品编号 WHERE o.订单编号=" + oId;
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            this.Connection.Open();
+            ap.Fill(dt);
+            this.Connection.Close();
+            return dt;
+        }
+
+        public DataTable GetProductsWithoutPrice()
+        {
+            string sql = "SELECT 产品编号,产品名称,规格,单位,单价 FROM qiaotai.产品信息 WHERE 单价=0;";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -232,11 +257,21 @@ namespace QTsys.DAO
             catch (Exception ex) { return false; }
         }
 
+<<<<<<< HEAD
         public bool UpdataProductByStatus(string 状态, string 编号)
         {
             try
             {
                 string sql = "UPDATE qiaotai.产品进出库 SET 当前状态= " + 状态 + " WHERE 相关订单编号='" + 编号 + "';";
+=======
+
+
+        public bool SetProductPrice(double price, string pId)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.产品信息 SET 单价=" + price + " WHERE 产品编号='" + pId + "';";
+>>>>>>> origin/master
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -245,6 +280,9 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return false; }
         }
+<<<<<<< HEAD
        
+=======
+>>>>>>> origin/master
     }
 }

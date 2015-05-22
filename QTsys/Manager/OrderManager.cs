@@ -33,6 +33,11 @@ namespace QTsys.Manager
         public DataTable GetAllOrderDetailsBySerialEx(string key) { return this.odao.GetAllOrderDetailsBySerialEx(key); }
         public DataTable GetAllOrderByState(string key) { return this.odao.GetAllOrderByState(key); }
 
+        public DataTable GetFinishedSampleOrders()
+        {
+            return this.odao.GetFinishedSampleOrders();
+        }
+
         public DataTable GetOrderByCreator(string userName)
         {
             return this.odao.GetOrderByCreator(userName);
