@@ -154,6 +154,7 @@
             this.button2.TabIndex = 51;
             this.button2.Text = "打印预览";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -163,6 +164,7 @@
             this.button1.TabIndex = 50;
             this.button1.Text = "打印";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -232,7 +234,7 @@
             this.webBrowser2.Tag = "";
             this.webBrowser2.Url = new System.Uri("http://HTMLPage1.htm", System.UriKind.Absolute);
             // 
-            // 送货单
+            // 打印送货单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -258,7 +260,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.webBrowser2);
-            this.Name = "送货单";
+            this.Name = "打印送货单";
             this.Text = "送货单";
             this.Load += new System.EventHandler(this.送货单_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

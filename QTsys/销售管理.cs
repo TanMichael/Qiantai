@@ -46,7 +46,7 @@ namespace QTsys
 
         private void button2_Click(object sender, EventArgs e)
         {
-            打印送货单 win = new 打印送货单();
+            打印送货单 win = new 打印送货单(textBox3.Text);
             win.ShowDialog();
         }
     }
