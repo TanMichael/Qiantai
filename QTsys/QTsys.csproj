@@ -196,6 +196,12 @@
     <Compile Include="客户管理.Designer.cs">
       <DependentUpon>客户管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="对账.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="对账.Designer.cs">
+      <DependentUpon>对账.cs</DependentUpon>
+    </Compile>
     <Compile Include="打印制造单.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="客户管理.resx">
       <DependentUpon>客户管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="对账.resx">
+      <DependentUpon>对账.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="打印制造单.resx">
       <DependentUpon>打印制造单.cs</DependentUpon>

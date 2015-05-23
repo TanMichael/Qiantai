@@ -58,6 +58,7 @@
             this.button报价 = new System.Windows.Forms.Button();
             this.button批处理 = new System.Windows.Forms.Button();
             this.button审核 = new System.Windows.Forms.Button();
+            this.button对账 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -274,7 +275,7 @@
             this.button预警统计.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button预警统计.Font = new System.Drawing.Font("黑体", 16F);
             this.button预警统计.Image = ((System.Drawing.Image)(resources.GetObject("button预警统计.Image")));
-            this.button预警统计.Location = new System.Drawing.Point(475, 28);
+            this.button预警统计.Location = new System.Drawing.Point(641, 27);
             this.button预警统计.Name = "button预警统计";
             this.button预警统计.Size = new System.Drawing.Size(146, 150);
             this.button预警统计.TabIndex = 6;
@@ -340,8 +341,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button对账);
             this.groupBox2.Controls.Add(this.button报价);
-            this.groupBox2.Controls.Add(this.button批处理);
             this.groupBox2.Controls.Add(this.button预警统计);
             this.groupBox2.Controls.Add(this.button审核);
             this.groupBox2.Controls.Add(this.button销售管理);
@@ -371,7 +372,7 @@
             this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
             this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
-            this.button批处理.Location = new System.Drawing.Point(634, 27);
+            this.button批处理.Location = new System.Drawing.Point(659, 64);
             this.button批处理.Name = "button批处理";
             this.button批处理.Size = new System.Drawing.Size(146, 150);
             this.button批处理.TabIndex = 14;
@@ -394,12 +395,27 @@
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button对账
+            // 
+            this.button对账.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button对账.Font = new System.Drawing.Font("黑体", 16F);
+            this.button对账.Image = ((System.Drawing.Image)(resources.GetObject("button对账.Image")));
+            this.button对账.Location = new System.Drawing.Point(475, 27);
+            this.button对账.Name = "button对账";
+            this.button对账.Size = new System.Drawing.Size(146, 150);
+            this.button对账.TabIndex = 16;
+            this.button对账.Text = "对账";
+            this.button对账.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button对账.UseVisualStyleBackColor = true;
+            this.button对账.Click += new System.EventHandler(this.button对账_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 641);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.button批处理);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -457,6 +473,7 @@
         private System.Windows.Forms.Button button审核;
         private System.Windows.Forms.Button button批处理;
         private System.Windows.Forms.Button button报价;
+        private System.Windows.Forms.Button button对账;
     }
 }
 

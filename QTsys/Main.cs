@@ -270,5 +270,11 @@ namespace QTsys
             报价 win = new 报价();
             win.ShowDialog();
         }
+
+        private void button对账_Click(object sender, EventArgs e)
+        {
+            对账 win = new 对账();
+            win.ShowDialog();
+        }
     }
 }
