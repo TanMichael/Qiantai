@@ -58,6 +58,7 @@
             // comboBox客户
             // 
             this.comboBox客户.DisplayMember = "客户编号";
+            this.comboBox客户.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox客户.FormattingEnabled = true;
             this.comboBox客户.Location = new System.Drawing.Point(95, 24);
             this.comboBox客户.Name = "comboBox客户";

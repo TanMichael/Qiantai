@@ -60,6 +60,11 @@ namespace QTsys
         private void button生成_Click(object sender, EventArgs e)
         {
             string customerId = comboBox客户.SelectedValue.ToString();
+            if (customerId == "-9999")
+            {
+                MessageBox.Show("请选择要对账的客户");
+                return;
+            }
             DateTime startDate = dateTimePicker对账起始日.Value;
             DateTime endDate = dateTimePicker对账截止日.Value;
 
