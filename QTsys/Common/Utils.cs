@@ -1,6 +1,7 @@
 ﻿using QTsys.Common.Constants;
 using QTsys.DataObjects;
 using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
@@ -140,5 +141,41 @@ namespace QTsys.Common
             return rights;
         }
 
+        public static string GetTemplateContent(string path)
+        {
+            string content;
+            using(StreamReader rd = new StreamReader(path, Encoding.GetEncoding("unicode")))
+            {
+                content = rd.ReadToEnd();
+            }
+            return content;
+        }
+
+        public static void WriteToTemplate(string path, string content)
+        {
+            using (StreamWriter sw = new StreamWriter(path, true, Encoding.GetEncoding("unicode")))
+            {
+                sw.Write(content);
+            }
+        }
+
+        public static string GetTableTD(string value)
+        {
+            string html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                          "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>" +
+                          value + "</span></p></td>";
+            return html;
+        }
+
+        public static string GetTableTR(string[] tds)
+        {
+            string html = "<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.2pt'>";
+            foreach (string td in tds)
+            {
+                html += td;
+            }
+            html += "</tr>";
+            return html;
+        }
     }
 }
