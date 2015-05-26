@@ -1,6 +1,7 @@
 create database Qiaotai character set gbk;
 
 use qiaotai;
+SET auto_increment_increment=10000;
 
 create table 员工信息
 (
@@ -145,6 +146,7 @@ create table 订单
    发货时间                 DATETIME,
    最后更新时间             DATETIME,
    订单状态                 nvarchar(128),
+   送货单号                 nvarchar(128),
    快递单号                 nvarchar(128),
    订金方式                 nvarchar(128),
    收货地址                 nvarchar(128),

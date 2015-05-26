@@ -12,7 +12,8 @@ namespace QTsys.DataObjects
         public string OrderStatus { get; set; }
         public string IsSample { get; set; }
         public string CustomerId { get; set; }
-        public string ExpressNO { get; set; }
+        public string ExpressNO { get; set; }   // 快递单
+        public string DeliverNO { get; set; }   // 送货单，业务上需要
         public DateTime CreateTime { get; set; }
         public DateTime DeliverTime { get; set; }
         public DateTime LastUpdateTime { get; set; }
