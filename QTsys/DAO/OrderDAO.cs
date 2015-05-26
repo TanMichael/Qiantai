@@ -211,7 +211,8 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime + "',最后更新时间='" + DateTime.Now + "',订单状态='" + order.OrderStatus + "',快递单号='" + order.ExpressNO + "',订金方式='" + order.DepositMode + "',收货地址='" + order.RecieverAddress + "',收货联系人='" + order.RecieverName + "',收货电话='" + order.RecieverPhone + "',创建人='" + order.Creator + "' WHERE 订单编号='" + order.OrderId + "';";
+                string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime + "',最后更新时间='" + DateTime.Now + "',订单状态='" + order.OrderStatus +
+                    "',快递单号='" + order.ExpressNO + "',送货单号='" + order.DeliverNO + "',订金方式='" + order.DepositMode + "',收货地址='" + order.RecieverAddress + "',收货联系人='" + order.RecieverName + "',收货电话='" + order.RecieverPhone + "',创建人='" + order.Creator + "' WHERE 订单编号='" + order.OrderId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery(); 

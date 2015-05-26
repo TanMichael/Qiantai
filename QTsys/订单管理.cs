@@ -157,6 +157,19 @@ namespace QTsys
                 od.DeliverTime = date发货时间.Value;
                 od.LastUpdateTime = date最后更新时间.Value;
                 od.OrderStatus = com订单状态.Text;
+
+                // temp solution
+                if (od.OrderStatus == OrderStatus.SHIPPED)
+                {
+                    DateTime now = DateTime.Now;
+                    od.DeliverNO = now.Year.ToString() + now.Month.ToString() + now.Day.ToString() +
+                        now.Hour.ToString() + now.Minute.ToString();// +now.Second.ToString();
+                }
+                else
+                {
+                    od.DeliverNO = "";
+                }
+
                 od.ExpressNO = text快递单号.Text;
                 od.DepositMode = com订金方式.Text;
                 od.RecieverAddress = text收货地址.Text;
