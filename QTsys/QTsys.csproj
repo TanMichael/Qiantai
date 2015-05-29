@@ -208,6 +208,12 @@
     <Compile Include="打印制造单.Designer.cs">
       <DependentUpon>打印制造单.cs</DependentUpon>
     </Compile>
+    <Compile Include="打印对账单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="打印对账单.Designer.cs">
+      <DependentUpon>打印对账单.cs</DependentUpon>
+    </Compile>
     <Compile Include="批量导入.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="打印制造单.resx">
       <DependentUpon>打印制造单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="打印对账单.resx">
+      <DependentUpon>打印对账单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="批量导入.resx">
       <DependentUpon>批量导入.cs</DependentUpon>

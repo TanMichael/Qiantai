@@ -144,7 +144,7 @@ namespace QTsys.Common
         public static string GetTemplateContent(string path)
         {
             string content;
-            using(StreamReader rd = new StreamReader(path, Encoding.GetEncoding("unicode")))
+            using (StreamReader rd = new StreamReader(path, Encoding.UTF8))
             {
                 content = rd.ReadToEnd();
             }
@@ -153,7 +153,7 @@ namespace QTsys.Common
 
         public static void WriteToTemplate(string path, string content)
         {
-            using (StreamWriter sw = new StreamWriter(path, true, Encoding.GetEncoding("unicode")))
+            using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
             {
                 sw.Write(content);
             }

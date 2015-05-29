@@ -175,6 +175,7 @@
             this.button打印.TabIndex = 92;
             this.button打印.Text = "打印对账单";
             this.button打印.UseVisualStyleBackColor = true;
+            this.button打印.Click += new System.EventHandler(this.button打印_Click);
             // 
             // 对账
             // 
@@ -208,16 +209,16 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox客户;
-        private System.Windows.Forms.DateTimePicker dateTimePicker对账截止日;
+        public System.Windows.Forms.ComboBox comboBox客户;
+        public System.Windows.Forms.DateTimePicker dateTimePicker对账截止日;
         private System.Windows.Forms.Label 对账截止日;
-        private System.Windows.Forms.DateTimePicker dateTimePicker对账起始日;
+        public System.Windows.Forms.DateTimePicker dateTimePicker对账起始日;
         private System.Windows.Forms.Label 对账起始日;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox com客户联系人;
+        public System.Windows.Forms.ComboBox com客户联系人;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox text收货地址;
-        private System.Windows.Forms.TextBox text联系电话;
+        public System.Windows.Forms.TextBox text收货地址;
+        public System.Windows.Forms.TextBox text联系电话;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView对账单;
         private System.Windows.Forms.Button button生成;
