@@ -265,6 +265,7 @@
             this.button2.TabIndex = 170;
             this.button2.Text = "打印预览";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -274,6 +275,7 @@
             this.button1.TabIndex = 169;
             this.button1.Text = "打印";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // 打印制造单
             // 

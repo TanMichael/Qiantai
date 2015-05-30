@@ -48,5 +48,15 @@ namespace QTsys
                 webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\制造指令单_DATA.htm");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
