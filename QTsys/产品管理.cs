@@ -11,6 +11,7 @@ using QTsys.Common;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using QTsys.Manager;
+using System.IO;
 using QTsys.Common.Constants;
 
 namespace QTsys
@@ -210,6 +211,14 @@ namespace QTsys
         {
             产品原料关系 win = new 产品原料关系(text产品编号.Text);
             win.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //WebBrowser web = new WebBrowser();
+            webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单.htm");
+            webBrowser1.ShowPageSetupDialog();
+            webBrowser1.ShowPrintPreviewDialog();
         }
     }
 }

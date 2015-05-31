@@ -39,13 +39,13 @@ namespace QTsys
         {
             if (isnewplan == true)
             {
-                webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\制造指令单.htm");
+                webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\生产单.htm");
             }
             else
             {
              //通过生产计划ID获取产品相关数据
 
-                webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\制造指令单_DATA.htm");
+                webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\生产单.htm");
             }
         }
 

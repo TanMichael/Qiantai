@@ -78,6 +78,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.labelNoPrice = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -502,11 +504,32 @@
             this.labelNoPrice.TabIndex = 55;
             this.labelNoPrice.Text = "你的权限不能报价";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1123, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 23);
+            this.button6.TabIndex = 56;
+            this.button6.Text = "打印产品工程单";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(900, 263);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.TabIndex = 57;
+            this.webBrowser1.Visible = false;
+            // 
             // 产品管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 639);
+            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.labelNoPrice);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.text库存数量);
@@ -618,5 +641,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label labelNoPrice;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
