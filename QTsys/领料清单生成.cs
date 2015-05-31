@@ -55,6 +55,15 @@ namespace QTsys
             string str = "已完成原料编号领料：";
             try
             {
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    if (Convert.ToInt16(dataGridView1.Rows[i].Cells["库存数量"].Value) <= Convert.ToInt16(dataGridView1.Rows[i].Cells["需要原料数量"].Value))
+                    {
+                        MessageBox.Show("领料失败:\n\r有原料库存不足！");
+                        return;
+                    }
+
+                }
                 bool ok=true;
                 int num = 0;
                 for (int i=0; i < dataGridView1.RowCount-1; i++)
