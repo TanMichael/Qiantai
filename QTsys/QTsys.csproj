@@ -322,6 +322,9 @@
     <EmbeddedResource Include="修改密码.resx">
       <DependentUpon>修改密码.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="关于.resx">
+      <DependentUpon>关于.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="原料入仓.resx">
       <DependentUpon>原料入仓.cs</DependentUpon>
     </EmbeddedResource>

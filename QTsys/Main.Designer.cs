@@ -232,11 +232,12 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button员工管理);
+            this.groupBox1.Controls.Add(this.button批处理);
             this.groupBox1.Controls.Add(this.button客户管理);
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(335, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 182);
+            this.groupBox1.Size = new System.Drawing.Size(469, 182);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户/员工管理";
@@ -400,7 +401,7 @@
             this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
             this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
-            this.button批处理.Location = new System.Drawing.Point(659, 64);
+            this.button批处理.Location = new System.Drawing.Point(317, 25);
             this.button批处理.Name = "button批处理";
             this.button批处理.Size = new System.Drawing.Size(146, 150);
             this.button批处理.TabIndex = 14;
@@ -415,7 +416,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 641);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button批处理);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
