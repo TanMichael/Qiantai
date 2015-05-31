@@ -39,6 +39,7 @@ namespace QTsys
             {
                 //dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
                 //get all for now
+                button6.Enabled = false;//初始状态不允许生产成功！
                 dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                 dataGridView1.Update();
                 dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
@@ -79,7 +80,15 @@ namespace QTsys
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (com生产状态.Text == ProductionPlanStatus.PROCESSING)
+            {
+                 button6.Enabled = true;
+            }
+            else
+            {
+                button6.Enabled = false;
+            }
+                try
             {
                 text编号.Text = dataGridView1.Rows[e.RowIndex].Cells["编号"].Value.ToString();
                 com产品编号.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
@@ -97,9 +106,25 @@ namespace QTsys
 
                 textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
 
-
+                if (com生产状态.Text == ProductionPlanStatus.PROCESSING)
+                {
+                    button6.Enabled = true;
+                }
+                else
+                {
+                    button6.Enabled = false;
+                }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                if (com生产状态.Text == ProductionPlanStatus.PROCESSING)
+                {
+                    button6.Enabled = true;
+                }
+                else
+                {
+                    button6.Enabled = false;
+                }
+            }
 
         }
 
@@ -252,9 +277,10 @@ namespace QTsys
                 {
                     产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
                 }
-                dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
+                dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                 dataGridView1.Update();
-               
+                dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
+                dataGridView审核通过订单.Update();
             }
             catch (Exception ex) { }
         }
@@ -369,7 +395,14 @@ namespace QTsys
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-
+            if (com生产状态.Text == ProductionPlanStatus.PROCESSING)
+            {
+                button6.Enabled = true;
+            }
+            else
+            {
+                button6.Enabled = false;
+            }
         }
 
         private void textBox实际数_TextChanged(object sender, EventArgs e)
