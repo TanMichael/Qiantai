@@ -55,10 +55,10 @@
             this.注销ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button报价 = new System.Windows.Forms.Button();
-            this.button批处理 = new System.Windows.Forms.Button();
-            this.button审核 = new System.Windows.Forms.Button();
             this.button对账 = new System.Windows.Forms.Button();
+            this.button报价 = new System.Windows.Forms.Button();
+            this.button审核 = new System.Windows.Forms.Button();
+            this.button批处理 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -353,6 +353,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "财务";
             // 
+            // button对账
+            // 
+            this.button对账.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button对账.Font = new System.Drawing.Font("黑体", 16F);
+            this.button对账.Image = ((System.Drawing.Image)(resources.GetObject("button对账.Image")));
+            this.button对账.Location = new System.Drawing.Point(475, 27);
+            this.button对账.Name = "button对账";
+            this.button对账.Size = new System.Drawing.Size(146, 150);
+            this.button对账.TabIndex = 16;
+            this.button对账.Text = "对账";
+            this.button对账.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button对账.UseVisualStyleBackColor = true;
+            this.button对账.Click += new System.EventHandler(this.button对账_Click);
+            // 
             // button报价
             // 
             this.button报价.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -366,20 +380,6 @@
             this.button报价.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button报价.UseVisualStyleBackColor = true;
             this.button报价.Click += new System.EventHandler(this.button报价_Click);
-            // 
-            // button批处理
-            // 
-            this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
-            this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
-            this.button批处理.Location = new System.Drawing.Point(659, 64);
-            this.button批处理.Name = "button批处理";
-            this.button批处理.Size = new System.Drawing.Size(146, 150);
-            this.button批处理.TabIndex = 14;
-            this.button批处理.Text = "批处理";
-            this.button批处理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button批处理.UseVisualStyleBackColor = true;
-            this.button批处理.Click += new System.EventHandler(this.button批处理_Click);
             // 
             // button审核
             // 
@@ -395,19 +395,19 @@
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button对账
+            // button批处理
             // 
-            this.button对账.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button对账.Font = new System.Drawing.Font("黑体", 16F);
-            this.button对账.Image = ((System.Drawing.Image)(resources.GetObject("button对账.Image")));
-            this.button对账.Location = new System.Drawing.Point(475, 27);
-            this.button对账.Name = "button对账";
-            this.button对账.Size = new System.Drawing.Size(146, 150);
-            this.button对账.TabIndex = 16;
-            this.button对账.Text = "对账";
-            this.button对账.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button对账.UseVisualStyleBackColor = true;
-            this.button对账.Click += new System.EventHandler(this.button对账_Click);
+            this.button批处理.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button批处理.Font = new System.Drawing.Font("黑体", 16F);
+            this.button批处理.Image = ((System.Drawing.Image)(resources.GetObject("button批处理.Image")));
+            this.button批处理.Location = new System.Drawing.Point(659, 64);
+            this.button批处理.Name = "button批处理";
+            this.button批处理.Size = new System.Drawing.Size(146, 150);
+            this.button批处理.TabIndex = 14;
+            this.button批处理.Text = "批处理";
+            this.button批处理.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button批处理.UseVisualStyleBackColor = true;
+            this.button批处理.Click += new System.EventHandler(this.button批处理_Click);
             // 
             // Main
             // 
