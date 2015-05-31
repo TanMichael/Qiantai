@@ -24,6 +24,7 @@ namespace QTsys
         public 产品管理()
         {
             InitializeComponent();
+            webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单.htm");
             this.proman = ProductionManager.getProductionManager();
             var role = Utils.GetLogonToken().Role;
             if (role == UserRoles.FINANCE || role == UserRoles.ADMIN)    // 财务才能报价
@@ -215,8 +216,7 @@ namespace QTsys
 
         private void button6_Click(object sender, EventArgs e)
         {
-            //WebBrowser web = new WebBrowser();
-            webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单.htm");
+            //WebBrowser web = new WebBrowser(); 
             webBrowser1.ShowPageSetupDialog();
             webBrowser1.ShowPrintPreviewDialog();
         }
