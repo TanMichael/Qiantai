@@ -51,12 +51,15 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //webBrowser2.Print();
+            webBrowser2.ShowPrintDialog(); 
+            //webBrowser2.ShowPageSetupDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            webBrowser2.ShowPageSetupDialog();
+           webBrowser2.ShowPrintPreviewDialog();
         }
     }
 }
