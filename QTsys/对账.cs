@@ -75,8 +75,12 @@ namespace QTsys
 
         private void button打印_Click(object sender, EventArgs e)
         {
-            打印对账单 win = new 打印对账单(this, (DataTable)(dataGridView对账单.DataSource));
-            win.ShowDialog();
+            try
+            {
+                打印对账单 win = new 打印对账单(this, (DataTable)(dataGridView对账单.DataSource));
+                win.ShowDialog();
+            }
+            catch (Exception ex) { };
         }
     }
 }

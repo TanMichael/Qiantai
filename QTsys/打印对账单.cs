@@ -19,7 +19,7 @@ namespace QTsys
 
         public 打印对账单()
         {
-            InitializeComponent();
+                InitializeComponent();           
         }
 
         public 打印对账单(对账 parent, DataTable dt)
