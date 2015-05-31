@@ -103,7 +103,7 @@ namespace QTsys
             { 
                 dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(),
                 dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(),
-                "0",
+                "1",
                 selectedPrice.ToString(),
                 "1",
                 dataGridView1.Rows[selectpro].Cells["单价"].Value.ToString()
@@ -122,11 +122,13 @@ namespace QTsys
             {
                 dataGridView2.Rows.Add(rowadd);
             }
+            CalMoney();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             addNewList();
+           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

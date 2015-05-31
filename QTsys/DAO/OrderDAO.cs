@@ -226,7 +226,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.订单 SET 订单状态='" + status + "',发生时间='" + DateTime.Now + "' WHERE 订单编号='" + oId + "';";
+                string sql = "UPDATE qiaotai.订单 SET 订单状态='" + status + "',最后更新时间='" + DateTime.Now + "' WHERE 订单编号='" + oId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
