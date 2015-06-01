@@ -88,7 +88,7 @@ namespace QTsys.DAO
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT 产品信息.产品名称,产品信息.规格,订单明细.数量,订单明细.单价,订单明细.折扣,订单明细.成交价 FROM 订单明细  LEFT JOIN 产品信息 ON 订单明细.产品编号=产品信息.产品编号 WHERE 订单明细.订单编号='" + key + "';";
+                string sql = "SELECT 产品信息.产品名称,产品信息.规格,产品信息.变位,产品信息.材质,产品信息.规格,订单明细.数量,订单明细.单价,订单明细.折扣,订单明细.成交价 FROM 订单明细  LEFT JOIN 产品信息 ON 订单明细.产品编号=产品信息.产品编号 WHERE 订单明细.订单编号='" + key + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
@@ -121,8 +121,7 @@ namespace QTsys.DAO
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT 订单.订单编号,客户信息.客户名称," 
-                +"FROM 订单 WHERE 订单.订单状态 ='" + state + "'AND 订单.订单编号='" + key + "';";
+                string sql = "SELECT * FROM 订单 WHERE 订单.订单状态 ='" + state + "'AND 订单.订单编号='" + key + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
