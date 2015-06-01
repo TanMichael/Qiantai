@@ -116,6 +116,21 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { this.Connection.Close(); return dt; }
         }
+        public DataTable GetAllOrderByStateAndSerial(string state, string key)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 订单状态 ='" + state + "'AND 订单编号='"+key+"';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); return dt; }
+        }
 
         public DataTable GetFinishedSampleOrders()
         {

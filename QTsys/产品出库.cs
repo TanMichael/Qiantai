@@ -34,13 +34,21 @@ namespace QTsys
         private void 产品出库_Load(object sender, EventArgs e)
         {
             text相关订单编号.Text = id;
-            dataGridView1.DataSource = odm.GetAllOrderByState(OrderStatus.SHIPPED);
+            dataGridView1.DataSource = odm.GetAllOrderByStateAndSerial(OrderStatus.PROCESSING,id);
             dataGridView1.Update();
+            dataGridView2.DataSource = odm.GetAllOrderDetailsBySerialEx(id);
+            dataGridView2.Update();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            打印送货单 win = new 打印送货单(text相关订单编号.Text);
+            win.ShowDialog();
         }
     }
 }
