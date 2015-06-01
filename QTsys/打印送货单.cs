@@ -48,12 +48,13 @@ namespace QTsys
         private void button1_Click(object sender, EventArgs e)
         {
             insetnewlist();
-            webBrowser2.Print();
+           // webBrowser2.Print();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            insetnewlist();
+            //insetnewlist();
+            webBrowser2.ShowPageSetupDialog();
             webBrowser2.ShowPrintPreviewDialog();
         }
 

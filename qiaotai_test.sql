@@ -209,6 +209,7 @@ create table 订单
 (
    订单编号                 int primary key auto_increment,
    客户编号                 int,
+   客户名称                 nvarchar(128),
    是否样品订单             nvarchar(128),
    创建时间                 DATETIME not null,
    发货时间                 DATETIME,

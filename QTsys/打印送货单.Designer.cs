@@ -68,6 +68,7 @@
             this.date_down.Name = "date_down";
             this.date_down.Size = new System.Drawing.Size(200, 21);
             this.date_down.TabIndex = 61;
+            this.date_down.Visible = false;
             // 
             // label7
             // 
@@ -77,6 +78,7 @@
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 60;
             this.label7.Text = "终止时间";
+            this.label7.Visible = false;
             // 
             // date_up
             // 
@@ -84,6 +86,7 @@
             this.date_up.Name = "date_up";
             this.date_up.Size = new System.Drawing.Size(200, 21);
             this.date_up.TabIndex = 59;
+            this.date_up.Visible = false;
             this.date_up.ValueChanged += new System.EventHandler(this.date_up_ValueChanged);
             // 
             // label6
@@ -94,6 +97,7 @@
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 58;
             this.label6.Text = "起始时间";
+            this.label6.Visible = false;
             // 
             // label5
             // 
@@ -152,17 +156,17 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 51;
-            this.button2.Text = "打印预览";
+            this.button2.Text = "打印送货单";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(345, 149);
+            this.button1.Location = new System.Drawing.Point(345, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 50;
-            this.button1.Text = "打印";
+            this.button1.Text = "生成送货单";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

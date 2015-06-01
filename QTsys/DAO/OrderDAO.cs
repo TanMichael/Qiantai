@@ -121,7 +121,8 @@ namespace QTsys.DAO
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT * FROM qiaotai.订单 WHERE 订单状态 ='" + state + "'AND 订单编号='"+key+"';";
+                string sql = "SELECT 订单.订单编号,客户信息.客户名称," 
+                +"FROM 订单 WHERE 订单.订单状态 ='" + state + "'AND 订单.订单编号='" + key + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
@@ -197,9 +198,9 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人) VALUES ('" +
+                string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人,客户名称) VALUES ('" +
                     order.CreateTime + "','" + order.DeliverTime + "','" + order.LastUpdateTime + "','" + order.CustomerId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
-                    order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "')";
+                    order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "','" + order.Name + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
