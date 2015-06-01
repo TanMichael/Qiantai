@@ -176,17 +176,19 @@ namespace QTsys
                     pdt.Texture = ds.Tables[0].Rows[i][2].ToString();
                     pdt.Shift = ds.Tables[0].Rows[i][3].ToString();
                     pdt.RealShift = ds.Tables[0].Rows[i][4].ToString();
-                    pdt.Temperate = ds.Tables[0].Rows[i][5].ToString();
-                    pdt.ElapsedTime = ds.Tables[0].Rows[i][6].ToString();
-                    pdt.Presure = ds.Tables[0].Rows[i][7].ToString();
-                    pdt.ResinName = ds.Tables[0].Rows[i][8].ToString();
-                    pdt.ResinProportion = ds.Tables[0].Rows[i][9].ToString();
-                    pdt.Soak = ds.Tables[0].Rows[i][10].ToString();
-                    pdt.Outsize = ds.Tables[0].Rows[i][11].ToString();
-                    pdt.Jig = ds.Tables[0].Rows[i][12].ToString();
-                    pdt.Weight = ds.Tables[0].Rows[i][13].ToString();
-                    pdt.Formingdie = ds.Tables[0].Rows[i][14].ToString();
-                    pdt.ModingNum = ds.Tables[0].Rows[i][15].ToString();
+                    pdt.Color = ds.Tables[0].Rows[i][5].ToString();
+
+                    // TODO
+                    //pdt.ElapsedTime = ds.Tables[0].Rows[i][6].ToString();
+                    //pdt.Presure = ds.Tables[0].Rows[i][7].ToString();
+                    //pdt.ResinName = ds.Tables[0].Rows[i][8].ToString();
+                    //pdt.ResinProportion = ds.Tables[0].Rows[i][9].ToString();
+                    //pdt.Soak = ds.Tables[0].Rows[i][10].ToString();
+                    //pdt.Outsize = ds.Tables[0].Rows[i][11].ToString();
+                    //pdt.Jig = ds.Tables[0].Rows[i][12].ToString();
+                    //pdt.Weight = ds.Tables[0].Rows[i][13].ToString();
+                    //pdt.Formingdie = ds.Tables[0].Rows[i][14].ToString();
+                    //pdt.ModingNum = ds.Tables[0].Rows[i][15].ToString();
                     pdt.Unit = ds.Tables[0].Rows[i][16].ToString();
                     pdt.Price = Convert.ToDouble(ds.Tables[0].Rows[i][17].ToString());
                     pdt.StockCount = Convert.ToInt16(ds.Tables[0].Rows[i][18].ToString());

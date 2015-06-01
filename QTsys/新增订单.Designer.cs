@@ -409,7 +409,7 @@
             this.button新产品.TabIndex = 16;
             this.button新产品.Text = "从选中增加新产品";
             this.button新产品.UseVisualStyleBackColor = true;
-            this.button新产品.Click += new System.EventHandler(this.button新产品_Click);
+            this.button新产品.Visible = false;
             // 
             // checkBoxHistory
             // 

@@ -173,7 +173,18 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.产品信息(产品名称,规格,材质,变位,实测变位,温度,生产耗时,压力,树脂名称,树脂比重,含浸尺寸,外盘,内治具,重量,成型模,切模号,单位,单价,库存数量) VALUES ('" + pdt.Name + "','" + pdt.Standard + "','" + pdt.Texture + "','" + pdt.Shift + "','" + pdt.RealShift + "','" + pdt.Temperate + "','" + pdt.ElapsedTime + "','" + pdt.Presure + "','" + pdt.ResinName + "','" + pdt.ResinProportion + "','" + pdt.Soak + "','" + pdt.Outsize + "','" + pdt.Jig + "','" + pdt.Weight + "','" + pdt.Formingdie + "','" + pdt.ModingNum + "','" + pdt.Unit + "','" + pdt.Price + "','" + pdt.StockCount + "');";
+                string sql = "INSERT INTO qiaotai.产品信息(产品名称,规格,材质,变位,实测变位,颜色,单位,单价,库存数量," +
+                    "布料编号,开料要求,开料尺寸,胶水型号,溶剂,脱模剂,硬化剂,含浸比重,搅拌时间,比重计,胶滚压力,含浸转速HZ,烤箱温度C," +
+                    "成型模号,成型机台,手动自动,单个整条,成型上下模温度,成型时间,成型压力,自动切,是否拉布成型,是否中孔加补强布,补强布大小,是否压纸板,剪边喷水,压定位板,定型时间,压纸板时间," +
+                    "刀模,中孔模,刀模中心定位,切刀模个数,切断模,切断模架,切断机台,单个整条切断,通用气冲模,气冲压力,多个多条切断,导线方式,导线规格,内留mm,外留mm,点锡长mm,导线长度,方向数量,线距mm,单面双面点胶," +
+                    "胶水,边胶,胶水重量,摆放要求,工艺要求,打胶方式,贴合方式,贴合压力,贴合模具,贴合机台,成型首检变位,生产单重,样品变位,样品单重,测试夹具外内,是否留样,是否备品,是否产品全检,是否数量超交,是否标签盖环保章,备注" +
+                    ") VALUES ('" +
+                    pdt.Name + "','" + pdt.Standard + "','" + pdt.Texture + "','" + pdt.Shift + "','" + pdt.RealShift + "','" + pdt.Color + "','" + pdt.Unit + "'," + pdt.Price + ",'" + pdt.StockCount + "','" +
+                    pdt.布料编号 + "','" + pdt.开料要求 + "','" + pdt.开料尺寸 + "','" + pdt.胶水型号 + "','" + pdt.溶剂 + "','" + pdt.脱模剂 + "','" + pdt.硬化剂 + "','" + pdt.含浸比重 + "','" + pdt.搅拌时间 + "','" + pdt.比重计 + "','" + pdt.胶滚压力 + "','" + pdt.含浸转速HZ + "','" + pdt.烤箱温度C + "','" +
+                    pdt.成型模号 + "','" + pdt.成型机台 + "','" + pdt.手动自动 + "','" + pdt.单个整条 + "','" + pdt.成型上下模温度 + "','" + pdt.成型时间 + "','" + pdt.成型压力 + "','" + pdt.自动切 + "','" + pdt.是否拉布成型 + "','" + pdt.是否中孔加补强布 + "','" + pdt.补强布大小 + "','" + pdt.是否压纸板 + "','" + pdt.剪边喷水 + "','" + pdt.压定位板 + "','" + pdt.定型时间 + "','" + pdt.压纸板时间 + "','" +
+                    pdt.刀模 + "','" + pdt.中孔模 + "','" + pdt.刀模中心定位 + "','" + pdt.切刀模个数 + "','" + pdt.切断模 + "','" + pdt.切断模架 + "','" + pdt.切断机台 + "','" + pdt.单个整条切断 + "','" + pdt.通用气冲模 + "','" + pdt.气冲压力 + "','" + pdt.多个多条切断 + "','" + pdt.导线方式 + "','" + pdt.导线规格 + "','" + pdt.内留mm + "','" + pdt.外留mm + "','" + pdt.点锡长mm + "','" + pdt.导线长度 + "','" + pdt.方向数量 + "','" + pdt.线距mm + "','" + pdt.单面双面点胶 + "','" +
+                    pdt.胶水 + "','" + pdt.边胶 + "','" + pdt.胶水重量 + "','" + pdt.摆放要求 + "','" + pdt.工艺要求 + "','" + pdt.打胶方式 + "','" + pdt.贴合方式 + "','" + pdt.贴合压力 + "','" + pdt.贴合模具 + "','" + pdt.贴合机台 + "','" + pdt.成型首检变位 + "','" + pdt.生产单重 + "','" + pdt.样品变位 + "','" + pdt.样品单重 + "','" + pdt.测试夹具外内 + "','" + pdt.是否留样 + "','" + pdt.是否备品 + "','" + pdt.是否产品全检 + "','" + pdt.是否数量超交 + "','" + pdt.是否标签盖环保章 + "','" + pdt.备注 +
+                    "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -181,11 +192,12 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return (int)id;
             }
-            catch (Exception ex) { return 0; }
+            catch (Exception ex)
+            {
+                this.Connection.Close();
+                return 0;
+            }
         }
-
-
-
 
         public bool DelProduct(String key)
         {
@@ -204,7 +216,12 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.产品信息 SET 产品名称='" + pdt.Name + "',规格='" + pdt.Standard + "',材质='" + pdt.Texture + "',变位='" + pdt.Shift + "',实测变位='" + pdt.RealShift + "',温度='" + pdt.Temperate + "',生产耗时='" + pdt.ElapsedTime + "',压力='" + pdt.Presure + "',树脂名称='" + pdt.ResinName + "',树脂比重='" + pdt.ResinProportion + "',含浸尺寸='" + pdt.Soak + "',外盘='" + pdt.Outsize + "',内治具='" + pdt.Jig + "',重量='" + pdt.Weight + "',成型模='" + pdt.Formingdie + "',切模号='" + pdt.ModingNum + "',单位='" + pdt.Unit + "',单价='" + pdt.Price + "',库存数量='" + pdt.StockCount + "' WHERE 产品编号='" + pdt.Id + "';";
+                string sql = "UPDATE qiaotai.产品信息 SET 产品名称='" + pdt.Name + "',规格='" + pdt.Standard + "',材质='" + pdt.Texture + "',变位='" + pdt.Shift + "',实测变位='" + pdt.RealShift + "',颜色='" + pdt.Color + "',单位='" + pdt.Unit + "',单价=" + pdt.Price + ",库存数量='" + pdt.StockCount +
+                    "',布料编号='" + pdt.布料编号 + "',开料要求='" + pdt.开料要求 + "',开料尺寸='" + pdt.开料尺寸 + "',胶水型号='" + pdt.胶水型号 + "',溶剂='" + pdt.溶剂 + "',脱模剂='" + pdt.脱模剂 + "',硬化剂='" + pdt.硬化剂 + "',含浸比重='" + pdt.含浸比重 + "',搅拌时间='" + pdt.搅拌时间 + "',比重计='" + pdt.比重计 + "',胶滚压力='" + pdt.胶滚压力 + "',含浸转速HZ='" + pdt.含浸转速HZ + "',烤箱温度C='" + pdt.烤箱温度C +
+                    "',成型模号='" + pdt.成型模号 + "',成型机台='" + pdt.成型机台 + "',手动自动='" + pdt.手动自动 + "',单个整条='" + pdt.单个整条 + "',成型上下模温度='" + pdt.成型上下模温度 + "',成型时间='" + pdt.成型时间 + "',成型压力='" + pdt.成型压力 + "',自动切='" + pdt.自动切 + "',是否拉布成型='" + pdt.是否拉布成型 + "',是否中孔加补强布='" + pdt.是否中孔加补强布 + "',补强布大小='" + pdt.补强布大小 + "',是否压纸板='" + pdt.是否压纸板 + "',剪边喷水='" + pdt.剪边喷水 + "',压定位板='" + pdt.压定位板 + "',定型时间='" + pdt.定型时间 + "',压纸板时间='" + pdt.压纸板时间 +
+                    "',刀模='" + pdt.刀模 + "',中孔模='" + pdt.中孔模 + "',刀模中心定位='" + pdt.刀模中心定位 + "',切刀模个数='" + pdt.切刀模个数 + "',切断模='" + pdt.切断模 + "',切断模架='" + pdt.切断模架 + "',切断机台='" + pdt.切断机台 + "',单个整条切断='" + pdt.单个整条切断 + "',通用气冲模='" + pdt.通用气冲模 + "',气冲压力='" + pdt.气冲压力 + "',多个多条切断='" + pdt.多个多条切断 + "',导线方式='" + pdt.导线方式 + "',导线规格='" + pdt.导线规格 + "',内留mm='" + pdt.内留mm + "',外留mm='" + pdt.外留mm + "',点锡长mm='" + pdt.点锡长mm + "',导线长度='" + pdt.导线长度 + "',方向数量='" + pdt.方向数量 + "',线距mm='" + pdt.线距mm + "',单面双面点胶='" + pdt.单面双面点胶 +
+                    "',胶水='" + pdt.胶水 + "',边胶='" + pdt.边胶 + "',胶水重量='" + pdt.胶水重量 + "',摆放要求='" + pdt.摆放要求 + "',工艺要求='" + pdt.工艺要求 + "',打胶方式='" + pdt.打胶方式 + "',贴合方式='" + pdt.贴合方式 + "',贴合压力='" + pdt.贴合压力 + "',贴合模具='" + pdt.贴合模具 + "',贴合机台='" + pdt.贴合机台 + "',成型首检变位='" + pdt.成型首检变位 + "',生产单重='" + pdt.生产单重 + "',样品变位='" + pdt.样品变位 + "',样品单重='" + pdt.样品单重 + "',测试夹具外内='" + pdt.测试夹具外内 + "',是否留样='" + pdt.是否留样 + "',是否产品全检='" + pdt.是否产品全检 + "',是否数量超交='" + pdt.是否数量超交 + "',是否标签盖环保章='" + pdt.是否标签盖环保章 + "',备注='" + pdt.备注 +
+                    "' WHERE 产品编号='" + pdt.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
