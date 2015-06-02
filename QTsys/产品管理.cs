@@ -97,6 +97,8 @@ namespace QTsys
         private void 产品管理_Load(object sender, EventArgs e)
         {
             updateDataView();
+            webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单.htm");
+        
         }
 
         public void updateDataView()
@@ -232,6 +234,12 @@ namespace QTsys
         {
             产品原料关系 win = new 产品原料关系(text产品编号.Text);
             win.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            webBrowser1.ShowPageSetupDialog();
+            webBrowser1.ShowPrintPreviewDialog();
         }
     }
 }
