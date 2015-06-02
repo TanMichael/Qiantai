@@ -14,6 +14,7 @@ using QTsys.Common.Constants;
 using QTsys.Common;
 using QTsys.DAO;
 
+
 namespace QTsys
 {
     public partial class 打印制造单 : Form

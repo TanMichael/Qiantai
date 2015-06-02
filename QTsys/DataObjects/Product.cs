@@ -90,7 +90,10 @@ namespace QTsys.DataObjects
         public string 是否产品全检 { get; set; }
         public string 是否数量超交 { get; set; }
         public string 是否标签盖环保章 { get; set; }
+        public string 外贴标签要求 { get; set; }
         public string 备注 { get; set; }
-        
+        public string 批准 { get; set; }
+        public string 审核 { get; set; }
+        public string 制作 { get; set; }
     }
 }
