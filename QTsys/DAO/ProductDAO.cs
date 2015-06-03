@@ -257,7 +257,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
         public bool AddProductCount(string 产品编号,int 产品数量)
@@ -271,7 +271,21 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
+        }
+
+        public bool ReduceProductCount(string pId, int 产品数量)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.产品信息 SET 库存数量= 库存数量-" + 产品数量 + " WHERE 产品编号=" + pId + ";";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
 
@@ -303,5 +317,7 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { return false; }
         }
+
+        
     }
 }

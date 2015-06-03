@@ -140,5 +140,25 @@ namespace QTsys.DAO
             catch (Exception ex) { return false; }
         }
      //---------------------------------------------- 
+
+        public DataTable GetProductPlanByOrder(string orderId)
+        {
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 相关订单编号=" + orderId + ";" ;
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                this.Connection.Close();
+                return null;            
+            }
+        }
     }
 }

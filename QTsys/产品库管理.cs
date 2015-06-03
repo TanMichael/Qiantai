@@ -20,6 +20,10 @@ namespace QTsys
         private ProductionManager pdm;
         private OrderManager odm;
         private ProductPlanManager ppm;
+
+        private string selectedOrderId = "-9999";
+        private string selectedOrderStatus = "";
+
         public 产品库管理()
         {
             InitializeComponent();
@@ -29,6 +33,11 @@ namespace QTsys
         }
 
         private void 产品库管理_Load(object sender, EventArgs e)
+        {
+            initGrid();
+        }
+
+        private void initGrid()
         {
             dataGridView产品进出库.DataSource = pdm.GetAllProductFlow();
             dataGridView产品进出库.Update();
@@ -97,8 +106,22 @@ namespace QTsys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            产品出库 win = new 产品出库(text相关订单编号.Text);
+            if (selectedOrderId == "-9999")
+            {
+                MessageBox.Show("请选择一个订单进行出库");
+                return;
+            }
+
+            if (selectedOrderStatus == OrderStatus.SHIPPED || selectedOrderStatus == OrderStatus.SUCCEED)
+            {
+                MessageBox.Show("该订单已出库");
+                return;
+            }
+
+            产品出库 win = new 产品出库(selectedOrderId);
             win.ShowDialog();
+
+            initGrid();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -110,7 +133,7 @@ namespace QTsys
         private void button5_Click(object sender, EventArgs e)
         {
             //产品出库操作
-            打印送货单 win = new 打印送货单(text相关订单编号.Text);
+            打印送货单 win = new 打印送货单(selectedOrderId);
             win.ShowDialog();
         }
 
@@ -125,6 +148,12 @@ namespace QTsys
             }else
                 MessageBox.Show("操作失败！");
 
+        }
+
+        private void dataGridView订单_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedOrderId = dataGridView订单.Rows[e.RowIndex].Cells["订单编号"].Value.ToString();
+            selectedOrderStatus = dataGridView订单.Rows[e.RowIndex].Cells["订单状态"].Value.ToString();
         }
     }
 }

@@ -114,5 +114,20 @@ namespace QTsys.Manager
             return this.pdao.SetProductPrice(price, pId);
         }
 
+
+        public bool DeliverProduct(ProductFlow proflow, int 产品数量)
+        {
+            if (pdao.AddNewProductFlow(proflow))
+            {
+                if (pdao.ReduceProductCount(proflow.ProductId, 产品数量))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
     }
 }
