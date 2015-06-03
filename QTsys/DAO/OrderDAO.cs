@@ -199,7 +199,7 @@ namespace QTsys.DAO
             {
                 string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人,客户名称) VALUES ('" +
                     order.CreateTime + "','" + order.DeliverTime + "','" + order.LastUpdateTime + "','" + order.CustomerId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
-                    order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "','" + order.Name + "')";
+                    order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "','" + order.CustomerName + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -207,7 +207,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return (int)id;
             }
-            catch (Exception ex) { return 0; }
+            catch (Exception ex) { this.Connection.Close();  return 0; }
         }
         public bool DelOrder(String key)
         {
@@ -220,7 +220,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
         public bool AltOrder(Order order)
         {
@@ -234,7 +234,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
         public bool UpdateOrderStatus(string status, string oId)
@@ -248,7 +248,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
         public bool AddNewOrderDetail(OrderDetail order)
@@ -263,7 +263,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
         public bool DelOrderDetail(OrderDetail order)
         {
@@ -276,7 +276,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
         public bool AltOrderDetail(OrderDetail order)
         {
@@ -289,7 +289,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
 
@@ -298,17 +298,25 @@ namespace QTsys.DAO
 
         public DataTable GetReconciliation(string customerId, DateTime startDate, DateTime endDate)
         {
-            string sql = "select d.发货时间,d.送货单号,p.产品名称,d.订单编号,p.规格,p.材质,dd.数量,dd.成交价,dd.数量*dd.成交价 as 金额 from qiaotai.订单 d " +
-                        "inner join qiaotai.订单明细 dd on d.订单编号 = dd.订单编号 " +
-                        "inner join qiaotai.产品信息 p on dd.产品编号 = p.产品编号 " +
-                        "where d.客户编号=" + customerId + " and d.发货时间>'" + startDate.ToShortDateString() + "' and d.发货时间<'" + endDate.AddDays(1).ToShortDateString() + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "select d.发货时间,d.送货单号,p.产品名称,d.订单编号,p.规格,p.材质,dd.数量,dd.成交价,dd.数量*dd.成交价 as 金额 from qiaotai.订单 d " +
+                            "inner join qiaotai.订单明细 dd on d.订单编号 = dd.订单编号 " +
+                            "inner join qiaotai.产品信息 p on dd.产品编号 = p.产品编号 " +
+                            "where d.客户编号=" + customerId + " and d.发货时间>'" + startDate.ToShortDateString() + "' and d.发货时间<'" + endDate.AddDays(1).ToShortDateString() + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                this.Connection.Close();
+                return null;
+            }
         }
     }
 }
