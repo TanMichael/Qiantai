@@ -122,6 +122,8 @@ namespace QTsys
             {
                 dataGridView2.Rows.Add(rowadd);
             }
+            numericUpDown1.Value = 1;
+            text折扣.Text = "1";
             CalMoney();
         }
 
@@ -320,7 +322,7 @@ namespace QTsys
                     if (right == true)
                     {
                         MessageBox.Show("订单建立成功！待审核中。。。");//test
-                        
+                        this.Close();
                         //WinSendMsg.IsSampleProduct = check样品.Checked;
                         ////WinSendMsg.IsMeterialReduce = check库存.Checked;
                         //WinSendMsg.row = dataGridView2.Rows.Count;
