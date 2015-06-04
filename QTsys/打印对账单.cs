@@ -14,7 +14,7 @@ namespace QTsys
 {
     public partial class 打印对账单 : Form
     {
-        public static string templatePath = Directory.GetCurrentDirectory() + "\\对账单_template.htm";
+        public static string templatePath = Directory.GetCurrentDirectory() + "\\各种单据\\对账单_template.htm";
         public static string targetPath = Directory.GetCurrentDirectory() + "\\对账单_target.htm";
 
         public 打印对账单()
@@ -32,6 +32,8 @@ namespace QTsys
             string contact = parent.com客户联系人.Text;
             string phone = parent.text联系电话.Text;
             string addr = parent.text收货地址.Text;
+            string fax = parent.textBox传真.Text;
+            string payMod = parent.textBox结算方式.Text;
             string year = endDate.Year.ToString();
             string month = endDate.Month.ToString();
 
@@ -42,7 +44,7 @@ namespace QTsys
             result = result.Replace("{年份}", year);
             result = result.Replace("{月份}", month);
             result = result.Replace("{客户名称}", customerName);
-            //result = result.Replace("{结算方式}", year);
+            result = result.Replace("{结算方式}", payMod);
             result = result.Replace("{列印日期}", today.ToShortDateString());
             result = result.Replace("{联系人}", contact);
             //result = result.Replace("{性质}", year);
@@ -50,12 +52,13 @@ namespace QTsys
             result = result.Replace("{联系电话}", phone);
             result = result.Replace("{起始日期}", startDate.ToShortDateString());
             //result = result.Replace("{币种}", year);
-            //result = result.Replace("{传真}", year);
+            result = result.Replace("{传真}", fax);
             result = result.Replace("{截止日期}", endDate.ToShortDateString());
             //result = result.Replace("{单位}", year);
             result = result.Replace("{地址}", addr);
 
             string value = "";
+            double totalSum = 0;
 
             foreach (DataRow row in dt.Rows)
             {
@@ -68,6 +71,7 @@ namespace QTsys
                 string count = row["数量"].ToString();
                 string price = row["成交价"].ToString();
                 string sum = row["金额"].ToString();
+                totalSum += double.Parse(sum);
 
                 value += Utils.GetTableTR(new string[]
                 {
@@ -83,6 +87,8 @@ namespace QTsys
                 });
             }
             result = result.Replace("{table_content}", value);
+            result = result.Replace("{总金额}", totalSum.ToString());
+            result = result.Replace("{财务}", Utils.GetLogonToken().Name);
 
             //if (File.Exists(targetPath))
             //{

@@ -55,6 +55,8 @@ namespace QTsys
             com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
             text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
             text收货地址.Text = dt.Rows[0]["地址"].ToString();
+            textBox传真.Text = dt.Rows[0]["传真"].ToString();
+            textBox结算方式.Text = dt.Rows[0]["结算方式"].ToString();
         }
 
         private void button生成_Click(object sender, EventArgs e)

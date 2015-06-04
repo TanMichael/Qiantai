@@ -12,7 +12,7 @@ namespace QTsys.Common
     static class Utils
     {
         private const string CONN_CONFIG_PATH = @"..\..\mysql_set.xml";
-        private static LogonToken _logonToken = new LogonToken { Status = false, UserName = "", Role = "" ,PWD=""};
+        private static LogonToken _logonToken = new LogonToken { Status = false, UserName = "", Name = "", Role = "" ,PWD=""};
 
         public static string GetMD5String(string source)
         {
@@ -76,6 +76,16 @@ namespace QTsys.Common
             _logonToken.Role = role;
             _logonToken.Status = status;
             _logonToken.PWD = pwds;
+            _logonToken.LogonTime = _logonToken.LastOperationTime = DateTime.Now;
+        }
+
+        public static void SetLogonToken(User u, bool status = true)
+        {
+            _logonToken.UserName = u.UserName;
+            _logonToken.Name = u.Name;  // 姓名
+            _logonToken.Role = u.Role;
+            _logonToken.Status = status;
+            _logonToken.PWD = u.Password;
             _logonToken.LogonTime = _logonToken.LastOperationTime = DateTime.Now;
         }
 

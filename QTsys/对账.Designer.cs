@@ -43,6 +43,10 @@
             this.dataGridView对账单 = new System.Windows.Forms.DataGridView();
             this.button生成 = new System.Windows.Forms.Button();
             this.button打印 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox传真 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox结算方式 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView对账单)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +155,7 @@
             // dataGridView对账单
             // 
             this.dataGridView对账单.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView对账单.Location = new System.Drawing.Point(26, 165);
+            this.dataGridView对账单.Location = new System.Drawing.Point(12, 165);
             this.dataGridView对账单.Name = "dataGridView对账单";
             this.dataGridView对账单.RowTemplate.Height = 23;
             this.dataGridView对账单.Size = new System.Drawing.Size(965, 552);
@@ -177,11 +181,47 @@
             this.button打印.UseVisualStyleBackColor = true;
             this.button打印.Click += new System.EventHandler(this.button打印_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(239, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 93;
+            this.label1.Text = "传真";
+            // 
+            // textBox传真
+            // 
+            this.textBox传真.Location = new System.Drawing.Point(298, 80);
+            this.textBox传真.Name = "textBox传真";
+            this.textBox传真.Size = new System.Drawing.Size(121, 21);
+            this.textBox传真.TabIndex = 94;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 95;
+            this.label6.Text = "结算方式";
+            // 
+            // textBox结算方式
+            // 
+            this.textBox结算方式.Location = new System.Drawing.Point(95, 138);
+            this.textBox结算方式.Name = "textBox结算方式";
+            this.textBox结算方式.Size = new System.Drawing.Size(121, 21);
+            this.textBox结算方式.TabIndex = 96;
+            // 
             // 对账
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 729);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox结算方式);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox传真);
             this.Controls.Add(this.button打印);
             this.Controls.Add(this.button生成);
             this.Controls.Add(this.dataGridView对账单);
@@ -223,5 +263,9 @@
         private System.Windows.Forms.DataGridView dataGridView对账单;
         private System.Windows.Forms.Button button生成;
         private System.Windows.Forms.Button button打印;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox textBox传真;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox textBox结算方式;
     }
 }

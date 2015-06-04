@@ -42,7 +42,7 @@ namespace QTsys
                 if (rUser != null)
                 {
                     ////登录成功
-                    Utils.SetLogonToken(rUser.UserName, rUser.Role,rUser.Password);
+                    Utils.SetLogonToken(rUser);
                     this.Close();
                 }
                 else
