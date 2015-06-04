@@ -143,6 +143,11 @@ namespace QTsys
                 MessageBox.Show("更新库存失败！未填写单位");
                 return;
             }
+            if (text供应单价.Text == "")
+            {
+                MessageBox.Show("更新库存失败！未填写供应单价");
+                return;
+            }
             try
             {
                 MaterialDAO at = new MaterialDAO();
