@@ -95,26 +95,26 @@ namespace QTsys
             int idx = e.RowIndex;
             var selectedRow = dataGridView参数修正.Rows[idx];
             
-            text产品编号.Text = selectedRow.Cells["产品编号"].Value.ToString();
-            text产品名称.Text = selectedRow.Cells["产品名称"].Value.ToString();
-            text规格.Text = selectedRow.Cells["规格"].Value.ToString();
-            text材质.Text = selectedRow.Cells["材质"].Value.ToString();
-            text变位.Text = selectedRow.Cells["变位"].Value.ToString();
-            text实测变位.Text = selectedRow.Cells["实测变位"].Value.ToString();
-            text温度.Text = selectedRow.Cells["温度"].Value.ToString();
-            text生产耗时.Text = selectedRow.Cells["生产耗时"].Value.ToString();
-            text压力.Text = selectedRow.Cells["压力"].Value.ToString();
-            text树脂名称.Text = selectedRow.Cells["树脂名称"].Value.ToString();
-            text树脂比重.Text = selectedRow.Cells["树脂比重"].Value.ToString();
-            text含浸尺寸.Text = selectedRow.Cells["含浸尺寸"].Value.ToString();
-            text外盘.Text = selectedRow.Cells["外盘"].Value.ToString();
-            text内治具.Text = selectedRow.Cells["内治具"].Value.ToString();
-            text重量.Text = selectedRow.Cells["重量"].Value.ToString();
-            text成型模.Text = selectedRow.Cells["成型模"].Value.ToString();
-            text切模号.Text = selectedRow.Cells["切模号"].Value.ToString();
-            text单位.Text = selectedRow.Cells["单位"].Value.ToString();
-            text单价.Text = selectedRow.Cells["单价"].Value.ToString();
-            text库存数量.Text = selectedRow.Cells["库存数量"].Value.ToString();
+            //text产品编号.Text = selectedRow.Cells["产品编号"].Value.ToString();
+            //text产品名称.Text = selectedRow.Cells["产品名称"].Value.ToString();
+            //text规格.Text = selectedRow.Cells["规格"].Value.ToString();
+            //text材质.Text = selectedRow.Cells["材质"].Value.ToString();
+            //text变位.Text = selectedRow.Cells["变位"].Value.ToString();
+            //text实测变位.Text = selectedRow.Cells["实测变位"].Value.ToString();
+            //text温度.Text = selectedRow.Cells["温度"].Value.ToString();
+            //text生产耗时.Text = selectedRow.Cells["生产耗时"].Value.ToString();
+            //text压力.Text = selectedRow.Cells["压力"].Value.ToString();
+            //text树脂名称.Text = selectedRow.Cells["树脂名称"].Value.ToString();
+            //text树脂比重.Text = selectedRow.Cells["树脂比重"].Value.ToString();
+            //text含浸尺寸.Text = selectedRow.Cells["含浸尺寸"].Value.ToString();
+            //text外盘.Text = selectedRow.Cells["外盘"].Value.ToString();
+            //text内治具.Text = selectedRow.Cells["内治具"].Value.ToString();
+            //text重量.Text = selectedRow.Cells["重量"].Value.ToString();
+            //text成型模.Text = selectedRow.Cells["成型模"].Value.ToString();
+            //text切模号.Text = selectedRow.Cells["切模号"].Value.ToString();
+            //text单位.Text = selectedRow.Cells["单位"].Value.ToString();
+            //text单价.Text = selectedRow.Cells["单价"].Value.ToString();
+            //text库存数量.Text = selectedRow.Cells["库存数量"].Value.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

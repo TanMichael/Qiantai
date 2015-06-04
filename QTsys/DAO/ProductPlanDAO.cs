@@ -16,7 +16,7 @@ namespace QTsys.DAO
             string sql = "SELECT * FROM qiaotai.生产计划";
             if (!reallyAll)
             {
-                sql += " where 生产状态 <> '待审核' and 生产状态 <> '取消'";
+                sql += " where 生产状态 <> '待审核' and 生产状态 <> '取消' and 生产状态 <> '入库'";
             }
             sql += ";";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);

@@ -70,7 +70,7 @@ namespace QTsys
                 }
                 else
                 {
-                    dataGridView1.DataSource = this.ppm.GetAllProductPlanByStates(ProductionPlanStatus.PROCESSING);
+                    dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                     dataGridView1.Update();
                 }
 
