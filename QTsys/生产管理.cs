@@ -265,25 +265,28 @@ namespace QTsys
         {
             try
             {
-                if (Convert.ToInt16(textBox计划数.Text) == Convert.ToInt16(textBox实际数.Text)) //正好生产
+                if (MessageBox.Show("确定是否生产成功?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
-                }
-                if (Convert.ToInt16(textBox计划数.Text) > Convert.ToInt16(textBox实际数.Text))//生产少了
-                {
-                    if (产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text)))
+                    if (Convert.ToInt16(textBox计划数.Text) == Convert.ToInt16(textBox实际数.Text)) //正好生产
                     {
-                        补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
+                        产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
                     }
+                    if (Convert.ToInt16(textBox计划数.Text) > Convert.ToInt16(textBox实际数.Text))//生产少了
+                    {
+                        if (产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text)))
+                        {
+                            补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
+                        }
+                    }
+                    if (Convert.ToInt16(textBox计划数.Text) < Convert.ToInt16(textBox实际数.Text))//生产多了
+                    {
+                        产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
+                    }
+                    dataGridView1.DataSource = this.ppm.GetAllProductPlan();
+                    dataGridView1.Update();
+                    dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
+                    dataGridView审核通过订单.Update();
                 }
-                if (Convert.ToInt16(textBox计划数.Text) < Convert.ToInt16(textBox实际数.Text))//生产多了
-                {
-                    产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
-                }
-                dataGridView1.DataSource = this.ppm.GetAllProductPlan();
-                dataGridView1.Update();
-                dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
-                dataGridView审核通过订单.Update();
             }
             catch (Exception ex) { }
         }
