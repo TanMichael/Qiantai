@@ -141,10 +141,10 @@ create table 产品信息
    是否标签盖环保章 nvarchar(128),
    外贴标签要求 nvarchar(128),
 -- 表尾
-   备注 nvarchar(1024)
+   备注 nvarchar(1024),
    批准 nvarchar(128),
    审核 nvarchar(128),
-   制作 nvarchar(128),
+   制作 nvarchar(128)
 );
 
 create table 产品原料关系
