@@ -85,7 +85,7 @@ namespace QTsys.DAO
 
                // string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,下单日期,产品数量,交付时间,实际完成时间,计划类型,生产状态,相关订单编号,负责人) VALUES ('" + pp.ProductId + "','" + pp.CustomerId + "','" + pp.OrderTime + "','" + pp.Count + "','" + pp.PlanningTime + "','" + pp.FinishTime + "','" + pp.PlanType + "','" + pp.PlanState + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
                 string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,生产状态,下单日期,产品数量,交付时间,实际完成时间,计划类型,相关订单编号,负责人) VALUES ('" +
-                    pp.ProductId + "','" + pp.CustomerId + "','" + pp.PlanState + "','" + pp.OrderTime + "','" + pp.Count + "','" + pp.PlanningTime + "','" + pp.FinishTime +
+                    pp.ProductId + "','" + pp.CustomerId + "','" + pp.PlanState + "','" + pp.OrderTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.Count + "','" + pp.PlanningTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.FinishTime.ToString("yyyy/MM/dd HH:mm:ss") +
                     "','" +pp.PlanType + "','" +pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
@@ -114,7 +114,7 @@ namespace QTsys.DAO
             try
             {
                 string sql = "UPDATE qiaotai.生产计划 SET 产品编号='" + pp.ProductId + "',客户编号='" + pp.CustomerId + "',下单日期='" +
-                    pp.OrderTime + "',产品数量='" + pp.Count + "',交付时间='" +pp.PlanningTime + "',实际完成时间='" + pp.FinishTime +
+                    pp.OrderTime.ToString("yyyy/MM/dd HH:mm:ss") + "',产品数量='" + pp.Count + "',交付时间='" + pp.PlanningTime.ToString("yyyy/MM/dd HH:mm:ss") + "',实际完成时间='" + pp.FinishTime.ToString("yyyy/MM/dd HH:mm:ss") +
                     "',计划类型='" + pp.PlanType + "',生产状态='" + pp.PlanState + "',相关订单编号='" + pp.RelatedOrderId + "',负责人='" + pp.InChargePerson +
                     "' WHERE 编号='" + pp.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);

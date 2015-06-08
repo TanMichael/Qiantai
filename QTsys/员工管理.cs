@@ -126,7 +126,10 @@ namespace QTsys
                 else
                     MessageBox.Show("插入失败！");
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)//删除
@@ -150,7 +153,10 @@ namespace QTsys
                 else
                     MessageBox.Show("删除用户[" + text员工编号.Text + "]失败！");
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)// 修改并保存
