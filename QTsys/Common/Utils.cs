@@ -11,7 +11,7 @@ namespace QTsys.Common
 {
     static class Utils
     {
-        private const string CONN_CONFIG_PATH = @"..\..\mysql_set.xml";
+        private const string CONN_CONFIG_PATH = @"mysql_set.xml";
         private static LogonToken _logonToken = new LogonToken { Status = false, UserName = "", Name = "", Role = "" ,PWD=""};
 
         public static string GetMD5String(string source)
