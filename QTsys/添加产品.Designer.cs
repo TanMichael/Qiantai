@@ -193,6 +193,8 @@
             this.textBox单价 = new System.Windows.Forms.TextBox();
             this.labelNoPrice = new System.Windows.Forms.Label();
             this.label库存数 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -396,11 +398,7 @@
             // 
             // button确定
             // 
-<<<<<<< HEAD
-            this.button确定.Location = new System.Drawing.Point(887, 429);
-=======
-            this.button确定.Location = new System.Drawing.Point(392, 560);
->>>>>>> origin/master
+            this.button确定.Location = new System.Drawing.Point(888, 308);
             this.button确定.Name = "button确定";
             this.button确定.Size = new System.Drawing.Size(164, 31);
             this.button确定.TabIndex = 36;
@@ -410,11 +408,7 @@
             // 
             // button取消
             // 
-<<<<<<< HEAD
-            this.button取消.Location = new System.Drawing.Point(1050, 429);
-=======
-            this.button取消.Location = new System.Drawing.Point(737, 560);
->>>>>>> origin/master
+            this.button取消.Location = new System.Drawing.Point(1051, 308);
             this.button取消.Name = "button取消";
             this.button取消.Size = new System.Drawing.Size(209, 31);
             this.button取消.TabIndex = 37;
@@ -786,11 +780,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(131, 12);
             this.label15.TabIndex = 54;
-<<<<<<< HEAD
             this.label15.Text = "成型上/下模温度±50℃";
-=======
-            this.label15.Text = "成型上/下模温度±5℃";
->>>>>>> origin/master
             // 
             // textBox成型上下模温度
             // 
@@ -903,7 +893,7 @@
             this.groupBox4.Controls.Add(this.textBox中孔模);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.textBox刀模中心定位);
-            this.groupBox4.Location = new System.Drawing.Point(704, 137);
+            this.groupBox4.Location = new System.Drawing.Point(705, 16);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(669, 110);
             this.groupBox4.TabIndex = 41;
@@ -1106,11 +1096,7 @@
             this.groupBox5.Controls.Add(this.textBox线距);
             this.groupBox5.Controls.Add(this.label38);
             this.groupBox5.Controls.Add(this.textBox导线规格);
-<<<<<<< HEAD
-            this.groupBox5.Location = new System.Drawing.Point(692, 80);
-=======
-            this.groupBox5.Location = new System.Drawing.Point(706, 281);
->>>>>>> origin/master
+            this.groupBox5.Location = new System.Drawing.Point(707, 160);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(669, 100);
             this.groupBox5.TabIndex = 42;
@@ -1283,13 +1269,9 @@
             this.groupBox6.Controls.Add(this.textBox边胶);
             this.groupBox6.Controls.Add(this.label46);
             this.groupBox6.Controls.Add(this.textBox胶水重量);
-<<<<<<< HEAD
-            this.groupBox6.Location = new System.Drawing.Point(692, 186);
-=======
             this.groupBox6.Location = new System.Drawing.Point(17, 408);
->>>>>>> origin/master
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(669, 102);
+            this.groupBox6.Size = new System.Drawing.Size(669, 112);
             this.groupBox6.TabIndex = 43;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "双层弹波";
@@ -1476,11 +1458,7 @@
             this.groupBox7.Controls.Add(this.textBox成型首检变位);
             this.groupBox7.Controls.Add(this.label60);
             this.groupBox7.Controls.Add(this.textBox样品变位);
-<<<<<<< HEAD
-            this.groupBox7.Location = new System.Drawing.Point(692, 294);
-=======
-            this.groupBox7.Location = new System.Drawing.Point(706, 408);
->>>>>>> origin/master
+            this.groupBox7.Location = new System.Drawing.Point(707, 287);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(669, 102);
             this.groupBox7.TabIndex = 44;
@@ -1650,11 +1628,7 @@
             // label63
             // 
             this.label63.AutoSize = true;
-<<<<<<< HEAD
-            this.label63.Location = new System.Drawing.Point(701, 402);
-=======
-            this.label63.Location = new System.Drawing.Point(206, 533);
->>>>>>> origin/master
+            this.label63.Location = new System.Drawing.Point(713, 395);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(29, 12);
             this.label63.TabIndex = 56;
@@ -1662,13 +1636,9 @@
             // 
             // textBox备注
             // 
-<<<<<<< HEAD
-            this.textBox备注.Location = new System.Drawing.Point(760, 402);
-=======
-            this.textBox备注.Location = new System.Drawing.Point(265, 533);
->>>>>>> origin/master
+            this.textBox备注.Location = new System.Drawing.Point(711, 434);
             this.textBox备注.Name = "textBox备注";
-            this.textBox备注.Size = new System.Drawing.Size(785, 21);
+            this.textBox备注.Size = new System.Drawing.Size(661, 21);
             this.textBox备注.TabIndex = 57;
             // 
             // label单价
@@ -1706,15 +1676,33 @@
             this.label库存数.Text = "0";
             this.label库存数.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(896, 492);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 62;
+            this.button1.Text = "确认";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1170, 492);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 63;
+            this.button2.Text = "取消";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // 添加产品
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1372, 535);
-=======
-            this.ClientSize = new System.Drawing.Size(1375, 626);
->>>>>>> origin/master
+            this.ClientSize = new System.Drawing.Size(1386, 544);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label库存数);
             this.Controls.Add(this.labelNoPrice);
             this.Controls.Add(this.textBox单价);
@@ -1930,5 +1918,7 @@
         private System.Windows.Forms.TextBox textBox单价;
         private System.Windows.Forms.Label labelNoPrice;
         private System.Windows.Forms.Label label库存数;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
