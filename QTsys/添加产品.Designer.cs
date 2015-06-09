@@ -396,9 +396,9 @@
             // 
             // button确定
             // 
-            this.button确定.Location = new System.Drawing.Point(212, 879);
+            this.button确定.Location = new System.Drawing.Point(392, 560);
             this.button确定.Name = "button确定";
-            this.button确定.Size = new System.Drawing.Size(75, 31);
+            this.button确定.Size = new System.Drawing.Size(164, 31);
             this.button确定.TabIndex = 36;
             this.button确定.Text = "确定";
             this.button确定.UseVisualStyleBackColor = true;
@@ -406,9 +406,9 @@
             // 
             // button取消
             // 
-            this.button取消.Location = new System.Drawing.Point(375, 879);
+            this.button取消.Location = new System.Drawing.Point(737, 560);
             this.button取消.Name = "button取消";
-            this.button取消.Size = new System.Drawing.Size(75, 31);
+            this.button取消.Size = new System.Drawing.Size(209, 31);
             this.button取消.TabIndex = 37;
             this.button取消.Text = "取消";
             this.button取消.UseVisualStyleBackColor = true;
@@ -465,7 +465,7 @@
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(65, 12);
             this.label64.TabIndex = 46;
-            this.label64.Text = "烤箱温度0C";
+            this.label64.Text = "烤箱温度℃";
             // 
             // textBox烤箱温度
             // 
@@ -778,7 +778,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(125, 12);
             this.label15.TabIndex = 54;
-            this.label15.Text = "成型上/下模温度±50C";
+            this.label15.Text = "成型上/下模温度±5℃";
             // 
             // textBox成型上下模温度
             // 
@@ -891,7 +891,7 @@
             this.groupBox4.Controls.Add(this.textBox中孔模);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.textBox刀模中心定位);
-            this.groupBox4.Location = new System.Drawing.Point(17, 399);
+            this.groupBox4.Location = new System.Drawing.Point(704, 137);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(669, 110);
             this.groupBox4.TabIndex = 41;
@@ -933,7 +933,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(418, 81);
+            this.label49.Location = new System.Drawing.Point(418, 87);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(65, 12);
             this.label49.TabIndex = 64;
@@ -941,7 +941,7 @@
             // 
             // textBox多个多条
             // 
-            this.textBox多个多条.Location = new System.Drawing.Point(489, 78);
+            this.textBox多个多条.Location = new System.Drawing.Point(489, 84);
             this.textBox多个多条.Name = "textBox多个多条";
             this.textBox多个多条.Size = new System.Drawing.Size(100, 21);
             this.textBox多个多条.TabIndex = 65;
@@ -949,7 +949,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(512, 60);
+            this.label1.Location = new System.Drawing.Point(509, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 58;
@@ -957,9 +957,9 @@
             // 
             // textBox单个整条切断
             // 
-            this.textBox单个整条切断.Location = new System.Drawing.Point(583, 60);
+            this.textBox单个整条切断.Location = new System.Drawing.Point(580, 60);
             this.textBox单个整条切断.Name = "textBox单个整条切断";
-            this.textBox单个整条切断.Size = new System.Drawing.Size(77, 21);
+            this.textBox单个整条切断.Size = new System.Drawing.Size(80, 21);
             this.textBox单个整条切断.TabIndex = 59;
             // 
             // label2
@@ -981,7 +981,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(512, 33);
+            this.label25.Location = new System.Drawing.Point(509, 33);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(65, 12);
             this.label25.TabIndex = 52;
@@ -989,9 +989,9 @@
             // 
             // textBox切刀模个数
             // 
-            this.textBox切刀模个数.Location = new System.Drawing.Point(583, 33);
+            this.textBox切刀模个数.Location = new System.Drawing.Point(580, 33);
             this.textBox切刀模个数.Name = "textBox切刀模个数";
-            this.textBox切刀模个数.Size = new System.Drawing.Size(77, 21);
+            this.textBox切刀模个数.Size = new System.Drawing.Size(80, 21);
             this.textBox切刀模个数.TabIndex = 53;
             // 
             // label26
@@ -1094,7 +1094,7 @@
             this.groupBox5.Controls.Add(this.textBox线距);
             this.groupBox5.Controls.Add(this.label38);
             this.groupBox5.Controls.Add(this.textBox导线规格);
-            this.groupBox5.Location = new System.Drawing.Point(17, 530);
+            this.groupBox5.Location = new System.Drawing.Point(706, 281);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(669, 100);
             this.groupBox5.TabIndex = 42;
@@ -1267,7 +1267,7 @@
             this.groupBox6.Controls.Add(this.textBox边胶);
             this.groupBox6.Controls.Add(this.label46);
             this.groupBox6.Controls.Add(this.textBox胶水重量);
-            this.groupBox6.Location = new System.Drawing.Point(17, 636);
+            this.groupBox6.Location = new System.Drawing.Point(17, 408);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(669, 102);
             this.groupBox6.TabIndex = 43;
@@ -1456,7 +1456,7 @@
             this.groupBox7.Controls.Add(this.textBox成型首检变位);
             this.groupBox7.Controls.Add(this.label60);
             this.groupBox7.Controls.Add(this.textBox样品变位);
-            this.groupBox7.Location = new System.Drawing.Point(17, 744);
+            this.groupBox7.Location = new System.Drawing.Point(706, 408);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(669, 102);
             this.groupBox7.TabIndex = 44;
@@ -1626,7 +1626,7 @@
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(26, 852);
+            this.label63.Location = new System.Drawing.Point(206, 533);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(29, 12);
             this.label63.TabIndex = 56;
@@ -1634,9 +1634,9 @@
             // 
             // textBox备注
             // 
-            this.textBox备注.Location = new System.Drawing.Point(85, 852);
+            this.textBox备注.Location = new System.Drawing.Point(265, 533);
             this.textBox备注.Name = "textBox备注";
-            this.textBox备注.Size = new System.Drawing.Size(592, 21);
+            this.textBox备注.Size = new System.Drawing.Size(785, 21);
             this.textBox备注.TabIndex = 57;
             // 
             // label单价
@@ -1678,7 +1678,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 912);
+            this.ClientSize = new System.Drawing.Size(1375, 626);
             this.Controls.Add(this.label库存数);
             this.Controls.Add(this.labelNoPrice);
             this.Controls.Add(this.textBox单价);
