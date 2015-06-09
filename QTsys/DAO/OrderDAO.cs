@@ -198,7 +198,7 @@ namespace QTsys.DAO
             try
             {
                 string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人,客户名称) VALUES ('" +
-                    order.CreateTime + "','" + order.DeliverTime + "','" + order.LastUpdateTime + "','" + order.CustomerId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
+                    order.CreateTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.DeliverTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.LastUpdateTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.CustomerId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
                     order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "','" + order.CustomerName + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
@@ -226,7 +226,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime + "',最后更新时间='" + DateTime.Now + "',订单状态='" + order.OrderStatus +
+                string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime.ToString("yyyy/MM/dd HH:mm:ss") + "',最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "',订单状态='" + order.OrderStatus +
                     "',快递单号='" + order.ExpressNO + "',送货单号='" + order.DeliverNO + "',订金方式='" + order.DepositMode + "',收货地址='" + order.RecieverAddress + "',收货联系人='" + order.RecieverName + "',收货电话='" + order.RecieverPhone + "',创建人='" + order.Creator + "' WHERE 订单编号='" + order.OrderId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
@@ -241,7 +241,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.订单 SET 订单状态='" + status + "',最后更新时间='" + DateTime.Now + "' WHERE 订单编号='" + oId + "';";
+                string sql = "UPDATE qiaotai.订单 SET 订单状态='" + status + "',最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' WHERE 订单编号='" + oId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();

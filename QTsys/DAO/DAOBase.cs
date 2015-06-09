@@ -27,7 +27,7 @@ namespace QTsys.DAO
         protected void LogAction(OperationAudit audit)
         {
             string sql = "INSERT INTO qiaotai.操作记录 (操作员,操作动作,操作对象,操作结果,操作时间) VALUES ('" +
-                audit.Operator + "','" + audit.Action + "','" + audit.OperateObject + "','" + audit.Result + "','" + audit.OperateTime + "');";
+                audit.Operator + "','" + audit.Action + "','" + audit.OperateObject + "','" + audit.Result + "','" + audit.OperateTime.ToString("yyyy/MM/dd HH:mm:ss") + "');";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             this.Connection.Open();
             cmd.ExecuteNonQuery();

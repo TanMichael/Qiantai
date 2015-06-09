@@ -114,7 +114,11 @@ namespace QTsys.DAO
                                 });
                 return true;
             }
-            catch (Exception ex) {  return false; }
+            catch (Exception ex) {
+                this.Connection.Close();
+                //return false;
+                throw ex;
+            }
         }
 
         public bool DelUser(String key)
@@ -138,7 +142,12 @@ namespace QTsys.DAO
                 });
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex)
+            { 
+                this.Connection.Close();
+                //return false;
+                throw ex;
+            }
         }
 
         public bool AltUser(User user)
@@ -162,7 +171,7 @@ namespace QTsys.DAO
                 });
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
         public bool AltUserPwd(string IDname, string Pwd)
@@ -179,7 +188,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); return false; }
         }
 
         public bool CheckUsernameUnique(string userName)
