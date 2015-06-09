@@ -57,7 +57,7 @@ namespace QTsys
             {
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
-                    if (Convert.ToInt16(dataGridView1.Rows[i].Cells["库存数量"].Value) <= Convert.ToInt16(dataGridView1.Rows[i].Cells["需要原料数量"].Value))
+                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value) <= Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value))
                     {
                         MessageBox.Show("领料失败:\n\r有原料库存不足！");
                         return;
@@ -68,7 +68,7 @@ namespace QTsys
                 int num = 0;
                 for (int i=0; i < dataGridView1.RowCount-1; i++)
                 {
-                    num = Convert.ToInt16(dataGridView1.Rows[i].Cells["库存数量"].Value) - Convert.ToInt16(dataGridView1.Rows[i].Cells["需要原料数量"].Value);
+                    num = Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value) - Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value);
                     if (mtm.MaterialDesTo(dataGridView1.Rows[i].Cells["原料编号"].Value.ToString(), num) == true)
                     {
                         str += dataGridView1.Rows[i].Cells["原料编号"].Value.ToString() + ",";

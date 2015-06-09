@@ -145,9 +145,10 @@ namespace QTsys
                     temp = temp.Replace("data13", 订单明细.Rows[j]["变位"].ToString());
                     temp = temp.Replace("data14", 订单明细.Rows[j]["材质"].ToString());
                     temp = temp.Replace("data15", "pcs");
+                    temp = temp.Replace("data16", 订单明细.Rows[j]["数量"].ToString()); 
                     if (checkBox1.Checked)
                     {
-                        temp = temp.Replace("data16", 订单明细.Rows[j]["数量"].ToString());
+ 
                         temp = temp.Replace("data17", 订单明细.Rows[j]["成交价"].ToString());
                         temp = temp.Replace("data18", Convert.ToString(Convert.ToDouble(订单明细.Rows[j]["数量"].ToString()) * Convert.ToDouble(订单明细.Rows[j]["成交价"].ToString())));
                     }
