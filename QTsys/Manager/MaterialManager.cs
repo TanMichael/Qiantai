@@ -54,10 +54,17 @@ namespace QTsys.Manager
         {
             return this.dao.GetAllMaterialsByName(col, value);
         }
+
         public DataTable GetAllMaterialFlowByName(string col, string value)
         {
             return this.dao.GetAllMaterialFlowByName(col, value);
         }
+
+        public DataTable GetSearchIncomeMaterialFlow(string column, string value, DateTime start, DateTime end)
+        {
+            return this.dao.GetSearchIncomeMaterialFlow(column, value, start, end);
+        }
+
         public bool AltMaterials(Material m)
         {
             return this.dao.AltMaterial(m);
@@ -104,5 +111,6 @@ namespace QTsys.Manager
         }
 
         public bool DelMaterial(String key) { return this.dao.DelMaterial(key); }
+
     }
 }

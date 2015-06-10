@@ -39,6 +39,8 @@ namespace QTsys
                 dataGridView2.DataSource = this.material.GetAllMaterialFlow();
                 dataGridView2.Update();
                 //text操作员.Text = Utils.GetCurrentUsername();
+                dateTimePicker入仓起始日.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 25);
+                dateTimePicker入仓截止日.Value = DateTime.Now;
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -112,9 +114,12 @@ namespace QTsys
         {
             try
             {
-                if (text搜索内容.Text != "")
+                if (textBox出入仓列搜索.Text != "")
                 {
-                    dataGridView2.DataSource = this.material.GetAllMaterialFlowByName(label搜索栏目.Text, text搜索内容.Text);
+                    DateTime start = dateTimePicker入仓起始日.Value;
+                    DateTime end = dateTimePicker入仓截止日.Value;
+                    //dataGridView2.DataSource = this.material.GetAllMaterialFlowByName(label出入仓列名.Text, textBox出入仓列搜索.Text);
+                    dataGridView2.DataSource = this.material.GetSearchIncomeMaterialFlow(label出入仓列名.Text, textBox出入仓列搜索.Text, start, end);
                     dataGridView2.Update();
                 }
                 else
@@ -131,7 +136,7 @@ namespace QTsys
         {
             try
             {
-                label搜索栏目.Text = dataGridView2.Columns[e.ColumnIndex].HeaderText.ToString();
+                label出入仓列名.Text = dataGridView2.Columns[e.ColumnIndex].HeaderText.ToString();
             }
             catch (Exception ex) { }
         }
@@ -140,12 +145,12 @@ namespace QTsys
         {
             if (text单位.Text == "")
             {
-                MessageBox.Show("更新库存失败！未填写单位");
+                MessageBox.Show("未填写单位");
                 return;
             }
             if (text供应单价.Text == "")
             {
-                MessageBox.Show("更新库存失败！未填写供应单价");
+                MessageBox.Show("未填写供应单价");
                 return;
             }
             try
@@ -159,15 +164,24 @@ namespace QTsys
                 mtf.Supplier = com供应商.Text;
                 mtf.Price = Convert.ToDouble(text供应单价.Text);
                 mtf.Operator = Utils.GetCurrentUsername();
-                //原料名称this.material.GetMaterialNameBySerial(com原料编号.Text);
-                String name = textBoxNewName.Text;
-                if (material.AddNewMaterialEx(mtf, name, text单位.Text))
+                mtf.OccurredTime = DateTime.Now;
+
+                String name = com原料编号.Text;
+                DialogResult dr = MessageBox.Show("将要对原料[" + name + "]进行入仓，供应商：" +
+                    mtf.Supplier + ", 单价： " + mtf.Price + ", 数量：" + mtf.FlowCount, "请确认", MessageBoxButtons.OKCancel);
+
+                if (dr == DialogResult.OK)
                 {
-                    MessageBox.Show("[" + name + "]更新库存成功！");
-                    dataGridView1.DataSource = this.material.GetAllMaterials();
-                    dataGridView1.Update();
-                    dataGridView2.DataSource = this.material.GetAllMaterialFlow();
-                    dataGridView2.Update();
+                    //原料名称this.material.GetMaterialNameBySerial(com原料编号.Text);
+                    
+                    if (material.AddNewMaterialEx(mtf, name, text单位.Text))
+                    {
+                        MessageBox.Show("[" + name + "]更新库存成功！");
+                        dataGridView1.DataSource = this.material.GetAllMaterials();
+                        dataGridView1.Update();
+                        dataGridView2.DataSource = this.material.GetAllMaterialFlow();
+                        dataGridView2.Update();
+                    }
                 }
             }
             catch (Exception ex)

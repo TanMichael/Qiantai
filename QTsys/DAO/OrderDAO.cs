@@ -303,7 +303,7 @@ namespace QTsys.DAO
                 string sql = "select d.发货时间,d.送货单号,p.产品名称,d.订单编号,p.规格,p.材质,dd.数量,dd.成交价,dd.数量*dd.成交价 as 金额 from qiaotai.订单 d " +
                             "inner join qiaotai.订单明细 dd on d.订单编号 = dd.订单编号 " +
                             "inner join qiaotai.产品信息 p on dd.产品编号 = p.产品编号 " +
-                            "where d.客户编号=" + customerId + " and d.发货时间>'" + startDate.ToShortDateString() + "' and d.发货时间<'" + endDate.AddDays(1).ToShortDateString() + "';";
+                            "where d.客户编号=" + customerId + " and d.发货时间>'" + startDate.ToString("yyyy/MM/dd HH:mm:ss") + "' and d.发货时间<'" + endDate.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

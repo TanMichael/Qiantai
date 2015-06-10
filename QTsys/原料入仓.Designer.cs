@@ -49,6 +49,13 @@
             this.textBox进出数量 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNewName = new System.Windows.Forms.TextBox();
+            this.textBox出入仓列搜索 = new System.Windows.Forms.TextBox();
+            this.label出入仓列名 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker入仓截止日 = new System.Windows.Forms.DateTimePicker();
+            this.入仓截止日 = new System.Windows.Forms.Label();
+            this.dateTimePicker入仓起始日 = new System.Windows.Forms.DateTimePicker();
+            this.入仓起始日 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -150,7 +157,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(557, 4);
+            this.button1.Location = new System.Drawing.Point(578, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 23);
             this.button1.TabIndex = 19;
@@ -161,7 +168,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(599, 369);
+            this.button2.Location = new System.Drawing.Point(46, 349);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 23);
             this.button2.TabIndex = 20;
@@ -182,24 +189,23 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(210, 212);
+            this.dataGridView2.Location = new System.Drawing.Point(210, 273);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(785, 139);
+            this.dataGridView2.Size = new System.Drawing.Size(785, 215);
             this.dataGridView2.TabIndex = 24;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(557, 33);
+            this.button3.Location = new System.Drawing.Point(578, 230);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 23);
             this.button3.TabIndex = 25;
-            this.button3.Text = "搜索出入仓";
+            this.button3.Text = "搜索入仓";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // text单位
@@ -250,11 +256,75 @@
             this.textBoxNewName.Size = new System.Drawing.Size(119, 21);
             this.textBoxNewName.TabIndex = 32;
             // 
+            // textBox出入仓列搜索
+            // 
+            this.textBox出入仓列搜索.Location = new System.Drawing.Point(344, 232);
+            this.textBox出入仓列搜索.Name = "textBox出入仓列搜索";
+            this.textBox出入仓列搜索.Size = new System.Drawing.Size(207, 21);
+            this.textBox出入仓列搜索.TabIndex = 35;
+            // 
+            // label出入仓列名
+            // 
+            this.label出入仓列名.AutoSize = true;
+            this.label出入仓列名.Location = new System.Drawing.Point(285, 235);
+            this.label出入仓列名.Name = "label出入仓列名";
+            this.label出入仓列名.Size = new System.Drawing.Size(29, 12);
+            this.label出入仓列名.TabIndex = 34;
+            this.label出入仓列名.Text = "编号";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(250, 235);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "搜索";
+            // 
+            // dateTimePicker入仓截止日
+            // 
+            this.dateTimePicker入仓截止日.Location = new System.Drawing.Point(828, 239);
+            this.dateTimePicker入仓截止日.Name = "dateTimePicker入仓截止日";
+            this.dateTimePicker入仓截止日.Size = new System.Drawing.Size(121, 21);
+            this.dateTimePicker入仓截止日.TabIndex = 87;
+            // 
+            // 入仓截止日
+            // 
+            this.入仓截止日.AutoSize = true;
+            this.入仓截止日.Location = new System.Drawing.Point(757, 245);
+            this.入仓截止日.Name = "入仓截止日";
+            this.入仓截止日.Size = new System.Drawing.Size(77, 12);
+            this.入仓截止日.TabIndex = 86;
+            this.入仓截止日.Text = "入仓截止日：";
+            // 
+            // dateTimePicker入仓起始日
+            // 
+            this.dateTimePicker入仓起始日.Location = new System.Drawing.Point(828, 212);
+            this.dateTimePicker入仓起始日.Name = "dateTimePicker入仓起始日";
+            this.dateTimePicker入仓起始日.Size = new System.Drawing.Size(121, 21);
+            this.dateTimePicker入仓起始日.TabIndex = 85;
+            // 
+            // 入仓起始日
+            // 
+            this.入仓起始日.AutoSize = true;
+            this.入仓起始日.Location = new System.Drawing.Point(757, 218);
+            this.入仓起始日.Name = "入仓起始日";
+            this.入仓起始日.Size = new System.Drawing.Size(77, 12);
+            this.入仓起始日.TabIndex = 84;
+            this.入仓起始日.Text = "入仓起始日：";
+            // 
             // 原料入仓
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 404);
+            this.ClientSize = new System.Drawing.Size(1065, 503);
+            this.Controls.Add(this.dateTimePicker入仓截止日);
+            this.Controls.Add(this.入仓截止日);
+            this.Controls.Add(this.dateTimePicker入仓起始日);
+            this.Controls.Add(this.入仓起始日);
+            this.Controls.Add(this.textBox出入仓列搜索);
+            this.Controls.Add(this.label出入仓列名);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxNewName);
             this.Controls.Add(this.textBox进出数量);
             this.Controls.Add(this.label2);
@@ -309,5 +379,12 @@
         private System.Windows.Forms.TextBox textBox进出数量;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNewName;
+        private System.Windows.Forms.TextBox textBox出入仓列搜索;
+        private System.Windows.Forms.Label label出入仓列名;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.DateTimePicker dateTimePicker入仓截止日;
+        private System.Windows.Forms.Label 入仓截止日;
+        public System.Windows.Forms.DateTimePicker dateTimePicker入仓起始日;
+        private System.Windows.Forms.Label 入仓起始日;
     }
 }

@@ -193,6 +193,7 @@ create table 原材料进出仓
    原料编号               int,
    供应商                 nvarchar(256),
    供应单价               decimal(7,2),
+   发生时间                 DATETIME,
    操作员                 nvarchar(128)
 );
 
