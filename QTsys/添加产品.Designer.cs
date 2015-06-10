@@ -176,7 +176,7 @@
             this.label54 = new System.Windows.Forms.Label();
             this.textBox样品单重 = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
-            this.是否留样 = new System.Windows.Forms.TextBox();
+            this.textBox是否留样 = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
             this.textBox测试夹具外内 = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -195,6 +195,14 @@
             this.label库存数 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label65 = new System.Windows.Forms.Label();
+            this.textBox外贴标签要求 = new System.Windows.Forms.TextBox();
+            this.textBox批准 = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.textBox制作 = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.textBox审核 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -335,7 +343,7 @@
             // label树脂名称
             // 
             this.label树脂名称.AutoSize = true;
-            this.label树脂名称.Location = new System.Drawing.Point(352, 17);
+            this.label树脂名称.Location = new System.Drawing.Point(352, 20);
             this.label树脂名称.Name = "label树脂名称";
             this.label树脂名称.Size = new System.Drawing.Size(83, 12);
             this.label树脂名称.TabIndex = 8;
@@ -343,7 +351,7 @@
             // 
             // textBox开料尺寸
             // 
-            this.textBox开料尺寸.Location = new System.Drawing.Point(441, 14);
+            this.textBox开料尺寸.Location = new System.Drawing.Point(441, 17);
             this.textBox开料尺寸.Name = "textBox开料尺寸";
             this.textBox开料尺寸.Size = new System.Drawing.Size(100, 21);
             this.textBox开料尺寸.TabIndex = 9;
@@ -430,6 +438,7 @@
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "发布";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -893,7 +902,7 @@
             this.groupBox4.Controls.Add(this.textBox中孔模);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.textBox刀模中心定位);
-            this.groupBox4.Location = new System.Drawing.Point(705, 16);
+            this.groupBox4.Location = new System.Drawing.Point(692, 16);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(669, 110);
             this.groupBox4.TabIndex = 41;
@@ -1096,7 +1105,7 @@
             this.groupBox5.Controls.Add(this.textBox线距);
             this.groupBox5.Controls.Add(this.label38);
             this.groupBox5.Controls.Add(this.textBox导线规格);
-            this.groupBox5.Location = new System.Drawing.Point(707, 160);
+            this.groupBox5.Location = new System.Drawing.Point(692, 132);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(669, 100);
             this.groupBox5.TabIndex = 42;
@@ -1447,7 +1456,7 @@
             this.groupBox7.Controls.Add(this.label54);
             this.groupBox7.Controls.Add(this.textBox样品单重);
             this.groupBox7.Controls.Add(this.label55);
-            this.groupBox7.Controls.Add(this.是否留样);
+            this.groupBox7.Controls.Add(this.textBox是否留样);
             this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.textBox测试夹具外内);
             this.groupBox7.Controls.Add(this.label57);
@@ -1458,7 +1467,7 @@
             this.groupBox7.Controls.Add(this.textBox成型首检变位);
             this.groupBox7.Controls.Add(this.label60);
             this.groupBox7.Controls.Add(this.textBox样品变位);
-            this.groupBox7.Location = new System.Drawing.Point(707, 287);
+            this.groupBox7.Location = new System.Drawing.Point(692, 238);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(669, 102);
             this.groupBox7.TabIndex = 44;
@@ -1538,12 +1547,12 @@
             this.label55.TabIndex = 92;
             this.label55.Text = "是否留样";
             // 
-            // 是否留样
+            // textBox是否留样
             // 
-            this.是否留样.Location = new System.Drawing.Point(281, 47);
-            this.是否留样.Name = "是否留样";
-            this.是否留样.Size = new System.Drawing.Size(50, 21);
-            this.是否留样.TabIndex = 93;
+            this.textBox是否留样.Location = new System.Drawing.Point(281, 47);
+            this.textBox是否留样.Name = "textBox是否留样";
+            this.textBox是否留样.Size = new System.Drawing.Size(50, 21);
+            this.textBox是否留样.TabIndex = 93;
             // 
             // label56
             // 
@@ -1628,15 +1637,15 @@
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(713, 395);
+            this.label63.Location = new System.Drawing.Point(700, 343);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(29, 12);
+            this.label63.Size = new System.Drawing.Size(77, 12);
             this.label63.TabIndex = 56;
-            this.label63.Text = "备注";
+            this.label63.Text = "外贴标签要求";
             // 
             // textBox备注
             // 
-            this.textBox备注.Location = new System.Drawing.Point(711, 434);
+            this.textBox备注.Location = new System.Drawing.Point(698, 408);
             this.textBox备注.Name = "textBox备注";
             this.textBox备注.Size = new System.Drawing.Size(661, 21);
             this.textBox备注.TabIndex = 57;
@@ -1696,13 +1705,85 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(702, 388);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(29, 12);
+            this.label65.TabIndex = 64;
+            this.label65.Text = "备注";
+            // 
+            // textBox外贴标签要求
+            // 
+            this.textBox外贴标签要求.Location = new System.Drawing.Point(698, 361);
+            this.textBox外贴标签要求.Name = "textBox外贴标签要求";
+            this.textBox外贴标签要求.Size = new System.Drawing.Size(661, 21);
+            this.textBox外贴标签要求.TabIndex = 65;
+            // 
+            // textBox批准
+            // 
+            this.textBox批准.Location = new System.Drawing.Point(767, 443);
+            this.textBox批准.Name = "textBox批准";
+            this.textBox批准.Size = new System.Drawing.Size(100, 21);
+            this.textBox批准.TabIndex = 19;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(1103, 446);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(29, 12);
+            this.label66.TabIndex = 16;
+            this.label66.Text = "制作";
+            // 
+            // textBox制作
+            // 
+            this.textBox制作.Location = new System.Drawing.Point(1139, 443);
+            this.textBox制作.Name = "textBox制作";
+            this.textBox制作.Size = new System.Drawing.Size(100, 21);
+            this.textBox制作.TabIndex = 17;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(732, 446);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(29, 12);
+            this.label67.TabIndex = 18;
+            this.label67.Text = "批准";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(896, 446);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(29, 12);
+            this.label68.TabIndex = 20;
+            this.label68.Text = "审核";
+            // 
+            // textBox审核
+            // 
+            this.textBox审核.Location = new System.Drawing.Point(931, 443);
+            this.textBox审核.Name = "textBox审核";
+            this.textBox审核.Size = new System.Drawing.Size(100, 21);
+            this.textBox审核.TabIndex = 21;
+            // 
             // 添加产品
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 544);
+            this.ClientSize = new System.Drawing.Size(1378, 544);
+            this.Controls.Add(this.textBox批准);
+            this.Controls.Add(this.label65);
+            this.Controls.Add(this.label66);
+            this.Controls.Add(this.textBox外贴标签要求);
+            this.Controls.Add(this.textBox制作);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.label67);
+            this.Controls.Add(this.label68);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox审核);
             this.Controls.Add(this.label库存数);
             this.Controls.Add(this.labelNoPrice);
             this.Controls.Add(this.textBox单价);
@@ -1732,6 +1813,7 @@
             this.Controls.Add(this.label产品名称);
             this.Name = "添加产品";
             this.Text = "添加产品";
+            this.Load += new System.EventHandler(this.添加产品_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1899,7 +1981,7 @@
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox textBox样品单重;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox 是否留样;
+        private System.Windows.Forms.TextBox textBox是否留样;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox textBox测试夹具外内;
         private System.Windows.Forms.Label label57;
@@ -1920,5 +2002,13 @@
         private System.Windows.Forms.Label label库存数;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox textBox外贴标签要求;
+        private System.Windows.Forms.TextBox textBox批准;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox textBox制作;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox textBox审核;
     }
 }

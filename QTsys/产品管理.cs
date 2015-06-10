@@ -175,6 +175,7 @@ namespace QTsys
             selectedProduct.切断模架 = selectedRow["切断模架"].Value.ToString();
             selectedProduct.溶剂 = selectedRow["溶剂"].Value.ToString();
             selectedProduct.生产单重 = selectedRow["生产单重"].Value.ToString();
+            selectedProduct.是否留样 = selectedRow["是否留样"].Value.ToString();
             selectedProduct.是否备品 = selectedRow["是否备品"].Value.ToString();
             selectedProduct.是否标签盖环保章 = selectedRow["是否标签盖环保章"].Value.ToString();
             selectedProduct.是否产品全检 = selectedRow["是否产品全检"].Value.ToString();
@@ -199,7 +200,10 @@ namespace QTsys
             selectedProduct.中孔模 = selectedRow["中孔模"].Value.ToString();
             selectedProduct.自动切 = selectedRow["自动切"].Value.ToString();
             selectedProduct.烤箱温度C = selectedRow["烤箱温度C"].Value.ToString();
-
+            selectedProduct.外贴标签要求 = selectedRow["外贴标签要求"].Value.ToString();
+            selectedProduct.批准 = selectedRow["批准"].Value.ToString();
+            selectedProduct.审核 = selectedRow["审核"].Value.ToString();
+            selectedProduct.制作 = selectedRow["制作"].Value.ToString();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -260,10 +264,10 @@ namespace QTsys
                     usedata = usedata.Replace("《变位》", selectedProduct.Shift.ToString());
                     usedata = usedata.Replace("《实测变位》", selectedProduct.RealShift.ToString());
                     usedata = usedata.Replace("《颜色》", selectedProduct.Color.ToString());
-                    usedata = usedata.Replace("《单位》", selectedProduct.Unit.ToString());
-                    usedata = usedata.Replace("《单价》", selectedProduct.Price.ToString());
-                    usedata = usedata.Replace("《库存数量》", selectedProduct.StockCount.ToString());
-                    usedata = usedata.Replace("《布料编号》", selectedProduct.布料编号.ToString());
+                  //  usedata = usedata.Replace("《单位》", selectedProduct.Unit.ToString());
+                   // usedata = usedata.Replace("《单价》", selectedProduct.Price.ToString());
+               //     usedata = usedata.Replace("《库存数量》", selectedProduct.StockCount.ToString());
+                    usedata = usedata.Replace("《发料编号》", selectedProduct.布料编号.ToString());
                     usedata = usedata.Replace("《开料要求》", selectedProduct.开料要求.ToString());
                     usedata = usedata.Replace("《开料尺寸》", selectedProduct.开料尺寸.ToString());
                     usedata = usedata.Replace("《胶水型号》", selectedProduct.胶水型号.ToString());
@@ -338,7 +342,7 @@ namespace QTsys
                     usedata = usedata.Replace("《审核》", selectedProduct.审核.ToString());
                     usedata = usedata.Replace("《制作》", selectedProduct.制作.ToString());
                 }
-                catch (Exception ex) { };
+                catch (Exception ex) {  };
                 //把usedata写入送货单_OVER并更新
                 File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单_OVER.htm");
                 StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单_OVER.htm", true, Encoding.GetEncoding("GB2312"));

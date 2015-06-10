@@ -101,6 +101,7 @@ namespace QTsys
                 textBox切断模架.Text = pdt.切断模架;
                 textBox溶剂.Text = pdt.溶剂;
                 textBox生产单重.Text = pdt.生产单重;
+                textBox是否留样.Text = pdt.是否留样;
                 textBox是否备品.Text = pdt.是否备品;
                 textBox是否标签盖环保章.Text = pdt.是否标签盖环保章;
                 textBox是否产品全检.Text = pdt.是否产品全检;
@@ -125,7 +126,10 @@ namespace QTsys
                 textBox中孔模.Text = pdt.中孔模;
                 textBox自动切.Text = pdt.自动切;
                 textBox烤箱温度.Text = pdt.烤箱温度C;
-                
+                textBox外贴标签要求.Text = pdt.外贴标签要求;
+                textBox批准.Text = pdt.批准;
+                textBox审核.Text = pdt.审核;
+                textBox制作.Text = pdt.制作;
             }
 
             parent = p;
@@ -203,6 +207,7 @@ namespace QTsys
             pdt.切断模架 = textBox切断模架.Text;
             pdt.溶剂 = textBox溶剂.Text;
             pdt.生产单重 = textBox生产单重.Text;
+            pdt.是否留样 = textBox是否留样.Text;
             pdt.是否备品 = textBox是否备品.Text;
             pdt.是否标签盖环保章 = textBox是否标签盖环保章.Text;
             pdt.是否产品全检 = textBox是否产品全检.Text;
@@ -227,7 +232,10 @@ namespace QTsys
             pdt.中孔模 = textBox中孔模.Text;
             pdt.自动切 = textBox自动切.Text;
             pdt.烤箱温度C = textBox烤箱温度.Text;
-
+            pdt.外贴标签要求 = textBox外贴标签要求.Text;
+            pdt.批准 = textBox批准.Text;
+            pdt.审核 = textBox审核.Text;
+            pdt.制作 = textBox制作.Text;
             try
             {
                 if (isUpdate)
@@ -317,6 +325,7 @@ namespace QTsys
             pdt.切断模架 = textBox切断模架.Text;
             pdt.溶剂 = textBox溶剂.Text;
             pdt.生产单重 = textBox生产单重.Text;
+            pdt.是否留样= textBox是否留样.Text;
             pdt.是否备品 = textBox是否备品.Text;
             pdt.是否标签盖环保章 = textBox是否标签盖环保章.Text;
             pdt.是否产品全检 = textBox是否产品全检.Text;
@@ -341,7 +350,10 @@ namespace QTsys
             pdt.中孔模 = textBox中孔模.Text;
             pdt.自动切 = textBox自动切.Text;
             pdt.烤箱温度C = textBox烤箱温度.Text;
-
+            pdt.外贴标签要求 = textBox外贴标签要求.Text;
+            pdt.批准 = textBox批准.Text;
+            pdt.审核 = textBox审核.Text;
+            pdt.制作 = textBox制作.Text;
             try
             {
                 if (isUpdate)
@@ -367,6 +379,16 @@ namespace QTsys
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 添加产品_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
