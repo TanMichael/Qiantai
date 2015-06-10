@@ -49,6 +49,8 @@ namespace QTsys
                 text流水号.Text = dataGridView1.Rows[e.RowIndex].Cells["流水号"].Value.ToString();
                 text备注.Text = dataGridView1.Rows[e.RowIndex].Cells["备注"].Value.ToString();
                 //联系人信息更新
+                t所属客户.Text = text客户编号.Text;
+                //
                 dataGridView2.DataSource = this.userMgr.GetCustomerMembersByCustomer(selectedCustomerId);
                 dataGridView2.Update();
             }

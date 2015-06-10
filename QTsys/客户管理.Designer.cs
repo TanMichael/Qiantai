@@ -30,6 +30,8 @@
         {
             this.tabCustomer = new System.Windows.Forms.TabControl();
             this.tabPageCustomer = new System.Windows.Forms.TabPage();
+            this.textBox联系人 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label搜索栏目 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -87,8 +89,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox联系人 = new System.Windows.Forms.TextBox();
             this.tabCustomer.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -147,6 +147,22 @@
             this.tabPageCustomer.Text = "客户信息";
             this.tabPageCustomer.UseVisualStyleBackColor = true;
             this.tabPageCustomer.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // textBox联系人
+            // 
+            this.textBox联系人.Location = new System.Drawing.Point(363, 44);
+            this.textBox联系人.Name = "textBox联系人";
+            this.textBox联系人.Size = new System.Drawing.Size(100, 21);
+            this.textBox联系人.TabIndex = 28;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(292, 53);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 12);
+            this.label23.TabIndex = 27;
+            this.label23.Text = "默认联系人";
             // 
             // label搜索栏目
             // 
@@ -519,6 +535,7 @@
             // 
             // t所属客户
             // 
+            this.t所属客户.Enabled = false;
             this.t所属客户.Location = new System.Drawing.Point(561, 84);
             this.t所属客户.Name = "t所属客户";
             this.t所属客户.Size = new System.Drawing.Size(216, 21);
@@ -647,6 +664,7 @@
             // 
             // t编号
             // 
+            this.t编号.Enabled = false;
             this.t编号.Location = new System.Drawing.Point(77, 19);
             this.t编号.Name = "t编号";
             this.t编号.Size = new System.Drawing.Size(100, 21);
@@ -662,22 +680,6 @@
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(292, 53);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(65, 12);
-            this.label23.TabIndex = 27;
-            this.label23.Text = "默认联系人";
-            // 
-            // textBox联系人
-            // 
-            this.textBox联系人.Location = new System.Drawing.Point(363, 44);
-            this.textBox联系人.Name = "textBox联系人";
-            this.textBox联系人.Size = new System.Drawing.Size(100, 21);
-            this.textBox联系人.TabIndex = 28;
             // 
             // 客户管理
             // 
