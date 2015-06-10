@@ -778,9 +778,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(8, 45);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(131, 12);
+            this.label15.Size = new System.Drawing.Size(125, 12);
             this.label15.TabIndex = 54;
-            this.label15.Text = "成型上/下模温度±50℃";
+            this.label15.Text = "成型上/下模温度±5℃";
             // 
             // textBox成型上下模温度
             // 
