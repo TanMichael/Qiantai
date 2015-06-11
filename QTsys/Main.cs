@@ -54,7 +54,8 @@ namespace QTsys
             if ((right & Rights.EMPLOYEE) == Rights.EMPLOYEE)
             {
                 button员工管理.Visible = true;
-                button预警统计.Visible = true;
+             //   button预警统计.Visible = true;
+                button预警统计.Visible = false;
                 button批处理.Visible = true;
             }
             else
