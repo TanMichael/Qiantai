@@ -55,8 +55,8 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.原材料 SET 库存数量=库存数量 +" + material.StockCount.ToString() +
-                    " ,单位='" + material.Unit + " ,供应商='" + material.Supplier + "' WHERE 原料编号=" + material.Id + ";";
+                string sql = "UPDATE qiaotai.原材料 SET 库存数量=库存数量+" + material.StockCount.ToString() +
+                    " ,单位='" + material.Unit + "',供应商='" + material.Supplier + "' WHERE 原料编号=" + material.Id + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();

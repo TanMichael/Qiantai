@@ -120,7 +120,12 @@ namespace QTsys
         {
             if (textBox领料产品.Text == "")
             {
-                MessageBox.Show("领料失败！");
+                MessageBox.Show("领料失败！未选择产品！");
+                return;
+            }
+            if (dataGrid未生产.RowCount<=1)
+            {
+                MessageBox.Show("领料失败！无未生产产品！");
                 return;
             }
             try

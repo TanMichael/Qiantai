@@ -57,7 +57,7 @@ namespace QTsys
                 //text类型.Text = "";
                 text库存数量.Text = dataGridView1.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
                 //com原料编号.Text = dataGridView2.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
-               // com供应商.Text = dataGridView2.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
+                com供应商.Text = dataGridView2.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
                // text供应单价.Text = dataGridView2.Rows[e.RowIndex].Cells["供应单价"].Value.ToString();
                 // text操作员.Text = dataGridView2.Rows[e.RowIndex].Cells["操作员"].Value.ToString();
              //   text原料名称.Text = this.material.GetMaterialNameBySerial(com原料编号.Text);
@@ -157,7 +157,7 @@ namespace QTsys
             {
                 MaterialDAO at = new MaterialDAO();
                 MaterialFlow mtf = new MaterialFlow();
-                //mtf.Id = Convert.ToUInt16(text编号.Text);
+                //mtf.Id = com原料编号
                 mtf.Type = "入仓";
                 mtf.FlowCount = Convert.ToInt32(textBox进出数量.Text);
                 mtf.MaterialId = Convert.ToInt32(com原料编号.SelectedValue);
@@ -165,7 +165,7 @@ namespace QTsys
                 mtf.Price = Convert.ToDouble(text供应单价.Text);
                 mtf.Operator = Utils.GetCurrentUsername();
                 mtf.OccurredTime = DateTime.Now;
-
+                
 
                 String name = textBoxNewName.Text;//原料名称
 
@@ -200,6 +200,7 @@ namespace QTsys
                 text单位.Text = "";
                 text库存数量.Text = "";
                 textBoxNewName.Text = "";
+                com供应商.Text = "";
                 textBoxNewName.Visible = true;
                 label原料名称.Visible = true;
 
@@ -209,6 +210,7 @@ namespace QTsys
                 text单位.Text = mt.Unit;
                 text库存数量.Text = mt.StockCount.ToString();
                 textBoxNewName.Text = com原料编号.Text;
+                com供应商.Text = mt.Supplier.ToString();
                 textBoxNewName.Visible = false;
                 label原料名称.Visible = false;
             }

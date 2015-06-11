@@ -43,6 +43,7 @@ namespace QTsys.Manager
                 mt.Name = rs["原料名称"].ToString();
                 mt.Unit = rs["单位"].ToString();
                 mt.StockCount = (int)rs["库存数量"];
+                mt.Supplier = rs["供应商"].ToString();
                 
                 results.Add(mt);
             }
@@ -94,7 +95,6 @@ namespace QTsys.Manager
             {
                 mt.Name = mtName;
                 material.MaterialId = mt.Id = this.dao.AddNewMaterial(mt);
-               
             }
             else
             {
