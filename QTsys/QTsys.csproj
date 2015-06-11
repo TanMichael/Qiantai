@@ -56,6 +56,7 @@
     <Compile Include="Common\Utils.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DAOBase.cs" />
+    <Compile Include="DAO\LogActionDAO.cs" />
     <Compile Include="DAO\MaterialDAO.cs" />
     <Compile Include="DAO\OperationAuditDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />

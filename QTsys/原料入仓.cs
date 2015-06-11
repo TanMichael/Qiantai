@@ -166,7 +166,9 @@ namespace QTsys
                 mtf.Operator = Utils.GetCurrentUsername();
                 mtf.OccurredTime = DateTime.Now;
 
-                String name = com原料编号.Text;
+
+                String name = textBoxNewName.Text;//原料名称
+
                 DialogResult dr = MessageBox.Show("将要对原料[" + name + "]进行入仓，供应商：" +
                     mtf.Supplier + ", 单价： " + mtf.Price + ", 数量：" + mtf.FlowCount, "请确认", MessageBoxButtons.OKCancel);
 
@@ -197,13 +199,18 @@ namespace QTsys
             {
                 text单位.Text = "";
                 text库存数量.Text = "";
+                textBoxNewName.Text = "";
                 textBoxNewName.Visible = true;
+                label原料名称.Visible = true;
+
             }
             else
             {
                 text单位.Text = mt.Unit;
                 text库存数量.Text = mt.StockCount.ToString();
+                textBoxNewName.Text = com原料编号.Text;
                 textBoxNewName.Visible = false;
+                label原料名称.Visible = false;
             }
         }
     }

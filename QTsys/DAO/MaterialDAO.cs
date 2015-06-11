@@ -40,7 +40,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.原材料(原料名称,单位,库存数量) VALUES ('" + material.Name + "','" + material.Unit + "','" + material.StockCount + "');";
+                string sql = "INSERT INTO qiaotai.原材料(原料名称,单位,库存数量,供应商) VALUES ('" + material.Name + "','" + material.Unit + "','" + material.StockCount + "','" + material.Supplier + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -56,7 +56,7 @@ namespace QTsys.DAO
             try
             {
                 string sql = "UPDATE qiaotai.原材料 SET 库存数量=库存数量 +" + material.StockCount.ToString() +
-                    " ,单位='" + material.Unit + "' WHERE 原料编号=" + material.Id + ";";
+                    " ,单位='" + material.Unit + " ,供应商='" + material.Supplier + "' WHERE 原料编号=" + material.Id + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -144,7 +144,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.原材料 SET 原料编号='" + material.Id + "',原料名称='" + material.Name + "',单位='" + material.Unit + "',库存数量='" + material.StockCount + "' WHERE 原料编号='" + material.Id + "';";
+                string sql = "UPDATE qiaotai.原材料 SET 原料编号='" + material.Id + "',原料名称='" + material.Name + "',单位='" + material.Unit + "',库存数量='" + material.StockCount + "',供应商='" + material.Supplier + "' WHERE 原料编号='" + material.Id + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();

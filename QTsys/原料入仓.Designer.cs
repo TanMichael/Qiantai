@@ -56,6 +56,7 @@
             this.入仓截止日 = new System.Windows.Forms.Label();
             this.dateTimePicker入仓起始日 = new System.Windows.Forms.DateTimePicker();
             this.入仓起始日 = new System.Windows.Forms.Label();
+            this.label原料名称 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -313,11 +314,22 @@
             this.入仓起始日.TabIndex = 84;
             this.入仓起始日.Text = "入仓起始日：";
             // 
+            // label原料名称
+            // 
+            this.label原料名称.AutoSize = true;
+            this.label原料名称.Location = new System.Drawing.Point(12, 92);
+            this.label原料名称.Name = "label原料名称";
+            this.label原料名称.Size = new System.Drawing.Size(53, 12);
+            this.label原料名称.TabIndex = 88;
+            this.label原料名称.Text = "原料名称";
+            this.label原料名称.Visible = false;
+            // 
             // 原料入仓
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 503);
+            this.Controls.Add(this.label原料名称);
             this.Controls.Add(this.dateTimePicker入仓截止日);
             this.Controls.Add(this.入仓截止日);
             this.Controls.Add(this.dateTimePicker入仓起始日);
@@ -386,5 +398,6 @@
         private System.Windows.Forms.Label 入仓截止日;
         public System.Windows.Forms.DateTimePicker dateTimePicker入仓起始日;
         private System.Windows.Forms.Label 入仓起始日;
+        private System.Windows.Forms.Label label原料名称;
     }
 }

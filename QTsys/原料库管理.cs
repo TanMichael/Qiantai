@@ -83,7 +83,7 @@ namespace QTsys
                 text原料名称.Text = dataGridView1.Rows[e.RowIndex].Cells["原料名称"].Value.ToString();
                 text单位.Text = dataGridView1.Rows[e.RowIndex].Cells["单位"].Value.ToString();
                 text库存数量.Text = dataGridView1.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
-                
+                text供应商.Text = dataGridView1.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
             }
             catch (Exception ex) { }
         }

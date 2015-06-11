@@ -17,7 +17,12 @@ namespace QTsys
     public partial class 原料数据修改 : Form
     {
         private MaterialManager material;
-
+        private string temp1;
+        private string temp2;
+        private string temp3;
+        private string temp4;
+        private string temp5;
+        
         public 原料数据修改()
         {
             InitializeComponent();
@@ -30,6 +35,11 @@ namespace QTsys
             {
                 dataGridView1.DataSource = this.material.GetAllMaterials();
                 dataGridView1.Update();
+                temp1 = "";
+                temp2 = "";
+                temp3 = "";
+                temp4 = "";
+                temp5 = "";
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -42,6 +52,12 @@ namespace QTsys
                 text原料名称.Text = dataGridView1.Rows[e.RowIndex].Cells["原料名称"].Value.ToString();
                 text单位.Text = dataGridView1.Rows[e.RowIndex].Cells["单位"].Value.ToString();
                 text库存数量.Text = dataGridView1.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
+                text供应商.Text = dataGridView1.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
+                temp1 = text原料编号.Text;
+                temp2 = text原料名称.Text;
+                temp3 = text单位.Text;
+                temp4 = text库存数量.Text;
+                temp5 = text供应商.Text;
             }
             catch (Exception ex) { }
         }
@@ -64,11 +80,23 @@ namespace QTsys
                 mtl.Name = text原料名称.Text;
                 mtl.Unit = text单位.Text;
                 mtl.StockCount = Convert.ToInt16(text库存数量.Text);
+                mtl.Supplier = text供应商.Text;
                 if (this.material.AltMaterials(mtl))
                 {
                     MessageBox.Show("原料[" + text原料编号.Text + "]数据修改成功！");
                     dataGridView1.DataSource = this.material.GetAllMaterials();
                     dataGridView1.Update();
+                    //数据记录
+                    LogActionDAO a = new LogActionDAO();
+                    a.LogAction(new OperationAudit
+                    {
+                        Operator = Utils.GetCurrentUsername(),
+                        Action = "修正原材料库数据",
+                        OperateObject = "qiaotai.原材料",
+                        OperateTime = DateTime.Now,
+                        Result = "修改原材料：(" + temp1 + "," + temp2 + "," + temp3 + "," + temp4 + "," + temp5+ ")为("
+                        + mtl.Id + "," + mtl.Name + "," + mtl.Unit + "," + mtl.StockCount + "," + text供应商.Text+ ")"
+                    });
                 }
                 else { MessageBox.Show("修改失败！"); }
             }
@@ -101,6 +129,7 @@ namespace QTsys
                 mt.Name = text原料名称.Text;
                 mt.Unit = text单位.Text;
                 mt.StockCount = Convert.ToInt16(text库存数量.Text);
+                mt.Supplier = text供应商.Text;
                 if (this.material.AddNewMaterial(mt) > 0)
                 {
                     MessageBox.Show("原料[" + text原料名称.Text + "]插入成功！");
