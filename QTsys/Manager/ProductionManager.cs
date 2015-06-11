@@ -46,6 +46,10 @@ namespace QTsys.Manager
             return this.pdao.GetProductsWithoutPrice();
         }
 
+        public bool TestPMreltionExist(string Id)
+        {
+            return this.pdao.TestPMreltionExist(Id);
+        }
         public DataTable GetMaterialProductRelationByProduct(String ID)
         {
             return this.pdao.GetMaterialProductRelationByProduct(ID);

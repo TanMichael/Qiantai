@@ -92,6 +92,11 @@ namespace QTsys
 
         public void addNewList()
         {
+            if (!pm.TestPMreltionExist(dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString()))
+            {
+                MessageBox.Show("该产品未建立产品原料关系，不能加入订单！");
+                return;
+            }
             double selectedPrice = Convert.ToDouble(dataGridView1.Rows[selectpro].Cells["单价"].Value);
             if (selectedPrice == 0d)
             {
@@ -149,6 +154,8 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
+
+       
         public void CalMoney()
         {
             //实时计算整个订单总金额

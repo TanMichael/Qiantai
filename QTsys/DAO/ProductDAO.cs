@@ -72,6 +72,25 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public bool TestPMreltionExist(string Id)
+        {
+            string sql = "SELECT count(*) FROM qiaotai.产品原料关系 WHERE 产品编号='" + Id + "';";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+           // DataTable dt = new DataTable();
+            this.Connection.Open();
+            if (Convert.ToInt16(cmd.ExecuteScalar().ToString()) > 0)
+            {
+                this.Connection.Close();
+                return true;
+            }
+            else
+            {
+                this.Connection.Close();
+                return false;
+            }
+        }
+
         public DataTable GetProductsWithoutPrice()
         {
             string sql = "SELECT 产品编号,产品名称,规格,单位,单价 FROM qiaotai.产品信息 WHERE 单价=0;";
