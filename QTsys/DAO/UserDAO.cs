@@ -188,7 +188,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool CheckUsernameUnique(string userName)

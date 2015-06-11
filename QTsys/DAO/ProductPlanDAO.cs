@@ -94,7 +94,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool DelPlan(String key)
         {
@@ -107,7 +107,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool AltPlan(ProductionPlan pp)
         {
@@ -123,7 +123,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool UpdatePlanStatus(string status, string pId)
@@ -137,7 +137,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
      //---------------------------------------------- 
 

@@ -48,7 +48,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return (int)id;
             }
-            catch (Exception ex) { return -1; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool UpdateMaterial(Material material)
@@ -63,7 +63,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         //public bool AddNewMaterial(Material material)//增加进仓原料
@@ -109,7 +109,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool DelMaterial(String key)
@@ -123,7 +123,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool DelMaterialFlow(MaterialFlow material)
@@ -137,7 +137,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AltMaterial(Material material)
@@ -151,7 +151,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool MaterialDesTo(string ID, int desnum)
@@ -165,7 +165,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllMaterialsByName(string col, string value)

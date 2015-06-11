@@ -154,7 +154,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool DelMaterialProductRelation(ProductMaterial pmr)
@@ -168,7 +168,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AddMaterialProductRelation(ProductMaterial pmr)
@@ -182,7 +182,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
@@ -214,7 +214,7 @@ namespace QTsys.DAO
             catch (Exception ex)
             {
                 this.Connection.Close();
-                return 0;
+                throw ex;
             }
         }
 
@@ -229,7 +229,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool AltProduct(Product pdt)
         {
@@ -248,7 +248,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public DataTable GetProductsWithCustomer(string customerId)
         {
@@ -277,7 +277,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AddProductCount(string 产品编号,int 产品数量)
@@ -291,7 +291,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool ReduceProductCount(string pId, int 产品数量)
@@ -305,7 +305,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
@@ -320,7 +320,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
     
@@ -335,7 +335,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         

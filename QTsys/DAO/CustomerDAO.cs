@@ -110,7 +110,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) {  return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool DelCustomer(String key)
@@ -124,7 +124,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AltCustomer(Customer cus)
@@ -138,7 +138,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
@@ -153,7 +153,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool DelCustomerMember(String key)
@@ -167,7 +167,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AltCustomerMember(CustomerMember cus)
@@ -181,7 +181,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 

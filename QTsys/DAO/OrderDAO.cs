@@ -80,7 +80,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllOrderDetailsBySerialEx(string key)
@@ -96,7 +96,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
@@ -114,7 +114,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public DataTable GetAllOrderByStateAndSerial(string state, string key)
         {
@@ -129,7 +129,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetFinishedSampleOrders()
@@ -146,7 +146,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetOrderByCreator(string userName)
@@ -162,7 +162,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllOrderDetails()
@@ -178,7 +178,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return dt;
             }
-            catch (Exception ex) { this.Connection.Close(); return dt; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllOrdersByTime(DateTime date1, DateTime date2)
@@ -207,7 +207,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return (int)id;
             }
-            catch (Exception ex) { this.Connection.Close();  return 0; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool DelOrder(String key)
         {
@@ -220,7 +220,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool AltOrder(Order order)
         {
@@ -234,7 +234,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool UpdateOrderStatus(string status, string oId)
@@ -248,7 +248,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AddNewOrderDetail(OrderDetail order)
@@ -263,7 +263,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool DelOrderDetail(OrderDetail order)
         {
@@ -276,7 +276,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool AltOrderDetail(OrderDetail order)
         {
@@ -289,7 +289,7 @@ namespace QTsys.DAO
                 this.Connection.Close();
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
