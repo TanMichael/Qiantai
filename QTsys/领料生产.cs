@@ -128,6 +128,13 @@ namespace QTsys
                 MessageBox.Show("领料失败！无未生产产品！");
                 return;
             }
+
+            if (dataGrid产品原料关系.RowCount == 0)
+            {
+                MessageBox.Show("领料失败！无产品原料关系！");
+                return;
+            }
+
             try
             {
                 int[] 原料编号 = new int[dataGrid产品原料关系.RowCount];

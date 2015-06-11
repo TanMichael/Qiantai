@@ -71,6 +71,11 @@ namespace QTsys.Manager
             return this.pdao.AddMaterialProductRelation(pmr);
         }
 
+        public bool HasProductMaterialRelation(string pId)
+        {
+            return this.pdao.HasProductMaterialRelation(pId);
+        }
+
         public DataTable GetProductsWithCustomer(string customerId)
         {
             return this.pdao.GetProductsWithCustomer(customerId);

@@ -167,11 +167,35 @@ namespace QTsys
 
         private void button加入生产计划_Click(object sender, EventArgs e)//制定生产计划
         {
+            // validation
+            var invalidPid = "";
+            for (int i = 0; i < dataGridView产品订单数据.Rows.Count; i++)
+            {
+                var pId = dataGridView产品订单数据.Rows[i].Cells["产品编号"].Value.ToString();
+
+                if (!pm.HasProductMaterialRelation(pId))
+                {
+                    invalidPid += pId + ",";
+                }
+            }
+            if (invalidPid != "")
+            {
+                invalidPid = invalidPid.TrimEnd(',');
+                DialogResult dr = MessageBox.Show("产品[" + invalidPid + "]没有建立产品原料关系，你确定要制定生产计划？", "请确认", MessageBoxButtons.OKCancel);
+                if (dr == DialogResult.Cancel)
+                {
+                    MessageBox.Show("操作终止，去维护产品原料关系");
+                    return;
+                }
+            }
+            
+            // do add
             bool planok = true;
             for (int i = 0; i < dataGridView产品订单数据.Rows.Count; i++)
             {
                 plan.RelatedOrderId = text订单编号.Text;
                 plan.ProductId = dataGridView产品订单数据.Rows[i].Cells["产品编号"].Value.ToString();
+
                // plan.CustomerId = l编号.Text;
                 plan.OrderTime = DateTime.Now;
                 plan.Count =Convert.ToInt16(dataGridView产品订单数据.Rows[i].Cells["数量"].Value);

@@ -110,6 +110,24 @@ namespace QTsys.DAO
             return dt;
         }
 
+        public bool HasProductMaterialRelation(string pId)
+        {
+            string sql = "select count(1) from qiaotai.产品原料关系 where 产品编号=" + pId + ";";
+            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+            this.Connection.Open();
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            int count = 0;
+            while (dr.Read())
+            {
+                count = Convert.ToInt32(dr[0]);
+            }
+            dr.Close();
+            this.Connection.Close();
+
+            return count > 0;
+        }
+
         public DataTable GetMaterialProductRelationByProductEx(String ID,int 数量)
         {
             //  Material material = new Material();
