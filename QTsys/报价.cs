@@ -31,6 +31,7 @@ namespace QTsys
             // dataGridView样品
             dataGridView样品.DataSource = oMgr.GetFinishedSampleOrders();
             dataGridView样品.Update();
+            checkBox所有没有报价.Checked = true;
         }
 
         private void dataGridView样品_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -39,7 +40,7 @@ namespace QTsys
 
             if (checkBox所有没有报价.Checked)
             {
-                checkBox所有没有报价.Checked = false;
+                checkBox所有没有报价.Checked = false; // will fire change event.
             }
             else
             {

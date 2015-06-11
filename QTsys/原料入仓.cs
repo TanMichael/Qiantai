@@ -153,6 +153,11 @@ namespace QTsys
                 MessageBox.Show("未填写供应单价");
                 return;
             }
+            if (com供应商.Text == "")
+            {
+                MessageBox.Show("未填写供应商");
+                return;
+            }
             try
             {
                 MaterialDAO at = new MaterialDAO();
