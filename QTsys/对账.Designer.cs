@@ -119,6 +119,7 @@
             this.com客户联系人.Name = "com客户联系人";
             this.com客户联系人.Size = new System.Drawing.Size(121, 20);
             this.com客户联系人.TabIndex = 85;
+            this.com客户联系人.DropDown += new System.EventHandler(this.com客户联系人_DropDown);
             // 
             // label3
             // 

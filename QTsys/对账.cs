@@ -17,6 +17,7 @@ namespace QTsys
         private OrderManager odm;
         private UserManager userMgr;
         private string selectedCustomerId;
+        private List<CustomerMember> cMembers;
 
         public 对账()
         {
@@ -83,6 +84,21 @@ namespace QTsys
                 win.ShowDialog();
             }
             catch (Exception ex) { };
+        }
+
+        private void com客户联系人_DropDown(object sender, EventArgs e)
+        {
+            CustomerMember[] result = new CustomerMember[] { };
+            com客户联系人.Items.Clear();
+            if (selectedCustomerId != "")
+            {
+                cMembers = userMgr.GetCustomerMembersByCId(selectedCustomerId);
+                result = cMembers.ToArray();
+            }
+
+            com客户联系人.Items.AddRange(result);
+            com客户联系人.DisplayMember = "Name";
+            com客户联系人.ValueMember = "Id";
         }
     }
 }
