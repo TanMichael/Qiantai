@@ -252,9 +252,9 @@ create table 操作记录
    操作时间               DATETIME not null
 );
 
-insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("michaeltan", "Abcd1234", "Weihua", "管理员");
-insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("davidzhao", "Abcd1234", "赵鲁泉", "管理员");
-insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("md5", "325a2cc052914ceeb8c19016c091d2ac", "fuck", "管理员");
+insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("michaeltan", "Abcd1234", "Weihua", "超级管理员");
+insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("davidzhao", "Abcd1234", "赵鲁泉", "超级管理员");
+insert into 员工信息 (账户名, 密码, 姓名, 系统角色) values("md5", "325a2cc052914ceeb8c19016c091d2ac", "fuck", "超级管理员");
 
 INSERT INTO `员工信息` (账户名, 密码, 姓名, 系统角色,职位,手机, 办公电话,电子邮箱,部门) VALUES
    ('davidzhaoa','325a2cc052914ceeb8c19016c091d2ac','赵鲁泉','超级管理员','22222','2','2','2','2'),
