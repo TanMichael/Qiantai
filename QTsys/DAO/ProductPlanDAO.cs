@@ -13,80 +13,100 @@ namespace QTsys.DAO
     {
         public DataTable GetAllProductPlan(bool reallyAll)
         {
-            string sql = "SELECT * FROM qiaotai.生产计划";
-            if (!reallyAll)
+            try
             {
-                sql += " where 生产状态 <> '待审核' and 生产状态 <> '取消' and 生产状态 <> '入库'";
+                string sql = "SELECT * FROM qiaotai.生产计划";
+                if (!reallyAll)
+                {
+                    sql += " where 生产状态 <> '待审核' and 生产状态 <> '取消' and 生产状态 <> '入库'";
+                }
+                sql += ";";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
             }
-            sql += ";";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllProductPlanByName(string col, string value)
         {
-            string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " LIKE '%" + value + "%';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " LIKE '%" + value + "%';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllProductPlanByNameEX(string col, string value)
         {
-            string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " = '" + value + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " = '" + value + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetAllProductPlanByStates(string value)
         {
-            string sql = "SELECT * FROM qiaotai.生产计划 WHERE 生产状态 = '"+value+"';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 生产状态 = '" + value + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetAllProductPlanByTime(DateTime date1, DateTime date2)
         {
-            string sql = "SELECT * FROM qiaotai.生产计划 WHERE 下单日期>'" + date1.ToString() + "' AND 下单日期<'" + date2.ToString() + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 下单日期>'" + date1.ToString() + "' AND 下单日期<'" + date2.ToString() + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         //------------------------------------------------
-        public bool AddNewPlan(ProductionPlan pp )
+        public bool AddNewPlan(ProductionPlan pp)
         {
             try
             {
 
-               // string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,下单日期,产品数量,交付时间,实际完成时间,计划类型,生产状态,相关订单编号,负责人) VALUES ('" + pp.ProductId + "','" + pp.CustomerId + "','" + pp.OrderTime + "','" + pp.Count + "','" + pp.PlanningTime + "','" + pp.FinishTime + "','" + pp.PlanType + "','" + pp.PlanState + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
+                // string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,下单日期,产品数量,交付时间,实际完成时间,计划类型,生产状态,相关订单编号,负责人) VALUES ('" + pp.ProductId + "','" + pp.CustomerId + "','" + pp.OrderTime + "','" + pp.Count + "','" + pp.PlanningTime + "','" + pp.FinishTime + "','" + pp.PlanType + "','" + pp.PlanState + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
                 string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,生产状态,下单日期,产品数量,交付时间,实际完成时间,计划类型,相关订单编号,负责人) VALUES ('" +
                     pp.ProductId + "','" + pp.CustomerId + "','" + pp.PlanState + "','" + pp.OrderTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.Count + "','" + pp.PlanningTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.FinishTime.ToString("yyyy/MM/dd HH:mm:ss") +
-                    "','" +pp.PlanType + "','" +pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
+                    "','" + pp.PlanType + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
@@ -139,13 +159,13 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
-     //---------------------------------------------- 
+        //---------------------------------------------- 
 
         public DataTable GetProductPlanByOrder(string orderId)
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 相关订单编号=" + orderId + ";" ;
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 相关订单编号=" + orderId + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -157,7 +177,7 @@ namespace QTsys.DAO
             catch (Exception ex)
             {
                 this.Connection.Close();
-                return null;            
+                return null;
             }
         }
     }

@@ -30,25 +30,29 @@ namespace QTsys.Manager
 
         public List<Material> GetAllMaterials(bool b)
         {
-            List<Material> results = new List<Material>();
-            DataTable dt = this.dao.GetAllMaterials();
-
-            var l = dt.Rows.Count;
-            for (int i = 0; i < l; i++)
+            try
             {
-                var rs = dt.Rows[i];
-                Material mt = new Material();
+                List<Material> results = new List<Material>();
+                DataTable dt = this.dao.GetAllMaterials();
 
-                mt.Id = (int)rs["原料编号"];
-                mt.Name = rs["原料名称"].ToString();
-                mt.Unit = rs["单位"].ToString();
-                mt.StockCount = (int)rs["库存数量"];
-                mt.Supplier = rs["供应商"].ToString();
-                
-                results.Add(mt);
+                var l = dt.Rows.Count;
+                for (int i = 0; i < l; i++)
+                {
+                    var rs = dt.Rows[i];
+                    Material mt = new Material();
+
+                    mt.Id = (int)rs["原料编号"];
+                    mt.Name = rs["原料名称"].ToString();
+                    mt.Unit = rs["单位"].ToString();
+                    mt.StockCount = (int)rs["库存数量"];
+                    mt.Supplier = rs["供应商"].ToString();
+
+                    results.Add(mt);
+                }
+
+                return results;
             }
-
-            return results;
+            catch (Exception ex) { throw ex; }
         }
 
         public DataTable GetAllMaterialByName(string col, string value)
@@ -86,23 +90,26 @@ namespace QTsys.Manager
 
         public bool AddNewMaterialEx(MaterialFlow material, String mtName, String mtUnit)
         {
-            Material mt = new Material();
-            mt.Id = material.MaterialId;
-            mt.Unit = mtUnit;
-            mt.StockCount = material.FlowCount;
-
-            if (mt.Id == -1)
+            try
             {
-                mt.Name = mtName;
-                material.MaterialId = mt.Id = this.dao.AddNewMaterial(mt);
-            }
-            else
-            {
-               this.dao.UpdateMaterial(mt);
-            }
+                Material mt = new Material();
+                mt.Id = material.MaterialId;
+                mt.Unit = mtUnit;
+                mt.StockCount = material.FlowCount;
 
-             return this.dao.AddNewMaterialFlow(material, mtName, mtUnit);
-            
+                if (mt.Id == -1)
+                {
+                    mt.Name = mtName;
+                    material.MaterialId = mt.Id = this.dao.AddNewMaterial(mt);
+                }
+                else
+                {
+                    this.dao.UpdateMaterial(mt);
+                }
+
+                return this.dao.AddNewMaterialFlow(material, mtName, mtUnit);
+            }
+            catch (Exception ex) {   throw ex; }
         }
 
         public int AddNewMaterial(Material material)

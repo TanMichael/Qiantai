@@ -13,27 +13,35 @@ namespace QTsys.DAO
     {
         public DataTable GetAllMaterials()
         {
-            Material material=new Material();
-            string sql = "SELECT * FROM qiaotai.原材料;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                Material material = new Material();
+                string sql = "SELECT * FROM qiaotai.原材料;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public DataTable GetAllMaterialFlow()
         {
-            MaterialFlow material = new MaterialFlow();
-            string sql = "SELECT * FROM qiaotai.原材料进出仓 ORDER BY 编号 DESC;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                MaterialFlow material = new MaterialFlow();
+                string sql = "SELECT * FROM qiaotai.原材料进出仓 ORDER BY 编号 DESC;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public int AddNewMaterial(Material material)
@@ -92,13 +100,13 @@ namespace QTsys.DAO
         //        else
         //        {
         //            //不存在此种原材料，增加新材料
-                    
+
         //        }
         //    }
         //    catch (Exception ex) { return false; }
         //}
 
-        public bool AddNewMaterialFlow(MaterialFlow material,String mtName,String mtUnit)
+        public bool AddNewMaterialFlow(MaterialFlow material, String mtName, String mtUnit)
         {
             try
             {
@@ -130,7 +138,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "DELETE FROM qiaotai.原材料进出仓 WHERE 库存数量='" + material.FlowCount + "' AND 原料编号='"+material.MaterialId+"';";
+                string sql = "DELETE FROM qiaotai.原材料进出仓 WHERE 库存数量='" + material.FlowCount + "' AND 原料编号='" + material.MaterialId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -170,59 +178,75 @@ namespace QTsys.DAO
 
         public DataTable GetAllMaterialsByName(string col, string value)
         {
-            Material material = new Material();
-            string sql = "SELECT * FROM qiaotai.原材料 WHERE "+col+" LIKE '%"+value+"%';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                Material material = new Material();
+                string sql = "SELECT * FROM qiaotai.原材料 WHERE " + col + " LIKE '%" + value + "%';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllMaterialFlowByName(string col, string value)
         {
-            Material material = new Material();
-            string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + col + " LIKE '%" + value + "%';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                Material material = new Material();
+                string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + col + " LIKE '%" + value + "%';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetSearchIncomeMaterialFlow(string column, string value, DateTime start, DateTime end)
         {
-            Material material = new Material();
-            string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + column + " LIKE '%" + value + "%' and 发生时间>'" + start.ToString("yyyy/MM/dd HH:mm:ss") + "' and 发生时间<'" + end.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                Material material = new Material();
+                string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + column + " LIKE '%" + value + "%' and 发生时间>'" + start.ToString("yyyy/MM/dd HH:mm:ss") + "' and 发生时间<'" + end.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public String GetMaterialNameBySerial(string value)
         {
-            Material material = new Material();
-            string sql = "SELECT 原料名称 FROM qiaotai.原材料 WHERE " +"原料编号" + " LIKE '%" + value + "%';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            String name="";
-            this.Connection.Open();
-            MySqlDataReader read=cmd.ExecuteReader();
-            if (read.Read())
+            try
             {
-                name = read[0].ToString();
-               
+                Material material = new Material();
+                string sql = "SELECT 原料名称 FROM qiaotai.原材料 WHERE " + "原料编号" + " LIKE '%" + value + "%';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                String name = "";
+                this.Connection.Open();
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
+                {
+                    name = read[0].ToString();
+
+                }
+                this.Connection.Close();
+                return name;
             }
-            this.Connection.Close();
-            return name;
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
     }

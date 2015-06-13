@@ -13,68 +13,84 @@ namespace QTsys.DAO
     {
         public DataTable GetAllOrders()
         {
-            string sql = "SELECT * FROM qiaotai.订单;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetOrderBySerial(string num)
         {
-            string sql = "SELECT * FROM qiaotai.订单 WHERE 订单编号='"+num+"';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 订单编号='" + num + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public string GetAutoNum()
         {
-            //string sql = "SELECT LAST_INSERT_ID();";
-            string sql = "select max(订单编号) from 订单";
-            //string sql = "select @订单编号";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-           // MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-           
-           // DataTable dt = new DataTable();
-            this.Connection.Open();
-           // ap.Fill(dt); 
-            string a  = cmd.ExecuteScalar().ToString();
-            this.Connection.Close();          
-            return a;
+            try
+            {
+                //string sql = "SELECT LAST_INSERT_ID();";
+                string sql = "select max(订单编号) from 订单";
+                //string sql = "select @订单编号";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                // MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+
+                // DataTable dt = new DataTable();
+                this.Connection.Open();
+                // ap.Fill(dt); 
+                string a = cmd.ExecuteScalar().ToString();
+                this.Connection.Close();
+                return a;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
 
         public DataTable GetAllSells()//为销售显示
         {
-            string sql = "SELECT 订单.发货时间,订单.最后更新时间,订单.收货联系人,订单.订单编号,订单明细.产品编号,订单明细.数量,订单明细.单价,订单明细.数量*订单明细.单价 AS 金额 FROM 订单 LEFT JOIN 订单明细 ON 订单.订单编号=订单明细.订单编号;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT 订单.发货时间,订单.最后更新时间,订单.收货联系人,订单.订单编号,订单明细.产品编号,订单明细.数量,订单明细.单价,订单明细.数量*订单明细.单价 AS 金额 FROM 订单 LEFT JOIN 订单明细 ON 订单.订单编号=订单明细.订单编号;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetAllOrderDetailsBySerial(string key)
         {
-            DataTable dt = new DataTable();
             try
             {
+                DataTable dt = new DataTable();
                 string sql = "SELECT * FROM qiaotai.订单明细 WHERE 订单编号='" + key + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-                MySqlDataAdapter ap = new MySqlDataAdapter(cmd); 
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
                 ap.Fill(dt);
                 this.Connection.Close();
@@ -85,9 +101,10 @@ namespace QTsys.DAO
 
         public DataTable GetAllOrderDetailsBySerialEx(string key)
         {
-            DataTable dt = new DataTable();
+
             try
             {
+                DataTable dt = new DataTable();
                 string sql = "SELECT 产品信息.产品编号,产品信息.产品名称,产品信息.规格,产品信息.变位,产品信息.材质,产品信息.规格,订单明细.数量,订单明细.单价,订单明细.折扣,订单明细.成交价 FROM 订单明细  LEFT JOIN 产品信息 ON 订单明细.产品编号=产品信息.产品编号 WHERE 订单明细.订单编号='" + key + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -103,9 +120,10 @@ namespace QTsys.DAO
 
         public DataTable GetAllOrderByState(string key)
         {
-            DataTable dt = new DataTable();
+
             try
             {
+                DataTable dt = new DataTable();
                 string sql = "SELECT * FROM qiaotai.订单 WHERE 订单状态 LIKE '%" + key + "%';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -118,9 +136,10 @@ namespace QTsys.DAO
         }
         public DataTable GetAllOrderByStateAndSerial(string state, string key)
         {
-            DataTable dt = new DataTable();
+
             try
             {
+                DataTable dt = new DataTable();
                 string sql = "SELECT * FROM 订单 WHERE 订单.订单状态 ='" + state + "'AND 订单.订单编号='" + key + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -183,14 +202,18 @@ namespace QTsys.DAO
 
         public DataTable GetAllOrdersByTime(DateTime date1, DateTime date2)
         {
-            string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1.ToString() + "' AND 创建时间<'" + date2.ToString() + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1.ToString() + "' AND 创建时间<'" + date2.ToString() + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public int AddNewOrder(Order order)
@@ -230,7 +253,7 @@ namespace QTsys.DAO
                     "',快递单号='" + order.ExpressNO + "',送货单号='" + order.DeliverNO + "',订金方式='" + order.DepositMode + "',收货地址='" + order.RecieverAddress + "',收货联系人='" + order.RecieverName + "',收货电话='" + order.RecieverPhone + "',创建人='" + order.Creator + "' WHERE 订单编号='" + order.OrderId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
-                cmd.ExecuteNonQuery(); 
+                cmd.ExecuteNonQuery();
                 this.Connection.Close();
                 return true;
             }
@@ -255,7 +278,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.订单明细(订单编号,产品编号,数量,单价,折扣,成交价) VALUES ('" + order.OrderId+ "','" + order.ProductId + "','" + order.Count + "','" + order.Price + "','" + order.Discount + "','" + order.RealPrice + "')";
+                string sql = "INSERT INTO qiaotai.订单明细(订单编号,产品编号,数量,单价,折扣,成交价) VALUES ('" + order.OrderId + "','" + order.ProductId + "','" + order.Count + "','" + order.Price + "','" + order.Discount + "','" + order.RealPrice + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -269,7 +292,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "DELETE FROM qiaotai.订单明细 WHERE 订单编号='" + order.OrderId + "' AND 产品编号='"+order.ProductId+"';";
+                string sql = "DELETE FROM qiaotai.订单明细 WHERE 订单编号='" + order.OrderId + "' AND 产品编号='" + order.ProductId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -282,7 +305,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.订单明细 SET 订单编号='" + order.OrderId + "',产品编号='" + order.ProductId + "',数量='" + order.Count + "',单价='" + order.Price + "',折扣='" + order.Discount + "',成交价='" + order.RealPrice + "' WHERE 订单编号='" + order.OrderId + "' AND 产品编号='"+order.ProductId+"';";
+                string sql = "UPDATE qiaotai.订单明细 SET 订单编号='" + order.OrderId + "',产品编号='" + order.ProductId + "',数量='" + order.Count + "',单价='" + order.Price + "',折扣='" + order.Discount + "',成交价='" + order.RealPrice + "' WHERE 订单编号='" + order.OrderId + "' AND 产品编号='" + order.ProductId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
