@@ -282,7 +282,11 @@ namespace QTsys
                 MessageBox.Show("请选择客户！");
                 return;
             }
-
+            if (dataGridView2.Rows.Count<1)
+            {
+                MessageBox.Show("请选择订单的产品！");
+                return;
+            }
             try
             {
                 Order od = new Order();

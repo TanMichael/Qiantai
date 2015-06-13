@@ -46,6 +46,7 @@ namespace QTsys.DAO
         // TODO consider paging
         public DataTable GetAllCustomers()//更新
         {
+            try{
             Customer cus = new Customer();
             string sql = "SELECT * FROM qiaotai.客户信息;";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
@@ -55,10 +56,12 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+              }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetCustomerMembersByCustomer(string cId)//更新
-        {
+        {try{
             Customer cus = new Customer();
             string sql = "SELECT cm.编号,cm.姓名,cm.类型,cm.联系电话,cm.电子邮件,cm.所属客户编号,c.客户名称 " +
                 "FROM qiaotai.客户联系人 cm inner join qiaotai.客户信息 c on cm.所属客户编号 = c.客户编号 " +
@@ -71,8 +74,10 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
+        catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
         public DataTable SearchCustomerByCol(string Col, string Name)//更新
-        {
+        {try{
             Customer cus = new Customer();
             string sql = "SELECT * FROM qiaotai.客户信息 WHERE "+Col+" LIKE '%" + Name + "%';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
@@ -83,8 +88,11 @@ namespace QTsys.DAO
             this.Connection.Close();
             return dt;
         }
+        catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
         public DataTable SearchCustomerMemberByCol(string Col, string Name, string cId="")//更新
         {
+            try{
             Customer cus = new Customer();
             string sql = "SELECT * FROM qiaotai.客户联系人 WHERE " + Col + " LIKE '%" + Name + "%'";
             if (cId != "")
@@ -98,6 +106,8 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
         public bool AddNewCustomer(Customer cus)
         {

@@ -27,6 +27,13 @@ namespace QTsys
             单号 = id;
         }
 
+        public 打印送货单()
+        {
+            InitializeComponent();
+            odm = new OrderManager();
+            单号 = "";
+        }
+
         private void 送货单_Load(object sender, EventArgs e)
         {
             DateTime A = DateTime.Now.AddDays(1 - DateTime.Now.Day + 24).AddMonths(-1);

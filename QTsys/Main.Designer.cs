@@ -59,6 +59,7 @@
             this.button对账 = new System.Windows.Forms.Button();
             this.button报价 = new System.Windows.Forms.Button();
             this.button审核 = new System.Windows.Forms.Button();
+            this.button打印送货单 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -161,6 +162,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button打印送货单);
             this.groupBox3.Controls.Add(this.button产品管理);
             this.groupBox3.Controls.Add(this.button新增订单);
             this.groupBox3.Controls.Add(this.button生产管理);
@@ -168,7 +170,7 @@
             this.groupBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(17, 227);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(636, 187);
+            this.groupBox3.Size = new System.Drawing.Size(787, 187);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "生产/销售";
@@ -410,6 +412,20 @@
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button打印送货单
+            // 
+            this.button打印送货单.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button打印送货单.Font = new System.Drawing.Font("黑体", 16F);
+            this.button打印送货单.Image = ((System.Drawing.Image)(resources.GetObject("button打印送货单.Image")));
+            this.button打印送货单.Location = new System.Drawing.Point(635, 25);
+            this.button打印送货单.Name = "button打印送货单";
+            this.button打印送货单.Size = new System.Drawing.Size(146, 150);
+            this.button打印送货单.TabIndex = 13;
+            this.button打印送货单.Text = "打印送货单";
+            this.button打印送货单.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button打印送货单.UseVisualStyleBackColor = true;
+            this.button打印送货单.Click += new System.EventHandler(this.button打印送货单_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -474,6 +490,7 @@
         private System.Windows.Forms.Button button批处理;
         private System.Windows.Forms.Button button报价;
         private System.Windows.Forms.Button button对账;
+        private System.Windows.Forms.Button button打印送货单;
     }
 }
 

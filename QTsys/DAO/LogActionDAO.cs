@@ -17,6 +17,7 @@ namespace QTsys.DAO
 
         public LogActionDAO()
         {
+            
             if (this._conn == null)
             {
                 //this._conn = new MySqlConnection(mysqlStr);
@@ -33,12 +34,15 @@ namespace QTsys.DAO
 
         public void LogAction(OperationAudit audit)
         {
+            try{
             string sql = "INSERT INTO qiaotai.操作记录 (操作员,操作动作,操作对象,操作结果,操作时间) VALUES ('" +
                 audit.Operator + "','" + audit.Action + "','" + audit.OperateObject + "','" + audit.Result + "','" + audit.OperateTime.ToString("yyyy/MM/dd HH:mm:ss") + "');";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             this.Connection.Open();
             cmd.ExecuteNonQuery();
             this.Connection.Close();
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public MySqlConnection Connection

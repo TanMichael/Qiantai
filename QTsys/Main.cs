@@ -277,5 +277,11 @@ namespace QTsys
             对账 win = new 对账();
             win.ShowDialog();
         }
+
+        private void button打印送货单_Click(object sender, EventArgs e)
+        {
+            打印送货单 win = new 打印送货单();
+            win.ShowDialog();
+        }
     }
 }
