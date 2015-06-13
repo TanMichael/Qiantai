@@ -13,43 +13,56 @@ namespace QTsys.DAO
     {
         public DataTable GetAllProducts()
         {
-            string sql = "SELECT * FROM qiaotai.产品信息;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.产品信息;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllProductFlow()
         {
-            string sql = "SELECT * FROM qiaotai.产品进出库;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.产品进出库;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetAllProductsByNameEX(string col, string value)
         {
-            string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " = '" + value + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " = '" + value + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllProductsByName(string col, string value)
         {
+            try{
             string sql = "SELECT * FROM qiaotai.产品信息 WHERE " + col + " LIKE '%" + value + "%';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -58,6 +71,8 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+              }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetProductsByOrder(string oId)
@@ -74,25 +89,30 @@ namespace QTsys.DAO
 
         public bool TestPMreltionExist(string Id)
         {
-            string sql = "SELECT count(*) FROM qiaotai.产品原料关系 WHERE 产品编号='" + Id + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-           // DataTable dt = new DataTable();
-            this.Connection.Open();
-            if (Convert.ToInt16(cmd.ExecuteScalar().ToString()) > 0)
+            try
             {
-                this.Connection.Close();
-                return true;
+                string sql = "SELECT count(*) FROM qiaotai.产品原料关系 WHERE 产品编号='" + Id + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                // DataTable dt = new DataTable();
+                this.Connection.Open();
+                if (Convert.ToInt16(cmd.ExecuteScalar().ToString()) > 0)
+                {
+                    this.Connection.Close();
+                    return true;
+                }
+                else
+                {
+                    this.Connection.Close();
+                    return false;
+                }
             }
-            else
-            {
-                this.Connection.Close();
-                return false;
-            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetProductsWithoutPrice()
         {
+            try{
             string sql = "SELECT 产品编号,产品名称,规格,单位,单价 FROM qiaotai.产品信息 WHERE 单价=0;";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -101,10 +121,13 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetAllProductFlowByName(string col, string value)
         {
+            try{
             string sql = "SELECT * FROM qiaotai.产品进出库 WHERE " + col + " LIKE '%" + value + "%';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -113,11 +136,14 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
 
         public DataTable GetMaterialProductRelationByProduct(String ID)
         {
+            try{
             //  Material material = new Material();
             string sql = "SELECT * FROM qiaotai.产品原料关系 WHERE 产品编号='" + ID + "';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
@@ -127,10 +153,13 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool HasProductMaterialRelation(string pId)
         {
+            try{
             string sql = "select count(1) from qiaotai.产品原料关系 where 产品编号=" + pId + ";";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
             this.Connection.Open();
@@ -145,10 +174,13 @@ namespace QTsys.DAO
             this.Connection.Close();
 
             return count > 0;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public DataTable GetMaterialProductRelationByProductEx(String ID,int 数量)
         {
+            try{
             //  Material material = new Material();
             string sql = "SELECT 产品原料关系.原料编号,原材料.原料名称,原材料.单位,产品原料关系.原料数量*"+数量+" AS 需要原料数量,原材料.库存数量 FROM 产品原料关系 LEFT JOIN 原材料 ON 产品原料关系.原料编号=原材料.原料编号 WHERE 产品编号='" + ID + "';";
             MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
@@ -158,6 +190,8 @@ namespace QTsys.DAO
             ap.Fill(dt);
             this.Connection.Close();
             return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AltMaterialProductRelation(ProductMaterial pmr)
