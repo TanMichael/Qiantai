@@ -50,27 +50,37 @@
             this.button打印送货单 = new System.Windows.Forms.Button();
             this.button生成送货单 = new System.Windows.Forms.Button();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
+            this.textBox订单数量 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox已经生产 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView订单
             // 
+            this.dataGridView订单.AllowUserToAddRows = false;
+            this.dataGridView订单.AllowUserToDeleteRows = false;
             this.dataGridView订单.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView订单.Location = new System.Drawing.Point(12, 33);
             this.dataGridView订单.Name = "dataGridView订单";
+            this.dataGridView订单.ReadOnly = true;
             this.dataGridView订单.RowTemplate.Height = 23;
-            this.dataGridView订单.Size = new System.Drawing.Size(431, 160);
+            this.dataGridView订单.Size = new System.Drawing.Size(431, 189);
             this.dataGridView订单.TabIndex = 0;
             this.dataGridView订单.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView订单_CellClick);
             // 
             // dataGridView生产计划
             // 
+            this.dataGridView生产计划.AllowUserToAddRows = false;
+            this.dataGridView生产计划.AllowUserToDeleteRows = false;
             this.dataGridView生产计划.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView生产计划.Location = new System.Drawing.Point(449, 34);
             this.dataGridView生产计划.Name = "dataGridView生产计划";
+            this.dataGridView生产计划.ReadOnly = true;
             this.dataGridView生产计划.RowTemplate.Height = 23;
-            this.dataGridView生产计划.Size = new System.Drawing.Size(558, 159);
+            this.dataGridView生产计划.Size = new System.Drawing.Size(558, 188);
             this.dataGridView生产计划.TabIndex = 1;
             this.dataGridView生产计划.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView生产计划_CellClick);
             // 
@@ -95,6 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(1029, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
@@ -104,7 +115,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1030, 141);
+            this.label6.Location = new System.Drawing.Point(1216, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 105;
@@ -112,7 +123,7 @@
             // 
             // textBox结算方式
             // 
-            this.textBox结算方式.Location = new System.Drawing.Point(1089, 138);
+            this.textBox结算方式.Location = new System.Drawing.Point(1275, 29);
             this.textBox结算方式.Name = "textBox结算方式";
             this.textBox结算方式.Size = new System.Drawing.Size(121, 21);
             this.textBox结算方式.TabIndex = 106;
@@ -120,6 +131,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(1238, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
@@ -128,6 +140,7 @@
             // 
             // textBox传真
             // 
+            this.textBox传真.Enabled = false;
             this.textBox传真.Location = new System.Drawing.Point(1275, 80);
             this.textBox传真.Name = "textBox传真";
             this.textBox传真.Size = new System.Drawing.Size(121, 21);
@@ -136,6 +149,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Enabled = false;
             this.label5.Location = new System.Drawing.Point(1018, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
@@ -144,6 +158,7 @@
             // 
             // com客户联系人
             // 
+            this.com客户联系人.Enabled = false;
             this.com客户联系人.FormattingEnabled = true;
             this.com客户联系人.Location = new System.Drawing.Point(1089, 54);
             this.com客户联系人.Name = "com客户联系人";
@@ -153,6 +168,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
             this.label7.Location = new System.Drawing.Point(1030, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
@@ -161,6 +177,7 @@
             // 
             // text收货地址
             // 
+            this.text收货地址.Enabled = false;
             this.text收货地址.Location = new System.Drawing.Point(1089, 107);
             this.text收货地址.Name = "text收货地址";
             this.text收货地址.Size = new System.Drawing.Size(307, 21);
@@ -168,6 +185,7 @@
             // 
             // text联系电话
             // 
+            this.text联系电话.Enabled = false;
             this.text联系电话.Location = new System.Drawing.Point(1089, 80);
             this.text联系电话.Name = "text联系电话";
             this.text联系电话.Size = new System.Drawing.Size(121, 21);
@@ -176,6 +194,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Enabled = false;
             this.label8.Location = new System.Drawing.Point(1030, 110);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
@@ -196,15 +215,16 @@
             // 
             // textBox客户名称
             // 
+            this.textBox客户名称.Enabled = false;
             this.textBox客户名称.Location = new System.Drawing.Point(1088, 27);
             this.textBox客户名称.Name = "textBox客户名称";
-            this.textBox客户名称.Size = new System.Drawing.Size(308, 21);
+            this.textBox客户名称.Size = new System.Drawing.Size(122, 21);
             this.textBox客户名称.TabIndex = 108;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1228, 141);
+            this.label9.Location = new System.Drawing.Point(1228, 167);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 12);
             this.label9.TabIndex = 109;
@@ -212,24 +232,26 @@
             // 
             // textBox当前生产数
             // 
-            this.textBox当前生产数.Location = new System.Drawing.Point(1311, 137);
+            this.textBox当前生产数.Location = new System.Drawing.Point(1311, 163);
             this.textBox当前生产数.Name = "textBox当前生产数";
             this.textBox当前生产数.Size = new System.Drawing.Size(85, 21);
             this.textBox当前生产数.TabIndex = 110;
+            this.textBox当前生产数.Text = "0";
+            this.textBox当前生产数.TextChanged += new System.EventHandler(this.textBox当前生产数_TextChanged);
             // 
             // button打印送货单
             // 
-            this.button打印送货单.Location = new System.Drawing.Point(1240, 170);
+            this.button打印送货单.Location = new System.Drawing.Point(1218, 199);
             this.button打印送货单.Name = "button打印送货单";
-            this.button打印送货单.Size = new System.Drawing.Size(75, 23);
+            this.button打印送货单.Size = new System.Drawing.Size(167, 23);
             this.button打印送货单.TabIndex = 112;
-            this.button打印送货单.Text = "打印送货单";
+            this.button打印送货单.Text = "打印送货单--更新数据库";
             this.button打印送货单.UseVisualStyleBackColor = true;
             this.button打印送货单.Click += new System.EventHandler(this.button打印送货单_Click);
             // 
             // button生成送货单
             // 
-            this.button生成送货单.Location = new System.Drawing.Point(1088, 170);
+            this.button生成送货单.Location = new System.Drawing.Point(1098, 199);
             this.button生成送货单.Name = "button生成送货单";
             this.button生成送货单.Size = new System.Drawing.Size(75, 23);
             this.button生成送货单.TabIndex = 111;
@@ -239,19 +261,58 @@
             // 
             // webBrowser2
             // 
-            this.webBrowser2.Location = new System.Drawing.Point(12, 199);
+            this.webBrowser2.Location = new System.Drawing.Point(12, 235);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1384, 436);
+            this.webBrowser2.Size = new System.Drawing.Size(1384, 433);
             this.webBrowser2.TabIndex = 113;
             this.webBrowser2.Tag = "";
             this.webBrowser2.Url = new System.Uri("", System.UriKind.Relative);
+            // 
+            // textBox订单数量
+            // 
+            this.textBox订单数量.Enabled = false;
+            this.textBox订单数量.Location = new System.Drawing.Point(1311, 136);
+            this.textBox订单数量.Name = "textBox订单数量";
+            this.textBox订单数量.Size = new System.Drawing.Size(85, 21);
+            this.textBox订单数量.TabIndex = 115;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Enabled = false;
+            this.label10.Location = new System.Drawing.Point(1252, 140);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 114;
+            this.label10.Text = "订单数量";
+            // 
+            // textBox已经生产
+            // 
+            this.textBox已经生产.Enabled = false;
+            this.textBox已经生产.Location = new System.Drawing.Point(1098, 164);
+            this.textBox已经生产.Name = "textBox已经生产";
+            this.textBox已经生产.Size = new System.Drawing.Size(85, 21);
+            this.textBox已经生产.TabIndex = 117;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1015, 168);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 116;
+            this.label11.Text = "已经生产数";
             // 
             // 打印送货单_独立
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1418, 765);
+            this.ClientSize = new System.Drawing.Size(1418, 680);
+            this.Controls.Add(this.textBox已经生产);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox订单数量);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.webBrowser2);
             this.Controls.Add(this.button打印送货单);
             this.Controls.Add(this.button生成送货单);
@@ -308,5 +369,9 @@
         private System.Windows.Forms.Button button打印送货单;
         private System.Windows.Forms.Button button生成送货单;
         private System.Windows.Forms.WebBrowser webBrowser2;
+        public System.Windows.Forms.TextBox textBox订单数量;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox textBox已经生产;
+        private System.Windows.Forms.Label label11;
     }
 }

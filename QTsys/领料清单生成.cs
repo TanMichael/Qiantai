@@ -162,13 +162,14 @@ namespace QTsys
         {
             try
             {
-                text单价.Text = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
+                //text单价.Text = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
+                text单价.Text = "";
                 // text原料名称.Text = dataGridView2.CurrentRow.Cells["原料名称"].Value.ToString();
                 //  text单位.Text = dataGridView2.CurrentRow.Cells["单位"].Value.ToString();
                 com供应商.Text = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
                 dataGridView1.Rows[select原料].Cells["供应商"].Value = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
                 
-                dataGridView1.Rows[select原料].Cells["单价"].Value = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
+           //     dataGridView1.Rows[select原料].Cells["单价"].Value = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
                 //text余料
                 int 余料 = 0;
                 for (int i = 0; i < dataGridView2.RowCount; i++)

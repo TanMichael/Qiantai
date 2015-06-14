@@ -104,9 +104,9 @@ namespace QTsys.DAO
             {
 
                 // string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,下单日期,产品数量,交付时间,实际完成时间,计划类型,生产状态,相关订单编号,负责人) VALUES ('" + pp.ProductId + "','" + pp.CustomerId + "','" + pp.OrderTime + "','" + pp.Count + "','" + pp.PlanningTime + "','" + pp.FinishTime + "','" + pp.PlanType + "','" + pp.PlanState + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
-                string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,生产状态,下单日期,产品数量,交付时间,实际完成时间,计划类型,相关订单编号,负责人) VALUES ('" +
+                string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,生产状态,下单日期,产品数量,交付时间,实际完成时间,计划类型,相关订单编号,负责人,当前生产数) VALUES ('" +
                     pp.ProductId + "','" + pp.CustomerId + "','" + pp.PlanState + "','" + pp.OrderTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.Count + "','" + pp.PlanningTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.FinishTime.ToString("yyyy/MM/dd HH:mm:ss") +
-                    "','" + pp.PlanType + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
+                    "','" + pp.PlanType + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "',0)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
@@ -185,7 +185,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "select p.产品编号, pro.产品名称, pro.规格, pro.变位, pro.材质, pro.单价, p.客户编号, p.产品数量, p.生产状态, p.当前生产数, p.下单日期, p.最后更新时间, p.编号 " +
+                string sql = "select p.产品编号, pro.产品名称,p.产品数量,p.当前生产数,0 AS 本次发货数, pro.规格, pro.变位, pro.材质, pro.单价, p.客户编号,  p.生产状态, p.下单日期, p.最后更新时间, p.编号 " +
                     "from qiaotai.生产计划 p inner join qiaotai.产品信息 pro on p.产品编号=pro.产品编号 where p.相关订单编号=" + orderId + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -206,12 +206,11 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "update qiaotai.生产计划 set 当前生产数 += " + count.ToString() + ", 最后更新时间=" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + " where 编号=" + ppId + "';";
+                string sql = "update qiaotai.生产计划 set 当前生产数 = 当前生产数+" + count.ToString() + ", 最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' where 编号 =" + ppId + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
                 this.Connection.Close();
-
                 return true;
             }
             catch (Exception ex)
