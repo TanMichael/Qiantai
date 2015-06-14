@@ -40,6 +40,7 @@ namespace QTsys
                         UserRoles.SALES,
                         UserRoles.FINANCE,
                         UserRoles.STORAGE,
+                        UserRoles.FOLLOW,
                         UserRoles.SYS_ADMIN
                     });
 

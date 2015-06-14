@@ -132,10 +132,13 @@ namespace QTsys.Common
                     rights = Rights.SALES | Rights.CUSTOMER;
                     break;
                 case UserRoles.ENGINEER:
-                    rights = Rights.PRODUCT | Rights.MANUFACTURE;
+                    rights = Rights.PRODUCT | Rights.MANUFACTURE | Rights.REVIEWER;
+                    break;
+                case UserRoles.FOLLOW:
+                    rights = Rights.SALES | Rights.PRODUCT | Rights.MANUFACTURE;
                     break;
                 case UserRoles.STORAGE:
-                    rights = Rights.STORAGE;
+                    rights = Rights.STORAGE | Rights.PRODUCT;
                     break;
                 case UserRoles.FINANCE:
                     rights = Rights.PRODUCT | Rights.FIN;    // TODO 对账单

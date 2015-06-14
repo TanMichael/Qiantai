@@ -91,11 +91,13 @@ namespace QTsys
             {
                 button产品管理.Visible = true;
                 button产品.Visible = true;
+                button打印送货单.Visible = true;
             }
             else
             {
                 button产品管理.Visible = false;
-                button产品.Visible = false; 
+                button产品.Visible = false;
+                button打印送货单.Visible = false;
             }
 
             if ((right & Rights.MANUFACTURE) == Rights.MANUFACTURE)
@@ -133,10 +135,12 @@ namespace QTsys
             {
                 button报价.Visible = true;
                 // 对账单
+                button对账.Visible = true;
             }
             else
             {
                 button报价.Visible = false;
+                button对账.Visible = false;
             }
         }
 
