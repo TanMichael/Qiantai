@@ -17,11 +17,13 @@ namespace QTsys
     public partial class 原料库管理 : Form
     {
         private MaterialManager material;
+        private string selectNum;
 
         public 原料库管理()
         {
             InitializeComponent();
             this.material = MaterialManager.getMaterialManager();
+            selectNum="";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,13 +81,17 @@ namespace QTsys
         {
             try
             {
+                //搜索用
                 text原料编号.Text = dataGridView1.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
                 text原料名称.Text = dataGridView1.Rows[e.RowIndex].Cells["原料名称"].Value.ToString();
                 text单位.Text = dataGridView1.Rows[e.RowIndex].Cells["单位"].Value.ToString();
                 text库存数量.Text = dataGridView1.Rows[e.RowIndex].Cells["库存数量"].Value.ToString();
                 text供应商.Text = dataGridView1.Rows[e.RowIndex].Cells["供应商"].Value.ToString();
+                //显示进出原料仓库明细情况
+                dataGridView2.DataSource = this.material.GetAllMaterialFlowByNameEX("原料编号", dataGridView1.CurrentRow.Cells["原料编号"].Value.ToString());
+                dataGridView2.Update();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！");}
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

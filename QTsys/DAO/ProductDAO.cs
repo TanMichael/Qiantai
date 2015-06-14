@@ -178,18 +178,18 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
-        public DataTable GetMaterialProductRelationByProductEx(String ID,int 数量)
+        public DataTable GetMaterialProductRelationByProductEx(String ID, int 数量)
         {
-            try{
-            //  Material material = new Material();
-            string sql = "SELECT 产品原料关系.原料编号,原材料.原料名称,原材料.单位,产品原料关系.原料数量*"+数量+" AS 需要原料数量,原材料.库存数量 FROM 产品原料关系 LEFT JOIN 原材料 ON 产品原料关系.原料编号=原材料.原料编号 WHERE 产品编号='" + ID + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT 产品原料关系.原料编号,原材料.原料名称,原材料.单位,产品原料关系.原料数量*" + 数量 + " AS 需要原料数量,原材料.库存数量,'' AS 供应商,'0' AS 单价  FROM 产品原料关系 LEFT JOIN 原材料 ON 产品原料关系.原料编号=原材料.原料编号 WHERE 产品编号='" + ID + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
             }
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }

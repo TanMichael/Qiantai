@@ -37,7 +37,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox订单 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.com供应商 = new System.Windows.Forms.ComboBox();
+            this.text单价 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.text原料名称 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.text单位 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -46,8 +56,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(18, 34);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(759, 197);
+            this.dataGridView1.Size = new System.Drawing.Size(718, 197);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label1
             // 
@@ -85,7 +96,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(241, 252);
+            this.button1.Location = new System.Drawing.Point(71, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -95,7 +106,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(477, 252);
+            this.button2.Location = new System.Drawing.Point(240, 252);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -120,11 +131,103 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "订单：";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(753, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "供应商";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(742, 99);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(371, 132);
+            this.dataGridView2.TabIndex = 24;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // com供应商
+            // 
+            this.com供应商.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.com供应商.Enabled = false;
+            this.com供应商.FormattingEnabled = true;
+            this.com供应商.Location = new System.Drawing.Point(800, 38);
+            this.com供应商.Name = "com供应商";
+            this.com供应商.Size = new System.Drawing.Size(119, 20);
+            this.com供应商.TabIndex = 23;
+            // 
+            // text单价
+            // 
+            this.text单价.Enabled = false;
+            this.text单价.Location = new System.Drawing.Point(969, 37);
+            this.text单价.Name = "text单价";
+            this.text单价.Size = new System.Drawing.Size(100, 21);
+            this.text单价.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(934, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "单价";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(753, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "原料名";
+            // 
+            // text原料名称
+            // 
+            this.text原料名称.Enabled = false;
+            this.text原料名称.Location = new System.Drawing.Point(800, 72);
+            this.text原料名称.Name = "text原料名称";
+            this.text原料名称.Size = new System.Drawing.Size(119, 21);
+            this.text原料名称.TabIndex = 27;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(934, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "单位";
+            // 
+            // text单位
+            // 
+            this.text单位.Enabled = false;
+            this.text单位.Location = new System.Drawing.Point(969, 72);
+            this.text单位.Name = "text单位";
+            this.text单位.Size = new System.Drawing.Size(100, 21);
+            this.text单位.TabIndex = 29;
+            // 
             // 领料清单生成
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 301);
+            this.ClientSize = new System.Drawing.Size(1125, 301);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.text单位);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.text原料名称);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.text单价);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.com供应商);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox订单);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -138,6 +241,7 @@
             this.Text = "领料清单生成";
             this.Load += new System.EventHandler(this.领料清单生成_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +258,14 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox订单;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox com供应商;
+        private System.Windows.Forms.TextBox text单价;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox text原料名称;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox text单位;
     }
 }

@@ -210,6 +210,22 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
+        public DataTable GetAllMaterialFlowByNameEX(string col, string value)
+        {
+            try
+            {
+                Material material = new Material();
+                string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + col + " = '" + value + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
 
         public DataTable GetSearchIncomeMaterialFlow(string column, string value, DateTime start, DateTime end)
         {

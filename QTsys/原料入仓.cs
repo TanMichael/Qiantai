@@ -17,11 +17,16 @@ namespace QTsys
     public partial class 原料入仓 : Form
     {
         private MaterialManager material;
+        private UserManager userMgr;
+      //  private string selectedCustomerId;
+        private List<Customer> customers;
 
         public 原料入仓()
         {
             InitializeComponent();
             this.material = MaterialManager.getMaterialManager();
+            userMgr = new UserManager();
+           // selectedCustomerId = "";
         }
 
         private void 原料入仓_Load(object sender, EventArgs e)
@@ -41,6 +46,16 @@ namespace QTsys
                 //text操作员.Text = Utils.GetCurrentUsername();
                 dateTimePicker入仓起始日.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 25);
                 dateTimePicker入仓截止日.Value = DateTime.Now;
+
+
+                //****供应商初始化
+                com供应商.Items.Clear();
+                customers = userMgr.GetAllCustomerList();
+                customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
+                //use dataSource make selectedValue works;
+                com供应商.DisplayMember = "Name";
+                com供应商.ValueMember = "Id";
+                com供应商.DataSource = customers;
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -219,6 +234,16 @@ namespace QTsys
                 textBoxNewName.Visible = false;
                 label原料名称.Visible = false;
             }
+        }
+
+        private void com供应商_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+               
+               
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
     }
 }

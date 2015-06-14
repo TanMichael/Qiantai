@@ -22,7 +22,10 @@ namespace QTsys.Manager
         {
             return new MaterialManager();
         }
-
+        public DataTable GetAllMaterialFlowByNameEX(string col, string value)
+        {
+            return this.dao.GetAllMaterialFlowByNameEX(col, value);
+        }
         public DataTable GetAllMaterials()
         {
             return this.dao.GetAllMaterials();

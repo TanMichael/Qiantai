@@ -184,6 +184,7 @@
             this.com供应商.Name = "com供应商";
             this.com供应商.Size = new System.Drawing.Size(119, 20);
             this.com供应商.TabIndex = 21;
+            this.com供应商.SelectedIndexChanged += new System.EventHandler(this.com供应商_SelectedIndexChanged);
             // 
             // dataGridView2
             // 
