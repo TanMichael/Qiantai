@@ -55,7 +55,6 @@
             // radio原料
             // 
             this.radio原料.AutoSize = true;
-            this.radio原料.Enabled = false;
             this.radio原料.Location = new System.Drawing.Point(15, 86);
             this.radio原料.Name = "radio原料";
             this.radio原料.Size = new System.Drawing.Size(71, 16);
