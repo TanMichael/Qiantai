@@ -72,9 +72,9 @@ namespace QTsys
             {
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
-                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value) <= Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value))
+                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value) <= Convert.ToInt32(dataGridView1.Rows[i].Cells["供应商余料"].Value))
                     {
-                        MessageBox.Show("领料失败:\n\r有原料库存不足！");
+                        MessageBox.Show("领料失败:\n\r有原料库存不足！此供应商没有足够的原料在仓库！");
                         return;
                     }
 
@@ -146,11 +146,16 @@ namespace QTsys
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            select原料 = e.RowIndex;
-            text原料名称.Text = dataGridView1.CurrentRow.Cells["原料名称"].Value.ToString();
-            text单位.Text = dataGridView1.CurrentRow.Cells["单位"].Value.ToString();
-            dataGridView2.DataSource = this.material.GetAllMaterialFlowByNameEX("原料编号", dataGridView1.CurrentRow.Cells["原料编号"].Value.ToString());
-            dataGridView2.Update();
+            try
+            {
+                select原料 = e.RowIndex;
+                text原料名称.Text = dataGridView1.CurrentRow.Cells["原料名称"].Value.ToString();
+                text单位.Text = dataGridView1.CurrentRow.Cells["单位"].Value.ToString();
+                text需要原料数量.Text = dataGridView1.CurrentRow.Cells["需要原料数量"].Value.ToString();
+                dataGridView2.DataSource = this.material.GetAllMaterialFlowByNameEX("原料编号", dataGridView1.CurrentRow.Cells["原料编号"].Value.ToString());
+                dataGridView2.Update();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); };
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -162,7 +167,19 @@ namespace QTsys
                 //  text单位.Text = dataGridView2.CurrentRow.Cells["单位"].Value.ToString();
                 com供应商.Text = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
                 dataGridView1.Rows[select原料].Cells["供应商"].Value = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
+                
                 dataGridView1.Rows[select原料].Cells["单价"].Value = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
+                //text余料
+                int 余料 = 0;
+                for (int i = 0; i < dataGridView2.RowCount - 1; i++)
+                {
+                    if (dataGridView2.Rows[i].Cells["供应商"].Value.ToString() == com供应商.Text)
+                    {
+                        余料 += Convert.ToInt32(dataGridView2.Rows[i].Cells["数量"].Value);
+                    }
+                }
+                text余料.Text = 余料.ToString();
+                dataGridView1.Rows[select原料].Cells["供应商余料"].Value = text余料.Text;
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); };
         }

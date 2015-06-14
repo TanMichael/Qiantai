@@ -46,6 +46,10 @@
             this.text原料名称 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.text单位 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.text余料 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.text需要原料数量 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +84,7 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(381, 7);
+            this.textBox2.Location = new System.Drawing.Point(394, 7);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 4;
@@ -88,7 +92,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(334, 10);
+            this.label2.Location = new System.Drawing.Point(347, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 3;
@@ -214,11 +218,49 @@
             this.text单位.Size = new System.Drawing.Size(100, 21);
             this.text单位.TabIndex = 29;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(913, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(101, 12);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "该供应商原料数量";
+            // 
+            // text余料
+            // 
+            this.text余料.Enabled = false;
+            this.text余料.Location = new System.Drawing.Point(1020, 3);
+            this.text余料.Name = "text余料";
+            this.text余料.Size = new System.Drawing.Size(100, 21);
+            this.text余料.TabIndex = 31;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(717, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 12);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "需要原料数量";
+            // 
+            // text需要原料数量
+            // 
+            this.text需要原料数量.Enabled = false;
+            this.text需要原料数量.Location = new System.Drawing.Point(800, 4);
+            this.text需要原料数量.Name = "text需要原料数量";
+            this.text需要原料数量.Size = new System.Drawing.Size(100, 21);
+            this.text需要原料数量.TabIndex = 33;
+            // 
             // 领料清单生成
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 301);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.text需要原料数量);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.text余料);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.text单位);
             this.Controls.Add(this.label6);
@@ -267,5 +309,9 @@
         private System.Windows.Forms.TextBox text原料名称;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox text单位;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox text余料;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox text需要原料数量;
     }
 }
