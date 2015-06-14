@@ -338,7 +338,27 @@ namespace QTsys.DAO
             catch (Exception ex)
             {
                 this.Connection.Close();
-                return null;
+                throw ex;
+            }
+        }
+
+        public DataTable GetOrderInProduction()
+        {
+            try
+            {
+                string sql = "SELECT 订单编号,客户名称,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人,客户编号 FROM qiaotai.订单 WHERE 订单状态='处理中' or 订单状态='打包中';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                this.Connection.Close();
+                throw ex;
             }
         }
     }

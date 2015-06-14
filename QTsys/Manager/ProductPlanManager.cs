@@ -62,5 +62,15 @@ namespace QTsys.Manager
         {
             return this.pdao.GetProductPlanByOrder(orderId);
         }
+
+        public DataTable GetProductPlanByOrder4Print(string orderId)
+        {
+            return this.pdao.GetProductPlanByOrder4Print(orderId);
+        }
+
+        public bool UpdatePlanCurrentDeliveryCount(int count, string ppId)
+        {
+            return this.pdao.UpdatePlanCurrentDeliveryCount(count, ppId);
+        }
     }
 }

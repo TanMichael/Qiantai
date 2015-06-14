@@ -79,5 +79,10 @@ namespace QTsys.Manager
         {
             return this.odao.GetReconciliation(customerId, startDate, endDate);
         }
+
+        public DataTable GetOrderInProduction()
+        {
+            return this.odao.GetOrderInProduction();
+        }
     }
 }

@@ -280,7 +280,7 @@ namespace QTsys
 
         private void button打印送货单_Click(object sender, EventArgs e)
         {
-            打印送货单 win = new 打印送货单();
+            打印送货单_独立 win = new 打印送货单_独立();
             win.ShowDialog();
         }
     }
