@@ -25,6 +25,7 @@ namespace QTsys
             InitializeComponent();
             odm = new OrderManager();
             单号 = id;
+            comboBox1.Enabled = false;
         }
 
         public 打印送货单()
@@ -32,6 +33,7 @@ namespace QTsys
             InitializeComponent();
             odm = new OrderManager();
             单号 = "";
+            comboBox1.Enabled = true;
         }
 
         private void 送货单_Load(object sender, EventArgs e)

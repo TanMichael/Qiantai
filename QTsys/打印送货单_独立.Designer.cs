@@ -239,13 +239,13 @@
             // 
             // webBrowser2
             // 
-            this.webBrowser2.Location = new System.Drawing.Point(35, 254);
+            this.webBrowser2.Location = new System.Drawing.Point(12, 199);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1371, 490);
+            this.webBrowser2.Size = new System.Drawing.Size(1384, 436);
             this.webBrowser2.TabIndex = 113;
             this.webBrowser2.Tag = "";
-            this.webBrowser2.Url = new System.Uri("http://HTMLPage1.htm", System.UriKind.Absolute);
+            this.webBrowser2.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // 打印送货单_独立
             // 

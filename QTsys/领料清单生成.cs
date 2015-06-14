@@ -171,7 +171,7 @@ namespace QTsys
                 dataGridView1.Rows[select原料].Cells["单价"].Value = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
                 //text余料
                 int 余料 = 0;
-                for (int i = 0; i < dataGridView2.RowCount - 1; i++)
+                for (int i = 0; i < dataGridView2.RowCount; i++)
                 {
                     if (dataGridView2.Rows[i].Cells["供应商"].Value.ToString() == com供应商.Text)
                     {
