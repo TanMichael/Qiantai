@@ -72,7 +72,7 @@ namespace QTsys
             {
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
-                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value) <= Convert.ToInt32(dataGridView1.Rows[i].Cells["供应商余料"].Value))
+                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value) <= Convert.ToInt32(dataGridView1.Rows[i].Cells["供应商余料"].Value))
                     {
                         MessageBox.Show("领料失败:\n\r有原料库存不足！此供应商没有足够的原料在仓库！");
                         return;

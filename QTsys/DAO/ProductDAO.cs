@@ -77,14 +77,18 @@ namespace QTsys.DAO
 
         public DataTable GetProductsByOrder(string oId)
         {
-            string sql = "SELECT p.产品编号,p.产品名称,p.规格,p.单位,p.单价 FROM qiaotai.产品信息 p inner join qiaotai.订单明细 o on p.产品编号 = o.产品编号 WHERE o.订单编号=" + oId;
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT p.产品编号,p.产品名称,p.规格,p.单位,p.单价 FROM qiaotai.产品信息 p inner join qiaotai.订单明细 o on p.产品编号 = o.产品编号 WHERE o.订单编号=" + oId;
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool TestPMreltionExist(string Id)

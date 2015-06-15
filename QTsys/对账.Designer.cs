@@ -47,6 +47,7 @@
             this.textBox传真 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox结算方式 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView对账单)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,11 +215,22 @@
             this.textBox结算方式.Size = new System.Drawing.Size(121, 21);
             this.textBox结算方式.TabIndex = 96;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(787, 110);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 30);
+            this.button1.TabIndex = 97;
+            this.button1.Text = "导出到EXCEL";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // 对账
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 729);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox结算方式);
             this.Controls.Add(this.label1);
@@ -268,5 +280,6 @@
         public System.Windows.Forms.TextBox textBox传真;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBox结算方式;
+        private System.Windows.Forms.Button button1;
     }
 }

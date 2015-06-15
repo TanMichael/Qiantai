@@ -82,6 +82,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView审核通过订单)).BeginInit();
@@ -182,6 +183,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button10);
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.textBox计划数);
@@ -235,7 +237,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(652, 80);
+            this.button8.Location = new System.Drawing.Point(617, 78);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 150;
@@ -322,12 +324,13 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(798, 80);
+            this.button5.Location = new System.Drawing.Point(708, 78);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(137, 23);
             this.button5.TabIndex = 140;
             this.button5.Text = "产品原料关系设定";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             // 
             // label搜索栏目
             // 
@@ -616,6 +619,15 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(864, 78);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(137, 23);
+            this.button10.TabIndex = 151;
+            this.button10.Text = "导出到excel";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
             // 生产管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -696,6 +708,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button10;
 
     }
 }
