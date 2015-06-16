@@ -78,13 +78,13 @@ namespace QTsys
             {
                 button订单管理.Visible = true;
                 button新增订单.Visible = true;
-                button销售管理.Visible = true;
+                
             }
             else
             {
                 button订单管理.Visible = false;
                 button新增订单.Visible = false;
-                button销售管理.Visible = false;
+                
             }
 
             if ((right & Rights.PRODUCT) == Rights.PRODUCT)
@@ -136,11 +136,13 @@ namespace QTsys
                 button报价.Visible = true;
                 // 对账单
                 button对账.Visible = true;
+                button销售管理.Visible = true;
             }
             else
             {
                 button报价.Visible = false;
                 button对账.Visible = false;
+                button销售管理.Visible = false;
             }
         }
 

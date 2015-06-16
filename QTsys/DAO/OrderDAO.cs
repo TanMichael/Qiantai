@@ -66,11 +66,13 @@ namespace QTsys.DAO
 
 
 
-        public DataTable GetAllSells()//为销售显示
+        public DataTable GetAllSells(DateTime startDate, DateTime endDate)//为销售显示
         {
             try
             {
-                string sql = "SELECT 订单.发货时间,订单.最后更新时间,订单.收货联系人,订单.订单编号,订单明细.产品编号,订单明细.数量,订单明细.单价,订单明细.数量*订单明细.单价 AS 金额 FROM 订单 LEFT JOIN 订单明细 ON 订单.订单编号=订单明细.订单编号;";
+                string sql = "SELECT d.客户名称,d.订单编号,d.发货时间,d.创建时间,dd.产品编号,p.产品名称,p.规格,p.材质,dd.数量,dd.单价,dd.成交价,dd.数量*dd.成交价 AS 金额 " +
+                    "FROM qiaotai.订单 d INNER JOIN qiaotai.订单明细 dd ON d.订单编号=dd.订单编号 INNER JOIN qiaotai.产品信息 p ON dd.产品编号=p.产品编号 " +
+                    "WHERE d.创建时间>'" + startDate.ToString("yyyy/MM/dd HH:mm:ss") + "' and d.创建时间<'" + endDate.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

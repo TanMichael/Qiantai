@@ -24,32 +24,43 @@ namespace QTsys
         {
             InitializeComponent();
             odm = new OrderManager();
+            dateTimePickerEnd.Value = DateTime.Today;
+            dateTimePickerStart.Value = DateTime.Today.AddMonths(-1);
         }
 
         private void 销售管理_Load(object sender, EventArgs e)
         {
-            try
-            {
-                dataGridView1.DataSource = this.odm.GetAllSells();
-                dataGridView1.Update();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+            Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Refresh();
+        }
 
+        private void Refresh()
+        {
+            try
+            {
+                DataTable dt = this.odm.GetAllSells(dateTimePickerStart.Value, dateTimePickerEnd.Value);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Update();
+
+                // calc summary
+                double total = 0;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+
+                    total += double.Parse(dt.Rows[i]["金额"].ToString());
+                }
+                labelMoney.Text = total.ToString();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            打印送货单 win = new 打印送货单(textBox3.Text);
-            win.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
