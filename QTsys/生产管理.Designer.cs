@@ -38,6 +38,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridView审核通过订单 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox计划数 = new System.Windows.Forms.TextBox();
@@ -82,7 +83,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView审核通过订单)).BeginInit();
@@ -235,6 +235,16 @@
             this.tabPage2.Text = "生产计划";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(894, 555);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(137, 23);
+            this.button10.TabIndex = 151;
+            this.button10.Text = "导出到excel";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(617, 78);
@@ -273,6 +283,7 @@
             // 
             // textBox补充数
             // 
+            this.textBox补充数.Enabled = false;
             this.textBox补充数.Location = new System.Drawing.Point(525, 557);
             this.textBox补充数.Name = "textBox补充数";
             this.textBox补充数.Size = new System.Drawing.Size(121, 21);
@@ -618,15 +629,6 @@
             this.button7.Text = "查询订单";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(864, 78);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(137, 23);
-            this.button10.TabIndex = 151;
-            this.button10.Text = "导出到excel";
-            this.button10.UseVisualStyleBackColor = true;
             // 
             // 生产管理
             // 

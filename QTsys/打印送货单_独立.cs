@@ -55,7 +55,7 @@ namespace QTsys
                 var cPhone = dataGridView订单.Rows[selectOrderIdx].Cells["收货电话"].Value.ToString();
                 var cContact = dataGridView订单.Rows[selectOrderIdx].Cells["收货联系人"].Value.ToString();
                 //var cPayMode = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
-
+                label1订单编号.Text = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
                 textBox客户名称.Text = customerName;
                 text联系电话.Text = cPhone;
                 text收货地址.Text = cAddr;
@@ -279,6 +279,12 @@ namespace QTsys
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            打印快递单 kdd = new 打印快递单(label1订单编号.Text);
+            kdd.ShowDialog();
         }
     }
 }

@@ -62,6 +62,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView产品进出库)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView产品信息)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
@@ -77,7 +78,7 @@
             this.dataGridView产品进出库.Name = "dataGridView产品进出库";
             this.dataGridView产品进出库.ReadOnly = true;
             this.dataGridView产品进出库.RowTemplate.Height = 23;
-            this.dataGridView产品进出库.Size = new System.Drawing.Size(912, 203);
+            this.dataGridView产品进出库.Size = new System.Drawing.Size(912, 191);
             this.dataGridView产品进出库.TabIndex = 0;
             this.dataGridView产品进出库.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView产品进出库.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -388,11 +389,22 @@
             this.label14.TabIndex = 93;
             this.label14.Text = "选中一个订单进行";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(738, 349);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(182, 23);
+            this.button7.TabIndex = 94;
+            this.button7.Text = "产品库情况导出到EXCEL";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // 产品库管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 701);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -475,5 +487,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button7;
     }
 }

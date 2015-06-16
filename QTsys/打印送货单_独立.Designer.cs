@@ -54,6 +54,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox已经生产 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1订单编号 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
@@ -241,7 +243,7 @@
             // 
             // button打印送货单
             // 
-            this.button打印送货单.Location = new System.Drawing.Point(1218, 199);
+            this.button打印送货单.Location = new System.Drawing.Point(1120, 199);
             this.button打印送货单.Name = "button打印送货单";
             this.button打印送货单.Size = new System.Drawing.Size(167, 23);
             this.button打印送货单.TabIndex = 112;
@@ -251,7 +253,7 @@
             // 
             // button生成送货单
             // 
-            this.button生成送货单.Location = new System.Drawing.Point(1098, 199);
+            this.button生成送货单.Location = new System.Drawing.Point(1017, 199);
             this.button生成送货单.Name = "button生成送货单";
             this.button生成送货单.Size = new System.Drawing.Size(75, 23);
             this.button生成送货单.TabIndex = 111;
@@ -304,11 +306,32 @@
             this.label11.TabIndex = 116;
             this.label11.Text = "已经生产数";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1311, 199);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 118;
+            this.button1.Text = "打印快递单";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1订单编号
+            // 
+            this.label1订单编号.AutoSize = true;
+            this.label1订单编号.Location = new System.Drawing.Point(1087, 9);
+            this.label1订单编号.Name = "label1订单编号";
+            this.label1订单编号.Size = new System.Drawing.Size(53, 12);
+            this.label1订单编号.TabIndex = 119;
+            this.label1订单编号.Text = "订单编号";
+            // 
             // 打印送货单_独立
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1418, 680);
+            this.Controls.Add(this.label1订单编号);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox已经生产);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox订单数量);
@@ -373,5 +396,7 @@
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.TextBox textBox已经生产;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1订单编号;
     }
 }

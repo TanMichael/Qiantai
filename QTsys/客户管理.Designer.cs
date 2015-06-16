@@ -89,6 +89,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button9 = new System.Windows.Forms.Button();
             this.tabCustomer.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -109,6 +110,7 @@
             // 
             // tabPageCustomer
             // 
+            this.tabPageCustomer.Controls.Add(this.button9);
             this.tabPageCustomer.Controls.Add(this.textBox联系人);
             this.tabPageCustomer.Controls.Add(this.label23);
             this.tabPageCustomer.Controls.Add(this.label搜索栏目);
@@ -681,6 +683,16 @@
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(883, 130);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(146, 23);
+            this.button9.TabIndex = 29;
+            this.button9.Text = "数据导出到EXCEL";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // 客户管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -764,5 +776,6 @@
         private System.Windows.Forms.Label label联系人;
         private System.Windows.Forms.TextBox textBox联系人;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button9;
     }
 }
