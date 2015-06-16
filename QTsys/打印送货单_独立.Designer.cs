@@ -243,7 +243,7 @@
             // 
             // button打印送货单
             // 
-            this.button打印送货单.Location = new System.Drawing.Point(1120, 199);
+            this.button打印送货单.Location = new System.Drawing.Point(1102, 199);
             this.button打印送货单.Name = "button打印送货单";
             this.button打印送货单.Size = new System.Drawing.Size(167, 23);
             this.button打印送货单.TabIndex = 112;
@@ -308,11 +308,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1311, 199);
+            this.button1.Location = new System.Drawing.Point(1285, 199);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 118;
-            this.button1.Text = "打印快递单";
+            this.button1.Text = "生成快递单数据";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
