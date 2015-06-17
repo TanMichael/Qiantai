@@ -15,10 +15,11 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.生产计划";
+                string sql = "select pp.编号,pp.客户编号,pp.下单日期,pp.计划类型,p.产品编号,p.产品名称,p.规格,p.材质,pp.产品数量,p.成型模号,p.成型时间,p.胶水型号,p.切断模,'' as 备注 " +   //,pp.实际完成时间
+                    "from qiaotai.生产计划 pp inner join qiaotai.产品信息 p on pp.产品编号=p.产品编号";
                 if (!reallyAll)
                 {
-                    sql += " where 生产状态 <> '待审核' and 生产状态 <> '取消' and 生产状态 <> '入库'";
+                    sql += " where pp.生产状态 <> '待审核' and pp.生产状态 <> '取消' and pp.生产状态 <> '入库'";
                 }
                 sql += ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);

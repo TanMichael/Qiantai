@@ -97,7 +97,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1049, 621);
+            this.tabControl1.Size = new System.Drawing.Size(1200, 646);
             this.tabControl1.TabIndex = 66;
             // 
             // tabPage1
@@ -112,14 +112,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1041, 595);
+            this.tabPage1.Size = new System.Drawing.Size(1192, 620);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "待生成生产计划";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(307, 488);
+            this.button9.Location = new System.Drawing.Point(311, 556);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 147;
@@ -132,7 +132,7 @@
             this.label搜索待生产栏目.AutoSize = true;
             this.label搜索待生产栏目.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label搜索待生产栏目.ForeColor = System.Drawing.Color.Red;
-            this.label搜索待生产栏目.Location = new System.Drawing.Point(44, 494);
+            this.label搜索待生产栏目.Location = new System.Drawing.Point(48, 562);
             this.label搜索待生产栏目.Name = "label搜索待生产栏目";
             this.label搜索待生产栏目.Size = new System.Drawing.Size(31, 12);
             this.label搜索待生产栏目.TabIndex = 143;
@@ -140,14 +140,14 @@
             // 
             // textBox搜索待生产内容
             // 
-            this.textBox搜索待生产内容.Location = new System.Drawing.Point(127, 490);
+            this.textBox搜索待生产内容.Location = new System.Drawing.Point(131, 558);
             this.textBox搜索待生产内容.Name = "textBox搜索待生产内容";
             this.textBox搜索待生产内容.Size = new System.Drawing.Size(159, 21);
             this.textBox搜索待生产内容.TabIndex = 140;
             // 
             // button生成生产计划
             // 
-            this.button生成生产计划.Location = new System.Drawing.Point(681, 536);
+            this.button生成生产计划.Location = new System.Drawing.Point(869, 575);
             this.button生成生产计划.Name = "button生成生产计划";
             this.button生成生产计划.Size = new System.Drawing.Size(100, 23);
             this.button生成生产计划.TabIndex = 144;
@@ -157,7 +157,7 @@
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(305, 512);
+            this.label17.Location = new System.Drawing.Point(309, 580);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 23);
             this.label17.TabIndex = 146;
@@ -165,7 +165,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(9, 494);
+            this.label18.Location = new System.Drawing.Point(13, 562);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(29, 12);
             this.label18.TabIndex = 142;
@@ -177,7 +177,7 @@
             this.dataGridView审核通过订单.Location = new System.Drawing.Point(6, 6);
             this.dataGridView审核通过订单.Name = "dataGridView审核通过订单";
             this.dataGridView审核通过订单.RowTemplate.Height = 23;
-            this.dataGridView审核通过订单.Size = new System.Drawing.Size(1019, 462);
+            this.dataGridView审核通过订单.Size = new System.Drawing.Size(1180, 505);
             this.dataGridView审核通过订单.TabIndex = 109;
             this.dataGridView审核通过订单.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView审核通过订单_CellClick);
             // 
@@ -230,14 +230,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1041, 595);
+            this.tabPage2.Size = new System.Drawing.Size(1192, 620);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "生产计划";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(894, 555);
+            this.button10.Location = new System.Drawing.Point(894, 591);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(137, 23);
             this.button10.TabIndex = 151;
@@ -258,7 +258,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 560);
+            this.label16.Location = new System.Drawing.Point(10, 596);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(77, 12);
             this.label16.TabIndex = 149;
@@ -267,7 +267,7 @@
             // textBox计划数
             // 
             this.textBox计划数.Enabled = false;
-            this.textBox计划数.Location = new System.Drawing.Point(93, 557);
+            this.textBox计划数.Location = new System.Drawing.Point(93, 593);
             this.textBox计划数.Name = "textBox计划数";
             this.textBox计划数.Size = new System.Drawing.Size(121, 21);
             this.textBox计划数.TabIndex = 148;
@@ -275,7 +275,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(430, 560);
+            this.label15.Location = new System.Drawing.Point(430, 596);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 12);
             this.label15.TabIndex = 147;
@@ -284,7 +284,7 @@
             // textBox补充数
             // 
             this.textBox补充数.Enabled = false;
-            this.textBox补充数.Location = new System.Drawing.Point(525, 557);
+            this.textBox补充数.Location = new System.Drawing.Point(525, 593);
             this.textBox补充数.Name = "textBox补充数";
             this.textBox补充数.Size = new System.Drawing.Size(121, 21);
             this.textBox补充数.TabIndex = 146;
@@ -292,7 +292,7 @@
             // label_num
             // 
             this.label_num.AutoSize = true;
-            this.label_num.Location = new System.Drawing.Point(220, 560);
+            this.label_num.Location = new System.Drawing.Point(220, 596);
             this.label_num.Name = "label_num";
             this.label_num.Size = new System.Drawing.Size(77, 12);
             this.label_num.TabIndex = 145;
@@ -300,7 +300,7 @@
             // 
             // textBox实际数
             // 
-            this.textBox实际数.Location = new System.Drawing.Point(303, 557);
+            this.textBox实际数.Location = new System.Drawing.Point(303, 593);
             this.textBox实际数.Name = "textBox实际数";
             this.textBox实际数.Size = new System.Drawing.Size(121, 21);
             this.textBox实际数.TabIndex = 144;
@@ -308,7 +308,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(652, 555);
+            this.button6.Location = new System.Drawing.Point(652, 591);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(115, 23);
             this.button6.TabIndex = 143;
@@ -614,7 +614,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 157);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1019, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(1174, 417);
             this.dataGridView1.TabIndex = 108;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -634,7 +634,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 636);
+            this.ClientSize = new System.Drawing.Size(1224, 670);
             this.Controls.Add(this.tabControl1);
             this.Name = "生产管理";
             this.Text = "生产管理";
