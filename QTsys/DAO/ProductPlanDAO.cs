@@ -185,7 +185,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "select p.产品编号, pro.产品名称,p.产品数量,p.当前生产数,0 AS 本次发货数, pro.规格, pro.变位, pro.材质, pro.单价, p.客户编号,  p.生产状态, p.下单日期, p.最后更新时间, p.编号 " +
+                string sql = "select p.产品编号, pro.产品名称,p.产品数量,p.当前生产数 AS 已发货数,0 AS 本次发货数, pro.规格, pro.变位, pro.材质, pro.单价, p.客户编号,  p.生产状态, p.下单日期, p.最后更新时间, p.编号 " +
                     "from qiaotai.生产计划 p inner join qiaotai.产品信息 pro on p.产品编号=pro.产品编号 where p.相关订单编号=" + orderId + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);

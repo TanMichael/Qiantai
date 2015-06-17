@@ -300,11 +300,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1015, 168);
+            this.label11.Location = new System.Drawing.Point(1039, 167);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 116;
-            this.label11.Text = "已经生产数";
+            this.label11.Text = "已发货数";
             // 
             // button1
             // 

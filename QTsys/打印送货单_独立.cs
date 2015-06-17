@@ -85,7 +85,7 @@ namespace QTsys
             {
                 selectedPlanIdx = e.RowIndex;
                 selectedPlanId = dataGridView生产计划.Rows[selectedPlanIdx].Cells["编号"].Value.ToString();
-                textBox已经生产.Text = dataGridView生产计划.CurrentRow.Cells["当前生产数"].Value.ToString();
+                textBox已经生产.Text = dataGridView生产计划.CurrentRow.Cells["已发货数"].Value.ToString();
                 textBox订单数量.Text = dataGridView生产计划.CurrentRow.Cells["产品数量"].Value.ToString();
                 textBox当前生产数.Text = dataGridView生产计划.CurrentRow.Cells["本次发货数"].Value.ToString();
             }
@@ -201,7 +201,7 @@ namespace QTsys
             }
             for (int j = 0; j < dataGridView生产计划.RowCount; j++)
             {
-                if (dataGridView生产计划.Rows[selectedPlanIdx].Cells["当前生产数"].ToString() == "" || dataGridView生产计划.Rows[selectedPlanIdx].Cells["当前生产数"].ToString() == "0")
+                if (dataGridView生产计划.Rows[selectedPlanIdx].Cells["已发货数"].ToString() == "" || dataGridView生产计划.Rows[selectedPlanIdx].Cells["已发货数"].ToString() == "0")
                 {
                     MessageBox.Show("请输入须送货的数量！");
                     return;
@@ -218,7 +218,7 @@ namespace QTsys
                 {
                     int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
                     string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
-                    int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["当前生产数"].Value.ToString());
+                    int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
                     if (iCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
                     {
                         MessageBox.Show("超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString()+"】");
