@@ -15,7 +15,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.订单;";
+                string sql = "SELECT * FROM qiaotai.订单 ORDER BY 创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -126,7 +126,7 @@ namespace QTsys.DAO
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "SELECT * FROM qiaotai.订单 WHERE 订单状态 LIKE '%" + key + "%';";
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 订单状态 LIKE '%" + key + "%' ORDER BY 创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
@@ -142,7 +142,7 @@ namespace QTsys.DAO
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "SELECT * FROM 订单 WHERE 订单.订单状态 ='" + state + "'AND 订单.订单编号='" + key + "';";
+                string sql = "SELECT * FROM 订单 WHERE 订单.订单状态 ='" + state + "'AND 订单.订单编号='" + key + "' ORDER BY 创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
@@ -175,7 +175,7 @@ namespace QTsys.DAO
             DataTable dt = new DataTable();
             try
             {
-                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建人='" + userName + "';";
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建人='" + userName + "' ORDER BY 创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
@@ -206,7 +206,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1.ToString() + "' AND 创建时间<'" + date2.ToString() + "';";
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1.ToString() + "' AND 创建时间<'" + date2.ToString() + "' ORDER BY 创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

@@ -37,7 +37,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " LIKE '%" + value + "%';";
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE " + col + " LIKE '%" + value + "%' ORDER BY 下单日期 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
