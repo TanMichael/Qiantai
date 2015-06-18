@@ -215,7 +215,7 @@ namespace QTsys.DAO
             try
             {
                 Material material = new Material();
-                string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + col + " = '" + value + "';";
+                string sql = "SELECT * FROM qiaotai.原材料进出仓 WHERE " + col + " = '" + value + "' ORDER BY 发生时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

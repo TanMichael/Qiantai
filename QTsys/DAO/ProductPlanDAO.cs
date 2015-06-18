@@ -21,7 +21,7 @@ namespace QTsys.DAO
                 {
                     sql += " where pp.生产状态 <> '待审核' and pp.生产状态 <> '取消' and pp.生产状态 <> '入库'";
                 }
-                sql += ";";
+                sql += " ORDER BY pp.下单日期 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

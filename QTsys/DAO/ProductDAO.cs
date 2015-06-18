@@ -31,7 +31,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.产品进出库;";
+                string sql = "SELECT * FROM qiaotai.产品进出库 ORDER BY 发生时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

@@ -159,7 +159,7 @@ namespace QTsys.DAO
             try
             {
                 string sql = "SELECT d.订单编号,c.客户名称,d.创建人,d.创建时间 FROM qiaotai.订单 d inner join qiaotai.客户信息 c " +
-                    "on d.客户编号=c.客户编号 WHERE d.订单状态='交易成功' and d.是否样品订单='是';";
+                    "on d.客户编号=c.客户编号 WHERE d.订单状态='交易成功' and d.是否样品订单='是' ORDER BY d.创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 this.Connection.Open();
