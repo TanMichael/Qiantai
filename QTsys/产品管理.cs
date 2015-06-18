@@ -13,6 +13,8 @@ using QTsys.DAO;
 using QTsys.Manager;
 using QTsys.Common.Constants;
 using System.IO;
+using Microsoft.Win32;
+
 namespace QTsys
 {
     public partial class 产品管理 : Form
@@ -264,9 +266,9 @@ namespace QTsys
                     usedata = usedata.Replace("《变位》", selectedProduct.Shift.ToString());
                     usedata = usedata.Replace("《实测变位》", selectedProduct.RealShift.ToString());
                     usedata = usedata.Replace("《颜色》", selectedProduct.Color.ToString());
-                  //  usedata = usedata.Replace("《单位》", selectedProduct.Unit.ToString());
-                   // usedata = usedata.Replace("《单价》", selectedProduct.Price.ToString());
-               //     usedata = usedata.Replace("《库存数量》", selectedProduct.StockCount.ToString());
+                    //  usedata = usedata.Replace("《单位》", selectedProduct.Unit.ToString());
+                    // usedata = usedata.Replace("《单价》", selectedProduct.Price.ToString());
+                    //     usedata = usedata.Replace("《库存数量》", selectedProduct.StockCount.ToString());
                     usedata = usedata.Replace("《发料编号》", selectedProduct.布料编号.ToString());
                     usedata = usedata.Replace("《开料要求》", selectedProduct.开料要求.ToString());
                     usedata = usedata.Replace("《开料尺寸》", selectedProduct.开料尺寸.ToString());
@@ -342,13 +344,18 @@ namespace QTsys
                     usedata = usedata.Replace("《审核》", selectedProduct.审核.ToString());
                     usedata = usedata.Replace("《制作》", selectedProduct.制作.ToString());
                 }
-                catch (Exception ex) {  };
+                catch (Exception ex) { };
                 //把usedata写入送货单_OVER并更新
                 File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单_OVER.htm");
                 StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单_OVER.htm", true, Encoding.GetEncoding("GB2312"));
                 wr.Write(usedata);
                 wr.Close();
                 webBrowser1.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\工程制作指示单_OVER.htm");//显示网页
+                RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Internet Explorer\\PageSetup", true);
+                key.SetValue("margin_bottom", "0.3");
+                key.SetValue("margin_left", "0.3");
+                key.SetValue("margin_right", "0.3");
+                key.SetValue("margin_top", "0.3");
                 webBrowser1.ShowPageSetupDialog();
                 webBrowser1.ShowPrintPreviewDialog();
             }
