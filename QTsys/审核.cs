@@ -47,7 +47,10 @@ namespace QTsys
                 dataGridView订单.DataSource = this.odm.GetAllOrderByState("待审核");
                 dataGridView订单.Update();
             }
-            catch (Exception ex) { };
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            };
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
