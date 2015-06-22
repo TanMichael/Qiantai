@@ -206,7 +206,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1.ToString() + "' AND 创建时间<'" + date2.ToString() + "' ORDER BY 创建时间 DESC;";
+                string sql = "SELECT * FROM qiaotai.订单 WHERE 创建时间>'" + date1..ToString("yyyy/MM/dd HH:mm:ss") + "' AND 创建时间<'" + date2..ToString("yyyy/MM/dd HH:mm:ss") + "' ORDER BY 创建时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

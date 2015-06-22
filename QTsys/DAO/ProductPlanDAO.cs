@@ -87,7 +87,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 下单日期>'" + date1.ToString() + "' AND 下单日期<'" + date2.ToString() + "';";
+                string sql = "SELECT * FROM qiaotai.生产计划 WHERE 下单日期>'" + date1.ToString("yyyy/MM/dd HH:mm:ss") + "' AND 下单日期<'" + date2.ToString("yyyy/MM/dd HH:mm:ss") + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
