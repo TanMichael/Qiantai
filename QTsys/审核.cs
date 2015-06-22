@@ -49,7 +49,7 @@ namespace QTsys
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             };
         }
 
@@ -58,7 +58,7 @@ namespace QTsys
             try {
                 label_搜索栏目.Text = dataGridView1.Columns[e.ColumnIndex].HeaderText.ToString();
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,7 +67,7 @@ namespace QTsys
             {
 
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace QTsys
                     dataGridView1.Update();
                 }
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         public void showgrid() {
@@ -94,7 +94,7 @@ namespace QTsys
                 dataGridView1.DataSource = this.showdata.GetAllMsg(date_up.Value, date_down.Value);
                 dataGridView1.Update();
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void date_up_ValueChanged(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace QTsys
                 dataGridView订单明细.DataSource = this.odm.GetAllOrderDetailsBySerialEx(dataGridView订单.Rows[e.RowIndex].Cells["订单编号"].Value.ToString());
                 dataGridView订单明细.Update();
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void button通过计划_Click(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace QTsys
                 else
                     MessageBox.Show("生产状态更新失败！");
             }
-            catch (Exception ex) { MessageBox.Show("生产状态更新失败！"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); MessageBox.Show("生产状态更新失败！"); }
         }
 
         private void button拒绝计划_Click(object sender, EventArgs e)
@@ -172,7 +172,7 @@ namespace QTsys
                 else
                     MessageBox.Show("生产状态更新失败！");
             }
-            catch (Exception ex) { MessageBox.Show("生产状态更新失败！"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); MessageBox.Show("生产状态更新失败！"); }
         }
 
         private void button通过订单_Click(object sender, EventArgs e)
@@ -230,7 +230,7 @@ namespace QTsys
                 else
                     MessageBox.Show("订单状态修改失败！");
             }
-            catch (Exception ex) { MessageBox.Show("订单状态修改失败！"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); MessageBox.Show("订单状态修改失败！"); }
         }
 
         private void dataGridView生产计划_CellClick(object sender, DataGridViewCellEventArgs e)

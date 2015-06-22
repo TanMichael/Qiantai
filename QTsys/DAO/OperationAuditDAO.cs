@@ -17,7 +17,8 @@ namespace QTsys.DAO
             try
             {
                 Customer cus = new Customer();
-                string sql = "SELECT * FROM qiaotai.操作记录 WHERE 操作时间>'" + up.ToString() + "' AND 操作时间<'" + down.ToString() + "';";
+                string sql = "SELECT * FROM qiaotai.操作记录 WHERE 操作时间>'" +
+                    up.ToString("yyyy/MM/dd HH:mm:ss") + "' AND 操作时间<'" + down.ToString("yyyy/MM/dd HH:mm:ss") + "' ORDER BY 操作时间 DESC;";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
