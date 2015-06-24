@@ -224,6 +224,12 @@
     <Compile Include="打印快递单.Designer.cs">
       <DependentUpon>打印快递单.cs</DependentUpon>
     </Compile>
+    <Compile Include="打印报价单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="打印报价单.Designer.cs">
+      <DependentUpon>打印报价单.cs</DependentUpon>
+    </Compile>
     <Compile Include="打印送货单_独立.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,12 @@
     </Compile>
     <Compile Include="报价.Designer.cs">
       <DependentUpon>报价.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增报价单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增报价单.Designer.cs">
+      <DependentUpon>新增报价单.cs</DependentUpon>
     </Compile>
     <Compile Include="新增订单.cs">
       <SubType>Form</SubType>
@@ -374,6 +386,9 @@
     <EmbeddedResource Include="打印快递单.resx">
       <DependentUpon>打印快递单.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="打印报价单.resx">
+      <DependentUpon>打印报价单.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="打印送货单_独立.resx">
       <DependentUpon>打印送货单_独立.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="报价.resx">
       <DependentUpon>报价.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增报价单.resx">
+      <DependentUpon>新增报价单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="新增订单.resx">
       <DependentUpon>新增订单.cs</DependentUpon>

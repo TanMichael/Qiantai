@@ -1706,7 +1706,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAAOwwAADsMBx2+oZAAAVrpJREFUeF7tnQdYVFf6
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAAOwgAADsIBFShKgAAAVrpJREFUeF7tnQdYVFf6
         /0Wlg9hbYu+9IyKCgth7AbGgIlyNNUZNookpm7ZJ1Jg1xl6wgNiQ3rGLIvbeW6LGFk1iNru/3X3/3/fc
         e2buXC6WJLuR/e88z+c5d+4MM3fmfPi+77kzaBEi+h/PCS52BVCUeZb76u9TmDHd+T/MMUqgIaSR8P2q
         VKnSv1mzZvOdnZ3L6X6Ob7f5Wf1jF1ZMd/6P/BgnH9iIA4rx/UqVKlWzS5cuJwYNGkSdOnXKLVeuXHPd
@@ -3718,7 +3718,7 @@
         XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
         fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
         tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
-        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAAOwQAADsEBuJFr7QAAJ6ZJREFUeF7t3AewnlW5
+        6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAlwSFlzAAAOwAAADsABataJCQAAJ6ZJREFUeF7t3AewnlW5
         L3ApgVA0WCBY8HBEQEJx9GA5R8cGojLCvc7xXL1RUFAS41gu2GY8XhtokJFxYBCBUEIHwcAFLIiUgID0
         Ir1JL6ETCC247/q9s/+ZlY83YZPs9u39rZn/rPddfT3Pfz3rWev99n5FX19fDz0sM1oTxztKWKENyess
         P57RmjgeEZL0Y0Vxle59peq5R6J+tCaON/QTA0EmFKxYpa/S8S5fuR6J+tGaOB4QAvSTYeWCCf3vq265
@@ -5629,7 +5629,7 @@
         /AlwSd78NoSN6JO3epmds19H4vT/AcZoiv8QA+k6AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button预警统计.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button新增报价单.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
         HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAArpAAAK6QH9dc7TAAAAH3RFWHRTb2Z0d2FyZQBNYWNy
@@ -6598,7 +6598,7 @@
   <data name="button报价.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6
-        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsOAAALDgFAvuFBAABwNUlE
+        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsNAAALDQHtB8AsAABwNUlE
         QVR4Xu2dd5wUxRftHxlEQMwJc/qZReLmSE6iIKCACI4oipizIGbBjIoZIyo57rKRsOScM4KCRAkSBITt
         d76XrrF3HRSz+N4f59M9NT3dVbdOnXtvdXXP//E87//j/+N3I2LhfxBFfBT9B8B1I9XpP4GIhYc5gmQp
         FkDxAvv5+Wwj/f53Y8+aNUXz9+8PXi94zf8koSIWHiZwRAkiSJriezdsKLZn9eqiu1asKPr90qV8V+Ac

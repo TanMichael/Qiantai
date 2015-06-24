@@ -39,6 +39,7 @@
             this.button原料 = new System.Windows.Forms.Button();
             this.button产品管理 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button打印送货单 = new System.Windows.Forms.Button();
             this.button新增订单 = new System.Windows.Forms.Button();
             this.button生产管理 = new System.Windows.Forms.Button();
             this.button订单管理 = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@
             this.button员工管理 = new System.Windows.Forms.Button();
             this.button批处理 = new System.Windows.Forms.Button();
             this.button客户管理 = new System.Windows.Forms.Button();
-            this.button预警统计 = new System.Windows.Forms.Button();
+            this.button新增报价单 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.button对账 = new System.Windows.Forms.Button();
             this.button报价 = new System.Windows.Forms.Button();
             this.button审核 = new System.Windows.Forms.Button();
-            this.button打印送货单 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -175,6 +175,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "生产/销售";
             // 
+            // button打印送货单
+            // 
+            this.button打印送货单.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button打印送货单.Font = new System.Drawing.Font("黑体", 16F);
+            this.button打印送货单.Image = ((System.Drawing.Image)(resources.GetObject("button打印送货单.Image")));
+            this.button打印送货单.Location = new System.Drawing.Point(635, 25);
+            this.button打印送货单.Name = "button打印送货单";
+            this.button打印送货单.Size = new System.Drawing.Size(146, 150);
+            this.button打印送货单.TabIndex = 13;
+            this.button打印送货单.Text = "打印送货单";
+            this.button打印送货单.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button打印送货单.UseVisualStyleBackColor = true;
+            this.button打印送货单.Click += new System.EventHandler(this.button打印送货单_Click);
+            // 
             // button新增订单
             // 
             this.button新增订单.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -287,19 +301,19 @@
             this.button客户管理.UseVisualStyleBackColor = true;
             this.button客户管理.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button预警统计
+            // button新增报价单
             // 
-            this.button预警统计.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button预警统计.Font = new System.Drawing.Font("黑体", 16F);
-            this.button预警统计.Image = ((System.Drawing.Image)(resources.GetObject("button预警统计.Image")));
-            this.button预警统计.Location = new System.Drawing.Point(641, 27);
-            this.button预警统计.Name = "button预警统计";
-            this.button预警统计.Size = new System.Drawing.Size(146, 150);
-            this.button预警统计.TabIndex = 6;
-            this.button预警统计.Text = "预警/统计";
-            this.button预警统计.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button预警统计.UseVisualStyleBackColor = true;
-            this.button预警统计.Click += new System.EventHandler(this.button11_Click);
+            this.button新增报价单.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button新增报价单.Font = new System.Drawing.Font("黑体", 16F);
+            this.button新增报价单.Image = ((System.Drawing.Image)(resources.GetObject("button新增报价单.Image")));
+            this.button新增报价单.Location = new System.Drawing.Point(634, 27);
+            this.button新增报价单.Name = "button新增报价单";
+            this.button新增报价单.Size = new System.Drawing.Size(146, 150);
+            this.button新增报价单.TabIndex = 6;
+            this.button新增报价单.Text = "新增报价单";
+            this.button新增报价单.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button新增报价单.UseVisualStyleBackColor = true;
+            this.button新增报价单.Click += new System.EventHandler(this.button11_Click);
             // 
             // menuStrip1
             // 
@@ -360,7 +374,7 @@
             // 
             this.groupBox2.Controls.Add(this.button对账);
             this.groupBox2.Controls.Add(this.button报价);
-            this.groupBox2.Controls.Add(this.button预警统计);
+            this.groupBox2.Controls.Add(this.button新增报价单);
             this.groupBox2.Controls.Add(this.button审核);
             this.groupBox2.Controls.Add(this.button销售管理);
             this.groupBox2.Location = new System.Drawing.Point(18, 420);
@@ -412,20 +426,6 @@
             this.button审核.UseVisualStyleBackColor = true;
             this.button审核.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button打印送货单
-            // 
-            this.button打印送货单.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button打印送货单.Font = new System.Drawing.Font("黑体", 16F);
-            this.button打印送货单.Image = ((System.Drawing.Image)(resources.GetObject("button打印送货单.Image")));
-            this.button打印送货单.Location = new System.Drawing.Point(635, 25);
-            this.button打印送货单.Name = "button打印送货单";
-            this.button打印送货单.Size = new System.Drawing.Size(146, 150);
-            this.button打印送货单.TabIndex = 13;
-            this.button打印送货单.Text = "打印送货单";
-            this.button打印送货单.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button打印送货单.UseVisualStyleBackColor = true;
-            this.button打印送货单.Click += new System.EventHandler(this.button打印送货单_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -469,7 +469,7 @@
         private System.Windows.Forms.Button button订单管理;
         private System.Windows.Forms.Button button销售管理;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button预警统计;
+        private System.Windows.Forms.Button button新增报价单;
         private System.Windows.Forms.Button button员工管理;
         private System.Windows.Forms.Button button客户管理;
         private System.Windows.Forms.MenuStrip menuStrip1;

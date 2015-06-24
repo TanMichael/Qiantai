@@ -12,20 +12,25 @@ using System.Windows.Forms;
 
 namespace QTsys
 {
-    public partial class 打印对账单 : Form
+    public partial class 打印报价单 : Form
     {
-        public static string templatePath = Directory.GetCurrentDirectory() + "\\各种单据\\对账单_template.htm";
+         public static string templatePath = Directory.GetCurrentDirectory() + "\\各种单据\\对账单_template.htm";
         public static string targetPath = Directory.GetCurrentDirectory() + "\\各种单据\\对账单_target.htm";
 
-        public 打印对账单()
+        public 打印报价单()
         {
-                InitializeComponent();           
+            InitializeComponent();
         }
 
-        public 打印对账单(对账 parent, DataTable dt)
-            : this()
+        private void button打印_Click(object sender, EventArgs e)
         {
-            string customerName = parent.comboBox客户.Text;
+            webBrowser预览.Print();
+        }
+
+        public 打印报价单(对账 parent, DataTable dt)
+            : this()
+        { 
+         string customerName = parent.comboBox客户.Text;
             DateTime startDate = parent.dateTimePicker对账起始日.Value;
             DateTime endDate = parent.dateTimePicker对账截止日.Value;
             DateTime today = DateTime.Today;
@@ -99,14 +104,11 @@ namespace QTsys
             Utils.WriteToTemplate(targetPath, result);
 
             webBrowser预览.Url = new Uri(targetPath);//显示网页
+           
         }
 
-        private void button打印_Click(object sender, EventArgs e)
-        {
-            webBrowser预览.Print();
-        }
 
-        private void 打印对账单_Load(object sender, EventArgs e)
+        private void 打印报价单_Load(object sender, EventArgs e)
         {
 
         }

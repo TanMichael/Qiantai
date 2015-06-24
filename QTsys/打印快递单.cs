@@ -80,6 +80,8 @@ namespace QTsys
                 Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
                 //WorkSheet
                 Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得《速腾》
+
+               
                 //写入字段列标题 
                 /*for (int i = 0; i < mycsvdt.Columns.Count; i++)
                 {
@@ -108,6 +110,10 @@ namespace QTsys
                 worksheet.Cells[5, 2] = text联系电话.Text;
 
                 worksheet.Columns.EntireColumn.AutoFit();
+
+              //  ((Microsoft.Office.Interop.Excel.Range)worksheet.Columns["A:A ", System.Type.Missing]).ColumnWidth = 10; //列宽
+               //worksheet.Columns.Range.
+                    //range.RowHeight = rowHeight; 
                 try
                 {
                     workbook.Saved = true;

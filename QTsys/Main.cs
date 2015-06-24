@@ -54,14 +54,13 @@ namespace QTsys
             if ((right & Rights.EMPLOYEE) == Rights.EMPLOYEE)
             {
                 button员工管理.Visible = true;
-             //   button预警统计.Visible = true;
-                button预警统计.Visible = false;
+                
                 button批处理.Visible = true;
             }
             else
             {
                 button员工管理.Visible = false;
-                button预警统计.Visible = false;
+                button新增报价单.Visible = false;
                 button批处理.Visible = false;
             }
 
@@ -84,7 +83,6 @@ namespace QTsys
             {
                 button订单管理.Visible = false;
                 button新增订单.Visible = false;
-                
             }
 
             if ((right & Rights.PRODUCT) == Rights.PRODUCT)
@@ -135,6 +133,7 @@ namespace QTsys
             {
                 button报价.Visible = true;
                 // 对账单
+                button新增报价单.Visible = true;
                 button对账.Visible = true;
                 button销售管理.Visible = true;
             }
@@ -143,6 +142,7 @@ namespace QTsys
                 button报价.Visible = false;
                 button对账.Visible = false;
                 button销售管理.Visible = false;
+                button新增报价单.Visible = false;
             }
         }
 
@@ -177,7 +177,8 @@ namespace QTsys
 
         private void button11_Click(object sender, EventArgs e)
         {
-
+            新增报价单 win = new 新增报价单();
+            win.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

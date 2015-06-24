@@ -144,7 +144,7 @@ namespace QTsys.Common
                     rights = Rights.PRODUCT | Rights.FIN;    // TODO 对账单
                     break;
                 case UserRoles.ADMIN:
-                    rights = Rights.EMPLOYEE | Rights.CUSTOMER | Rights.SALES | Rights.STORAGE | Rights.PRODUCT | Rights.MANUFACTURE | Rights.REVIEWER | Rights.FIN;
+                    rights = Rights.EMPLOYEE | Rights.CUSTOMER | Rights.SALES | Rights.STORAGE | Rights.PRODUCT | Rights.MANUFACTURE | Rights.REVIEWER | Rights.FIN ;
                     break;
                 case UserRoles.WORKER:
                 default:
