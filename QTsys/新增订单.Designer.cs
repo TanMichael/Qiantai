@@ -47,12 +47,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.成交价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.text折扣 = new System.Windows.Forms.TextBox();
@@ -67,6 +61,14 @@
             this.button搜索 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
+            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.库存数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.成交价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -264,53 +266,19 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.产品编号,
             this.产品名称,
+            this.规格,
+            this.库存数量,
             this.数量,
             this.单价,
             this.折扣,
             this.成交价});
-            this.dataGridView2.Location = new System.Drawing.Point(10, 106);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 106);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(678, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(696, 150);
             this.dataGridView2.TabIndex = 13;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            // 
-            // 产品编号
-            // 
-            this.产品编号.HeaderText = "产品编号";
-            this.产品编号.Name = "产品编号";
-            this.产品编号.ReadOnly = true;
-            // 
-            // 产品名称
-            // 
-            this.产品名称.HeaderText = "产品名称";
-            this.产品名称.Name = "产品名称";
-            this.产品名称.ReadOnly = true;
-            // 
-            // 数量
-            // 
-            this.数量.HeaderText = "数量";
-            this.数量.Name = "数量";
-            this.数量.ReadOnly = true;
-            // 
-            // 单价
-            // 
-            this.单价.HeaderText = "单价";
-            this.单价.Name = "单价";
-            this.单价.ReadOnly = true;
-            // 
-            // 折扣
-            // 
-            this.折扣.HeaderText = "折扣";
-            this.折扣.Name = "折扣";
-            this.折扣.ReadOnly = true;
-            // 
-            // 成交价
-            // 
-            this.成交价.HeaderText = "成交价";
-            this.成交价.Name = "成交价";
-            this.成交价.ReadOnly = true;
             // 
             // label7
             // 
@@ -464,6 +432,60 @@
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
             // 
+            // 产品编号
+            // 
+            this.产品编号.HeaderText = "产品编号";
+            this.产品编号.Name = "产品编号";
+            this.产品编号.ReadOnly = true;
+            this.产品编号.Width = 78;
+            // 
+            // 产品名称
+            // 
+            this.产品名称.HeaderText = "产品名称";
+            this.产品名称.Name = "产品名称";
+            this.产品名称.ReadOnly = true;
+            // 
+            // 规格
+            // 
+            this.规格.HeaderText = "规格";
+            this.规格.Name = "规格";
+            this.规格.ReadOnly = true;
+            this.规格.Width = 120;
+            // 
+            // 库存数量
+            // 
+            this.库存数量.HeaderText = "库存数量";
+            this.库存数量.Name = "库存数量";
+            this.库存数量.ReadOnly = true;
+            this.库存数量.Width = 80;
+            // 
+            // 数量
+            // 
+            this.数量.HeaderText = "数量";
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            this.数量.Width = 60;
+            // 
+            // 单价
+            // 
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            this.单价.Width = 60;
+            // 
+            // 折扣
+            // 
+            this.折扣.HeaderText = "折扣";
+            this.折扣.Name = "折扣";
+            this.折扣.ReadOnly = true;
+            this.折扣.Width = 60;
+            // 
+            // 成交价
+            // 
+            this.成交价.HeaderText = "成交价";
+            this.成交价.Name = "成交价";
+            this.成交价.ReadOnly = true;
+            // 
             // 新增订单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -517,12 +539,6 @@
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox产品名称搜索;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 产品编号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 产品名称;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 折扣;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 成交价;
         private System.Windows.Forms.TextBox textBox总金额;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox com结算方式;
@@ -531,5 +547,13 @@
         private System.Windows.Forms.Label l编号;
         private System.Windows.Forms.Label label搜索列;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 产品编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 产品名称;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 规格;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 库存数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 折扣;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 成交价;
     }
 }

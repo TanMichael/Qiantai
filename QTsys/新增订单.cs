@@ -108,6 +108,8 @@ namespace QTsys
             { 
                 dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString(),
                 dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString(),
+                dataGridView1.Rows[selectpro].Cells["规格"].Value.ToString(),
+                dataGridView1.Rows[selectpro].Cells["库存数量"].Value.ToString(),
                 "1",
                 selectedPrice.ToString(),
                 "1",
