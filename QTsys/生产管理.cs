@@ -137,7 +137,7 @@ namespace QTsys
             {
                 label搜索栏目.Text = dataGridView1.Columns[e.ColumnIndex].HeaderText.ToString();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public void showgrid()
@@ -192,7 +192,7 @@ namespace QTsys
                 else
                     MessageBox.Show("更新失败！");
             }
-            catch (Exception ex) { MessageBox.Show("生产计划更新失败！"); }
+            catch (Exception ex) { MessageBox.Show("生产计划更新失败！\n" + ex.Message); }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -220,7 +220,7 @@ namespace QTsys
                 else
                     MessageBox.Show("失败！");
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -248,7 +248,7 @@ namespace QTsys
                 else
                     MessageBox.Show("失败！");
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -288,7 +288,7 @@ namespace QTsys
                     dataGridView审核通过订单.Update();
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public bool 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
@@ -311,7 +311,7 @@ namespace QTsys
                 MessageBox.Show("产品增加失败！！！");
             return false;
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
         }
 
         public void 补充生产(string 产品编号, int 产品数量)
@@ -336,7 +336,7 @@ namespace QTsys
 
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -384,7 +384,7 @@ namespace QTsys
                 dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
                 dataGridView审核通过订单.Update();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void dataGridView审核通过订单_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -420,7 +420,7 @@ namespace QTsys
                 //textBox计划数-textBox实际数=textBox补充数
                 textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void button8_Click_1(object sender, EventArgs e)
