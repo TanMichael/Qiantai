@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 717);
+            this.ClientSize = new System.Drawing.Size(919, 717);
             this.Controls.Add(this.webBrowser预览);
             this.Controls.Add(this.button打印);
             this.Controls.Add(this.label1);

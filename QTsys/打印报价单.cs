@@ -14,8 +14,8 @@ namespace QTsys
 {
     public partial class 打印报价单 : Form
     {
-         public static string templatePath = Directory.GetCurrentDirectory() + "\\各种单据\\对账单_template.htm";
-        public static string targetPath = Directory.GetCurrentDirectory() + "\\各种单据\\对账单_target.htm";
+        public static string templatePath = Directory.GetCurrentDirectory() + "\\各种单据\\报价单_template.htm";
+        public static string targetPath = Directory.GetCurrentDirectory() + "\\各种单据\\报价单_target.htm";
 
         public 打印报价单()
         {
@@ -27,21 +27,18 @@ namespace QTsys
             webBrowser预览.Print();
         }
 
-        public 打印报价单(对账 parent, DataTable dt)
+        public 打印报价单(新增报价单 parent, DataTable dt)
             : this()
-        { 
-         string customerName = parent.comboBox客户.Text;
-            DateTime startDate = parent.dateTimePicker对账起始日.Value;
-            DateTime endDate = parent.dateTimePicker对账截止日.Value;
-            DateTime today = DateTime.Today;
+        {
+            string customerID = parent.l编号.Text;
+            string customerName = parent.com客户名.Text;
             string contact = parent.com客户联系人.Text;
             string phone = parent.text联系电话.Text;
             string addr = parent.text收货地址.Text;
-            string fax = parent.textBox传真.Text;
-            string payMod = parent.textBox结算方式.Text;
-            string year = endDate.Year.ToString();
-            string month = endDate.Month.ToString();
-
+            string fax = "";
+            string payMod = parent.com结算方式.Text;
+            string year = DateTime.Now.Year.ToString();
+            string month = DateTime.Now.Month.ToString();
 
             string result = Utils.GetTemplateContent(templatePath);
             //string result = "";
@@ -50,49 +47,39 @@ namespace QTsys
             result = result.Replace("{月份}", month);
             result = result.Replace("{客户名称}", customerName);
             result = result.Replace("{结算方式}", payMod);
-            result = result.Replace("{列印日期}", today.ToShortDateString());
+            result = result.Replace("{列印日期}", DateTime.Now.ToString());
             result = result.Replace("{联系人}", contact);
             //result = result.Replace("{性质}", year);
             //result = result.Replace("{页码}", year);
             result = result.Replace("{联系电话}", phone);
-            result = result.Replace("{起始日期}", startDate.ToShortDateString());
             //result = result.Replace("{币种}", year);
             result = result.Replace("{传真}", fax);
-            result = result.Replace("{截止日期}", endDate.ToShortDateString());
             //result = result.Replace("{单位}", year);
             result = result.Replace("{地址}", addr);
 
             string value = "";
-            double totalSum = 0;
 
             foreach (DataRow row in dt.Rows)
             {
-                string productName = row["产品名称"].ToString();
-                string standard = row["规格"].ToString();
-                string deliverTime = row["发货时间"].ToString();    // TODO: time format
-                string deliverNO = row["送货单号"].ToString();
-                string orderId = row["订单编号"].ToString();
-                string texture = row["材质"].ToString();
-                string count = row["数量"].ToString();
-                string price = row["成交价"].ToString();
-                string sum = row["金额"].ToString();
-                totalSum += double.Parse(sum);
+                string 产品编号 = row["产品编号"].ToString();
+                string 产品名称 = row["产品名称"].ToString();
+                string 规格 = row["规格"].ToString();    // TODO: time format
+                string 材质 = row["材质"].ToString();
+                string 变位 = row["变位"].ToString();
+                string 单价 = row["单价"].ToString();
+                string 备注 = row["备注"].ToString();
 
                 value += Utils.GetTableTR(new string[]
                 {
-                    Utils.GetTableTD(deliverTime),
-                    Utils.GetTableTD(deliverNO),
-                    Utils.GetTableTD(productName),
-                    Utils.GetTableTD(orderId),
-                    Utils.GetTableTD(standard),
-                    Utils.GetTableTD(texture),
-                    Utils.GetTableTD(count),
-                    Utils.GetTableTD(price),
-                    Utils.GetTableTD(sum)
+                    Utils.GetTableTD(产品编号),
+                    Utils.GetTableTD(产品名称),
+                    Utils.GetTableTD(规格),
+                    Utils.GetTableTD(材质),
+                    Utils.GetTableTD(变位),
+                    Utils.GetTableTD(单价),
+                    Utils.GetTableTD(备注)
                 });
             }
-            result = result.Replace("{table_content}", value);
-            result = result.Replace("{总金额}", totalSum.ToString());
             result = result.Replace("{财务}", Utils.GetLogonToken().Name);
 
             //if (File.Exists(targetPath))
@@ -104,7 +91,7 @@ namespace QTsys
             Utils.WriteToTemplate(targetPath, result);
 
             webBrowser预览.Url = new Uri(targetPath);//显示网页
-           
+
         }
 
 

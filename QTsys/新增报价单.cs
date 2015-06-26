@@ -323,6 +323,12 @@ namespace QTsys
         private void button1_Click_1(object sender, EventArgs e)
         {
             //打印
+            try
+            {
+                打印报价单 win = new 打印报价单(this,(DataTable)(dataGridView2.DataSource));
+                win.ShowDialog();
+            }
+            catch (Exception ex) { ex.ToString(); }
         }
 
         private void textBox备注_TextChanged(object sender, EventArgs e)

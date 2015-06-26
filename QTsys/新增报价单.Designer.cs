@@ -49,20 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.com客户联系人 = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.check样品 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.text收货地址 = new System.Windows.Forms.TextBox();
-            this.text联系电话 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox总金额 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox单价 = new System.Windows.Forms.TextBox();
             this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,9 +56,23 @@
             this.变位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.check样品 = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1备注 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.text收货地址 = new System.Windows.Forms.TextBox();
+            this.text联系电话 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox备注 = new System.Windows.Forms.TextBox();
-            this.label1备注 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox单价 = new System.Windows.Forms.TextBox();
+            this.textBox总金额 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -314,6 +314,48 @@
             this.dataGridView2.TabIndex = 13;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
+            // 产品编号
+            // 
+            this.产品编号.HeaderText = "产品编号";
+            this.产品编号.Name = "产品编号";
+            this.产品编号.ReadOnly = true;
+            // 
+            // 产品名称
+            // 
+            this.产品名称.HeaderText = "产品名称";
+            this.产品名称.Name = "产品名称";
+            this.产品名称.ReadOnly = true;
+            // 
+            // 规格
+            // 
+            this.规格.HeaderText = "规格";
+            this.规格.Name = "规格";
+            this.规格.ReadOnly = true;
+            // 
+            // 材质
+            // 
+            this.材质.HeaderText = "材质";
+            this.材质.Name = "材质";
+            this.材质.ReadOnly = true;
+            // 
+            // 变位
+            // 
+            this.变位.HeaderText = "变位";
+            this.变位.Name = "变位";
+            this.变位.ReadOnly = true;
+            // 
+            // 单价
+            // 
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            // 
+            // 备注
+            // 
+            this.备注.HeaderText = "备注";
+            this.备注.Name = "备注";
+            this.备注.ReadOnly = true;
+            // 
             // check样品
             // 
             this.check样品.AutoSize = true;
@@ -355,6 +397,15 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
+            // 
+            // label1备注
+            // 
+            this.label1备注.AutoSize = true;
+            this.label1备注.Location = new System.Drawing.Point(440, 28);
+            this.label1备注.Name = "label1备注";
+            this.label1备注.Size = new System.Drawing.Size(11, 12);
+            this.label1备注.TabIndex = 13;
+            this.label1备注.Text = "0";
             // 
             // label3
             // 
@@ -409,6 +460,45 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "产品";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(219, 81);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 12);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "备注";
+            // 
+            // textBox备注
+            // 
+            this.textBox备注.Font = new System.Drawing.Font("宋体", 15F);
+            this.textBox备注.Location = new System.Drawing.Point(264, 71);
+            this.textBox备注.Name = "textBox备注";
+            this.textBox备注.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox备注.Size = new System.Drawing.Size(424, 30);
+            this.textBox备注.TabIndex = 19;
+            this.textBox备注.TextChanged += new System.EventHandler(this.textBox备注_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(193, 41);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "单价（￥）";
+            // 
+            // textBox单价
+            // 
+            this.textBox单价.Font = new System.Drawing.Font("宋体", 15F);
+            this.textBox单价.Location = new System.Drawing.Point(264, 32);
+            this.textBox单价.Name = "textBox单价";
+            this.textBox单价.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox单价.Size = new System.Drawing.Size(77, 30);
+            this.textBox单价.TabIndex = 17;
+            this.textBox单价.Text = "1";
+            this.textBox单价.TextChanged += new System.EventHandler(this.textBox单价_TextChanged);
+            // 
             // textBox总金额
             // 
             this.textBox总金额.Enabled = false;
@@ -449,96 +539,6 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "产品数量";
             this.label6.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(193, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "单价（￥）";
-            // 
-            // textBox单价
-            // 
-            this.textBox单价.Font = new System.Drawing.Font("宋体", 15F);
-            this.textBox单价.Location = new System.Drawing.Point(264, 32);
-            this.textBox单价.Name = "textBox单价";
-            this.textBox单价.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox单价.Size = new System.Drawing.Size(77, 30);
-            this.textBox单价.TabIndex = 17;
-            this.textBox单价.Text = "1";
-            this.textBox单价.TextChanged += new System.EventHandler(this.textBox单价_TextChanged);
-            // 
-            // 产品编号
-            // 
-            this.产品编号.HeaderText = "产品编号";
-            this.产品编号.Name = "产品编号";
-            this.产品编号.ReadOnly = true;
-            // 
-            // 产品名称
-            // 
-            this.产品名称.HeaderText = "产品名称";
-            this.产品名称.Name = "产品名称";
-            this.产品名称.ReadOnly = true;
-            // 
-            // 规格
-            // 
-            this.规格.HeaderText = "规格";
-            this.规格.Name = "规格";
-            this.规格.ReadOnly = true;
-            // 
-            // 材质
-            // 
-            this.材质.HeaderText = "材质";
-            this.材质.Name = "材质";
-            this.材质.ReadOnly = true;
-            // 
-            // 变位
-            // 
-            this.变位.HeaderText = "变位";
-            this.变位.Name = "变位";
-            this.变位.ReadOnly = true;
-            // 
-            // 单价
-            // 
-            this.单价.HeaderText = "单价";
-            this.单价.Name = "单价";
-            this.单价.ReadOnly = true;
-            // 
-            // 备注
-            // 
-            this.备注.HeaderText = "备注";
-            this.备注.Name = "备注";
-            this.备注.ReadOnly = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(219, 81);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 12);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "备注";
-            // 
-            // textBox备注
-            // 
-            this.textBox备注.Font = new System.Drawing.Font("宋体", 15F);
-            this.textBox备注.Location = new System.Drawing.Point(264, 71);
-            this.textBox备注.Name = "textBox备注";
-            this.textBox备注.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox备注.Size = new System.Drawing.Size(424, 30);
-            this.textBox备注.TabIndex = 19;
-            this.textBox备注.TextChanged += new System.EventHandler(this.textBox备注_TextChanged);
-            // 
-            // label1备注
-            // 
-            this.label1备注.AutoSize = true;
-            this.label1备注.Location = new System.Drawing.Point(440, 28);
-            this.label1备注.Name = "label1备注";
-            this.label1备注.Size = new System.Drawing.Size(11, 12);
-            this.label1备注.TabIndex = 13;
-            this.label1备注.Text = "0";
             // 
             // 新增报价单
             // 
@@ -582,19 +582,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox text折扣;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label l编号;
-        private System.Windows.Forms.ComboBox com结算方式;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox com客户名;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox com客户联系人;
         public System.Windows.Forms.DataGridView dataGridView2;
-        public System.Windows.Forms.CheckBox check样品;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox text收货地址;
-        private System.Windows.Forms.TextBox text联系电话;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox总金额;
@@ -613,5 +606,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox备注;
         private System.Windows.Forms.Label label1备注;
+        public System.Windows.Forms.Label l编号;
+        public System.Windows.Forms.ComboBox com结算方式;
+        public System.Windows.Forms.ComboBox com客户名;
+        public System.Windows.Forms.ComboBox com客户联系人;
+        public System.Windows.Forms.TextBox text收货地址;
+        public System.Windows.Forms.TextBox text联系电话;
+        private System.Windows.Forms.CheckBox check样品;
     }
 }
