@@ -21,5 +21,9 @@ namespace QTsys.DataObjects
         public string InChargePerson { get; set; }
         public int AlreadyProduce { get; set; }
         public DateTime LastTime { get; set; }
+
+        public int finishedCount { get; set; }
+        public int deliveredCount { get; set; }
+        public string hasFromStore { get; set; }
     }
 }

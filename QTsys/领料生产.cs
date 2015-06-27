@@ -53,11 +53,13 @@ namespace QTsys
                 dataGrid产品原料关系.Update();
                 textBox产品.Text = dataGrid未生产.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
                 textBox领料产品.Text = dataGrid未生产.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-                textBox产品数量.Text = dataGrid未生产.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
+                int pCount = int.Parse(dataGrid未生产.Rows[e.RowIndex].Cells["产品数量"].Value.ToString());
+                int fCount = int.Parse(dataGrid未生产.Rows[e.RowIndex].Cells["已完成生产数"].Value.ToString());
+                textBox产品数量.Text = (pCount - fCount).ToString();
                 textBox订单编号.Text = dataGrid未生产.Rows[e.RowIndex].Cells["编号"].Value.ToString();
                
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -51,11 +51,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox领料产品 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox订单编号 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox产品数量 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox订单编号 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid未生产)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid产品原料关系)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid原料)).BeginInit();
@@ -262,7 +262,7 @@
             this.textBox领料产品.Enabled = false;
             this.textBox领料产品.Location = new System.Drawing.Point(74, 69);
             this.textBox领料产品.Name = "textBox领料产品";
-            this.textBox领料产品.Size = new System.Drawing.Size(65, 21);
+            this.textBox领料产品.Size = new System.Drawing.Size(56, 21);
             this.textBox领料产品.TabIndex = 134;
             // 
             // groupBox1
@@ -281,32 +281,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "确认领料";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(145, 72);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
-            this.label8.TabIndex = 136;
-            this.label8.Text = "数量";
-            // 
-            // textBox产品数量
-            // 
-            this.textBox产品数量.Enabled = false;
-            this.textBox产品数量.Location = new System.Drawing.Point(180, 69);
-            this.textBox产品数量.Name = "textBox产品数量";
-            this.textBox产品数量.Size = new System.Drawing.Size(65, 21);
-            this.textBox产品数量.TabIndex = 135;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
-            this.label4.TabIndex = 133;
-            this.label4.Text = "产品";
-            // 
             // textBox订单编号
             // 
             this.textBox订单编号.Enabled = false;
@@ -323,6 +297,32 @@
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 137;
             this.label9.Text = "订单";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(131, 72);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 136;
+            this.label8.Text = "本次数量";
+            // 
+            // textBox产品数量
+            // 
+            this.textBox产品数量.Enabled = false;
+            this.textBox产品数量.Location = new System.Drawing.Point(186, 69);
+            this.textBox产品数量.Name = "textBox产品数量";
+            this.textBox产品数量.Size = new System.Drawing.Size(59, 21);
+            this.textBox产品数量.TabIndex = 135;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 133;
+            this.label4.Text = "产品";
             // 
             // 领料生产
             // 

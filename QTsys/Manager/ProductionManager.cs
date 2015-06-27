@@ -138,5 +138,10 @@ namespace QTsys.Manager
             else
                 return false;
         }
+
+        public bool UpdateProductStoreCount(int changeCount, string pId)
+        {
+            return pdao.UpdateProductStoreCount(changeCount, pId);
+        }
     }
 }

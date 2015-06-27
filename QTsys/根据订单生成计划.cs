@@ -25,6 +25,7 @@ namespace QTsys
         private int selectedOrderRowIdx;
         private ProductPlanManager ppm;
         private ProductionPlan plan;
+        private int selectedProdCount;
 
 
         public 根据订单生成计划()
@@ -78,12 +79,15 @@ namespace QTsys
                 selectedOrderRowIdx = e.RowIndex;
                 var selectedRow = dataGridView产品订单数据.Rows[selectedOrderRowIdx];
 
-                dataGridView参数修正.DataSource = pm.GetAllProductsByNameEX("产品编号", selectedRow.Cells["产品编号"].Value.ToString());
+                var prodResult = pm.GetAllProductsByNameEX("产品编号", selectedRow.Cells["产品编号"].Value.ToString());
+                dataGridView参数修正.DataSource = prodResult;
                 dataGridView产品原料关系.DataSource = pm.GetMaterialProductRelationByProduct(selectedRow.Cells["产品编号"].Value.ToString());
                 dataGridView参数修正.Update();
                 dataGridView产品原料关系.Update();
                 //
-                
+
+                label库存数.Text = prodResult.Rows[0]["库存数量"].ToString();
+                selectedProdCount = int.Parse(selectedRow.Cells["产品数量"].Value.ToString());
                 ////////
             }
             catch (Exception ex) { };
@@ -94,6 +98,8 @@ namespace QTsys
         {
             int idx = e.RowIndex;
             var selectedRow = dataGridView参数修正.Rows[idx];
+
+            //label库存数.Text = selectedRow.Cells["库存数量"].Value.ToString();
             
             //text产品编号.Text = selectedRow.Cells["产品编号"].Value.ToString();
             //text产品名称.Text = selectedRow.Cells["产品名称"].Value.ToString();
@@ -203,7 +209,26 @@ namespace QTsys
                 plan.FinishTime = DateTime.Parse("2000-01-01");
                 plan.PlanState = ProductionPlanStatus.PENDING;
                 plan.InChargePerson = Utils.GetCurrentUsername();
-                if (!ppm.AddNewPlan(plan)) { MessageBox.Show("插入计划失败"); planok = false; break; };
+
+                plan.finishedCount = int.Parse(textBox库存件数.Text);
+                if (checkBox1.Checked && plan.finishedCount > 0)
+                {
+                    plan.hasFromStore = "是";
+                    // 扣除库存
+                    pm.UpdateProductStoreCount(-plan.finishedCount, plan.ProductId);
+                    if (plan.finishedCount >= selectedProdCount)
+                    {
+                        plan.PlanState = ProductionPlanStatus.STORED;
+                    }
+                }
+
+                if (!ppm.AddNewPlan(plan)) { 
+                    MessageBox.Show("插入计划失败");
+                    planok = false;
+                    // 恢复库存
+                    pm.UpdateProductStoreCount(plan.finishedCount, plan.ProductId);
+                    break;
+                };
             }
             if (planok == true)
             {
@@ -216,6 +241,49 @@ namespace QTsys
                     MessageBox.Show("生产计划生成失败！");
                 }
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox库存件数.Enabled = true;
+            }
+            else
+            {
+                textBox库存件数.Enabled = false;
+            }
+        }
+
+        private void textBox库存件数_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int iUserSetted = int.Parse(textBox库存件数.Text);
+                int total = int.Parse(label库存数.Text);
+                if (iUserSetted > total)
+                {
+                    MessageBox.Show("不能大于库存！请重新输入");
+                    textBox库存件数.Text = total.ToString();
+                    return;
+                }
+                if (iUserSetted > selectedProdCount)
+                {
+                    //MessageBox.Show()
+                    DialogResult dr = MessageBox.Show("超交？", "请确认", MessageBoxButtons.OKCancel);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        //MessageBox.Show("操作终止，去维护产品原料关系");
+                        textBox库存件数.Text = selectedProdCount.ToString();
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

@@ -105,9 +105,9 @@ namespace QTsys.DAO
             {
 
                 // string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,下单日期,产品数量,交付时间,实际完成时间,计划类型,生产状态,相关订单编号,负责人) VALUES ('" + pp.ProductId + "','" + pp.CustomerId + "','" + pp.OrderTime + "','" + pp.Count + "','" + pp.PlanningTime + "','" + pp.FinishTime + "','" + pp.PlanType + "','" + pp.PlanState + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "')";
-                string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,生产状态,下单日期,产品数量,交付时间,实际完成时间,计划类型,相关订单编号,负责人,已发货数) VALUES ('" +
+                string sql = "INSERT INTO qiaotai.生产计划(产品编号,客户编号,生产状态,下单日期,产品数量,交付时间,实际完成时间,计划类型,相关订单编号,负责人,已发货数,已完成生产数,是否含库存) VALUES ('" +
                     pp.ProductId + "','" + pp.CustomerId + "','" + pp.PlanState + "','" + pp.OrderTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.Count + "','" + pp.PlanningTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + pp.FinishTime.ToString("yyyy/MM/dd HH:mm:ss") +
-                    "','" + pp.PlanType + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "',0)";
+                    "','" + pp.PlanType + "','" + pp.RelatedOrderId + "','" + pp.InChargePerson + "',0," + pp.finishedCount + ",'" + (pp.hasFromStore ?? "否") + "');";
 
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();

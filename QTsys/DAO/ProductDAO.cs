@@ -395,6 +395,20 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
-        
+
+
+        public bool UpdateProductStoreCount(int changeCount, string pId)
+        {
+            try
+            {
+                string sql = "UPDATE qiaotai.产品信息 SET 库存数量=库存数量+" + changeCount + " WHERE 产品编号='" + pId + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                this.Connection.Close();
+                return true;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
     }
 }
