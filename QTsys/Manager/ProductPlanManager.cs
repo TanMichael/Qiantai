@@ -68,9 +68,9 @@ namespace QTsys.Manager
             return this.pdao.GetProductPlanByOrder4Print(orderId);
         }
 
-        public bool UpdatePlanCurrentDeliveryCount(int count, string ppId)
+        public bool UpdatePlanCurrentDeliveryCount(int deliveredTobeUpdate, int finishTobeUpdate, string ppId)
         {
-            return this.pdao.UpdatePlanCurrentDeliveryCount(count, ppId);
+            return this.pdao.UpdatePlanCurrentDeliveryCount(deliveredTobeUpdate, finishTobeUpdate, ppId);
         }
     }
 }

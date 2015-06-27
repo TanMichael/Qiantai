@@ -203,11 +203,11 @@ namespace QTsys.DAO
             }
         }
 
-        public bool UpdatePlanCurrentDeliveryCount(int count, string ppId)
+        public bool UpdatePlanCurrentDeliveryCount(int deliveredTobeUpdate, int finishTobeUpdate, string ppId)
         {
             try
             {
-                string sql = "update qiaotai.生产计划 set 已发货数 = 已发货数+" + count.ToString() + ", 最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' where 编号 =" + ppId + ";";
+                string sql = "update qiaotai.生产计划 set 已发货数 = " + deliveredTobeUpdate.ToString() + ",已完成生产数=" + finishTobeUpdate.ToString() + ", 最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' where 编号 =" + ppId + ";";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();

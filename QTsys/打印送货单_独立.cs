@@ -211,6 +211,16 @@ namespace QTsys
             insetnewlist();
         }
 
+        private bool doCalThenUpdateDB(int iFinished, int iCurrent, int iDelivered, string ppId)
+        {
+            int currentStore = iFinished - iDelivered;
+            int currentRemian = currentStore - iCurrent;
+            int finishTobeUpdate = currentRemian > 0 ? iFinished : (iFinished - currentRemian);
+            int deliveredTobeUpdate = iDelivered + iCurrent;
+
+            return ppm.UpdatePlanCurrentDeliveryCount(deliveredTobeUpdate, finishTobeUpdate, ppId);
+        }
+
         private void button打印送货单_Click(object sender, EventArgs e)
         {
             try
@@ -219,13 +229,14 @@ namespace QTsys
                 {
                     int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
                     string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
+                    int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
                     int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
                     if (iCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
                     {
                         MessageBox.Show("超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString()+"】");
                     }
-                    // update 当前生产数
-                    if (!ppm.UpdatePlanCurrentDeliveryCount(cCount, ppId))
+                    // update 当前生产数, 已发货数
+                    if (!doCalThenUpdateDB(finishedCount, cCount, iCount, ppId))
                     {
                         MessageBox.Show("产品【"+dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString()+"】更新失败！");
                         return;
