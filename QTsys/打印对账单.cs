@@ -87,7 +87,6 @@ namespace QTsys
                 });
             }
             result = result.Replace("{table_content}", value);
-            result = result.Replace("{总金额}", totalSum.ToString());
             result = result.Replace("{财务}", Utils.GetLogonToken().Name);
 
             //if (File.Exists(targetPath))

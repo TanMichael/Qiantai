@@ -48,7 +48,7 @@
             this.com客户名 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.com客户联系人 = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView报价单 = new System.Windows.Forms.DataGridView();
             this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView报价单)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -293,12 +293,12 @@
             this.com客户联系人.Size = new System.Drawing.Size(121, 20);
             this.com客户联系人.TabIndex = 3;
             // 
-            // dataGridView2
+            // dataGridView报价单
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView报价单.AllowUserToAddRows = false;
+            this.dataGridView报价单.AllowUserToDeleteRows = false;
+            this.dataGridView报价单.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView报价单.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.产品编号,
             this.产品名称,
             this.规格,
@@ -306,13 +306,13 @@
             this.变位,
             this.单价,
             this.备注});
-            this.dataGridView2.Location = new System.Drawing.Point(10, 106);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(678, 150);
-            this.dataGridView2.TabIndex = 13;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView报价单.Location = new System.Drawing.Point(10, 106);
+            this.dataGridView报价单.Name = "dataGridView报价单";
+            this.dataGridView报价单.ReadOnly = true;
+            this.dataGridView报价单.RowTemplate.Height = 23;
+            this.dataGridView报价单.Size = new System.Drawing.Size(678, 150);
+            this.dataGridView报价单.TabIndex = 13;
+            this.dataGridView报价单.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // 产品编号
             // 
@@ -448,7 +448,7 @@
             this.groupBox2.Controls.Add(this.textBox总金额);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(this.dataGridView报价单);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.numericUpDown1);
             this.groupBox2.Controls.Add(this.text折扣);
@@ -557,7 +557,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView报价单)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -584,7 +584,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dataGridView报价单;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;

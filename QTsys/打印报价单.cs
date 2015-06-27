@@ -47,7 +47,7 @@ namespace QTsys
             result = result.Replace("{月份}", month);
             result = result.Replace("{客户名称}", customerName);
             result = result.Replace("{结算方式}", payMod);
-            result = result.Replace("{列印日期}", DateTime.Now.ToString());
+            result = result.Replace("{列印日期}", year + "年" + month + "月" + DateTime.Now.Day.ToString()+"日");
             result = result.Replace("{联系人}", contact);
             //result = result.Replace("{性质}", year);
             //result = result.Replace("{页码}", year);
@@ -58,6 +58,8 @@ namespace QTsys
             result = result.Replace("{地址}", addr);
 
             string value = "";
+
+           
 
             foreach (DataRow row in dt.Rows)
             {
@@ -81,7 +83,7 @@ namespace QTsys
                 });
             }
             result = result.Replace("{财务}", Utils.GetLogonToken().Name);
-
+            result = result.Replace("{table_content}", value);
             //if (File.Exists(targetPath))
             //{
             //    File.Delete(targetPath);

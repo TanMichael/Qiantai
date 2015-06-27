@@ -44,8 +44,8 @@ namespace QTsys
         {
             try
             {
-                dataGridView2.Rows[selectorder].Cells["折扣"].Value = text折扣.Text;
-                dataGridView2.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["折扣"].Value.ToString()) * Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["单价"].Value.ToString());
+                dataGridView报价单.Rows[selectorder].Cells["折扣"].Value = text折扣.Text;
+                dataGridView报价单.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView报价单.Rows[selectorder].Cells["折扣"].Value.ToString()) * Convert.ToDecimal(dataGridView报价单.Rows[selectorder].Cells["单价"].Value.ToString());
                 CalMoney();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -118,9 +118,9 @@ namespace QTsys
                 dataGridView1.Rows[selectpro].Cells["备注"].Value.ToString()
             };
             bool ins = true;
-            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            for (int i = 0; i < dataGridView报价单.Rows.Count; i++)
             {
-                if (dataGridView2.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
+                if (dataGridView报价单.Rows[i].Cells["产品编号"].Value.ToString() == dataGridView1.Rows[selectpro].Cells["产品编号"].Value.ToString())
                 {
                     MessageBox.Show("[" + dataGridView1.Rows[selectpro].Cells["产品名称"].Value.ToString() + "]已经被添加，请选择新产品！");
                     ins = false;
@@ -129,7 +129,7 @@ namespace QTsys
             }
             if (ins == true)
             {
-                dataGridView2.Rows.Add(rowadd);
+                dataGridView报价单.Rows.Add(rowadd);
             }
           // numericUpDown1.Value = 1;
             //text折扣.Text = "1";
@@ -151,8 +151,8 @@ namespace QTsys
         {
             try
             {
-                dataGridView2.Rows[selectorder].Cells["数量"].Value = numericUpDown1.Value;
-                dataGridView2.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["单价"].Value) * Convert.ToDecimal(dataGridView2.Rows[selectorder].Cells["折扣"].Value);
+                dataGridView报价单.Rows[selectorder].Cells["数量"].Value = numericUpDown1.Value;
+                dataGridView报价单.Rows[selectorder].Cells["成交价"].Value = Convert.ToDecimal(dataGridView报价单.Rows[selectorder].Cells["单价"].Value) * Convert.ToDecimal(dataGridView报价单.Rows[selectorder].Cells["折扣"].Value);
                 CalMoney();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -175,8 +175,8 @@ namespace QTsys
             try
             {
                 selectorder = e.RowIndex;
-                textBox备注.Text = dataGridView2.Rows[e.RowIndex].Cells["备注"].Value.ToString();
-                textBox单价.Text = dataGridView2.Rows[e.RowIndex].Cells["单价"].Value.ToString();
+                textBox备注.Text = dataGridView报价单.Rows[e.RowIndex].Cells["备注"].Value.ToString();
+                textBox单价.Text = dataGridView报价单.Rows[e.RowIndex].Cells["单价"].Value.ToString();
             }
             catch (Exception ex) { };
         }
@@ -185,12 +185,12 @@ namespace QTsys
         {
             try
             {
-                dataGridView2.Rows.Remove(dataGridView2.CurrentRow);
+                dataGridView报价单.Rows.Remove(dataGridView报价单.CurrentRow);
 
                 bool containsSample = false;
-                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                for (int i = 0; i < dataGridView报价单.Rows.Count; i++)
                 {
-                    var price = Convert.ToDouble(dataGridView2.Rows[i].Cells["单价"].Value);
+                    var price = Convert.ToDouble(dataGridView报价单.Rows[i].Cells["单价"].Value);
                     if (price == 0d)
                     {
                         containsSample = true;
@@ -309,7 +309,7 @@ namespace QTsys
         {
             try
             {
-                dataGridView2.Rows[selectorder].Cells["单价"].Value = textBox单价.Text;
+                dataGridView报价单.Rows[selectorder].Cells["单价"].Value = textBox单价.Text;
                // dataGridView2.Rows[selectorder].Cells["备注"].Value = textBox备注.Text;
             }
             catch (Exception ex) { };
@@ -324,8 +324,8 @@ namespace QTsys
         {
             //打印
             try
-            {
-                打印报价单 win = new 打印报价单(this,(DataTable)(dataGridView2.DataSource));
+            {   
+                打印报价单 win = new 打印报价单(this,GetDgvToTable(dataGridView报价单));
                 win.ShowDialog();
             }
             catch (Exception ex) { ex.ToString(); }
@@ -336,9 +336,33 @@ namespace QTsys
             try
             {
                // dataGridView2.Rows[selectorder].Cells["单价"].Value = textBox单价.Text;
-                dataGridView2.Rows[selectorder].Cells["备注"].Value = textBox备注.Text;
+                dataGridView报价单.Rows[selectorder].Cells["备注"].Value = textBox备注.Text;
             }
             catch (Exception ex) { };
+        }
+
+        public DataTable GetDgvToTable(DataGridView dgv)
+        {
+            DataTable dt = new DataTable();
+
+            // 列强制转换
+            for (int count = 0; count < dgv.Columns.Count; count++)
+            {
+                DataColumn dc = new DataColumn(dgv.Columns[count].Name.ToString());
+                dt.Columns.Add(dc);
+            }
+
+            // 循环行
+            for (int count = 0; count < dgv.Rows.Count; count++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int countsub = 0; countsub < dgv.Columns.Count; countsub++)
+                {
+                    dr[countsub] = Convert.ToString(dgv.Rows[count].Cells[countsub].Value);
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
 
     }
