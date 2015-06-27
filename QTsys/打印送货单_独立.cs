@@ -85,7 +85,8 @@ namespace QTsys
             {
                 selectedPlanIdx = e.RowIndex;
                 selectedPlanId = dataGridView生产计划.Rows[selectedPlanIdx].Cells["编号"].Value.ToString();
-                textBox已经生产.Text = dataGridView生产计划.CurrentRow.Cells["已发货数"].Value.ToString();
+                textBox已发货数.Text = dataGridView生产计划.CurrentRow.Cells["已发货数"].Value.ToString();
+                textBox已完成生产数.Text = dataGridView生产计划.CurrentRow.Cells["已完成生产数"].Value.ToString();
                 textBox订单数量.Text = dataGridView生产计划.CurrentRow.Cells["产品数量"].Value.ToString();
                 textBox当前生产数.Text = dataGridView生产计划.CurrentRow.Cells["本次发货数"].Value.ToString();
             }

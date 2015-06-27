@@ -102,10 +102,9 @@ namespace QTsys
                 text相关订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString();
                 com负责人.Text = dataGridView1.Rows[e.RowIndex].Cells["负责人"].Value.ToString();
                 //-----------------------------------------------------------------------------------------------
-               textBox实际数.Text= dataGridView1.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
-                    
-                    
+                
                     textBox计划数.Text = text产品数量.Text;
+                    textBox实际数.Text= dataGridView1.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
 
                 textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
 

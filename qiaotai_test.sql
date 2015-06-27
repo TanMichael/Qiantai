@@ -211,7 +211,9 @@ create table 生产计划
    生产状态                 nvarchar(128),
    相关订单编号             int,
    最后更新时间             DATETIME,
-   已发货数                 int,
+   已完成生产数             int default 0,
+   已发货数                 int default 0,
+   是否含库存               nvarchar(32),
    负责人                   nvarchar(128)
 );
 

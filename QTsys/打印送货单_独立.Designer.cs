@@ -52,10 +52,12 @@
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.textBox订单数量 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox已经生产 = new System.Windows.Forms.TextBox();
+            this.textBox已发货数 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1订单编号 = new System.Windows.Forms.Label();
+            this.textBox已完成生产数 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
@@ -289,13 +291,13 @@
             this.label10.TabIndex = 114;
             this.label10.Text = "订单数量";
             // 
-            // textBox已经生产
+            // textBox已发货数
             // 
-            this.textBox已经生产.Enabled = false;
-            this.textBox已经生产.Location = new System.Drawing.Point(1098, 164);
-            this.textBox已经生产.Name = "textBox已经生产";
-            this.textBox已经生产.Size = new System.Drawing.Size(85, 21);
-            this.textBox已经生产.TabIndex = 117;
+            this.textBox已发货数.Enabled = false;
+            this.textBox已发货数.Location = new System.Drawing.Point(1098, 164);
+            this.textBox已发货数.Name = "textBox已发货数";
+            this.textBox已发货数.Size = new System.Drawing.Size(85, 21);
+            this.textBox已发货数.TabIndex = 117;
             // 
             // label11
             // 
@@ -325,14 +327,33 @@
             this.label1订单编号.TabIndex = 119;
             this.label1订单编号.Text = "订单编号";
             // 
+            // textBox已完成生产数
+            // 
+            this.textBox已完成生产数.Enabled = false;
+            this.textBox已完成生产数.Location = new System.Drawing.Point(1098, 137);
+            this.textBox已完成生产数.Name = "textBox已完成生产数";
+            this.textBox已完成生产数.Size = new System.Drawing.Size(85, 21);
+            this.textBox已完成生产数.TabIndex = 121;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1015, 140);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 12);
+            this.label12.TabIndex = 120;
+            this.label12.Text = "已完成生产数";
+            // 
             // 打印送货单_独立
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1418, 680);
+            this.Controls.Add(this.textBox已完成生产数);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label1订单编号);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox已经生产);
+            this.Controls.Add(this.textBox已发货数);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox订单数量);
             this.Controls.Add(this.label10);
@@ -394,9 +415,11 @@
         private System.Windows.Forms.WebBrowser webBrowser2;
         public System.Windows.Forms.TextBox textBox订单数量;
         private System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox textBox已经生产;
+        public System.Windows.Forms.TextBox textBox已发货数;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1订单编号;
+        public System.Windows.Forms.TextBox textBox已完成生产数;
+        private System.Windows.Forms.Label label12;
     }
 }
