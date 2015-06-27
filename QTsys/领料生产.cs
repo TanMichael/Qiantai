@@ -64,10 +64,14 @@ namespace QTsys
 
         private void button2_Click(object sender, EventArgs e)
         {
-            原料选择 win = new 原料选择(textBox产品.Text);
-            win.ShowDialog();
-            dataGrid产品原料关系.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
-            dataGrid产品原料关系.Update();
+            try
+            {
+                原料选择 win = new 原料选择(textBox产品.Text);
+                win.ShowDialog();
+                dataGrid产品原料关系.DataSource = pm.GetMaterialProductRelationByProduct(textBox产品.Text);
+                dataGrid产品原料关系.Update();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -103,19 +107,23 @@ namespace QTsys
                     MessageBox.Show("修改失败！");
                 }
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            index3 = e.RowIndex;
-            //  text原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
-            // l原料数量.Text = "生产产品【" + dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString() + "】1件须消耗原料【" + dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString() + "】";
-            textBox产品.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
-            textBox原料.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
-            textBox原料数量.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
-            dataGrid原料.DataSource = mt.GetAllMaterialByName("原料编号", dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
-            dataGrid原料.Update();
+            try
+            {
+                index3 = e.RowIndex;
+                //  text原料数量.Text = dataGridView3.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
+                // l原料数量.Text = "生产产品【" + dataGridView3.Rows[e.RowIndex].Cells["产品编号"].Value.ToString() + "】1件须消耗原料【" + dataGridView3.Rows[e.RowIndex].Cells["原料编号"].Value.ToString() + "】";
+                textBox产品.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
+                textBox原料.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString();
+                textBox原料数量.Text = dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料数量"].Value.ToString();
+                dataGrid原料.DataSource = mt.GetAllMaterialByName("原料编号", dataGrid产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
+                dataGrid原料.Update();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -154,7 +162,7 @@ namespace QTsys
 
 
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
 
 
 
