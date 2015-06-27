@@ -58,16 +58,7 @@ namespace QTsys
             try
             {
                 bool fileSaved = false;
-                //Directory.GetCurrentDirectory() + "\\各种单据\\送货单.htm"
-                /* 
-                 SaveFileDialog sfdSaveFile = new SaveFileDialog();
-                 //设置保存文件的格式
-                 sfdSaveFile.DefaultExt = "xlsx";
-                 //sfdSaveFile.DefaultExt = "xls";
-                 sfdSaveFile.Filter = "Excel文件(*.xlsx)|*.xlsx|Excel文件(*.xls)|*.xls";
-                 sfdSaveFile.FileName = string.Empty;
-                 if (sfdSaveFile.ShowDialog() != DialogResult.OK) return;*/
-                //电脑Excel程序
+                
                 Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
                 if (xlApp == null)
                 {
@@ -79,41 +70,126 @@ namespace QTsys
                 //Workbook
                 Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
                 //WorkSheet
-                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得《速腾》
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];
 
-               
-                //写入字段列标题 
-                /*for (int i = 0; i < mycsvdt.Columns.Count; i++)
+                //速腾
+                if(radioButton1.Checked==true)
                 {
-                    worksheet.Cells[1, i + 1] = mycsvdt.Columns[i].ColumnName;
+                    worksheet.Cells[2, 1] = "广州乔泰电子有限公司";
+                    worksheet.Cells[1, 2] = "020-39960882";
+                    worksheet.Cells[3, 1] = "广州市番禺区石基镇凌边村北约大道8号之二";
+
+                    //worksheet.Cells[4, 1] = textBox客户名称.Text;
+                    worksheet.Cells[6, 1] = text收货地址.Text;
+                    worksheet.Cells[4, 1] = com客户联系人.Text;
+                    worksheet.Cells[4, 2] = text联系电话.Text;
+
+                    worksheet.Cells[9, 3] ="签回单";
+                    worksheet.Cells[10, 3] = DateTime.Now;
+
+                    worksheet.Columns.EntireColumn.ShrinkToFit = true;
+
+                    worksheet.Cells.get_Range("C9").Font.Size = 15;
+                    worksheet.Cells.get_Range("C9").HorizontalAlignment = HorizontalAlignment.Center;
+                    worksheet.Cells.get_Range("C9").Font.Bold = true;
+                    worksheet.Cells.get_Range("A6", "B6").MergeCells = true;
+                    worksheet.Cells.get_Range("A3", "B3").MergeCells = true;
+
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 1]).Columns.ColumnWidth = 30;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 2]).Columns.ColumnWidth = 15;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 3]).Columns.ColumnWidth = 22; 
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 1]).Rows.RowHeight = 11;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[2, 1]).Rows.RowHeight = 21;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[3, 1]).Rows.RowHeight = 34;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[4, 1]).Rows.RowHeight = 21;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[5, 1]).Rows.RowHeight = 21;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[6, 1]).Rows.RowHeight = 53;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[7, 1]).Rows.RowHeight = 45;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[8, 1]).Rows.RowHeight = 28;
                 }
-                //写入数值 
-                for (int r = 0; r < mycsvdt.Rows.Count; r++)
+                //运通
+                if (radioButton2.Checked == true)
                 {
-                    for (int i = 0; i < mycsvdt.Columns.Count; i++)
-                    {
-                        worksheet.Cells[r + 2, i + 1] = mycsvdt.Rows[r][i];
-                    }
-                    System.Windows.Forms.Application.DoEvents();
-                }*/
-               // worksheet.Columns.EntireColumn.AutoFit();//列宽自适应。
-                //对指定列进行格式输出
-                //Microsoft.Office.Interop.Excel.Range rg = worksheet.get_Range(worksheet.Cells[2, 1], worksheet.Cells[this.table.Rows.Count + 1, 1]);
-                //rg.NumberFormat = "00000000";    
-                worksheet.Cells[1, 1] = "广州乔泰电子有限公司";
-                worksheet.Cells[1, 2] = "020-39960882";
-                worksheet.Cells[2, 1] = "广州市番禺区石基镇凌边村北约大道8号之二";
+                    worksheet.Cells[2, 1] = "广州乔泰电子有限公司";
+                    worksheet.Cells[4, 1] = "020-39960882";
+                    worksheet.Cells[3, 1] = "广州市番禺区石基镇凌边村北约大道8号之二";
 
-                worksheet.Cells[3, 1] = textBox客户名称.Text;
-                worksheet.Cells[4, 1] = text收货地址.Text;
-                worksheet.Cells[5, 1] = com客户联系人.Text;
-                worksheet.Cells[5, 2] = text联系电话.Text;
+                    worksheet.Cells[2, 3] = textBox客户名称.Text;
+                    worksheet.Cells[3, 3] = text收货地址.Text;
+                    worksheet.Cells[4, 4] = com客户联系人.Text;
+                    worksheet.Cells[4, 3] = text联系电话.Text;
 
-                worksheet.Columns.EntireColumn.AutoFit();
+                    worksheet.Cells[6, 5] = "签回单";
+                    worksheet.Cells[7, 1] = DateTime.Now;
 
-              //  ((Microsoft.Office.Interop.Excel.Range)worksheet.Columns["A:A ", System.Type.Missing]).ColumnWidth = 10; //列宽
-               //worksheet.Columns.Range.
-                    //range.RowHeight = rowHeight; 
+                    worksheet.Columns.EntireColumn.ShrinkToFit = true;
+
+                    worksheet.Cells.get_Range("E6").Font.Size = 15;
+                    worksheet.Cells.get_Range("E6").HorizontalAlignment = HorizontalAlignment.Center;
+                    worksheet.Cells.get_Range("E6").Font.Bold = true;
+                    worksheet.Cells.get_Range("B3", "B3").MergeCells = true;
+                    worksheet.Cells.get_Range("C3", "D3").MergeCells = true;
+                   // worksheet.Cells.get_Range( "D4","E5").MergeCells = true;
+
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 1]).Columns.ColumnWidth = 30;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 2]).Columns.ColumnWidth = 3;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 3]).Columns.ColumnWidth = 20;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 4]).Columns.ColumnWidth = 10;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 5]).Columns.ColumnWidth = 15;
+
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 1]).Rows.RowHeight = 11;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[2, 1]).Rows.RowHeight = 21;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[3, 1]).Rows.RowHeight = 43;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[4, 1]).Rows.RowHeight = 34;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[5, 1]).Rows.RowHeight = 120;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[6, 1]).Rows.RowHeight = 20;
+;
+                }
+                //联昊通
+                if (radioButton3.Checked == true)
+                {
+                    worksheet.Cells[2, 1] = "广州乔泰电子有限公司";
+                    worksheet.Cells[5, 1] = "020-39960882";
+                    worksheet.Cells[4, 1] = "广州市番禺区石基镇凌边村北约大道8号之二";
+
+                    worksheet.Cells[7, 1] = textBox客户名称.Text;
+                    worksheet.Cells[8, 1] = text收货地址.Text;
+                    worksheet.Cells[10, 2] = com客户联系人.Text;
+                    worksheet.Cells[10, 1] = text联系电话.Text;
+
+                    worksheet.Cells[11, 2] = "签回单";
+                    worksheet.Cells[7, 4] = DateTime.Now;
+
+                    worksheet.Columns.EntireColumn.ShrinkToFit = true;
+
+                    worksheet.Cells.get_Range("B11").Font.Size = 15;
+                    worksheet.Cells.get_Range("B11").HorizontalAlignment = HorizontalAlignment.Center;
+                    worksheet.Cells.get_Range("B11").Font.Bold = true;
+                    worksheet.Cells.get_Range("A2", "B2").MergeCells = true;
+                    worksheet.Cells.get_Range("A4", "B4").MergeCells = true;
+                    worksheet.Cells.get_Range("A5", "B5").MergeCells = true;
+                    worksheet.Cells.get_Range("A7", "B7").MergeCells = true;
+                    worksheet.Cells.get_Range("A8", "B8").MergeCells = true;
+                    // worksheet.Cells.get_Range( "D4","E5").MergeCells = true;
+
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 1]).Columns.ColumnWidth = 30;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 2]).Columns.ColumnWidth = 8;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 3]).Columns.ColumnWidth = 35;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 4]).Columns.ColumnWidth = 15;
+
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, 1]).Rows.RowHeight = 11;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[2, 1]).Rows.RowHeight = 28;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[3, 1]).Rows.RowHeight = 10;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[4, 1]).Rows.RowHeight = 34;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[5, 1]).Rows.RowHeight = 34;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[6, 1]).Rows.RowHeight = 24;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[7, 1]).Rows.RowHeight = 30;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[8, 1]).Rows.RowHeight = 40;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[9, 1]).Rows.RowHeight = 16;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[10, 1]).Rows.RowHeight =24;
+                    ((Microsoft.Office.Interop.Excel.Range)worksheet.Cells[11, 1]).Rows.RowHeight = 30;
+
+                }
                 try
                 {
                     workbook.Saved = true;
@@ -139,5 +215,6 @@ namespace QTsys
             }
             catch (Exception ext) { MessageBox.Show(ext.Message); }
         }
+
     }
 }
