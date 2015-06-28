@@ -72,7 +72,7 @@ namespace QTsys
             {
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
-                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value) <= Convert.ToInt32(dataGridView1.Rows[i].Cells["供应商余料"].Value))
+                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value) >= Convert.ToInt32(dataGridView1.Rows[i].Cells["供应商余料"].Value))
                     {
                         MessageBox.Show("领料失败:\n\r有原料库存不足！此供应商没有足够的原料在仓库！");
                         return;
@@ -81,7 +81,7 @@ namespace QTsys
                 }
                 bool ok = true;
                 int num = 0;
-                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                for (int i = 0; i < dataGridView1.RowCount ; i++)
                 {
                     num = Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value) - Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value);
                     if (mtm.MaterialDesTo(dataGridView1.Rows[i].Cells["原料编号"].Value.ToString(), num) == true)
@@ -98,7 +98,8 @@ namespace QTsys
                         mtf.MaterialId = Convert.ToInt32(dataGridView1.Rows[i].Cells["原料编号"].Value);
                         //供应商选择
                         mtf.Supplier = dataGridView1.Rows[i].Cells["供应商"].Value.ToString();
-                        mtf.Price = Convert.ToDouble(dataGridView1.Rows[i].Cells["单价"].Value);
+                        //mtf.Price = Convert.ToDouble(dataGridView1.Rows[i].Cells["供应单价"].Value);
+                        mtf.Price = 0.0;
                         mtf.Operator = Utils.GetCurrentUsername();
                         mtf.OccurredTime = DateTime.Now;
 
