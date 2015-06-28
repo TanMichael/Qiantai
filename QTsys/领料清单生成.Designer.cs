@@ -177,7 +177,6 @@
             this.text单价.Name = "text单价";
             this.text单价.Size = new System.Drawing.Size(100, 21);
             this.text单价.TabIndex = 25;
-            this.text单价.Visible = false;
             // 
             // label4
             // 
@@ -187,7 +186,6 @@
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 26;
             this.label4.Text = "单价";
-            this.label4.Visible = false;
             // 
             // label6
             // 
