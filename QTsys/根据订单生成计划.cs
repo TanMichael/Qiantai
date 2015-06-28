@@ -87,10 +87,10 @@ namespace QTsys
                 //
 
                 label库存数.Text = prodResult.Rows[0]["库存数量"].ToString();
-                selectedProdCount = int.Parse(selectedRow.Cells["产品数量"].Value.ToString());
+                selectedProdCount = int.Parse(selectedRow.Cells["数量"].Value.ToString());
                 ////////
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
 
         }
 
@@ -141,7 +141,7 @@ namespace QTsys
                 dataGridView7.DataSource = mt.GetAllMaterialByName("原料编号", dataGridView产品原料关系.Rows[e.RowIndex].Cells["原料编号"].Value.ToString());
                 dataGridView7.Update();
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -173,74 +173,79 @@ namespace QTsys
 
         private void button加入生产计划_Click(object sender, EventArgs e)//制定生产计划
         {
-            // validation
-            var invalidPid = "";
-            for (int i = 0; i < dataGridView产品订单数据.Rows.Count; i++)
+            try
             {
-                var pId = dataGridView产品订单数据.Rows[i].Cells["产品编号"].Value.ToString();
-
-                if (!pm.HasProductMaterialRelation(pId))
+                // validation
+                var invalidPid = "";
+                for (int i = 0; i < dataGridView产品订单数据.Rows.Count; i++)
                 {
-                    invalidPid += pId + ",";
-                }
-            }
-            if (invalidPid != "")
-            {
-                invalidPid = invalidPid.TrimEnd(',');
-                DialogResult dr = MessageBox.Show("产品[" + invalidPid + "]没有建立产品原料关系，你确定要制定生产计划？", "请确认", MessageBoxButtons.OKCancel);
-                if (dr == DialogResult.Cancel)
-                {
-                    MessageBox.Show("操作终止，去维护产品原料关系");
-                    return;
-                }
-            }
-            
-            // do add
-            bool planok = true;
-            for (int i = 0; i < dataGridView产品订单数据.Rows.Count; i++)
-            {
-                plan.RelatedOrderId = text订单编号.Text;
-                plan.ProductId = dataGridView产品订单数据.Rows[i].Cells["产品编号"].Value.ToString();
+                    var pId = dataGridView产品订单数据.Rows[i].Cells["产品编号"].Value.ToString();
 
-               // plan.CustomerId = l编号.Text;
-                plan.OrderTime = DateTime.Now;
-                plan.Count =Convert.ToInt16(dataGridView产品订单数据.Rows[i].Cells["数量"].Value);
-                plan.PlanningTime = date交付时间.Value;
-                plan.FinishTime = DateTime.Parse("2000-01-01");
-                plan.PlanState = ProductionPlanStatus.PENDING;
-                plan.InChargePerson = Utils.GetCurrentUsername();
-
-                plan.finishedCount = int.Parse(textBox库存件数.Text);
-                if (checkBox1.Checked && plan.finishedCount > 0)
-                {
-                    plan.hasFromStore = "是";
-                    // 扣除库存
-                    pm.UpdateProductStoreCount(-plan.finishedCount, plan.ProductId);
-                    if (plan.finishedCount >= selectedProdCount)
+                    if (!pm.HasProductMaterialRelation(pId))
                     {
-                        plan.PlanState = ProductionPlanStatus.STORED;
+                        invalidPid += pId + ",";
+                    }
+                }
+                if (invalidPid != "")
+                {
+                    invalidPid = invalidPid.TrimEnd(',');
+                    DialogResult dr = MessageBox.Show("产品[" + invalidPid + "]没有建立产品原料关系，你确定要制定生产计划？", "请确认", MessageBoxButtons.OKCancel);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        MessageBox.Show("操作终止，去维护产品原料关系");
+                        return;
                     }
                 }
 
-                if (!ppm.AddNewPlan(plan)) { 
-                    MessageBox.Show("插入计划失败");
-                    planok = false;
-                    // 恢复库存
-                    pm.UpdateProductStoreCount(plan.finishedCount, plan.ProductId);
-                    break;
-                };
-            }
-            if (planok == true)
-            {
-                if (odm.UpdateOrderStatus(OrderStatus.PROCESSING, text订单编号.Text))
+                // do add
+                bool planok = true;
+                for (int i = 0; i < dataGridView产品订单数据.Rows.Count; i++)
                 {
-                    MessageBox.Show("生产计划生成成功！"); this.Close();
+                    plan.RelatedOrderId = text订单编号.Text;
+                    plan.ProductId = dataGridView产品订单数据.Rows[i].Cells["产品编号"].Value.ToString();
+
+                    // plan.CustomerId = l编号.Text;
+                    plan.OrderTime = DateTime.Now;
+                    plan.Count = Convert.ToInt16(dataGridView产品订单数据.Rows[i].Cells["数量"].Value);
+                    plan.PlanningTime = date交付时间.Value;
+                    plan.FinishTime = DateTime.Parse("2000-01-01");
+                    plan.PlanState = ProductionPlanStatus.PENDING;
+                    plan.InChargePerson = Utils.GetCurrentUsername();
+
+                    plan.finishedCount = int.Parse(textBox库存件数.Text == "" ? "0" : textBox库存件数.Text);
+                    if (checkBox1.Checked && plan.finishedCount > 0)
+                    {
+                        plan.hasFromStore = "是";
+                        // 扣除库存
+                        pm.UpdateProductStoreCount(-plan.finishedCount, plan.ProductId);
+                        //if (plan.finishedCount >= selectedProdCount)
+                        //{
+                        //    plan.PlanState = ProductionPlanStatus.STORED;
+                        //}
+                    }
+
+                    if (!ppm.AddNewPlan(plan))
+                    {
+                        MessageBox.Show("插入计划失败");
+                        planok = false;
+                        // 恢复库存
+                        pm.UpdateProductStoreCount(plan.finishedCount, plan.ProductId);
+                        break;
+                    };
                 }
-                else
+                if (planok == true)
                 {
-                    MessageBox.Show("生产计划生成失败！");
+                    if (odm.UpdateOrderStatus(OrderStatus.PROCESSING, text订单编号.Text))
+                    {
+                        MessageBox.Show("生产计划生成成功！"); this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("生产计划生成失败！");
+                    }
                 }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -259,7 +264,7 @@ namespace QTsys
         {
             try
             {
-                int iUserSetted = int.Parse(textBox库存件数.Text);
+                int iUserSetted = int.Parse(textBox库存件数.Text == "" ? "0" : textBox库存件数.Text);
                 int total = int.Parse(label库存数.Text);
                 if (iUserSetted > total)
                 {

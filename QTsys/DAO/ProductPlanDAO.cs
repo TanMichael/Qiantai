@@ -49,6 +49,23 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
+
+        public DataTable GetAllProductPlanInReview()
+        {
+            try
+            {
+                string sql = "SELECT 相关订单编号,产品编号,客户编号,计划类型,产品数量,已完成生产数,是否含库存,编号 as 计划编号,下单日期,生产状态 FROM qiaotai.生产计划 WHERE 生产状态='待审核' ORDER BY 下单日期 DESC;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
+
         public DataTable GetAllProductPlanByNameEX(string col, string value)
         {
             try
@@ -220,5 +237,6 @@ namespace QTsys.DAO
                 throw ex;
             }
         }
+
     }
 }

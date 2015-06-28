@@ -213,7 +213,7 @@ create table 生产计划
    最后更新时间             DATETIME,
    已完成生产数             int default 0,
    已发货数                 int default 0,
-   是否含库存               nvarchar(32),
+   是否含库存               nvarchar(32) default '否',
    负责人                   nvarchar(128)
 );
 

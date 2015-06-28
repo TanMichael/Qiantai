@@ -19,6 +19,7 @@ namespace QTsys
     {
         OperationAuditDAO showdata;
         private ProductPlanManager ppm;
+        private ProductionManager pm;
         private OrderManager odm;
         private int index订单;
         private int index生产计划;
@@ -28,6 +29,7 @@ namespace QTsys
             InitializeComponent();
             showdata = new OperationAuditDAO();
             ppm = new ProductPlanManager();
+            pm = new ProductionManager();
             odm = new OrderManager();
             index订单=-1;
             index生产计划 = -1;
@@ -42,7 +44,7 @@ namespace QTsys
                 date_up.Value = DateTime.Now.AddMonths(-1);
                 dataGridView1.DataSource = this.showdata.GetAllMsg(date_up.Value, date_down.Value);
                 dataGridView1.Update();
-                dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", "待审核");
+                dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanInReview();
                 dataGridView生产计划.Update();
                 dataGridView订单.DataSource = this.odm.GetAllOrderByState("待审核");
                 dataGridView订单.Update();
@@ -122,8 +124,23 @@ namespace QTsys
             if (index生产计划 == -1) { MessageBox.Show("请逐个审核订生产计划！"); return; } 
             try
             {
+                var state = ProductionPlanStatus.PREPARING;
                 //ProductionPlan pp = new ProductionPlan();
-                string pId = dataGridView生产计划.Rows[index生产计划].Cells["编号"].Value.ToString();
+                string pId = dataGridView生产计划.Rows[index生产计划].Cells["计划编号"].Value.ToString();
+
+                string hasStore = dataGridView生产计划.Rows[index生产计划].Cells["是否含库存"].Value.ToString();
+                if (hasStore == "是")
+                {
+                    int planCount = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["产品数量"].Value);
+                    int fCount = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["已完成生产数"].Value);
+
+                    // 从库存中发货数大于或等于计划数，直接入库
+                    if (fCount >= planCount)
+                    {
+                        state = ProductionPlanStatus.STORED;
+                    }
+                }
+                
                 //pp.ProductId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
                 //pp.CustomerId = dataGridView生产计划.Rows[index生产计划].Cells["客户编号"].Value.ToString();
                 //pp.OrderTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["下单日期"].Value.ToString());
@@ -134,10 +151,10 @@ namespace QTsys
                 //pp.PlanState = ProductionPlanStatus.PREPARING;
                 //pp.RelatedOrderId = dataGridView生产计划.Rows[index生产计划].Cells["相关订单编号"].Value.ToString();
                 //pp.InChargePerson = dataGridView生产计划.Rows[index生产计划].Cells["负责人"].Value.ToString();
-                if (ppm.UpdatePlanStatus(ProductionPlanStatus.PREPARING, pId))
+                if (ppm.UpdatePlanStatus(state, pId))
                 {
                     MessageBox.Show("生产状态更新成功！");
-                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", ProductionPlanStatus.PENDING);
+                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanInReview();
                     dataGridView生产计划.Update();
                 }
                 else
@@ -152,8 +169,10 @@ namespace QTsys
             try
             {
                 //ProductionPlan pp = new ProductionPlan();
-                string pId = dataGridView生产计划.Rows[index生产计划].Cells["编号"].Value.ToString();
-                //pp.ProductId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
+                string pId = dataGridView生产计划.Rows[index生产计划].Cells["计划编号"].Value.ToString();
+                int preUsedCount = int.Parse(dataGridView生产计划.Rows[index生产计划].Cells["已完成生产数"].Value.ToString());
+                string hasStore = dataGridView生产计划.Rows[index生产计划].Cells["是否含库存"].Value.ToString();
+                string productId = dataGridView生产计划.Rows[index生产计划].Cells["产品编号"].Value.ToString();
                 //pp.CustomerId = dataGridView生产计划.Rows[index生产计划].Cells["客户编号"].Value.ToString();
                 //pp.OrderTime = Convert.ToDateTime(dataGridView生产计划.Rows[index生产计划].Cells["下单日期"].Value.ToString());
                 //pp.Count = Convert.ToInt32(dataGridView生产计划.Rows[index生产计划].Cells["产品数量"].Value);
@@ -165,8 +184,13 @@ namespace QTsys
                 //pp.InChargePerson = dataGridView生产计划.Rows[index生产计划].Cells["负责人"].Value.ToString();
                 if (ppm.UpdatePlanStatus(ProductionPlanStatus.CANCEL, pId))
                 {
+                    // 如果之前扣除了库存，现在恢复
+                    if (hasStore == "是")
+                    {
+                        pm.UpdateProductStoreCount(preUsedCount, productId);
+                    }
                     MessageBox.Show("生产状态更新成功！");
-                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanByName("生产状态", ProductionPlanStatus.PENDING);
+                    dataGridView生产计划.DataSource = this.ppm.GetAllProductPlanInReview();
                     dataGridView生产计划.Update();
                 }
                 else

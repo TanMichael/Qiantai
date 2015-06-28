@@ -32,6 +32,10 @@ namespace QTsys.Manager
         {
             return this.pdao.GetAllProductPlanByName(col, value);
         }
+        public DataTable GetAllProductPlanInReview()
+        {
+            return this.pdao.GetAllProductPlanInReview();
+        }
 
         public DataTable GetAllProductPlanByNameEX(string col, string value)
         {
@@ -72,5 +76,7 @@ namespace QTsys.Manager
         {
             return this.pdao.UpdatePlanCurrentDeliveryCount(deliveredTobeUpdate, finishTobeUpdate, ppId);
         }
+
+        
     }
 }
