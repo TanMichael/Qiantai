@@ -88,7 +88,7 @@ namespace QTsys
             {
                 button6.Enabled = false;
             }
-                try
+            try
             {
                 text编号.Text = dataGridView1.Rows[e.RowIndex].Cells["编号"].Value.ToString();
                 com产品编号.Text = dataGridView1.Rows[e.RowIndex].Cells["产品编号"].Value.ToString();
@@ -102,11 +102,18 @@ namespace QTsys
                 text相关订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["相关订单编号"].Value.ToString();
                 com负责人.Text = dataGridView1.Rows[e.RowIndex].Cells["负责人"].Value.ToString();
                 //-----------------------------------------------------------------------------------------------
-                
-                    textBox计划数.Text = text产品数量.Text;
-                    textBox实际数.Text= dataGridView1.Rows[e.RowIndex].Cells["产品数量"].Value.ToString();
 
-                textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
+                textBox已生产.Text = dataGridView1.Rows[e.RowIndex].Cells["已完成生产数"].Value.ToString();
+                //text产品数量.Text = dataGridView1.Rows[e.RowIndex].Cells["已发货数"].Value.ToString();
+                int planCount = Convert.ToInt16(text产品数量.Text);
+                int finishCount = Convert.ToInt16(textBox已生产.Text);
+                int currentCount = planCount - finishCount;
+
+                textBox计划数.Text = text产品数量.Text;
+                textBox本次数.Text = Convert.ToString(currentCount > 0 ? currentCount : 0);//currentCount.ToString();
+
+                int additionCount = planCount - currentCount - finishCount;
+                textBox补充数.Text = Convert.ToString(additionCount > 0 ? additionCount : 0);
 
                 if (com生产状态.Text == ProductionPlanStatus.PROCESSING)
                 {
@@ -126,6 +133,7 @@ namespace QTsys
                 {
                     button6.Enabled = false;
                 }
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -264,28 +272,46 @@ namespace QTsys
         {
             try
             {
-                if (MessageBox.Show("确定是否生产成功?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    if (Convert.ToInt16(textBox计划数.Text) == Convert.ToInt16(textBox实际数.Text)) //正好生产
+                int planCount = Convert.ToInt16(textBox计划数.Text);
+                int currentCount = Convert.ToInt16(textBox本次数.Text);
+                int finishCount = Convert.ToInt16(textBox已生产.Text);
+                //if (MessageBox.Show("确定是否生产成功?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                //{
+                    if (planCount == currentCount + finishCount) //正好生产
                     {
-                        产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
-                    }
-                    if (Convert.ToInt16(textBox计划数.Text) > Convert.ToInt16(textBox实际数.Text))//生产少了
-                    {
-                        if (产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text)))
+                        if (MessageBox.Show("确定是否生产成功?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
+                            产品入库(com产品编号.Text, currentCount, 0);
                         }
                     }
-                    if (Convert.ToInt16(textBox计划数.Text) < Convert.ToInt16(textBox实际数.Text))//生产多了
+                    else if (planCount > currentCount + finishCount)//生产少了
                     {
-                        产品入库(com产品编号.Text, Convert.ToInt16(textBox实际数.Text), 0);
+                        if (MessageBox.Show("已完成数+本次完成数少于计划数，是否确定完成并补充生产计划?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            if (产品入库(com产品编号.Text, currentCount, planCount - currentCount))
+                            {
+                                补充生产(com产品编号.Text, Convert.ToInt16(textBox补充数.Text));
+                            }
+                        }
+                        else {
+                            if (MessageBox.Show("不补充计划，直接完成生产并少交?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                            {
+                                产品入库(com产品编号.Text, currentCount, planCount - currentCount);
+                            }
+                        }
+                    }
+                    else if (planCount < currentCount + finishCount)//生产多了
+                    {
+                        if (MessageBox.Show("已完成数+本次完成数大于计划数，是否确定完成入库?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            产品入库(com产品编号.Text, currentCount, 0);
+                        }
                     }
                     dataGridView1.DataSource = this.ppm.GetAllProductPlan();
                     dataGridView1.Update();
                     dataGridView审核通过订单.DataSource = this.oMgr.GetAllOrderByState(OrderStatus.PASS);
                     dataGridView审核通过订单.Update();
-                }
+                //}
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -417,7 +443,12 @@ namespace QTsys
         {
             try {
                 //textBox计划数-textBox实际数=textBox补充数
-                textBox补充数.Text = Convert.ToString(Convert.ToInt16(textBox计划数.Text) - Convert.ToInt16(textBox实际数.Text));
+                int planCount = Convert.ToInt16(textBox计划数.Text);
+                int currentCount = Convert.ToInt16(textBox本次数.Text);
+                int finishCount = Convert.ToInt16(textBox已生产.Text);
+
+                int additionCount = planCount - currentCount - finishCount;
+                textBox补充数.Text = Convert.ToString(additionCount > 0 ? additionCount : 0);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); };
         }

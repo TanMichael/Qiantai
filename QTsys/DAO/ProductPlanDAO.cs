@@ -15,7 +15,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "select pp.编号,pp.客户编号,pp.下单日期,pp.计划类型,pp.生产状态,p.产品编号,p.产品名称,p.规格,p.材质,pp.交付时间,pp.产品数量,pp.相关订单编号,pp.负责人,pp.实际完成时间,p.成型模号,p.成型时间,p.胶水型号,p.切断模,'' as 备注 " +   //,pp.实际完成时间
+                string sql = "select pp.编号,pp.客户编号,pp.下单日期,pp.计划类型,pp.生产状态,p.产品编号,p.产品名称,p.规格,p.材质,pp.交付时间,pp.产品数量,pp.已完成生产数,pp.已发货数,pp.相关订单编号,pp.负责人,pp.实际完成时间,p.成型模号,p.成型时间,p.胶水型号,p.切断模,'' as 备注 " +   //,pp.实际完成时间
                     "from qiaotai.生产计划 pp inner join qiaotai.产品信息 p on pp.产品编号=p.产品编号";
                 if (!reallyAll)
                 {

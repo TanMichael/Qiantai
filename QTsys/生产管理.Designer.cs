@@ -45,7 +45,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBox补充数 = new System.Windows.Forms.TextBox();
             this.label_num = new System.Windows.Forms.Label();
-            this.textBox实际数 = new System.Windows.Forms.TextBox();
+            this.textBox本次数 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.com生产状态 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -83,6 +83,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox已生产 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView审核通过订单)).BeginInit();
@@ -183,6 +185,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.textBox已生产);
             this.tabPage2.Controls.Add(this.button10);
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.label16);
@@ -190,7 +194,7 @@
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.textBox补充数);
             this.tabPage2.Controls.Add(this.label_num);
-            this.tabPage2.Controls.Add(this.textBox实际数);
+            this.tabPage2.Controls.Add(this.textBox本次数);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.com生产状态);
             this.tabPage2.Controls.Add(this.label14);
@@ -237,7 +241,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(894, 591);
+            this.button10.Location = new System.Drawing.Point(1049, 591);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(137, 23);
             this.button10.TabIndex = 151;
@@ -269,13 +273,13 @@
             this.textBox计划数.Enabled = false;
             this.textBox计划数.Location = new System.Drawing.Point(93, 593);
             this.textBox计划数.Name = "textBox计划数";
-            this.textBox计划数.Size = new System.Drawing.Size(121, 21);
+            this.textBox计划数.Size = new System.Drawing.Size(106, 21);
             this.textBox计划数.TabIndex = 148;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(430, 596);
+            this.label15.Location = new System.Drawing.Point(629, 594);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 12);
             this.label15.TabIndex = 147;
@@ -284,31 +288,31 @@
             // textBox补充数
             // 
             this.textBox补充数.Enabled = false;
-            this.textBox补充数.Location = new System.Drawing.Point(525, 593);
+            this.textBox补充数.Location = new System.Drawing.Point(724, 591);
             this.textBox补充数.Name = "textBox补充数";
-            this.textBox补充数.Size = new System.Drawing.Size(121, 21);
+            this.textBox补充数.Size = new System.Drawing.Size(93, 21);
             this.textBox补充数.TabIndex = 146;
             // 
             // label_num
             // 
             this.label_num.AutoSize = true;
-            this.label_num.Location = new System.Drawing.Point(220, 596);
+            this.label_num.Location = new System.Drawing.Point(419, 594);
             this.label_num.Name = "label_num";
             this.label_num.Size = new System.Drawing.Size(77, 12);
             this.label_num.TabIndex = 145;
-            this.label_num.Text = "实际生产数量";
+            this.label_num.Text = "本次生产数量";
             // 
-            // textBox实际数
+            // textBox本次数
             // 
-            this.textBox实际数.Location = new System.Drawing.Point(303, 593);
-            this.textBox实际数.Name = "textBox实际数";
-            this.textBox实际数.Size = new System.Drawing.Size(121, 21);
-            this.textBox实际数.TabIndex = 144;
-            this.textBox实际数.TextChanged += new System.EventHandler(this.textBox实际数_TextChanged);
+            this.textBox本次数.Location = new System.Drawing.Point(502, 591);
+            this.textBox本次数.Name = "textBox本次数";
+            this.textBox本次数.Size = new System.Drawing.Size(105, 21);
+            this.textBox本次数.TabIndex = 144;
+            this.textBox本次数.TextChanged += new System.EventHandler(this.textBox实际数_TextChanged);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(652, 591);
+            this.button6.Location = new System.Drawing.Point(857, 591);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(115, 23);
             this.button6.TabIndex = 143;
@@ -630,6 +634,23 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(209, 594);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 12);
+            this.label19.TabIndex = 153;
+            this.label19.Text = "已生产数量";
+            // 
+            // textBox已生产
+            // 
+            this.textBox已生产.Enabled = false;
+            this.textBox已生产.Location = new System.Drawing.Point(292, 591);
+            this.textBox已生产.Name = "textBox已生产";
+            this.textBox已生产.Size = new System.Drawing.Size(98, 21);
+            this.textBox已生产.TabIndex = 152;
+            // 
             // 生产管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -671,7 +692,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox补充数;
         private System.Windows.Forms.Label label_num;
-        private System.Windows.Forms.TextBox textBox实际数;
+        private System.Windows.Forms.TextBox textBox本次数;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox com生产状态;
         private System.Windows.Forms.Label label14;
@@ -711,6 +732,8 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox已生产;
 
     }
 }
