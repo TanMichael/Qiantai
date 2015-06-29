@@ -245,6 +245,7 @@
             // 
             // button打印送货单
             // 
+            this.button打印送货单.Enabled = false;
             this.button打印送货单.Location = new System.Drawing.Point(1102, 199);
             this.button打印送货单.Name = "button打印送货单";
             this.button打印送货单.Size = new System.Drawing.Size(167, 23);
@@ -255,6 +256,7 @@
             // 
             // button生成送货单
             // 
+            this.button生成送货单.Enabled = false;
             this.button生成送货单.Location = new System.Drawing.Point(1017, 199);
             this.button生成送货单.Name = "button生成送货单";
             this.button生成送货单.Size = new System.Drawing.Size(75, 23);
@@ -310,6 +312,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(1285, 199);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 23);

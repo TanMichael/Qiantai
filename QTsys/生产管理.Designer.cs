@@ -38,6 +38,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.dataGridView审核通过订单 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox已生产 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -83,8 +85,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox已生产 = new System.Windows.Forms.TextBox();
+            this.checkBox内部计划 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView审核通过订单)).BeginInit();
@@ -185,6 +186,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox内部计划);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.textBox已生产);
             this.tabPage2.Controls.Add(this.button10);
@@ -239,11 +241,28 @@
             this.tabPage2.Text = "生产计划";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(197, 597);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 12);
+            this.label19.TabIndex = 153;
+            this.label19.Text = "已生产数量";
+            // 
+            // textBox已生产
+            // 
+            this.textBox已生产.Enabled = false;
+            this.textBox已生产.Location = new System.Drawing.Point(267, 592);
+            this.textBox已生产.Name = "textBox已生产";
+            this.textBox已生产.Size = new System.Drawing.Size(98, 21);
+            this.textBox已生产.TabIndex = 152;
+            // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1049, 591);
+            this.button10.Location = new System.Drawing.Point(1061, 591);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(137, 23);
+            this.button10.Size = new System.Drawing.Size(125, 23);
             this.button10.TabIndex = 151;
             this.button10.Text = "导出到excel";
             this.button10.UseVisualStyleBackColor = true;
@@ -273,13 +292,13 @@
             this.textBox计划数.Enabled = false;
             this.textBox计划数.Location = new System.Drawing.Point(93, 593);
             this.textBox计划数.Name = "textBox计划数";
-            this.textBox计划数.Size = new System.Drawing.Size(106, 21);
+            this.textBox计划数.Size = new System.Drawing.Size(97, 21);
             this.textBox计划数.TabIndex = 148;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(629, 594);
+            this.label15.Location = new System.Drawing.Point(562, 594);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 12);
             this.label15.TabIndex = 147;
@@ -288,15 +307,15 @@
             // textBox补充数
             // 
             this.textBox补充数.Enabled = false;
-            this.textBox补充数.Location = new System.Drawing.Point(724, 591);
+            this.textBox补充数.Location = new System.Drawing.Point(650, 591);
             this.textBox补充数.Name = "textBox补充数";
-            this.textBox补充数.Size = new System.Drawing.Size(93, 21);
+            this.textBox补充数.Size = new System.Drawing.Size(86, 21);
             this.textBox补充数.TabIndex = 146;
             // 
             // label_num
             // 
             this.label_num.AutoSize = true;
-            this.label_num.Location = new System.Drawing.Point(419, 594);
+            this.label_num.Location = new System.Drawing.Point(374, 594);
             this.label_num.Name = "label_num";
             this.label_num.Size = new System.Drawing.Size(77, 12);
             this.label_num.TabIndex = 145;
@@ -304,15 +323,15 @@
             // 
             // textBox本次数
             // 
-            this.textBox本次数.Location = new System.Drawing.Point(502, 591);
+            this.textBox本次数.Location = new System.Drawing.Point(457, 591);
             this.textBox本次数.Name = "textBox本次数";
-            this.textBox本次数.Size = new System.Drawing.Size(105, 21);
+            this.textBox本次数.Size = new System.Drawing.Size(97, 21);
             this.textBox本次数.TabIndex = 144;
             this.textBox本次数.TextChanged += new System.EventHandler(this.textBox实际数_TextChanged);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(857, 591);
+            this.button6.Location = new System.Drawing.Point(940, 591);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(115, 23);
             this.button6.TabIndex = 143;
@@ -634,22 +653,15 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // label19
+            // checkBox内部计划
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(209, 594);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 12);
-            this.label19.TabIndex = 153;
-            this.label19.Text = "已生产数量";
-            // 
-            // textBox已生产
-            // 
-            this.textBox已生产.Enabled = false;
-            this.textBox已生产.Location = new System.Drawing.Point(292, 591);
-            this.textBox已生产.Name = "textBox已生产";
-            this.textBox已生产.Size = new System.Drawing.Size(98, 21);
-            this.textBox已生产.TabIndex = 152;
+            this.checkBox内部计划.AutoSize = true;
+            this.checkBox内部计划.Location = new System.Drawing.Point(748, 595);
+            this.checkBox内部计划.Name = "checkBox内部计划";
+            this.checkBox内部计划.Size = new System.Drawing.Size(192, 16);
+            this.checkBox内部计划.TabIndex = 154;
+            this.checkBox内部计划.Text = "是内部生产计划增加库存不发货";
+            this.checkBox内部计划.UseVisualStyleBackColor = true;
             // 
             // 生产管理
             // 
@@ -734,6 +746,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox已生产;
+        private System.Windows.Forms.CheckBox checkBox内部计划;
 
     }
 }

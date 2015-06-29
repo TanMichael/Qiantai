@@ -279,14 +279,14 @@ namespace QTsys
                 //{
                     if (planCount == currentCount + finishCount) //正好生产
                     {
-                        if (MessageBox.Show("确定是否生产成功?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        if (MessageBox.Show("确定是否生产成功?", "生产完成", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
                             产品入库(com产品编号.Text, currentCount, 0);
                         }
                     }
                     else if (planCount > currentCount + finishCount)//生产少了
                     {
-                        if (MessageBox.Show("已完成数+本次完成数少于计划数，是否确定完成并补充生产计划?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        if (MessageBox.Show("已完成数+本次完成数少于计划数，是否确定完成并补充生产计划?", "生产完成", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
                             if (产品入库(com产品编号.Text, currentCount, planCount - currentCount))
                             {
@@ -294,7 +294,7 @@ namespace QTsys
                             }
                         }
                         else {
-                            if (MessageBox.Show("不补充计划，直接完成生产并少交?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                            if (MessageBox.Show("不补充计划，直接完成生产并少交?", "生产完成", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                             {
                                 产品入库(com产品编号.Text, currentCount, planCount - currentCount);
                             }
@@ -302,7 +302,7 @@ namespace QTsys
                     }
                     else if (planCount < currentCount + finishCount)//生产多了
                     {
-                        if (MessageBox.Show("已完成数+本次完成数大于计划数，是否确定完成入库?", "生产完成入库", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        if (MessageBox.Show("已完成数+本次完成数大于计划数，是否确定完成?", "生产完成", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
                             产品入库(com产品编号.Text, currentCount, 0);
                         }
@@ -316,7 +316,7 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public bool 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
+        private bool 产品入库(string 产品编号, int 产品数量,int 不合格产品数)
         {
             try{
             ProductFlow proflow = new ProductFlow();
@@ -329,17 +329,25 @@ namespace QTsys
             proflow.Status = ProductionStatus.IN;  
             if (product.AddProduct(proflow, 产品数量))
             {
-                ppm.UpdatePlanStatus(ProductionPlanStatus.STORED,text编号.Text);
-                MessageBox.Show("产品增加成功！！！");
+                string state = ProductionPlanStatus.STORED;
+                if (!checkBox内部计划.Checked)
+                {
+                    state = ProductionPlanStatus.TO_BE_SHIP;
+                    // 扣除库存
+                    product.UpdateProductStoreCount(-产品数量, 产品编号);
+                }
+                
+                ppm.UpdatePlanStatus(state, text编号.Text);
+                MessageBox.Show("产品生产成功！！！");
                 return true;
             }else
-                MessageBox.Show("产品增加失败！！！");
+                MessageBox.Show("产品生产失败！！！");
             return false;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
         }
 
-        public void 补充生产(string 产品编号, int 产品数量)
+        private void 补充生产(string 产品编号, int 产品数量)
         {
             try
             {

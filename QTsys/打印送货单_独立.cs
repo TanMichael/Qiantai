@@ -1,4 +1,5 @@
-﻿using QTsys.Manager;
+﻿using QTsys.Common.Constants;
+using QTsys.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,6 +90,20 @@ namespace QTsys
                 textBox已完成生产数.Text = dataGridView生产计划.CurrentRow.Cells["已完成生产数"].Value.ToString();
                 textBox订单数量.Text = dataGridView生产计划.CurrentRow.Cells["产品数量"].Value.ToString();
                 textBox当前生产数.Text = dataGridView生产计划.CurrentRow.Cells["本次发货数"].Value.ToString();
+
+                string planState = dataGridView生产计划.CurrentRow.Cells["生产状态"].Value.ToString();
+                if (planState == ProductionPlanStatus.TO_BE_SHIP || planState == ProductionPlanStatus.PROCESSING)
+                {
+                    button打印送货单.Enabled = true;
+                    button生成送货单.Enabled = true;
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    button打印送货单.Enabled = false;
+                    button生成送货单.Enabled = false;
+                    button1.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -229,10 +244,16 @@ namespace QTsys
                 {
                     int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
                     string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
+                    string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
                     int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
                     int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
                     if (iCount + cCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
                     {
+                        if (planState == ProductionPlanStatus.TO_BE_SHIP)
+                        {
+                            MessageBox.Show("待发货的订单产品已从库存扣除，本次发货数+已发货数不能大于计划数。请重新填写发货数量！");
+                            return;
+                        }
                         MessageBox.Show("本次发货数+已发货数大于计划数，是否超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString()+"】");
                     }
                     // update 当前生产数, 已发货数

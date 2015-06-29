@@ -137,7 +137,7 @@ namespace QTsys
                     // 从库存中发货数大于或等于计划数，直接入库
                     if (fCount >= planCount)
                     {
-                        state = ProductionPlanStatus.STORED;
+                        state = ProductionPlanStatus.TO_BE_SHIP;
                     }
                 }
                 
