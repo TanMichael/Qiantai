@@ -167,5 +167,11 @@ namespace QTsys
             webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            打印快递单 kdd = new 打印快递单(label3.Text);
+            kdd.ShowDialog();
+        }
+
     }
 }

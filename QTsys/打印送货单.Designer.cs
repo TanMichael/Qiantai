@@ -48,6 +48,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@
             // 
             this.date_down.Location = new System.Drawing.Point(71, 181);
             this.date_down.Name = "date_down";
-            this.date_down.Size = new System.Drawing.Size(200, 21);
+            this.date_down.Size = new System.Drawing.Size(121, 21);
             this.date_down.TabIndex = 61;
             this.date_down.Visible = false;
             // 
@@ -85,7 +86,7 @@
             // 
             this.date_up.Location = new System.Drawing.Point(71, 150);
             this.date_up.Name = "date_up";
-            this.date_up.Size = new System.Drawing.Size(200, 21);
+            this.date_up.Size = new System.Drawing.Size(121, 21);
             this.date_up.TabIndex = 59;
             this.date_up.Visible = false;
             this.date_up.ValueChanged += new System.EventHandler(this.date_up_ValueChanged);
@@ -146,7 +147,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(345, 182);
+            this.button2.Location = new System.Drawing.Point(357, 181);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 51;
@@ -156,7 +157,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(345, 148);
+            this.button1.Location = new System.Drawing.Point(357, 135);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 50;
@@ -238,11 +239,22 @@
             this.label8.TabIndex = 63;
             this.label8.Text = "按订单显示出货产品情况";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(213, 155);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(111, 23);
+            this.button3.TabIndex = 119;
+            this.button3.Text = "生成快递单数据";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // 打印送货单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 643);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.date_down);
@@ -294,5 +306,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button3;
     }
 }
