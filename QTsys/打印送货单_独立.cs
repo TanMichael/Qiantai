@@ -121,7 +121,7 @@ namespace QTsys
             rd.Close();
             //把数据读入usedata
             //**替换操作*************************************************************
-            usedata = usedata.Replace("text0",label3.Text);
+            usedata = usedata.Replace("text0", label1订单编号.Text);
             usedata = usedata.Replace("text1", textBox客户名称.Text);
             usedata = usedata.Replace("text2", text收货地址.Text);
             usedata = usedata.Replace("text3", com客户联系人.Text);
@@ -139,7 +139,7 @@ namespace QTsys
             {
                 if (j == 0)
                 {
-                    usedata = usedata.Replace("data11", label3.Text);
+                    usedata = usedata.Replace("data11", label1订单编号.Text);
                     usedata = usedata.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
                     usedata = usedata.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
                     usedata = usedata.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());
@@ -164,7 +164,7 @@ namespace QTsys
                 if (j > 0)
                 {
                     temp = staticstr;
-                    temp = temp.Replace("data11", label3.Text);
+                    temp = temp.Replace("data11", label1订单编号.Text);
                     temp = temp.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
                     temp = temp.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
                     temp = temp.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());
