@@ -117,32 +117,33 @@ namespace QTsys
         {
             try
             {
-                    text订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["订单编号"].Value.ToString();
-                    date创建时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["创建时间"].Value);
-                    date发货时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["发货时间"].Value);
-                    date最后更新时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["最后更新时间"].Value);
-                    com订单状态.Text = dataGridView1.Rows[e.RowIndex].Cells["订单状态"].Value.ToString();
-                    text快递单号.Text = dataGridView1.Rows[e.RowIndex].Cells["快递单号"].Value.ToString();
-                    com订金方式.Text = dataGridView1.Rows[e.RowIndex].Cells["订金方式"].Value.ToString();
-                    text收货地址.Text = dataGridView1.Rows[e.RowIndex].Cells["收货地址"].Value.ToString();
-                    com收货联系人.Text = dataGridView1.Rows[e.RowIndex].Cells["收货联系人"].Value.ToString();
-                    text收货电话.Text = dataGridView1.Rows[e.RowIndex].Cells["收货电话"].Value.ToString();
-                    com创建人.Text = dataGridView1.Rows[e.RowIndex].Cells["创建人"].Value.ToString();
+                text订单编号.Text = dataGridView1.Rows[e.RowIndex].Cells["订单编号"].Value.ToString();
+                date创建时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["创建时间"].Value);
+                date发货时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["发货时间"].Value);
+                date最后更新时间.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["最后更新时间"].Value);
+                com订单状态.Text = dataGridView1.Rows[e.RowIndex].Cells["订单状态"].Value.ToString();
+                text快递单号.Text = dataGridView1.Rows[e.RowIndex].Cells["快递单号"].Value.ToString();
+                com订金方式.Text = dataGridView1.Rows[e.RowIndex].Cells["订金方式"].Value.ToString();
+                text收货地址.Text = dataGridView1.Rows[e.RowIndex].Cells["收货地址"].Value.ToString();
+                com收货联系人.Text = dataGridView1.Rows[e.RowIndex].Cells["收货联系人"].Value.ToString();
+                text收货电话.Text = dataGridView1.Rows[e.RowIndex].Cells["收货电话"].Value.ToString();
+                com创建人.Text = dataGridView1.Rows[e.RowIndex].Cells["创建人"].Value.ToString();
+                textBox客户订单号.Text = dataGridView1.Rows[e.RowIndex].Cells["客户订单号"].Value.ToString();
 
-                    //var temp = from it in (com客户名.Items.Cast<Customer>())
-                    //            where it.Id == selectedCId
-                    //            select it;
-                    //com客户名.SelectedItem = temp.First();
-                    com客户名.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
+                //var temp = from it in (com客户名.Items.Cast<Customer>())
+                //            where it.Id == selectedCId
+                //            select it;
+                //com客户名.SelectedItem = temp.First();
+                com客户名.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
 
-                    if (com订单状态.Text == "待审核")
-                    {
-                        button修改并保存.Enabled = false;
-                    }
-                    else
-                    {
-                        button修改并保存.Enabled = true;
-                    }
+                if (com订单状态.Text == "待审核")
+                {
+                    button修改并保存.Enabled = false;
+                }
+                else
+                {
+                    button修改并保存.Enabled = true;
+                }
             }
             catch (Exception ex) { }
         }
@@ -176,6 +177,7 @@ namespace QTsys
                 od.RecieverName = com收货联系人.Text;
                 od.RecieverPhone = text收货电话.Text;
                 od.Creator = com创建人.Text;
+                od.CustomerOrderId = textBox客户订单号.Text;
                 if (this.odm.AltOrder(od))
                 {
                     MessageBox.Show("订单修改成功！"); 

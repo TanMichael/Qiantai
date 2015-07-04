@@ -222,8 +222,8 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人,客户名称) VALUES ('" +
-                    order.CreateTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.DeliverTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.LastUpdateTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.CustomerId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
+                string sql = "INSERT INTO qiaotai.订单(创建时间,发货时间,最后更新时间,客户编号,客户订单号,是否样品订单,订单状态,快递单号,订金方式,收货地址,收货联系人,收货电话,创建人,客户名称) VALUES ('" +
+                    order.CreateTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.DeliverTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.LastUpdateTime.ToString("yyyy/MM/dd HH:mm:ss") + "','" + order.CustomerId + "','" + order.CustomerOrderId + "','" + order.IsSample + "','" + order.OrderStatus + "','" +
                     order.ExpressNO + "','" + order.DepositMode + "','" + order.RecieverAddress + "','" + order.RecieverName + "','" + order.RecieverPhone + "','" + order.Creator + "','" + order.CustomerName + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
@@ -251,7 +251,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime.ToString("yyyy/MM/dd HH:mm:ss") + "',最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "',订单状态='" + order.OrderStatus +
+                string sql = "UPDATE qiaotai.订单 SET 发货时间='" + order.DeliverTime.ToString("yyyy/MM/dd HH:mm:ss") + "',最后更新时间='" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "',订单状态='" + order.OrderStatus + "',客户订单号='" + order.CustomerOrderId +
                     "',快递单号='" + order.ExpressNO + "',送货单号='" + order.DeliverNO + "',订金方式='" + order.DepositMode + "',收货地址='" + order.RecieverAddress + "',收货联系人='" + order.RecieverName + "',收货电话='" + order.RecieverPhone + "',创建人='" + order.Creator + "' WHERE 订单编号='" + order.OrderId + "';";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
@@ -325,7 +325,8 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "select d.发货时间,d.送货单号,p.产品名称,d.订单编号,p.规格,p.材质,dd.数量,dd.成交价,dd.数量*dd.成交价 as 金额 from qiaotai.订单 d " +
+                // 根据彭芸要求显示客户订单号，而不是系统订单号 so d.客户订单号 as 订单编号 instead of d.订单编号
+                string sql = "select d.发货时间,d.送货单号,p.产品名称,d.客户订单号 as 订单编号,p.规格,p.材质,dd.数量,dd.成交价,dd.数量*dd.成交价 as 金额 from qiaotai.订单 d " +
                             "inner join qiaotai.订单明细 dd on d.订单编号 = dd.订单编号 " +
                             "inner join qiaotai.产品信息 p on dd.产品编号 = p.产品编号 " +
                             "where d.客户编号=" + customerId + " and d.发货时间>'" + startDate.ToString("yyyy/MM/dd HH:mm:ss") + "' and d.发货时间<'" + endDate.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";

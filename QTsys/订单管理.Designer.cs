@@ -84,6 +84,8 @@
             this.t产品编号 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.t订单编号 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox客户订单号 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -336,7 +338,7 @@
             // 
             // text收货电话
             // 
-            this.text收货电话.Location = new System.Drawing.Point(306, 142);
+            this.text收货电话.Location = new System.Drawing.Point(281, 142);
             this.text收货电话.Name = "text收货电话";
             this.text收货电话.Size = new System.Drawing.Size(121, 21);
             this.text收货电话.TabIndex = 50;
@@ -344,7 +346,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(241, 148);
+            this.label13.Location = new System.Drawing.Point(218, 148);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 49;
@@ -354,7 +356,7 @@
             // 
             this.com创建人.Enabled = false;
             this.com创建人.FormattingEnabled = true;
-            this.com创建人.Location = new System.Drawing.Point(517, 145);
+            this.com创建人.Location = new System.Drawing.Point(661, 144);
             this.com创建人.Name = "com创建人";
             this.com创建人.Size = new System.Drawing.Size(121, 20);
             this.com创建人.TabIndex = 52;
@@ -362,7 +364,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(458, 148);
+            this.label14.Location = new System.Drawing.Point(600, 147);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 12);
             this.label14.TabIndex = 51;
@@ -428,6 +430,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.textBox客户订单号);
             this.tabPage1.Controls.Add(this.checkBox查看所有);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.dataGridView1);
@@ -472,7 +476,7 @@
             // checkBox查看所有
             // 
             this.checkBox查看所有.AutoSize = true;
-            this.checkBox查看所有.Location = new System.Drawing.Point(666, 149);
+            this.checkBox查看所有.Location = new System.Drawing.Point(896, 148);
             this.checkBox查看所有.Name = "checkBox查看所有";
             this.checkBox查看所有.Size = new System.Drawing.Size(96, 16);
             this.checkBox查看所有.TabIndex = 57;
@@ -645,6 +649,22 @@
             this.t订单编号.Size = new System.Drawing.Size(121, 21);
             this.t订单编号.TabIndex = 29;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(410, 148);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "客户订单号";
+            // 
+            // textBox客户订单号
+            // 
+            this.textBox客户订单号.Location = new System.Drawing.Point(478, 144);
+            this.textBox客户订单号.Name = "textBox客户订单号";
+            this.textBox客户订单号.Size = new System.Drawing.Size(121, 21);
+            this.textBox客户订单号.TabIndex = 59;
+            // 
             // 订单管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -725,5 +745,7 @@
         private System.Windows.Forms.TextBox t订单编号;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.CheckBox checkBox查看所有;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox客户订单号;
     }
 }

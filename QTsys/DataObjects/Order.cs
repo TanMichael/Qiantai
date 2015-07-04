@@ -10,6 +10,7 @@ namespace QTsys.DataObjects
     {
         public string OrderId { get; set; }
         public string OrderStatus { get; set; }
+        public string CustomerOrderId { get; set; }
         public string CustomerName { get; set; }//客户名称
         public string IsSample { get; set; }
         public string CustomerId { get; set; }

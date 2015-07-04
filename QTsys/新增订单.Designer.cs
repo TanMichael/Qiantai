@@ -47,6 +47,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.库存数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.成交价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.text折扣 = new System.Windows.Forms.TextBox();
@@ -61,14 +69,8 @@
             this.button搜索 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
-            this.产品编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.产品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.库存数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.折扣 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.成交价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox客户订单号 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -176,6 +178,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textBox客户订单号);
             this.groupBox1.Controls.Add(this.l编号);
             this.groupBox1.Controls.Add(this.com结算方式);
             this.groupBox1.Controls.Add(this.label1);
@@ -190,7 +194,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 169);
+            this.groupBox1.Size = new System.Drawing.Size(647, 169);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
@@ -279,6 +283,60 @@
             this.dataGridView2.Size = new System.Drawing.Size(696, 150);
             this.dataGridView2.TabIndex = 13;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // 产品编号
+            // 
+            this.产品编号.HeaderText = "产品编号";
+            this.产品编号.Name = "产品编号";
+            this.产品编号.ReadOnly = true;
+            this.产品编号.Width = 78;
+            // 
+            // 产品名称
+            // 
+            this.产品名称.HeaderText = "产品名称";
+            this.产品名称.Name = "产品名称";
+            this.产品名称.ReadOnly = true;
+            // 
+            // 规格
+            // 
+            this.规格.HeaderText = "规格";
+            this.规格.Name = "规格";
+            this.规格.ReadOnly = true;
+            this.规格.Width = 120;
+            // 
+            // 库存数量
+            // 
+            this.库存数量.HeaderText = "库存数量";
+            this.库存数量.Name = "库存数量";
+            this.库存数量.ReadOnly = true;
+            this.库存数量.Width = 80;
+            // 
+            // 数量
+            // 
+            this.数量.HeaderText = "数量";
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            this.数量.Width = 60;
+            // 
+            // 单价
+            // 
+            this.单价.HeaderText = "单价";
+            this.单价.Name = "单价";
+            this.单价.ReadOnly = true;
+            this.单价.Width = 60;
+            // 
+            // 折扣
+            // 
+            this.折扣.HeaderText = "折扣";
+            this.折扣.Name = "折扣";
+            this.折扣.ReadOnly = true;
+            this.折扣.Width = 60;
+            // 
+            // 成交价
+            // 
+            this.成交价.HeaderText = "成交价";
+            this.成交价.Name = "成交价";
+            this.成交价.ReadOnly = true;
             // 
             // label7
             // 
@@ -432,59 +490,21 @@
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
             // 
-            // 产品编号
+            // label10
             // 
-            this.产品编号.HeaderText = "产品编号";
-            this.产品编号.Name = "产品编号";
-            this.产品编号.ReadOnly = true;
-            this.产品编号.Width = 78;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(440, 74);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "客户订单号";
             // 
-            // 产品名称
+            // textBox客户订单号
             // 
-            this.产品名称.HeaderText = "产品名称";
-            this.产品名称.Name = "产品名称";
-            this.产品名称.ReadOnly = true;
-            // 
-            // 规格
-            // 
-            this.规格.HeaderText = "规格";
-            this.规格.Name = "规格";
-            this.规格.ReadOnly = true;
-            this.规格.Width = 120;
-            // 
-            // 库存数量
-            // 
-            this.库存数量.HeaderText = "库存数量";
-            this.库存数量.Name = "库存数量";
-            this.库存数量.ReadOnly = true;
-            this.库存数量.Width = 80;
-            // 
-            // 数量
-            // 
-            this.数量.HeaderText = "数量";
-            this.数量.Name = "数量";
-            this.数量.ReadOnly = true;
-            this.数量.Width = 60;
-            // 
-            // 单价
-            // 
-            this.单价.HeaderText = "单价";
-            this.单价.Name = "单价";
-            this.单价.ReadOnly = true;
-            this.单价.Width = 60;
-            // 
-            // 折扣
-            // 
-            this.折扣.HeaderText = "折扣";
-            this.折扣.Name = "折扣";
-            this.折扣.ReadOnly = true;
-            this.折扣.Width = 60;
-            // 
-            // 成交价
-            // 
-            this.成交价.HeaderText = "成交价";
-            this.成交价.Name = "成交价";
-            this.成交价.ReadOnly = true;
+            this.textBox客户订单号.Location = new System.Drawing.Point(509, 71);
+            this.textBox客户订单号.Name = "textBox客户订单号";
+            this.textBox客户订单号.Size = new System.Drawing.Size(121, 21);
+            this.textBox客户订单号.TabIndex = 14;
             // 
             // 新增订单
             // 
@@ -555,5 +575,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 单价;
         private System.Windows.Forms.DataGridViewTextBoxColumn 折扣;
         private System.Windows.Forms.DataGridViewTextBoxColumn 成交价;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox客户订单号;
     }
 }

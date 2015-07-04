@@ -307,6 +307,7 @@ namespace QTsys
                 od.RecieverName = com客户联系人.Text;
                 od.RecieverPhone = text联系电话.Text;
                 od.Creator = Utils.GetCurrentUsername();
+                od.CustomerOrderId = textBox客户订单号.Text;
                 //插入order
                 id = this.odm.AddNewOrder(od);
                 if (id > 0)
