@@ -86,6 +86,8 @@
             this.t订单编号 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox客户订单号 = new System.Windows.Forms.TextBox();
+            this.textBox送货单号 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -111,7 +113,7 @@
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(860, 16);
+            this.button3.Location = new System.Drawing.Point(1050, 16);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 25;
@@ -122,7 +124,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(757, 16);
+            this.button2.Location = new System.Drawing.Point(947, 16);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 24;
@@ -133,7 +135,7 @@
             // 
             // button修改并保存
             // 
-            this.button修改并保存.Location = new System.Drawing.Point(654, 16);
+            this.button修改并保存.Location = new System.Drawing.Point(844, 16);
             this.button修改并保存.Name = "button修改并保存";
             this.button修改并保存.Size = new System.Drawing.Size(75, 23);
             this.button修改并保存.TabIndex = 23;
@@ -430,6 +432,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox送货单号);
+            this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.textBox客户订单号);
             this.tabPage1.Controls.Add(this.checkBox查看所有);
@@ -665,6 +669,22 @@
             this.textBox客户订单号.Size = new System.Drawing.Size(121, 21);
             this.textBox客户订单号.TabIndex = 59;
             // 
+            // textBox送货单号
+            // 
+            this.textBox送货单号.Location = new System.Drawing.Point(717, 16);
+            this.textBox送货单号.Name = "textBox送货单号";
+            this.textBox送货单号.Size = new System.Drawing.Size(121, 21);
+            this.textBox送货单号.TabIndex = 61;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(646, 19);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 12);
+            this.label23.TabIndex = 60;
+            this.label23.Text = "送货单号：";
+            // 
             // 订单管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -747,5 +767,7 @@
         private System.Windows.Forms.CheckBox checkBox查看所有;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox客户订单号;
+        private System.Windows.Forms.TextBox textBox送货单号;
+        private System.Windows.Forms.Label label23;
     }
 }

@@ -129,6 +129,7 @@ namespace QTsys
                 text收货电话.Text = dataGridView1.Rows[e.RowIndex].Cells["收货电话"].Value.ToString();
                 com创建人.Text = dataGridView1.Rows[e.RowIndex].Cells["创建人"].Value.ToString();
                 textBox客户订单号.Text = dataGridView1.Rows[e.RowIndex].Cells["客户订单号"].Value.ToString();
+                textBox送货单号.Text = dataGridView1.Rows[e.RowIndex].Cells["送货单号"].Value.ToString();
 
                 //var temp = from it in (com客户名.Items.Cast<Customer>())
                 //            where it.Id == selectedCId
@@ -178,6 +179,7 @@ namespace QTsys
                 od.RecieverPhone = text收货电话.Text;
                 od.Creator = com创建人.Text;
                 od.CustomerOrderId = textBox客户订单号.Text;
+                od.DeliverNO = textBox送货单号.Text;
                 if (this.odm.AltOrder(od))
                 {
                     MessageBox.Show("订单修改成功！"); 
