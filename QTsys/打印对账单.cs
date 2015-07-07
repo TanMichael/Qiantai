@@ -47,14 +47,14 @@ namespace QTsys
             result = result.Replace("{结算方式}", payMod);
             result = result.Replace("{列印日期}", today.ToShortDateString());
             result = result.Replace("{联系人}", contact);
-            //result = result.Replace("{性质}", year);
-            //result = result.Replace("{页码}", year);
+            result = result.Replace("{性质}", " ");
+            result = result.Replace("{页码}", "1");
             result = result.Replace("{联系电话}", phone);
             result = result.Replace("{起始日期}", startDate.ToShortDateString());
-            //result = result.Replace("{币种}", year);
+            result = result.Replace("{币种}", "RMB");
             result = result.Replace("{传真}", fax);
             result = result.Replace("{截止日期}", endDate.ToShortDateString());
-            //result = result.Replace("{单位}", year);
+            result = result.Replace("{单位}", " ");
             result = result.Replace("{地址}", addr);
 
             string value = "";

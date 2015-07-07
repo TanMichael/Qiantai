@@ -157,7 +157,7 @@ namespace QTsys.Common
         public static string GetTemplateContent(string path)
         {
             string content;
-            using (StreamReader rd = new StreamReader(path, Encoding.UTF8))
+            using (StreamReader rd = new StreamReader(path, Encoding.Default))
             {
                 content = rd.ReadToEnd();
             }
@@ -166,7 +166,7 @@ namespace QTsys.Common
 
         public static void WriteToTemplate(string path, string content)
         {
-            using (StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8))
+            using (StreamWriter sw = new StreamWriter(path, false, Encoding.Default))
             {
                 sw.Write(content);
             }
@@ -174,10 +174,31 @@ namespace QTsys.Common
 
         public static string GetTableTD(string value)
         {
-            string html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
-                          "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>" +
-                          value + "</span></p></td>";
-            return html;
+            try
+            {
+                string html = "";
+                if (value == "")
+                {
+                    html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                                  "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>" +
+                                  "&nbsp;" + "</span></p></td>";
+                }
+                else
+                {
+                    html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                               "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>" +
+                               value + "</span></p></td>";
+                }
+                return html;
+            }
+            catch (Exception ex)
+            {
+                string html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                                  "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>"
+                                  + "</span></p></td>";
+                return html;
+            }
+            
         }
 
         public static string GetTableTR(string[] tds)
