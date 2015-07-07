@@ -116,7 +116,7 @@ namespace QTsys
             try
             {
             double count = 0;//存储金额总数
-            StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.GetEncoding("unicode"));
+            StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
             string usedata = rd.ReadToEnd();
             rd.Close();
             //把数据读入usedata
@@ -196,7 +196,7 @@ namespace QTsys
             //***************************************************************
             //把usedata写入送货单_OVER并更新
             File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");
-            StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.GetEncoding("unicode"));
+            StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.Default);
             wr.Write(usedata);
             wr.Close(); 
             webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页

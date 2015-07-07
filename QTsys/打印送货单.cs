@@ -83,7 +83,7 @@ namespace QTsys
             //用string类替换html中的关键字
             //空表格为“送货单.htm”，可替换送货单部分有“送货单_DATA.HTM”, 数据处理完存储在“送货单_OVER.htm”
             double count = 0;//存储金额总数
-            StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.GetEncoding("unicode"));
+            StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
             string usedata = rd.ReadToEnd();
             rd.Close();
             //把数据读入usedata
@@ -161,7 +161,7 @@ namespace QTsys
             //***************************************************************
             //把usedata写入送货单_OVER并更新
             File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");
-            StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.GetEncoding("unicode"));
+            StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.Default);
             wr.Write(usedata);
             wr.Close(); 
             webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
