@@ -115,6 +115,7 @@ namespace QTsys
         {
             try
             {
+            int page = 10;//设置分页数为10
             double count = 0;//存储金额总数
             StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
             string usedata = rd.ReadToEnd();

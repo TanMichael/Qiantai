@@ -269,6 +269,8 @@
             // 
             // com客户名
             // 
+            this.com客户名.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.com客户名.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.com客户名.FormattingEnabled = true;
             this.com客户名.Location = new System.Drawing.Point(79, 25);
             this.com客户名.Name = "com客户名";
@@ -292,6 +294,8 @@
             this.com客户联系人.Name = "com客户联系人";
             this.com客户联系人.Size = new System.Drawing.Size(121, 20);
             this.com客户联系人.TabIndex = 3;
+            this.com客户联系人.DropDown += new System.EventHandler(this.com客户联系人_DropDown);
+            this.com客户联系人.SelectedIndexChanged += new System.EventHandler(this.com客户联系人_SelectedIndexChanged);
             // 
             // dataGridView报价单
             // 
@@ -401,7 +405,7 @@
             // label1备注
             // 
             this.label1备注.AutoSize = true;
-            this.label1备注.Location = new System.Drawing.Point(440, 28);
+            this.label1备注.Location = new System.Drawing.Point(394, 29);
             this.label1备注.Name = "label1备注";
             this.label1备注.Size = new System.Drawing.Size(11, 12);
             this.label1备注.TabIndex = 13;

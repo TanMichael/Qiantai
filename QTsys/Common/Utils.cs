@@ -211,5 +211,13 @@ namespace QTsys.Common
             html += "</tr>";
             return html;
         }
+
+        public static string GetTableTRex(string td)
+        {
+            string html = "<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.2pt'>";
+            html += td;
+            html += "</tr>";
+            return html;
+        }
     }
 }

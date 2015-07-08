@@ -40,6 +40,8 @@
             this.check样品 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox客户订单号 = new System.Windows.Forms.TextBox();
             this.l编号 = new System.Windows.Forms.Label();
             this.com结算方式 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -69,8 +71,6 @@
             this.button搜索 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox产品名称搜索 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox客户订单号 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -90,6 +90,8 @@
             // 
             // com客户名
             // 
+            this.com客户名.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.com客户名.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.com客户名.FormattingEnabled = true;
             this.com客户名.Location = new System.Drawing.Point(79, 25);
             this.com客户名.Name = "com客户名";
@@ -198,6 +200,22 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "客户";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(440, 74);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "客户订单号";
+            // 
+            // textBox客户订单号
+            // 
+            this.textBox客户订单号.Location = new System.Drawing.Point(509, 71);
+            this.textBox客户订单号.Name = "textBox客户订单号";
+            this.textBox客户订单号.Size = new System.Drawing.Size(121, 21);
+            this.textBox客户订单号.TabIndex = 14;
             // 
             // l编号
             // 
@@ -489,22 +507,6 @@
             this.textBox产品名称搜索.Name = "textBox产品名称搜索";
             this.textBox产品名称搜索.Size = new System.Drawing.Size(196, 21);
             this.textBox产品名称搜索.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(440, 74);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "客户订单号";
-            // 
-            // textBox客户订单号
-            // 
-            this.textBox客户订单号.Location = new System.Drawing.Point(509, 71);
-            this.textBox客户订单号.Name = "textBox客户订单号";
-            this.textBox客户订单号.Size = new System.Drawing.Size(121, 21);
-            this.textBox客户订单号.TabIndex = 14;
             // 
             // 新增订单
             // 
