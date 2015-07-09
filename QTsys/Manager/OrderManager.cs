@@ -84,5 +84,10 @@ namespace QTsys.Manager
         {
             return this.odao.GetOrderInProduction();
         }
+
+        public bool InsertDeliverRecord(string selectedCustomerId, string customerName, string orderId, string isSample, string productName, string standard, string texture, int count, double price, double sum, DateTime now, string expressNO, string username)
+        {
+            return this.odao.InsertDeliverRecord(selectedCustomerId, customerName, orderId, isSample, productName, standard, texture, count, price, sum, now, expressNO, username);
+        }
     }
 }

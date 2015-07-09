@@ -248,6 +248,24 @@ create table 订单明细
    primary key (订单编号, 产品编号)
 );
 
+create table 送货记录
+(
+   送货单号                 int primary key auto_increment,
+   客户编号                 int,
+   客户名称                 nvarchar(128),
+   客户订单号               nvarchar(128),
+   是否样品订单             nvarchar(128),
+   产品名称                 nvarchar(128),
+   规格                     nvarchar(128),
+   材质                     nvarchar(128),
+   数量                     int,
+   成交价                   decimal(7,2),
+   金额                     decimal(9,2),
+   发货时间                 DATETIME,
+   快递单号                 nvarchar(128),
+   创建人                   nvarchar(128) not null
+);
+
 create table 操作记录
 (
    记录编号               int primary key auto_increment,

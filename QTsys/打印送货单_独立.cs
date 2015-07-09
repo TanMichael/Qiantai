@@ -1,4 +1,5 @@
-﻿using QTsys.Common.Constants;
+﻿using QTsys.Common;
+using QTsys.Common.Constants;
 using QTsys.Manager;
 using System;
 using System.Collections.Generic;
@@ -242,9 +243,26 @@ namespace QTsys
         {
             try
             {
-                for (int j = 0; j < dataGridView生产计划.RowCount; j++)
+                int j = selectedPlanIdx;
+                if (j < 0)
                 {
+                    return;
+                }
+                
+                //for (int j = 0; j < dataGridView生产计划.RowCount; j++)
+                //{
                     int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
+
+                    if (cCount <= 0)
+                    {
+                        MessageBox.Show("本次发货数要大于0！");
+                        return;
+                    }
+                    string proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
+                string guige = dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString();
+                string caizhi = dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString();
+                double price = double.Parse(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+
                     string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
                     string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
                     int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
@@ -261,10 +279,10 @@ namespace QTsys
                     // update 当前生产数, 已发货数
                     if (!doCalThenUpdateDB(finishedCount, cCount, iCount, ppId))
                     {
-                        MessageBox.Show("产品【"+dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString()+"】更新失败！");
+                        MessageBox.Show("产品【"+ proName +"】更新失败！");
                         return;
                     }
-                }
+                //}
                 //****************
                // selectOrderIdx = e.RowIndex;
 
@@ -289,6 +307,12 @@ namespace QTsys
                     com客户联系人.ValueMember = "Id";
                 }
                 com客户联系人.Text = cContact;
+
+                // 插入送货记录表，为跟客户结账
+                odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, "",
+                                        proName, guige, caizhi,
+                                        cCount, price, price * cCount,
+                                        DateTime.Now, "", Utils.GetCurrentUsername());
 
                 dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
                 dataGridView生产计划.Update();
