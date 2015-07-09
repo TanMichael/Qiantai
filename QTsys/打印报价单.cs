@@ -52,6 +52,8 @@ namespace QTsys
             result = result.Replace("{传真}", fax);
             result = result.Replace("{地址}", addr);
             string value = "";
+            bool nextpage = false;
+            int pagenum = 0;
 
             string 产品编号 = "";
             string 产品名称 = "";
@@ -61,11 +63,16 @@ namespace QTsys
             string 单价 = "";
             string 备注 = "";
 
-            for (int p = 0; p < dt.Rows.Count / page; p++)
+            for (int p = 0; p < dt.Rows.Count / page + 1; p++)
             {
-                for (int i = 0; i < page; ++i)
+                for (int i = 0; i < page; i++)
                 {
-                    value = "";
+                    if (dt.Rows.Count == i + p * page)
+                    {
+                        nextpage = false;
+                        break;
+                    }
+                    nextpage = true;
                     value += "<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.2pt'>";
                     产品编号 = dt.Rows[i + p * page]["产品编号"].ToString();
                     产品名称 = dt.Rows[i + p * page]["产品名称"].ToString();
@@ -75,18 +82,26 @@ namespace QTsys
                     单价 = dt.Rows[i + p * page]["单价"].ToString();
                     备注 = dt.Rows[i + p * page]["备注"].ToString();
                     value += Utils.GetTableTD(产品编号) + Utils.GetTableTD(产品名称) + Utils.GetTableTD(规格) + Utils.GetTableTD(材质) + Utils.GetTableTD(变位) + Utils.GetTableTD(单价) + Utils.GetTableTD(备注) + "</tr>";
-                 }
-                result = result.Replace("{页数}", Convert.ToString(p + 1));
+                }
+
+                if ((p + 1) * page == dt.Rows.Count)
+                    nextpage = false;
+
+                if (+dt.Rows.Count % page > 0)
+                    pagenum = dt.Rows.Count / page + 1;
+                else
+                    pagenum = dt.Rows.Count / page;
+                result = result.Replace("{页数}", Convert.ToString(p + 1) + "/" + Convert.ToString(pagenum));
                 result = result.Replace("{table_content}", value);
 
-                if (dt.Rows.Count != (p+1) * page)
+                if (nextpage)
                 {
                     result += "<p style=\"page-break-after:always;\"> </p>";//分页
                     result += Utils.GetTemplateContent(templatePath);
+                    value = "";
                 }
-                
-            }
 
+            }
 
             result = result.Replace("{年份}", year);
             result = result.Replace("{月份}", month);
@@ -98,33 +113,7 @@ namespace QTsys
             result = result.Replace("{传真}", fax);
             result = result.Replace("{地址}", addr);
             result = result.Replace("{财务}", Utils.GetLogonToken().Name);
-            
 
-            /*
-                 foreach (DataRow row in dt.Rows)
-                                {
-                                    string 产品编号 = row["产品编号"].ToString();
-                                    string 产品名称 = row["产品名称"].ToString();
-                                    string 规格 = row["规格"].ToString();
-                                    string 材质 = row["材质"].ToString();
-                                    string 变位 = row["变位"].ToString();
-                                    string 单价 = row["单价"].ToString();
-                                    string 备注 = row["备注"].ToString();
-
-                                    value += Utils.GetTableTR(new string[]
-                                {
-                                    Utils.GetTableTD(产品编号),
-                                    Utils.GetTableTD(产品名称),
-                                    Utils.GetTableTD(规格),
-                                    Utils.GetTableTD(材质),
-                                    Utils.GetTableTD(变位),
-                                    Utils.GetTableTD(单价),
-                                    Utils.GetTableTD(备注)
-                                });
-                                }
-                            result = result.Replace("{财务}", Utils.GetLogonToken().Name);
-                            result = result.Replace("{table_content}", value);            
-             */
             Utils.WriteToTemplate(targetPath, result);
 
             webBrowser预览.Url = new Uri(targetPath);//显示网页
