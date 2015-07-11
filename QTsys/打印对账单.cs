@@ -64,7 +64,7 @@ namespace QTsys
             {
                 string productName = row["产品名称"].ToString();
                 string standard = row["规格"].ToString();
-                string deliverTime = row["发货时间"].ToString();    // TODO: time format
+                string deliverTime = ((DateTime)row["发货时间"]).ToString("yyyy/MM/dd");    // TODO: time format
                 string deliverNO = row["送货单号"].ToString();
                 string orderId = row["订单编号"].ToString();
                 string texture = row["材质"].ToString();
@@ -86,6 +86,7 @@ namespace QTsys
                     Utils.GetTableTD(sum)
                 });
             }
+            result = result.Replace("{总金额}", totalSum.ToString());
             result = result.Replace("{table_content}", value);
             result = result.Replace("{财务}", Utils.GetLogonToken().Name);
 

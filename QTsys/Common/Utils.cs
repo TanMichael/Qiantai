@@ -179,13 +179,13 @@ namespace QTsys.Common
                 string html = "";
                 if (value == "")
                 {
-                    html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                    html = "<td style='border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
                                   "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>" +
                                   "&nbsp;" + "</span></p></td>";
                 }
                 else
                 {
-                    html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                    html = "<td style='border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
                                "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>" +
                                value + "</span></p></td>";
                 }
@@ -193,7 +193,7 @@ namespace QTsys.Common
             }
             catch (Exception ex)
             {
-                string html = "<td width=80 style='width:59.65pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
+                string html = "<td style='border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt'>" +
                                   "<p class=MsoNormal align=center style='text-align:center;line-height:12.0pt'><spanstyle='font-size:12.0pt;font-family:宋体'>"
                                   + "</span></p></td>";
                 return html;
