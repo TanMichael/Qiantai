@@ -103,7 +103,9 @@ namespace QTsys
 
         private void button打印_Click(object sender, EventArgs e)
         {
-            webBrowser预览.Print();
+            //webBrowser预览.Print();
+            webBrowser预览.ShowPageSetupDialog();
+            webBrowser预览.ShowPrintPreviewDialog();
         }
 
         private void 打印对账单_Load(object sender, EventArgs e)
