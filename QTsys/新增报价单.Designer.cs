@@ -73,6 +73,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox分页数量 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -544,11 +546,31 @@
             this.label6.Text = "产品数量";
             this.label6.Visible = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(240, 508);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 12);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "条数据进行分页";
+            this.label12.Visible = false;
+            // 
+            // textBox分页数量
+            // 
+            this.textBox分页数量.Location = new System.Drawing.Point(185, 505);
+            this.textBox分页数量.Name = "textBox分页数量";
+            this.textBox分页数量.Size = new System.Drawing.Size(49, 21);
+            this.textBox分页数量.TabIndex = 14;
+            this.textBox分页数量.Text = "10";
+            // 
             // 新增报价单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1313, 547);
+            this.Controls.Add(this.textBox分页数量);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -567,6 +589,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -617,5 +640,7 @@
         public System.Windows.Forms.TextBox text收货地址;
         public System.Windows.Forms.TextBox text联系电话;
         private System.Windows.Forms.CheckBox check样品;
+        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox textBox分页数量;
     }
 }

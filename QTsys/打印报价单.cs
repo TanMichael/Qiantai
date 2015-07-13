@@ -27,10 +27,10 @@ namespace QTsys
             webBrowser预览.ShowPrintPreviewDialog();
         }
 
-        public 打印报价单(新增报价单 parent, DataTable dt)
+        public 打印报价单(新增报价单 parent, DataTable dt,int pages)
             : this()
         {
-            int page = 3;//设置10行分页
+            int page = pages;//设置10行分页
             string customerID = parent.l编号.Text;
             string customerName = parent.com客户名.Text;
             string contact = parent.com客户联系人.Text;

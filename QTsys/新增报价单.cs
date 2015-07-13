@@ -325,7 +325,7 @@ namespace QTsys
             //打印
             try
             {   
-                打印报价单 win = new 打印报价单(this,GetDgvToTable(dataGridView报价单));
+                打印报价单 win = new 打印报价单(this,GetDgvToTable(dataGridView报价单),Convert.ToInt16(textBox分页数量.Text));
                 win.ShowDialog();
             }
             catch (Exception ex) { ex.ToString(); }
