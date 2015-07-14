@@ -554,7 +554,6 @@
             this.label12.Size = new System.Drawing.Size(89, 12);
             this.label12.TabIndex = 20;
             this.label12.Text = "条数据进行分页";
-            this.label12.Visible = false;
             // 
             // textBox分页数量
             // 

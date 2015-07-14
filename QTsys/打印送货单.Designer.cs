@@ -49,6 +49,8 @@
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox分页数量 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +149,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(357, 181);
+            this.button2.Location = new System.Drawing.Point(357, 176);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 51;
@@ -222,7 +224,7 @@
             // 
             // webBrowser2
             // 
-            this.webBrowser2.Location = new System.Drawing.Point(14, 219);
+            this.webBrowser2.Location = new System.Drawing.Point(12, 219);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
             this.webBrowser2.Size = new System.Drawing.Size(1043, 405);
@@ -233,7 +235,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(690, 20);
+            this.label8.Location = new System.Drawing.Point(708, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 12);
             this.label8.TabIndex = 63;
@@ -241,7 +243,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(213, 155);
+            this.button3.Location = new System.Drawing.Point(213, 176);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 23);
             this.button3.TabIndex = 119;
@@ -249,11 +251,30 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // textBox分页数量
+            // 
+            this.textBox分页数量.Location = new System.Drawing.Point(207, 137);
+            this.textBox分页数量.Name = "textBox分页数量";
+            this.textBox分页数量.Size = new System.Drawing.Size(49, 21);
+            this.textBox分页数量.TabIndex = 124;
+            this.textBox分页数量.Text = "10";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(262, 140);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 12);
+            this.label13.TabIndex = 125;
+            this.label13.Text = "条数据进行分页";
+            // 
             // 打印送货单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 643);
+            this.Controls.Add(this.textBox分页数量);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.checkBox1);
@@ -307,5 +328,7 @@
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.TextBox textBox分页数量;
+        private System.Windows.Forms.Label label13;
     }
 }

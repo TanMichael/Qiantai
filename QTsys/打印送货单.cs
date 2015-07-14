@@ -64,10 +64,9 @@ namespace QTsys
         {
             try
             {
-                insetnewlist();
+                insetnewlist(Convert.ToUInt16(textBox分页数量.Text));
             }
             catch (Exception ex) { };
-           // webBrowser2.Print();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -77,7 +76,7 @@ namespace QTsys
             webBrowser2.ShowPrintPreviewDialog();
         }
 
-        public void insetnewlist()//生成新的销售单表
+        public void insetnewlist(int page)//生成新的销售单表
         {
             //关于对送货单_OVER.htm的操作，让送货单_DATA.htm产生数据，取代送货单.htm
             //用string类替换html中的关键字
@@ -85,6 +84,7 @@ namespace QTsys
             double count = 0;//存储金额总数
             StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
             string usedata = rd.ReadToEnd();
+            string usedatatemp = usedata;
             rd.Close();
             //把数据读入usedata
             //**替换操作*************************************************************
@@ -101,11 +101,30 @@ namespace QTsys
             string staticstr = "<tr style='mso-yfti-irow:6;height:17.25pt'> <td nowrap style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt: solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 0cm 0cm 0cm; height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data11<o:p></o:p></span></p> </td> <td style='border:none;border-bottom:solid windowtext 1.0pt;mso-border-top-alt: solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt: solid windowtext .5pt;padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data12<o:p></o:p></span></p> </td> <td nowrap style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt: solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 0cm 0cm 0cm; height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data13<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data14<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data15<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data16<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data17<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data18<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data19<o:p></o:p></span></p> </td> </tr>";
             string temp = "";
             string tempstr = "";
+            bool firstline = true;
                 //"<!--*end-->";
             //被替换string
             for (int j = 0; j < dataGridView1.RowCount; j++)
             {
-                if (j == 0)
+
+                if ((j + 1) % page == 1 && (j + 1) > page)
+                {
+                    firstline = true;
+                    usedata = usedata.Replace("<!--*end-->", tempstr);
+                    usedata += "<p style=\"page-break-after:always;\"> </p>";//分页
+                    usedata += usedatatemp;
+                    usedata = usedata.Replace("text0", comboBox1.Text);
+                    usedata = usedata.Replace("text1", text客户名称.Text);
+                    usedata = usedata.Replace("text2", text送货地址.Text);
+                    usedata = usedata.Replace("text3",text联系人.Text);
+                    usedata = usedata.Replace("text4", text联系电话.Text);
+                    usedata = usedata.Replace("year", DateTime.Now.Year.ToString());
+                    usedata = usedata.Replace("month", DateTime.Now.Month.ToString());
+                    usedata = usedata.Replace("day", DateTime.Now.Day.ToString());
+                    tempstr = "";
+                }
+
+                if (firstline == true)
                 {
                     usedata = usedata.Replace("data11", label3.Text);
                     usedata = usedata.Replace("data12", 订单明细.Rows[j]["规格"].ToString());
@@ -126,8 +145,10 @@ namespace QTsys
                     }
                     usedata = usedata.Replace("data19", "");
                     count += Convert.ToDouble(订单明细.Rows[j]["数量"].ToString()) * Convert.ToDouble(订单明细.Rows[j]["成交价"].ToString());
+                    firstline = false;
                 }
-                if (j > 0) {
+                if (firstline == false && j > 0 && (j + 1) % page != 1)
+                {
                     temp = staticstr;
                   temp = temp.Replace("data11", label3.Text);
                     temp = temp.Replace("data12", 订单明细.Rows[j]["规格"].ToString());

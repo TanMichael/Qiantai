@@ -112,99 +112,117 @@ namespace QTsys
             }
         }
 
-        public void insetnewlist()//生成新的销售单表
+        public void insetnewlist(int pages)//生成新的销售单表
         {
             try
             {
-            
-            int page = 10;//设置分页数为10
-            double count = 0;//存储金额总数
-            StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
-            string usedata = rd.ReadToEnd();
-            rd.Close();
-            //把数据读入usedata
-            //**替换操作*************************************************************
-            usedata = usedata.Replace("text0", label1订单编号.Text);
-            usedata = usedata.Replace("text1", textBox客户名称.Text);
-            usedata = usedata.Replace("text2", text收货地址.Text);
-            usedata = usedata.Replace("text3", com客户联系人.Text);
-            usedata = usedata.Replace("text4", text联系电话.Text);
-            usedata = usedata.Replace("year", DateTime.Now.Year.ToString());
-            usedata = usedata.Replace("month", DateTime.Now.Month.ToString());
-            usedata = usedata.Replace("day", DateTime.Now.Day.ToString());
-            //------------------------------------------------------------------------
-            string staticstr = "<tr style='mso-yfti-irow:6;height:17.25pt'> <td nowrap style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt: solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 0cm 0cm 0cm; height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data11<o:p></o:p></span></p> </td> <td style='border:none;border-bottom:solid windowtext 1.0pt;mso-border-top-alt: solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt: solid windowtext .5pt;padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data12<o:p></o:p></span></p> </td> <td nowrap style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt: solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 0cm 0cm 0cm; height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data13<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data14<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data15<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data16<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data17<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data18<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data19<o:p></o:p></span></p> </td> </tr>";
-            string temp = "";
-            string tempstr = "";
-                //"<!--*end-->";
-            //被替换string
-            for (int j = 0; j < dataGridView生产计划.RowCount; j++)
-            {
-                if (j == 0)
+                int page = pages;//设置分页数为10
+                double count = 0;//存储金额总数
+                StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
+                string usedatatemp = rd.ReadToEnd();
+                string usedata = usedatatemp;
+                rd.Close();
+                //把数据读入usedata
+                //**替换操作*************************************************************
+                usedata = usedata.Replace("text0", label1订单编号.Text);
+                usedata = usedata.Replace("text1", textBox客户名称.Text);
+                usedata = usedata.Replace("text2", text收货地址.Text);
+                usedata = usedata.Replace("text3", com客户联系人.Text);
+                usedata = usedata.Replace("text4", text联系电话.Text);
+                usedata = usedata.Replace("year", DateTime.Now.Year.ToString());
+                usedata = usedata.Replace("month", DateTime.Now.Month.ToString());
+                usedata = usedata.Replace("day", DateTime.Now.Day.ToString());
+                //------------------------------------------------------------------------
+                string staticstr = "<tr style='mso-yfti-irow:6;height:17.25pt'> <td nowrap style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt: solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 0cm 0cm 0cm; height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data11<o:p></o:p></span></p> </td> <td style='border:none;border-bottom:solid windowtext 1.0pt;mso-border-top-alt: solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt: solid windowtext .5pt;padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data12<o:p></o:p></span></p> </td> <td nowrap style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt: solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 0cm 0cm 0cm; height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data13<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data14<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data15<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data16<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data17<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data18<o:p></o:p></span></p> </td> <td nowrap style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt; mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0cm 0cm 0cm 0cm;height:17.25pt'> <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US style='font-size:10.0pt; '>data19<o:p></o:p></span></p> </td> </tr>";
+                string temp = "";
+                string tempstr = "";
+                bool firstline = true;
+                //被替换string
+               // result += "<p style=\"page-break-after:always;\"> </p>";//分页
+                for (int j = 0; j < dataGridView生产计划.RowCount; j++)
                 {
-                    usedata = usedata.Replace("data11", label1订单编号.Text);
-                    usedata = usedata.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
-                    usedata = usedata.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
-                    usedata = usedata.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());
-                    usedata = usedata.Replace("data15", "pcs");
-                    usedata = usedata.Replace("data16", dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
-                    if (checkBox是否单价.Checked)
+                    if ((j + 1)  % page ==1 && (j+1)>page)
                     {
-
-                        usedata = usedata.Replace("data17", dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
-                        usedata = usedata.Replace("data18", Convert.ToString(Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString())));
-
+                        firstline = true;
+                        usedata = usedata.Replace("<!--*end-->", tempstr);
+                        usedata += "<p style=\"page-break-after:always;\"> </p>";//分页
+                        usedata += usedatatemp;
+                        usedata = usedata.Replace("text0", label1订单编号.Text);
+                        usedata = usedata.Replace("text1", textBox客户名称.Text);
+                        usedata = usedata.Replace("text2", text收货地址.Text);
+                        usedata = usedata.Replace("text3", com客户联系人.Text);
+                        usedata = usedata.Replace("text4", text联系电话.Text);
+                        usedata = usedata.Replace("year", DateTime.Now.Year.ToString());
+                        usedata = usedata.Replace("month", DateTime.Now.Month.ToString());
+                        usedata = usedata.Replace("day", DateTime.Now.Day.ToString());
+                        tempstr = "";
                     }
-                    else
+                    if (firstline==true )
                     {
-                        usedata = usedata.Replace("data16", "");
-                        usedata = usedata.Replace("data17", "");
-                        usedata = usedata.Replace("data18", "");
+                        usedata = usedata.Replace("data11", label1订单编号.Text);
+                        usedata = usedata.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
+                        usedata = usedata.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
+                        usedata = usedata.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());
+                        usedata = usedata.Replace("data15", "pcs");
+                        usedata = usedata.Replace("data16", dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
+                        if (checkBox是否单价.Checked)
+                        {
+
+                            usedata = usedata.Replace("data17", dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+                            usedata = usedata.Replace("data18", Convert.ToString(Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString())));
+
+                        }
+                        else
+                        {
+                            usedata = usedata.Replace("data16", "");
+                            usedata = usedata.Replace("data17", "");
+                            usedata = usedata.Replace("data18", "");
+                        }
+                        usedata = usedata.Replace("data19", "");
+                        count += Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+                        firstline = false;
                     }
-                    usedata = usedata.Replace("data19", "");
-                    count += Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+                    if (firstline == false && j > 0 && (j + 1) % page !=1)
+                    {
+                        temp = staticstr;
+                        temp = temp.Replace("data11", label1订单编号.Text);
+                        temp = temp.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
+                        temp = temp.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
+                        temp = temp.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());
+                        temp = temp.Replace("data15", "pcs");
+                        temp = temp.Replace("data16", dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
+                        if (checkBox是否单价.Checked)
+                        {
+
+                            temp = temp.Replace("data17", dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+                            temp = temp.Replace("data18", Convert.ToString(Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString())));
+                        }
+                        else
+                        {
+                            temp = temp.Replace("data16", "");
+                            temp = temp.Replace("data17", "");
+                            temp = temp.Replace("data18", "");
+                        }
+                        temp = temp.Replace("data19", "");
+                        count += Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+                        tempstr += temp;
+                    }
                 }
-                if (j > 0)
-                {
-                    temp = staticstr;
-                    temp = temp.Replace("data11", label1订单编号.Text);
-                    temp = temp.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
-                    temp = temp.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
-                    temp = temp.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());
-                    temp = temp.Replace("data15", "pcs");
-                    temp = temp.Replace("data16", dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
-                    if (checkBox是否单价.Checked)
-                    {
-
-                        temp = temp.Replace("data17", dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
-                        temp = temp.Replace("data18", Convert.ToString(Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString())));
-                    }
-                    else
-                    {
-                        temp = temp.Replace("data16", "");
-                        temp = temp.Replace("data17", "");
-                        temp = temp.Replace("data18", "");
-                    }
-                    temp = temp.Replace("data19", "");
-                    count += Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString()) * Convert.ToDouble(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
-                    tempstr += temp;
-                }
+                usedata = usedata.Replace("<!--*end-->", tempstr);
+                //------------------------------------------------------------------------
+                if (checkBox是否单价.Checked)
+                { usedata = usedata.Replace("data0", count.ToString()); }
+                else
+                { usedata = usedata.Replace("data0", ""); }
+                //***************************************************************
+                //把usedata写入送货单_OVER并更新
+                File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");
+                StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.Default);
+                wr.Write(usedata);
+                wr.Close();
+                webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
             }
-            usedata = usedata.Replace("<!--*end-->", tempstr);
-            //------------------------------------------------------------------------
-            if (checkBox是否单价.Checked)
-            { usedata = usedata.Replace("data0", count.ToString()); }
-            else
-            { usedata = usedata.Replace("data0", ""); }
-            //***************************************************************
-            //把usedata写入送货单_OVER并更新
-            File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");
-            StreamWriter wr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.Default);
-            wr.Write(usedata);
-            wr.Close(); 
-            webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
-        }
-            
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -213,20 +231,25 @@ namespace QTsys
 
         private void button生成送货单_Click(object sender, EventArgs e)
         {
-            if (dataGridView生产计划.RowCount<1)
+            try
             {
+                if (dataGridView生产计划.RowCount < 1)
+                {
                     MessageBox.Show("请选择有产品的订单！");
                     return;
-            }
-            for (int j = 0; j < dataGridView生产计划.RowCount; j++)
-            {
-                if (dataGridView生产计划.Rows[selectedPlanIdx].Cells["已发货数"].ToString() == "" || dataGridView生产计划.Rows[selectedPlanIdx].Cells["已发货数"].ToString() == "0")
-                {
-                    MessageBox.Show("请输入须送货的数量！");
-                    return;
                 }
+                for (int j = 0; j < dataGridView生产计划.RowCount; j++)
+                {
+                    if (dataGridView生产计划.Rows[selectedPlanIdx].Cells["已发货数"].ToString() == "" || dataGridView生产计划.Rows[selectedPlanIdx].Cells["已发货数"].ToString() == "0")
+                    {
+                        MessageBox.Show("请输入须送货的数量！");
+                        return;
+                    }
+                }
+                insetnewlist(Convert.ToUInt16(textBox分页数量.Text));
             }
-            insetnewlist();
+            catch (Exception ex)
+            { MessageBox.Show(ex.ToString()); }
         }
 
         private bool doCalThenUpdateDB(int iFinished, int iCurrent, int iDelivered, string ppId)
@@ -248,43 +271,43 @@ namespace QTsys
                 {
                     return;
                 }
-                
+
                 //for (int j = 0; j < dataGridView生产计划.RowCount; j++)
                 //{
-                    int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
+                int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
 
-                    if (cCount <= 0)
-                    {
-                        MessageBox.Show("本次发货数要大于0！");
-                        return;
-                    }
-                    string proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
+                if (cCount <= 0)
+                {
+                    MessageBox.Show("本次发货数要大于0！");
+                    return;
+                }
+                string proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
                 string guige = dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString();
                 string caizhi = dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString();
                 double price = double.Parse(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
 
-                    string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
-                    string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
-                    int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
-                    int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
-                    if (iCount + cCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
+                string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
+                string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
+                int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
+                int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
+                if (iCount + cCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
+                {
+                    if (planState == ProductionPlanStatus.TO_BE_SHIP)
                     {
-                        if (planState == ProductionPlanStatus.TO_BE_SHIP)
-                        {
-                            MessageBox.Show("待发货的订单产品已从库存扣除，本次发货数+已发货数不能大于计划数。请重新填写发货数量！");
-                            return;
-                        }
-                        MessageBox.Show("本次发货数+已发货数大于计划数，是否超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString()+"】");
-                    }
-                    // update 当前生产数, 已发货数
-                    if (!doCalThenUpdateDB(finishedCount, cCount, iCount, ppId))
-                    {
-                        MessageBox.Show("产品【"+ proName +"】更新失败！");
+                        MessageBox.Show("待发货的订单产品已从库存扣除，本次发货数+已发货数不能大于计划数。请重新填写发货数量！");
                         return;
                     }
+                    MessageBox.Show("本次发货数+已发货数大于计划数，是否超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString() + "】");
+                }
+                // update 当前生产数, 已发货数
+                if (!doCalThenUpdateDB(finishedCount, cCount, iCount, ppId))
+                {
+                    MessageBox.Show("产品【" + proName + "】更新失败！");
+                    return;
+                }
                 //}
                 //****************
-               // selectOrderIdx = e.RowIndex;
+                // selectOrderIdx = e.RowIndex;
 
                 var orderId = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
                 selectedCustomerId = dataGridView订单.Rows[selectOrderIdx].Cells["客户编号"].Value.ToString();
