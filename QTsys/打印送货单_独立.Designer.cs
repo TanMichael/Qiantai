@@ -58,6 +58,8 @@
             this.label1订单编号 = new System.Windows.Forms.Label();
             this.textBox已完成生产数 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.textBox分页数量 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
@@ -347,11 +349,30 @@
             this.label12.TabIndex = 120;
             this.label12.Text = "已完成生产数";
             // 
+            // textBox分页数量
+            // 
+            this.textBox分页数量.Location = new System.Drawing.Point(863, 6);
+            this.textBox分页数量.Name = "textBox分页数量";
+            this.textBox分页数量.Size = new System.Drawing.Size(49, 21);
+            this.textBox分页数量.TabIndex = 122;
+            this.textBox分页数量.Text = "10";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(918, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 12);
+            this.label13.TabIndex = 123;
+            this.label13.Text = "条数据进行分页";
+            // 
             // 打印送货单_独立
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1418, 680);
+            this.Controls.Add(this.textBox分页数量);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox已完成生产数);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label1订单编号);
@@ -424,5 +445,7 @@
         private System.Windows.Forms.Label label1订单编号;
         public System.Windows.Forms.TextBox textBox已完成生产数;
         private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox textBox分页数量;
+        private System.Windows.Forms.Label label13;
     }
 }

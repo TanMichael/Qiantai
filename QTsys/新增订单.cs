@@ -26,6 +26,7 @@ namespace QTsys
         private string selectedCustomerId;
         private List<CustomerMember> cMembers;
         private ProductPlanManager ppm;
+        private List<string> listNew = new List<string>();
 
         public 新增订单()
         {
@@ -419,6 +420,27 @@ namespace QTsys
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             label搜索列.Text = dataGridView1.Columns[e.ColumnIndex].HeaderText.ToString();
+        }
+
+        private void com客户名_TextUpdate(object sender, EventArgs e)
+        {
+            try
+            {
+                this.com客户名.Items.Clear();
+                listNew.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.com客户名.Text))
+                    {
+                        listNew.Add(item.Name);
+                    }
+                }
+                this.com客户名.Items.AddRange(listNew.ToArray());
+                this.com客户名.SelectionStart = this.com客户名.Text.Length;
+                Cursor = Cursors.Default;
+                this.com客户名.DroppedDown = true;
+            }
+            catch (Exception ex) { ex.ToString(); }
         }
 
 
