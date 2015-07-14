@@ -27,6 +27,7 @@ namespace QTsys
         private List<CustomerMember> cMembers;
         private ProductPlanManager ppm;
         private List<string> listNew = new List<string>();
+        private List<string> listtemp = new List<string>();
 
         public 新增订单()
         {
@@ -84,9 +85,8 @@ namespace QTsys
                 //use dataSource make selectedValue works;
                 com客户名.DisplayMember = "Name";
                 com客户名.ValueMember = "Id";
-                com客户名.DataSource = customers;
-                //com客户名.Items.AddRange(customers.ToArray());
-                
+                //com客户名.DataSource = customers;
+                com客户名.Items.AddRange(customers.ToArray());
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -227,18 +227,17 @@ namespace QTsys
 
         private void com客户名_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             try
             {
-                selectedCustomerId = com客户名.SelectedValue.ToString();//customers[com客户名.SelectedIndex].Id;
-                if (selectedCustomerId == "-9999")
-                {
-                    return;
-                }
+                selectedCustomerId=listtemp[com客户名.SelectedIndex];
+                //MessageBox.Show(selectedCustomerId);
+                 //   .SelectedValue.ToString();//customers[com客户名.SelectedIndex].Id;
                 //com客户联系人
                 DataTable dt = new DataTable();
                 // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
                 dt = userMgr.SearchCustomerByCol("客户编号", selectedCustomerId);
-               l编号.Text= dt.Rows[0]["客户编号"].ToString();
+                l编号.Text = dt.Rows[0]["客户编号"].ToString();
                 com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
                 text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
                 text收货地址.Text = dt.Rows[0]["地址"].ToString();
@@ -428,11 +427,13 @@ namespace QTsys
             {
                 this.com客户名.Items.Clear();
                 listNew.Clear();
+                listtemp.Clear();
                 foreach (var item in customers)
                 {
                     if (item.Name.Contains(this.com客户名.Text))
                     {
                         listNew.Add(item.Name);
+                        listtemp.Add(item.Id);
                     }
                 }
                 this.com客户名.Items.AddRange(listNew.ToArray());
@@ -440,7 +441,7 @@ namespace QTsys
                 Cursor = Cursors.Default;
                 this.com客户名.DroppedDown = true;
             }
-            catch (Exception ex) { ex.ToString(); }
+            catch (Exception ex) {MessageBox.Show( ex.ToString()); }
         }
 
 

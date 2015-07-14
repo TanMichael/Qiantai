@@ -223,8 +223,12 @@ namespace QTsys
 
         private void button9_Click_1(object sender, EventArgs e)
         {
-            新增订单 win = new 新增订单();
-            win.ShowDialog();
+            try
+            {
+                新增订单 win = new 新增订单();
+                win.ShowDialog();
+            }
+            catch (Exception ex) { ex.ToString(); };
         }
 
         private void button3_Click_1(object sender, EventArgs e)
