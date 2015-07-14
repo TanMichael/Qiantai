@@ -81,14 +81,24 @@ namespace QTsys
             //关于对送货单_OVER.htm的操作，让送货单_DATA.htm产生数据，取代送货单.htm
             //用string类替换html中的关键字
             //空表格为“送货单.htm”，可替换送货单部分有“送货单_DATA.HTM”, 数据处理完存储在“送货单_OVER.htm”
+            int pages = 1;//设置分页数为10
+            int pagesnum = 1;
             double count = 0;//存储金额总数
             StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
             string usedata = rd.ReadToEnd();
             string usedatatemp = usedata;
             rd.Close();
+            if (dataGridView1.RowCount % page == 0)
+            {
+                pages = dataGridView1.RowCount / page;
+            }
+            else
+            {
+                pages = dataGridView1.RowCount / page + 1;
+            }
             //把数据读入usedata
             //**替换操作*************************************************************
-            usedata = usedata.Replace("text0",label3.Text);
+            usedata = usedata.Replace("text0", label3.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
             usedata = usedata.Replace("text1", text客户名称.Text);
             usedata = usedata.Replace("text2", text送货地址.Text);
             usedata = usedata.Replace("text3", text联系人.Text);
@@ -109,11 +119,12 @@ namespace QTsys
 
                 if ((j + 1) % page == 1 && (j + 1) > page)
                 {
+                    pagesnum++;
                     firstline = true;
                     usedata = usedata.Replace("<!--*end-->", tempstr);
                     usedata += "<p style=\"page-break-after:always;\"> </p>";//分页
                     usedata += usedatatemp;
-                    usedata = usedata.Replace("text0", comboBox1.Text);
+                    usedata = usedata.Replace("text0", label3.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                     usedata = usedata.Replace("text1", text客户名称.Text);
                     usedata = usedata.Replace("text2", text送货地址.Text);
                     usedata = usedata.Replace("text3",text联系人.Text);

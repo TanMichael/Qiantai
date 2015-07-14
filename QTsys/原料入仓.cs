@@ -20,6 +20,7 @@ namespace QTsys
         private UserManager userMgr;
       //  private string selectedCustomerId;
         private List<Customer> customers;
+        private List<string> listNew = new List<string>();
 
         public 原料入仓()
         {
@@ -55,7 +56,8 @@ namespace QTsys
                 //use dataSource make selectedValue works;
                 com供应商.DisplayMember = "Name";
                 com供应商.ValueMember = "Id";
-                com供应商.DataSource = customers;
+                //com供应商.DataSource = customers;
+                com供应商.Items.AddRange(customers.ToArray());
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -244,6 +246,27 @@ namespace QTsys
                
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+        }
+
+        private void com供应商_TextUpdate(object sender, EventArgs e)
+        {
+            try
+            {
+                this.com供应商.Items.Clear();
+                listNew.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.com供应商.Text))
+                    {
+                        listNew.Add(item.Name);
+                    }
+                }
+                this.com供应商.Items.AddRange(listNew.ToArray());
+                this.com供应商.SelectionStart = this.com供应商.Text.Length;
+                Cursor = Cursors.Default;
+                this.com供应商.DroppedDown = true;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
     }
 }

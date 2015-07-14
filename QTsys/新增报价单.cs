@@ -27,7 +27,9 @@ namespace QTsys
         private string selectedCustomerId;
         private List<CustomerMember> cMembers;
         private ProductPlanManager ppm;
-        
+        private List<string> listNew = new List<string>();
+        private List<string> listtemp = new List<string>();
+
         public 新增报价单()
         {
             InitializeComponent();
@@ -85,8 +87,8 @@ namespace QTsys
                 //use dataSource make selectedValue works;
                 com客户名.DisplayMember = "Name";
                 com客户名.ValueMember = "Id";
-                com客户名.DataSource = customers;
-                //com客户名.Items.AddRange(customers.ToArray());
+               //com客户名.DataSource = customers;
+                com客户名.Items.AddRange(customers.ToArray());
 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -229,21 +231,14 @@ namespace QTsys
         {
             try
             {
-                selectedCustomerId = com客户名.SelectedValue.ToString();//customers[com客户名.SelectedIndex].Id;
-                if (selectedCustomerId == "-9999")
-                {
-                    return;
-                }
-                //com客户联系人
-                DataTable dt = new DataTable();
-                // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
+                selectedCustomerId=listtemp[com客户名.SelectedIndex];
+                DataTable dt = new DataTable();;
                 dt = userMgr.SearchCustomerByCol("客户编号", selectedCustomerId);
                 l编号.Text = dt.Rows[0]["客户编号"].ToString();
                 com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
                 text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
                 text收货地址.Text = dt.Rows[0]["地址"].ToString();
                 com结算方式.Text = dt.Rows[0]["结算方式"].ToString();
-                label1备注.Text = dt.Rows[0]["备注"].ToString();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -363,6 +358,29 @@ namespace QTsys
                 dt.Rows.Add(dr);
             }
             return dt;
+        }
+
+        private void com客户名_TextUpdate(object sender, EventArgs e)
+        {
+            try
+            {
+                this.com客户名.Items.Clear();
+                listNew.Clear();
+                listtemp.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.com客户名.Text))
+                    {
+                        listNew.Add(item.Name);
+                        listtemp.Add(item.Id);
+                    }
+                }
+                this.com客户名.Items.AddRange(listNew.ToArray());
+                this.com客户名.SelectionStart = this.com客户名.Text.Length;
+                Cursor = Cursors.Default;
+                this.com客户名.DroppedDown = true;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
     }

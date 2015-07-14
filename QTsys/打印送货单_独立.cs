@@ -112,19 +112,28 @@ namespace QTsys
             }
         }
 
-        public void insetnewlist(int pages)//生成新的销售单表
+        public void insetnewlist(int page)//生成新的销售单表
         {
             try
             {
-                int page = pages;//设置分页数为10
+                int pages=1;//设置分页数为10
+                int pagesnum = 1;
                 double count = 0;//存储金额总数
                 StreamReader rd = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_DATA.htm", Encoding.Default);
                 string usedatatemp = rd.ReadToEnd();
                 string usedata = usedatatemp;
                 rd.Close();
+                if (dataGridView生产计划.RowCount % page == 0)
+                {
+                    pages = dataGridView生产计划.RowCount / page;
+                }
+                else
+                {
+                    pages = dataGridView生产计划.RowCount / page+1;
+                }
                 //把数据读入usedata
                 //**替换操作*************************************************************
-                usedata = usedata.Replace("text0", label1订单编号.Text);
+                usedata = usedata.Replace("text0", label1订单编号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                 usedata = usedata.Replace("text1", textBox客户名称.Text);
                 usedata = usedata.Replace("text2", text收货地址.Text);
                 usedata = usedata.Replace("text3", com客户联系人.Text);
@@ -143,11 +152,12 @@ namespace QTsys
                 {
                     if ((j + 1)  % page ==1 && (j+1)>page)
                     {
+                        pagesnum++;
                         firstline = true;
                         usedata = usedata.Replace("<!--*end-->", tempstr);
                         usedata += "<p style=\"page-break-after:always;\"> </p>";//分页
                         usedata += usedatatemp;
-                        usedata = usedata.Replace("text0", label1订单编号.Text);
+                        usedata = usedata.Replace("text0", label1订单编号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                         usedata = usedata.Replace("text1", textBox客户名称.Text);
                         usedata = usedata.Replace("text2", text收货地址.Text);
                         usedata = usedata.Replace("text3", com客户联系人.Text);
@@ -185,7 +195,7 @@ namespace QTsys
                     if (firstline == false && j > 0 && (j + 1) % page !=1)
                     {
                         temp = staticstr;
-                        temp = temp.Replace("data11", label1订单编号.Text);
+                        temp = temp.Replace("data11", label1订单编号.Text );
                         temp = temp.Replace("data12", dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString());
                         temp = temp.Replace("data13", dataGridView生产计划.Rows[j].Cells["变位"].Value.ToString());
                         temp = temp.Replace("data14", dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString());

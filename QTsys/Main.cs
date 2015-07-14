@@ -177,8 +177,12 @@ namespace QTsys
 
         private void button11_Click(object sender, EventArgs e)
         {
-            新增报价单 win = new 新增报价单();
-            win.ShowDialog();
+            try
+            {
+                新增报价单 win = new 新增报价单();
+                win.ShowDialog();
+            }
+            catch (Exception ex) { ex.ToString(); }
         }
 
         private void button3_Click(object sender, EventArgs e)

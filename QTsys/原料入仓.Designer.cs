@@ -179,12 +179,14 @@
             // 
             // com供应商
             // 
+            this.com供应商.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.com供应商.FormattingEnabled = true;
             this.com供应商.Location = new System.Drawing.Point(71, 192);
             this.com供应商.Name = "com供应商";
             this.com供应商.Size = new System.Drawing.Size(119, 20);
             this.com供应商.TabIndex = 21;
             this.com供应商.SelectedIndexChanged += new System.EventHandler(this.com供应商_SelectedIndexChanged);
+            this.com供应商.TextUpdate += new System.EventHandler(this.com供应商_TextUpdate);
             // 
             // dataGridView2
             // 
