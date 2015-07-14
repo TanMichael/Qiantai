@@ -211,5 +211,12 @@ namespace QTsys
                 System.Diagnostics.Process.Start(sfdSaveFile.FileName); //打开EXCEL
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt = (DataTable)dataGridView2.DataSource;
+            ExportExcel(dt);
+        }
     }
 }

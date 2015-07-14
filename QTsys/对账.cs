@@ -80,7 +80,7 @@ namespace QTsys
         {
             try
             {
-                打印对账单 win = new 打印对账单(this, (DataTable)(dataGridView对账单.DataSource));
+                打印对账单 win = new 打印对账单(this, (DataTable)(dataGridView对账单.DataSource),Convert.ToUInt16(textBox分页数量.Text));
                 win.ShowDialog();
             }
             catch (Exception ex) { };

@@ -48,6 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox结算方式 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox分页数量 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView对账单)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,7 +167,7 @@
             // 
             // button生成
             // 
-            this.button生成.Location = new System.Drawing.Point(566, 110);
+            this.button生成.Location = new System.Drawing.Point(652, 110);
             this.button生成.Name = "button生成";
             this.button生成.Size = new System.Drawing.Size(90, 30);
             this.button生成.TabIndex = 91;
@@ -175,7 +177,7 @@
             // 
             // button打印
             // 
-            this.button打印.Location = new System.Drawing.Point(679, 110);
+            this.button打印.Location = new System.Drawing.Point(765, 110);
             this.button打印.Name = "button打印";
             this.button打印.Size = new System.Drawing.Size(86, 30);
             this.button打印.TabIndex = 92;
@@ -217,7 +219,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(787, 110);
+            this.button1.Location = new System.Drawing.Point(873, 110);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 97;
@@ -225,11 +227,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox分页数量
+            // 
+            this.textBox分页数量.Location = new System.Drawing.Point(802, 29);
+            this.textBox分页数量.Name = "textBox分页数量";
+            this.textBox分页数量.Size = new System.Drawing.Size(49, 21);
+            this.textBox分页数量.TabIndex = 98;
+            this.textBox分页数量.Text = "10";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(857, 32);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 12);
+            this.label12.TabIndex = 99;
+            this.label12.Text = "条数据进行分页";
+            this.label12.Visible = false;
+            // 
             // 对账
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 729);
+            this.Controls.Add(this.textBox分页数量);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox结算方式);
@@ -281,5 +303,7 @@
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBox结算方式;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox textBox分页数量;
+        private System.Windows.Forms.Label label12;
     }
 }

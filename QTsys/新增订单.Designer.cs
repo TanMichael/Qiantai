@@ -90,7 +90,7 @@
             // 
             // com客户名
             // 
-            this.com客户名.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.com客户名.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.com客户名.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.com客户名.FormattingEnabled = true;
             this.com客户名.Location = new System.Drawing.Point(79, 25);
