@@ -116,6 +116,18 @@ namespace QTsys
         {
             try
             {
+                int allpage = 0;//实际有效行
+                for (int j = 0; j < dataGridView生产计划.RowCount; j++)
+                {
+                    if (dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString() != "0")
+                        allpage++;
+                }
+                if (allpage < 1)
+                {
+                    MessageBox.Show("未生产发货情况单据！请输入发货数量！");
+                    return;
+                }
+               // MessageBox.Show(allpage.ToString());
                 int pages=1;//设置分页数为10
                 int pagesnum = 1;
                 double count = 0;//存储金额总数
@@ -123,13 +135,13 @@ namespace QTsys
                 string usedatatemp = rd.ReadToEnd();
                 string usedata = usedatatemp;
                 rd.Close();
-                if (dataGridView生产计划.RowCount % page == 0)
+                if (allpage % page == 0)
                 {
-                    pages = dataGridView生产计划.RowCount / page;
+                    pages = allpage / page;
                 }
                 else
                 {
-                    pages = dataGridView生产计划.RowCount / page+1;
+                    pages = allpage / page + 1;
                 }
                 //把数据读入usedata
                 //**替换操作*************************************************************
@@ -148,9 +160,17 @@ namespace QTsys
                 bool firstline = true;
                 //被替换string
                // result += "<p style=\"page-break-after:always;\"> </p>";//分页
-                for (int j = 0; j < dataGridView生产计划.RowCount; j++)
+                int useline = -1;//有效行号
+                for (int j= 0; j < dataGridView生产计划.RowCount; j++)
                 {
-                    if ((j + 1)  % page ==1 && (j+1)>page)
+                    //判断此行是否有效
+                    if (dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString() == "0")
+                    { continue; }
+                    else
+                    {
+                        useline++;
+                    }
+                    if ((useline + 1) % page == 1 && (useline + 1) > page)
                     {
                         pagesnum++;
                         firstline = true;
@@ -276,12 +296,28 @@ namespace QTsys
         {
             try
             {
-                int cCount=0;
-              /*  int j = selectedPlanIdx;
-                if (j < 0)
-                {
-                    return;
-                }*/
+                var orderId = "";
+                var customerName = "";
+                var cAddr = "";
+                var cPhone = "";
+                var cContact = "";
+
+                string proName = "";
+                string guige = "";
+                string caizhi = "";
+                double price = 0;
+
+                string ppId = "";
+                string planState = "";
+                int finishedCount = 0;
+                int iCount = 0;
+
+                int cCount = 0;
+                /*  int j = selectedPlanIdx;
+                  if (j < 0)
+                  {
+                      return;
+                  }*/
 
                 for (int j = 0; j < dataGridView生产计划.RowCount; j++)
                 {
@@ -296,19 +332,20 @@ namespace QTsys
                                     }*/
                     if (cCount <= 0)
                     {
-                        //  MessageBox.Show("本次发货数要大于0！");
+                        //  MessageBox.Show("本次发货数要大于0！");、
+                        //对0发货数行不处理
                         continue;
                     }
 
-                    string proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
-                    string guige = dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString();
-                    string caizhi = dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString();
-                    double price = double.Parse(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+                    proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
+                    guige = dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString();
+                    caizhi = dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString();
+                    price = double.Parse(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
 
-                    string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
-                    string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
-                    int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
-                    int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
+                    ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
+                    planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
+                    finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
+                    iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
                     if (iCount + cCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
                     {
                         if (planState == ProductionPlanStatus.TO_BE_SHIP)
@@ -328,12 +365,12 @@ namespace QTsys
                     //****************
                     // selectOrderIdx = e.RowIndex;
 
-                    var orderId = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
+                    orderId = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
                     selectedCustomerId = dataGridView订单.Rows[selectOrderIdx].Cells["客户编号"].Value.ToString();
-                    var customerName = dataGridView订单.Rows[selectOrderIdx].Cells["客户名称"].Value.ToString();
-                    var cAddr = dataGridView订单.Rows[selectOrderIdx].Cells["收货地址"].Value.ToString();
-                    var cPhone = dataGridView订单.Rows[selectOrderIdx].Cells["收货电话"].Value.ToString();
-                    var cContact = dataGridView订单.Rows[selectOrderIdx].Cells["收货联系人"].Value.ToString();
+                    customerName = dataGridView订单.Rows[selectOrderIdx].Cells["客户名称"].Value.ToString();
+                    cAddr = dataGridView订单.Rows[selectOrderIdx].Cells["收货地址"].Value.ToString();
+                    cPhone = dataGridView订单.Rows[selectOrderIdx].Cells["收货电话"].Value.ToString();
+                    cContact = dataGridView订单.Rows[selectOrderIdx].Cells["收货联系人"].Value.ToString();
                     //var cPayMode = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
 
                     textBox客户名称.Text = customerName;
@@ -356,15 +393,12 @@ namespace QTsys
                                             cCount, price, price * cCount,
                                             DateTime.Now, "", Utils.GetCurrentUsername());
 
-
-                    dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
-                    dataGridView生产计划.Update();
                 }
+                dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
+                dataGridView生产计划.Update();
                 //*****************
                 webBrowser2.ShowPageSetupDialog();
                 webBrowser2.ShowPrintPreviewDialog();
-
-
             }
             catch (Exception ex)
             {
