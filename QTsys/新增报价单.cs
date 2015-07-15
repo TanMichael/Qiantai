@@ -81,7 +81,6 @@ namespace QTsys
 
 
                 com客户名.Items.Clear();
-                // 初始化客户信息
                 customers = userMgr.GetAllCustomerList();
                 customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
                 //use dataSource make selectedValue works;
@@ -89,6 +88,18 @@ namespace QTsys
                 com客户名.ValueMember = "Id";
                //com客户名.DataSource = customers;
                 com客户名.Items.AddRange(customers.ToArray());
+                //初始化temp数据
+                listNew.Clear();
+                listtemp.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.com客户名.Text))
+                    {
+                        listNew.Add(item.Name);
+                        listtemp.Add(item.Id);
+                    }
+                }
+
 
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
@@ -231,6 +242,11 @@ namespace QTsys
         {
             try
             {
+                if(com客户名.SelectedIndex<=0)
+                {
+                    return;
+                }
+              //  MessageBox.Show(com客户名.SelectedIndex.ToString());
                 selectedCustomerId=listtemp[com客户名.SelectedIndex];
                 DataTable dt = new DataTable();;
                 dt = userMgr.SearchCustomerByCol("客户编号", selectedCustomerId);

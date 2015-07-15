@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>www.ico.la_13a10d840d326e6e0c01b9d57fe8bb14_128X128.ico</ApplicationIcon>
+    <ApplicationIcon>www.ico.la_76cd5ed8bb9460c64c7055af511dfc31_256X256.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -481,6 +481,7 @@
   <ItemGroup>
     <Content Include="bitbug_favicon.ico" />
     <Content Include="www.ico.la_13a10d840d326e6e0c01b9d57fe8bb14_128X128.ico" />
+    <Content Include="www.ico.la_76cd5ed8bb9460c64c7055af511dfc31_256X256.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Interop.Excel">

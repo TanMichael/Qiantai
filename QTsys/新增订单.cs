@@ -87,6 +87,18 @@ namespace QTsys
                 com客户名.ValueMember = "Id";
                 //com客户名.DataSource = customers;
                 com客户名.Items.AddRange(customers.ToArray());
+
+                //初始化temp数据
+                listNew.Clear();
+                listtemp.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.com客户名.Text))
+                    {
+                        listNew.Add(item.Name);
+                        listtemp.Add(item.Id);
+                    }
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -230,6 +242,11 @@ namespace QTsys
 
             try
             {
+                if (com客户名.SelectedIndex <= 0)
+                {
+                    return;
+                }
+
                 selectedCustomerId=listtemp[com客户名.SelectedIndex];
                 //MessageBox.Show(selectedCustomerId);
                  //   .SelectedValue.ToString();//customers[com客户名.SelectedIndex].Id;
