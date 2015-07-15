@@ -81,7 +81,7 @@ namespace QTsys
                 com客户名.Items.Clear();
                 // 初始化客户信息
                 customers = userMgr.GetAllCustomerList();
-                customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
+              //  customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
                 //use dataSource make selectedValue works;
                 com客户名.DisplayMember = "Name";
                 com客户名.ValueMember = "Id";

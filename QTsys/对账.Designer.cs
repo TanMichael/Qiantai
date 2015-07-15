@@ -50,6 +50,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox分页数量 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.l编号 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView对账单)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,6 @@
             // comboBox客户
             // 
             this.comboBox客户.DisplayMember = "客户编号";
-            this.comboBox客户.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox客户.FormattingEnabled = true;
             this.comboBox客户.Location = new System.Drawing.Point(95, 24);
             this.comboBox客户.Name = "comboBox客户";
@@ -73,6 +73,7 @@
             this.comboBox客户.TabIndex = 76;
             this.comboBox客户.ValueMember = "客户编号";
             this.comboBox客户.SelectedIndexChanged += new System.EventHandler(this.comboBox客户_SelectedIndexChanged);
+            this.comboBox客户.TextUpdate += new System.EventHandler(this.comboBox客户_TextUpdate);
             // 
             // dateTimePicker对账截止日
             // 
@@ -245,11 +246,21 @@
             this.label12.Text = "条数据进行分页";
             this.label12.Visible = false;
             // 
+            // l编号
+            // 
+            this.l编号.AutoSize = true;
+            this.l编号.Location = new System.Drawing.Point(359, 27);
+            this.l编号.Name = "l编号";
+            this.l编号.Size = new System.Drawing.Size(11, 12);
+            this.l编号.TabIndex = 100;
+            this.l编号.Text = "0";
+            // 
             // 对账
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 729);
+            this.Controls.Add(this.l编号);
             this.Controls.Add(this.textBox分页数量);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button1);
@@ -305,5 +316,6 @@
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.TextBox textBox分页数量;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label l编号;
     }
 }

@@ -276,79 +276,90 @@ namespace QTsys
         {
             try
             {
-                int j = selectedPlanIdx;
+                int cCount=0;
+              /*  int j = selectedPlanIdx;
                 if (j < 0)
                 {
                     return;
-                }
+                }*/
 
-                //for (int j = 0; j < dataGridView生产计划.RowCount; j++)
-                //{
-                int cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
-
-                if (cCount <= 0)
+                for (int j = 0; j < dataGridView生产计划.RowCount; j++)
                 {
-                    MessageBox.Show("本次发货数要大于0！");
-                    return;
-                }
-                string proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
-                string guige = dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString();
-                string caizhi = dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString();
-                double price = double.Parse(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
 
-                string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
-                string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
-                int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
-                int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
-                if (iCount + cCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
-                {
-                    if (planState == ProductionPlanStatus.TO_BE_SHIP)
+                    cCount = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
+                    //   = int.Parse(dataGridView生产计划.Rows[j].Cells["本次发货数"].Value.ToString());
+                    /*
+                                    if (cCount <= 0)
+                                    {
+                                        MessageBox.Show("本次发货数要大于0！");
+                                        return;
+                                    }*/
+                    if (cCount <= 0)
                     {
-                        MessageBox.Show("待发货的订单产品已从库存扣除，本次发货数+已发货数不能大于计划数。请重新填写发货数量！");
+                        //  MessageBox.Show("本次发货数要大于0！");
+                        continue;
+                    }
+
+                    string proName = dataGridView生产计划.Rows[j].Cells["产品名称"].Value.ToString();
+                    string guige = dataGridView生产计划.Rows[j].Cells["规格"].Value.ToString();
+                    string caizhi = dataGridView生产计划.Rows[j].Cells["材质"].Value.ToString();
+                    double price = double.Parse(dataGridView生产计划.Rows[j].Cells["单价"].Value.ToString());
+
+                    string ppId = dataGridView生产计划.Rows[j].Cells["编号"].Value.ToString();
+                    string planState = dataGridView生产计划.Rows[j].Cells["生产状态"].Value.ToString();
+                    int finishedCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已完成生产数"].Value.ToString());
+                    int iCount = int.Parse(dataGridView生产计划.Rows[j].Cells["已发货数"].Value.ToString());
+                    if (iCount + cCount > int.Parse(dataGridView生产计划.Rows[j].Cells["产品数量"].Value.ToString()))
+                    {
+                        if (planState == ProductionPlanStatus.TO_BE_SHIP)
+                        {
+                            MessageBox.Show("待发货的订单产品已从库存扣除，本次发货数+已发货数不能大于计划数。请重新填写发货数量！");
+                            continue;
+                        }
+                        MessageBox.Show("本次发货数+已发货数大于计划数，是否超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString() + "】");
+                    }
+                    // update 当前生产数, 已发货数
+                    if (!doCalThenUpdateDB(finishedCount, cCount, iCount, ppId))
+                    {
+                        MessageBox.Show("产品【" + proName + "】更新失败！");
                         return;
                     }
-                    MessageBox.Show("本次发货数+已发货数大于计划数，是否超交？产品【" + dataGridView生产计划.Rows[j].Cells["产品编号"].Value.ToString() + "】");
+                    //}
+                    //****************
+                    // selectOrderIdx = e.RowIndex;
+
+                    var orderId = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
+                    selectedCustomerId = dataGridView订单.Rows[selectOrderIdx].Cells["客户编号"].Value.ToString();
+                    var customerName = dataGridView订单.Rows[selectOrderIdx].Cells["客户名称"].Value.ToString();
+                    var cAddr = dataGridView订单.Rows[selectOrderIdx].Cells["收货地址"].Value.ToString();
+                    var cPhone = dataGridView订单.Rows[selectOrderIdx].Cells["收货电话"].Value.ToString();
+                    var cContact = dataGridView订单.Rows[selectOrderIdx].Cells["收货联系人"].Value.ToString();
+                    //var cPayMode = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
+
+                    textBox客户名称.Text = customerName;
+                    text联系电话.Text = cPhone;
+                    text收货地址.Text = cAddr;
+
+                    if (selectedCustomerId != "")
+                    {
+                        com客户联系人.DataSource = new UserManager().GetCustomerMembersByCId(selectedCustomerId);
+                        com客户联系人.Update();
+
+                        com客户联系人.DisplayMember = "Name";
+                        com客户联系人.ValueMember = "Id";
+                    }
+                    com客户联系人.Text = cContact;
+
+                    // 插入送货记录表，为跟客户结账
+                    odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, "",
+                                            proName, guige, caizhi,
+                                            cCount, price, price * cCount,
+                                            DateTime.Now, "", Utils.GetCurrentUsername());
+
+
+                    dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
+                    dataGridView生产计划.Update();
                 }
-                // update 当前生产数, 已发货数
-                if (!doCalThenUpdateDB(finishedCount, cCount, iCount, ppId))
-                {
-                    MessageBox.Show("产品【" + proName + "】更新失败！");
-                    return;
-                }
-                //}
-                //****************
-                // selectOrderIdx = e.RowIndex;
-
-                var orderId = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
-                selectedCustomerId = dataGridView订单.Rows[selectOrderIdx].Cells["客户编号"].Value.ToString();
-                var customerName = dataGridView订单.Rows[selectOrderIdx].Cells["客户名称"].Value.ToString();
-                var cAddr = dataGridView订单.Rows[selectOrderIdx].Cells["收货地址"].Value.ToString();
-                var cPhone = dataGridView订单.Rows[selectOrderIdx].Cells["收货电话"].Value.ToString();
-                var cContact = dataGridView订单.Rows[selectOrderIdx].Cells["收货联系人"].Value.ToString();
-                //var cPayMode = dataGridView订单.Rows[selectOrderIdx].Cells["订单编号"].Value.ToString();
-
-                textBox客户名称.Text = customerName;
-                text联系电话.Text = cPhone;
-                text收货地址.Text = cAddr;
-
-                if (selectedCustomerId != "")
-                {
-                    com客户联系人.DataSource = new UserManager().GetCustomerMembersByCId(selectedCustomerId);
-                    com客户联系人.Update();
-
-                    com客户联系人.DisplayMember = "Name";
-                    com客户联系人.ValueMember = "Id";
-                }
-                com客户联系人.Text = cContact;
-
-                // 插入送货记录表，为跟客户结账
-                odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, "",
-                                        proName, guige, caizhi,
-                                        cCount, price, price * cCount,
-                                        DateTime.Now, "", Utils.GetCurrentUsername());
-
-                dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
-                dataGridView生产计划.Update();
                 //*****************
                 webBrowser2.ShowPageSetupDialog();
                 webBrowser2.ShowPrintPreviewDialog();

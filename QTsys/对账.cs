@@ -18,6 +18,9 @@ namespace QTsys
         private UserManager userMgr;
         private string selectedCustomerId;
         private List<CustomerMember> cMembers;
+        private List<string> listNew = new List<string>();
+        private List<string> listtemp = new List<string>();
+        private List<Customer> customers;
 
         public 对账()
         {
@@ -30,12 +33,23 @@ namespace QTsys
         {
             comboBox客户.Items.Clear();
             // 初始化客户信息
-            var customers = userMgr.GetAllCustomerList();
-            customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
+            customers = userMgr.GetAllCustomerList();
+          //  customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
             //use dataSource make selectedValue works;
             comboBox客户.DisplayMember = "Name";
             comboBox客户.ValueMember = "Id";
-            comboBox客户.DataSource = customers;
+            comboBox客户.Items.AddRange(customers.ToArray());
+            //初始化temp数据
+            listNew.Clear();
+            listtemp.Clear();
+            foreach (var item in customers)
+            {
+                if (item.Name.Contains(this.comboBox客户.Text))
+                {
+                    listNew.Add(item.Name);
+                    listtemp.Add(item.Id);
+                }
+            }
 
             dateTimePicker对账起始日.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month - 1, 25);
             dateTimePicker对账截止日.Value = DateTime.Today;
@@ -43,37 +57,55 @@ namespace QTsys
 
         private void comboBox客户_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedCustomerId = comboBox客户.SelectedValue.ToString();//customers[com客户名.SelectedIndex].Id;
-            if (selectedCustomerId == "-9999")
+            try
             {
-                return;
+                if (comboBox客户.SelectedIndex <0)
+                {
+                    return;
+                }
+                if (comboBox客户.Items[0].ToString() == "")
+                {
+                        l编号.Text = "0";
+                        com客户联系人.Text = "";
+                        text联系电话.Text = "";
+                        text收货地址.Text = "";
+                        textBox传真.Text = "";
+                        textBox结算方式.Text = "";
+                        return;
+                }
+                selectedCustomerId = listtemp[comboBox客户.SelectedIndex];
+                //com客户联系人
+                DataTable dt = new DataTable();
+                // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
+                dt = userMgr.SearchCustomerByCol("客户编号", selectedCustomerId);
+                l编号.Text = dt.Rows[0]["客户编号"].ToString();
+                com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
+                text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
+                text收货地址.Text = dt.Rows[0]["地址"].ToString();
+                textBox传真.Text = dt.Rows[0]["传真"].ToString();
+                textBox结算方式.Text = dt.Rows[0]["结算方式"].ToString();
             }
-            //com客户联系人
-            DataTable dt = new DataTable();
-            // MessageBox.Show(customers[com客户名.SelectedIndex].Id);
-            dt = userMgr.SearchCustomerByCol("客户编号", selectedCustomerId);
-            //l编号.Text = dt.Rows[0]["客户编号"].ToString();
-            com客户联系人.Text = dt.Rows[0]["默认联系人"].ToString();
-            text联系电话.Text = dt.Rows[0]["联系电话"].ToString();
-            text收货地址.Text = dt.Rows[0]["地址"].ToString();
-            textBox传真.Text = dt.Rows[0]["传真"].ToString();
-            textBox结算方式.Text = dt.Rows[0]["结算方式"].ToString();
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
         private void button生成_Click(object sender, EventArgs e)
         {
-            string customerId = comboBox客户.SelectedValue.ToString();
-            if (customerId == "-9999")
+            try
             {
-                MessageBox.Show("请选择要对账的客户");
-                return;
+                string customerId = l编号.Text;
+                if (customerId == "-9999")
+                {
+                    MessageBox.Show("请选择要对账的客户");
+                    return;
+                }
+                DateTime startDate = dateTimePicker对账起始日.Value;
+                DateTime endDate = dateTimePicker对账截止日.Value;
+
+
+                dataGridView对账单.DataSource = this.odm.GetReconciliation(customerId, startDate, endDate);
+                dataGridView对账单.Update();
             }
-            DateTime startDate = dateTimePicker对账起始日.Value;
-            DateTime endDate = dateTimePicker对账截止日.Value;
-
-
-            dataGridView对账单.DataSource = this.odm.GetReconciliation(customerId, startDate, endDate);
-            dataGridView对账单.Update();
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
         private void button打印_Click(object sender, EventArgs e)
@@ -174,6 +206,29 @@ namespace QTsys
                 //System.IO.File.Open(sfdSaveFile.FileName, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Read);
                 System.Diagnostics.Process.Start(sfdSaveFile.FileName); //打开EXCEL
             }
+        }
+
+        private void comboBox客户_TextUpdate(object sender, EventArgs e)
+        {
+            try
+            {
+                this.comboBox客户.Items.Clear();
+                listNew.Clear();
+                listtemp.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.comboBox客户.Text))
+                    {
+                        listNew.Add(item.Name);
+                        listtemp.Add(item.Id);
+                    }
+                }
+                this.comboBox客户.Items.AddRange(listNew.ToArray());
+                this.comboBox客户.SelectionStart = this.comboBox客户.Text.Length;
+                Cursor = Cursors.Default;
+                this.comboBox客户.DroppedDown = true;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
     }
 }
