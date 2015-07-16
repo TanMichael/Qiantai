@@ -57,6 +57,7 @@
             this.dateTimePicker入仓起始日 = new System.Windows.Forms.DateTimePicker();
             this.入仓起始日 = new System.Windows.Forms.Label();
             this.label原料名称 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -169,7 +170,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(46, 349);
+            this.button2.Location = new System.Drawing.Point(44, 263);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 23);
             this.button2.TabIndex = 20;
@@ -327,11 +328,22 @@
             this.label原料名称.Text = "原料名称";
             this.label原料名称.Visible = false;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(29, 465);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(144, 23);
+            this.button6.TabIndex = 89;
+            this.button6.Text = "\"入仓情况\"导出EXCEL";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // 原料入仓
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 503);
+            this.ClientSize = new System.Drawing.Size(1027, 503);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label原料名称);
             this.Controls.Add(this.dateTimePicker入仓截止日);
             this.Controls.Add(this.入仓截止日);
@@ -402,5 +414,6 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker入仓起始日;
         private System.Windows.Forms.Label 入仓起始日;
         private System.Windows.Forms.Label label原料名称;
+        private System.Windows.Forms.Button button6;
     }
 }

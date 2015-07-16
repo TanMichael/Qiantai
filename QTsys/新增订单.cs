@@ -142,8 +142,11 @@ namespace QTsys
             {
                 dataGridView2.Rows.Add(rowadd);
             }
-            numericUpDown1.Value = 1;
-            text折扣.Text = "1";
+           //selectpro
+            //selectorder = dataGridView2.RowCount - 1;
+            //numericUpDown1.Value = 1;
+            //text折扣.Text = "1";
+            
             CalMoney();
         }
 
@@ -242,7 +245,7 @@ namespace QTsys
 
             try
             {
-                if (com客户名.SelectedIndex <= 0)
+                if (com客户名.SelectedIndex < 0)
                 {
                     return;
                 }

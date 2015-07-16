@@ -242,7 +242,7 @@ namespace QTsys
         {
             try
             {
-                if(com客户名.SelectedIndex<=0)
+                if(com客户名.SelectedIndex<0)
                 {
                     return;
                 }
