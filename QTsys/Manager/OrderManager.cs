@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using QTsys.DataObjects;
 using QTsys.DAO;
 using System.Data;
+using QTsys.Common;
 
 namespace QTsys.Manager
 {
@@ -85,9 +86,25 @@ namespace QTsys.Manager
             return this.odao.GetOrderInProduction();
         }
 
-        public bool InsertDeliverRecord(string selectedCustomerId, string customerName, string orderId, string isSample, string productName, string standard, string texture, int count, double price, double sum, DateTime now, string expressNO, string username)
+        public int InsertDeliverRecord(string selectedCustomerId, string customerName, string orderId, List<DeliveryRecords> records)
+            //string isSample, string productName, string standard, string texture,
+            //int count, double price, double sum, DateTime now, string expressNO, string username)
         {
-            return this.odao.InsertDeliverRecord(selectedCustomerId, customerName, orderId, isSample, productName, standard, texture, count, price, sum, now, expressNO, username);
+            int RecordId = this.odao.InsertDeliverRecord(selectedCustomerId, customerName, orderId, DateTime.Now, "", Utils.GetCurrentUsername());
+            if (RecordId > 0)
+            {
+                foreach (DeliveryRecords record in records)
+                {
+                    record.DeliveryRecordId = RecordId.ToString();
+                    this.odao.InsertDeliverRecordDetail(record);
+                }
+
+            }
+            else
+            {
+                return -1;
+            }
+            return RecordId;
         }
     }
 }

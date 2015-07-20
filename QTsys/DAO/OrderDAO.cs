@@ -330,8 +330,8 @@ namespace QTsys.DAO
                 //            "inner join qiaotai.订单明细 dd on d.订单编号 = dd.订单编号 " +
                 //            "inner join qiaotai.产品信息 p on dd.产品编号 = p.产品编号 " +
                 //            "where d.客户编号=" + customerId + " and d.发货时间>'" + startDate.ToString("yyyy/MM/dd HH:mm:ss") + "' and d.发货时间<'" + endDate.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
-                string sql = "select 发货时间,送货单号,产品名称,客户订单号 as 订单编号,规格,材质,数量,成交价,金额 from qiaotai.送货记录 " +
-                             "where 客户编号=" + customerId + " and 发货时间>'" + startDate.ToString("yyyy/MM/dd HH:mm:ss") + "' and 发货时间<'" + endDate.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
+                string sql = "select r.发货时间,r.送货单号,rd.产品名称,r.客户订单号 as 订单编号,rd.规格,rd.材质,rd.数量,rd.成交价,rd.金额 from qiaotai.送货记录 r inner join qiaotai.送货记录细节 rd on r.送货单号=rd.送货单号 " +
+                             "where r.客户编号=" + customerId + " and r.发货时间>'" + startDate.ToString("yyyy/MM/dd HH:mm:ss") + "' and r.发货时间<'" + endDate.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "';";
 
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
@@ -368,17 +368,33 @@ namespace QTsys.DAO
             }
         }
 
-        public bool InsertDeliverRecord(string selectedCustomerId, string customerName, string orderId, string isSample, string productName, string standard, string texture, int count, double price, double sum, DateTime now, string expressNO, string username)
+        public int InsertDeliverRecord(string selectedCustomerId, string customerName, string orderId, DateTime now, string expressNO, string username)
         {
             try  
             {
-                string sql = "INSERT INTO qiaotai.送货记录(客户编号,客户名称,客户订单号,是否样品订单,产品名称,规格,材质,数量,成交价,金额,发货时间,快递单号,创建人) VALUES ('" +
-                    selectedCustomerId + "','" + customerName + "','" + orderId + "','" + isSample + "','" + productName + "','" + standard + "','" + texture + "'," +
-                    count.ToString() + "," + price.ToString() + "," + sum.ToString() + ",'" + now.ToString("yyyy/MM/dd HH:mm:ss") + "','" + expressNO + "','" + username + "')";
+                string sql = "INSERT INTO qiaotai.送货记录(客户编号,客户名称,客户订单号,是否样品订单,发货时间,快递单号,创建人) VALUES ('" +
+                    selectedCustomerId + "','" + customerName + "','" + orderId + "','','" + now.ToString("yyyy/MM/dd HH:mm:ss") + "','" + expressNO + "','" + username + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
                 var id = cmd.LastInsertedId;
+                this.Connection.Close();
+                return (int)id;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
+
+        public bool InsertDeliverRecordDetail(DeliveryRecords record)
+        {
+
+            try  
+            {
+                string sql = "INSERT INTO qiaotai.送货记录细节(送货单号,产品名称,规格,材质,数量,成交价,金额) VALUES ('" +
+                    record.DeliveryRecordId + "','" + record.ProductName + "','" + record.Standard + "','" + record.Texture + "'," + record.Count + "," + record.Price + "," + record.Sum + ")";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                cmd.ExecuteNonQuery();
+                //var id = cmd.LastInsertedId;
                 this.Connection.Close();
                 return true;
             }

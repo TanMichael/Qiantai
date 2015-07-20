@@ -1,5 +1,6 @@
 ﻿using QTsys.Common;
 using QTsys.Common.Constants;
+using QTsys.DataObjects;
 using QTsys.Manager;
 using System;
 using System.Collections.Generic;
@@ -318,7 +319,7 @@ namespace QTsys
                   {
                       return;
                   }*/
-
+                List<DeliveryRecords> records = new List<DeliveryRecords>();
                 for (int j = 0; j < dataGridView生产计划.RowCount; j++)
                 {
 
@@ -388,12 +389,36 @@ namespace QTsys
                     com客户联系人.Text = cContact;
 
                     // 插入送货记录表，为跟客户结账
-                    odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, "",
-                                            proName, guige, caizhi,
-                                            cCount, price, price * cCount,
-                                            DateTime.Now, "", Utils.GetCurrentUsername());
+                    //odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, "",
+                    //                        proName, guige, caizhi,
+                    //                        cCount, price, price * cCount,
+                    //                        DateTime.Now, "", Utils.GetCurrentUsername());
+
+                    records.Add(new DeliveryRecords{
+                        ProductId = "",
+                        ProductName = proName,
+                        //CustomerId = selectedCustomerId,
+                        //CustomerName = customerName,
+                        Standard = guige,
+                        Texture = caizhi,
+                        Price = price,
+                        Count = cCount,
+                        Sum = price * cCount
+                    });
 
                 }
+
+                int recordId = odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, records);
+                if (recordId > 0)
+                {
+                    MessageBox.Show("发货成功， 送货单号：" + recordId.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("发货失败！");
+                }
+
+
                 dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
                 dataGridView生产计划.Update();
                 //*****************

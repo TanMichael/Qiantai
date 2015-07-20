@@ -255,15 +255,20 @@ create table 送货记录
    客户名称                 nvarchar(128),
    客户订单号               nvarchar(128),
    是否样品订单             nvarchar(128),
+   发货时间                 DATETIME,
+   快递单号                 nvarchar(128),
+   创建人                   nvarchar(128) not null
+);
+
+create table 送货记录细节
+(
+   送货单号                 int,
    产品名称                 nvarchar(128),
    规格                     nvarchar(128),
    材质                     nvarchar(128),
    数量                     int,
    成交价                   decimal(7,2),
-   金额                     decimal(9,2),
-   发货时间                 DATETIME,
-   快递单号                 nvarchar(128),
-   创建人                   nvarchar(128) not null
+   金额                     decimal(9,2)
 );
 
 create table 操作记录

@@ -99,6 +99,7 @@
     <Compile Include="DataObjects\ProductMaterial.cs" />
     <Compile Include="DataObjects\QiaotaiObject.cs" />
     <Compile Include="DataObjects\User.cs" />
+    <Compile Include="DataObjects\DeliveryRecords.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
