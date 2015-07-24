@@ -106,5 +106,10 @@ namespace QTsys.Manager
             }
             return RecordId;
         }
+
+        public int GetMaxDeliverID()
+        {
+            return this.odao.GetMaxDeliverID();
+        }
     }
 }

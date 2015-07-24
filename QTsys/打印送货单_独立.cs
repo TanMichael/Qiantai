@@ -114,9 +114,10 @@ namespace QTsys
         }
 
         public void insetnewlist(int page)//生成新的销售单表
-        {
+       { 
             try
             {
+                label新送货单号.Text = Convert.ToString(odm.GetMaxDeliverID() + 1);
                 int allpage = 0;//实际有效行
                 for (int j = 0; j < dataGridView生产计划.RowCount; j++)
                 {
@@ -146,7 +147,7 @@ namespace QTsys
                 }
                 //把数据读入usedata
                 //**替换操作*************************************************************
-                usedata = usedata.Replace("text0", label1订单编号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
+                usedata = usedata.Replace("text0", label新送货单号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                 usedata = usedata.Replace("text1", textBox客户名称.Text);
                 usedata = usedata.Replace("text2", text收货地址.Text);
                 usedata = usedata.Replace("text3", com客户联系人.Text);
@@ -178,7 +179,7 @@ namespace QTsys
                         usedata = usedata.Replace("<!--*end-->", tempstr);
                         usedata += "<p style=\"page-break-after:always;\"> </p>";//分页
                         usedata += usedatatemp;
-                        usedata = usedata.Replace("text0", label1订单编号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
+                        usedata = usedata.Replace("text0", label新送货单号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                         usedata = usedata.Replace("text1", textBox客户名称.Text);
                         usedata = usedata.Replace("text2", text收货地址.Text);
                         usedata = usedata.Replace("text3", com客户联系人.Text);

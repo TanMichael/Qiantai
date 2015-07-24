@@ -60,6 +60,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox分页数量 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label新送货单号 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
@@ -367,11 +368,21 @@
             this.label13.TabIndex = 123;
             this.label13.Text = "条数据进行分页";
             // 
+            // label新送货单号
+            // 
+            this.label新送货单号.AutoSize = true;
+            this.label新送货单号.Location = new System.Drawing.Point(1339, 252);
+            this.label新送货单号.Name = "label新送货单号";
+            this.label新送货单号.Size = new System.Drawing.Size(65, 12);
+            this.label新送货单号.TabIndex = 124;
+            this.label新送货单号.Text = "新送货单号";
+            // 
             // 打印送货单_独立
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1414, 594);
+            this.Controls.Add(this.label新送货单号);
             this.Controls.Add(this.textBox分页数量);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox已完成生产数);
@@ -448,5 +459,6 @@
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox textBox分页数量;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label新送货单号;
     }
 }

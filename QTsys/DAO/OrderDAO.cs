@@ -348,6 +348,26 @@ namespace QTsys.DAO
             }
         }
 
+        public int GetMaxDeliverID()
+        {  int outnum = 0;
+            try
+            {
+                string sql = "select Max(送货单号) from 送货记录;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                //MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                this.Connection.Open();
+                outnum = Int32.Parse(cmd.ExecuteScalar().ToString());
+                this.Connection.Close();
+                return outnum;
+            }
+            catch (Exception ex)
+            {
+                return outnum;
+                this.Connection.Close();
+                throw ex;
+            }
+        }
+
         public DataTable GetOrderInProduction()
         {
             try
