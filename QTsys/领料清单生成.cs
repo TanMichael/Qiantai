@@ -60,21 +60,21 @@ namespace QTsys
         private void button1_Click(object sender, EventArgs e)
         {
             string str = "已完成原料编号领料：";
-            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
-            {
-                if (dataGridView1.Rows[i].Cells["供应商"].Value.ToString() == "")
-                {
-                    MessageBox.Show("请选择供应商和单价！");
-                    return;
-                }
-            }
+            //for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            //{
+            //    if (dataGridView1.Rows[i].Cells["供应商"].Value.ToString() == "")
+            //    {
+            //        MessageBox.Show("请选择供应商和单价！");
+            //        return;
+            //    }
+            //}
             try
             {
-                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                for (int i = 0; i < dataGridView1.RowCount; i++)
                 {
-                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value) >= Convert.ToInt32(dataGridView1.Rows[i].Cells["供应商余料"].Value))
+                    if (Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value) >= Convert.ToInt32(dataGridView1.Rows[i].Cells["库存数量"].Value))
                     {
-                        MessageBox.Show("领料失败:\n\r有原料库存不足！此供应商没有足够的原料在仓库！");
+                        MessageBox.Show("领料失败:\n\r原料库存不足！");
                         return;
                     }
 
@@ -97,8 +97,8 @@ namespace QTsys
                         mtf.FlowCount = 0 - Convert.ToInt32(dataGridView1.Rows[i].Cells["需要原料数量"].Value);
                         mtf.MaterialId = Convert.ToInt32(dataGridView1.Rows[i].Cells["原料编号"].Value);
                         //供应商选择
-                        mtf.Supplier = dataGridView1.Rows[i].Cells["供应商"].Value.ToString();
-                        mtf.Price = Convert.ToDouble(dataGridView1.Rows[i].Cells["供应单价"].Value);
+                        //mtf.Supplier = dataGridView1.Rows[i].Cells["供应商"].Value.ToString();
+                        //mtf.Price = Convert.ToDouble(dataGridView1.Rows[i].Cells["供应单价"].Value);
                         //mtf.Price = 0.0;
                         mtf.Operator = Utils.GetCurrentUsername();
                         mtf.OccurredTime = DateTime.Now;
@@ -168,9 +168,9 @@ namespace QTsys
                 // text原料名称.Text = dataGridView2.CurrentRow.Cells["原料名称"].Value.ToString();
                 //  text单位.Text = dataGridView2.CurrentRow.Cells["单位"].Value.ToString();
                 com供应商.Text = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
-                dataGridView1.Rows[select原料].Cells["供应商"].Value = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
+                //dataGridView1.Rows[select原料].Cells["供应商"].Value = dataGridView2.CurrentRow.Cells["供应商"].Value.ToString();
                 
-                dataGridView1.Rows[select原料].Cells["供应单价"].Value = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
+                //dataGridView1.Rows[select原料].Cells["供应单价"].Value = dataGridView2.CurrentRow.Cells["供应单价"].Value.ToString();
                 //text余料
                 int 余料 = 0;
                 for (int i = 0; i < dataGridView2.RowCount; i++)
@@ -181,7 +181,7 @@ namespace QTsys
                     }
                 }
                 text余料.Text = 余料.ToString();
-                dataGridView1.Rows[select原料].Cells["供应商余料"].Value = text余料.Text;
+                //dataGridView1.Rows[select原料].Cells["供应商余料"].Value = text余料.Text;
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); };
         }
