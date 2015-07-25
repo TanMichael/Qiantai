@@ -147,7 +147,7 @@ namespace QTsys
                 }
                 //把数据读入usedata
                 //**替换操作*************************************************************
-                usedata = usedata.Replace("text0", label新送货单号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
+                usedata = usedata.Replace("text0", "送货单号" + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                 usedata = usedata.Replace("text1", textBox客户名称.Text);
                 usedata = usedata.Replace("text2", text收货地址.Text);
                 usedata = usedata.Replace("text3", com客户联系人.Text);
@@ -179,7 +179,7 @@ namespace QTsys
                         usedata = usedata.Replace("<!--*end-->", tempstr);
                         usedata += "<p style=\"page-break-after:always;\"> </p>";//分页
                         usedata += usedatatemp;
-                        usedata = usedata.Replace("text0", label新送货单号.Text + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
+                        usedata = usedata.Replace("text0", "送货单号" + "(第" + pagesnum.ToString() + "页,共" + pages.ToString() + "页)");
                         usedata = usedata.Replace("text1", textBox客户名称.Text);
                         usedata = usedata.Replace("text2", text收货地址.Text);
                         usedata = usedata.Replace("text3", com客户联系人.Text);
@@ -282,6 +282,7 @@ namespace QTsys
             }
             catch (Exception ex)
             { MessageBox.Show(ex.ToString()); }
+            //webBrowser2.ShowPrintPreviewDialog();
         }
 
         private bool doCalThenUpdateDB(int iFinished, int iCurrent, int iDelivered, string ppId)
@@ -296,6 +297,8 @@ namespace QTsys
 
         private void button打印送货单_Click(object sender, EventArgs e)
         {
+            button打印送货单.Enabled = false;
+            button2.Enabled = true;
             try
             {
                 var orderId = "";
@@ -395,7 +398,8 @@ namespace QTsys
                     //                        cCount, price, price * cCount,
                     //                        DateTime.Now, "", Utils.GetCurrentUsername());
 
-                    records.Add(new DeliveryRecords{
+                    records.Add(new DeliveryRecords
+                    {
                         ProductId = "",
                         ProductName = proName,
                         //CustomerId = selectedCustomerId,
@@ -408,11 +412,23 @@ namespace QTsys
                     });
 
                 }
-
+                //recordId为送货单ID
                 int recordId = odm.InsertDeliverRecord(selectedCustomerId, customerName, orderId, records);
                 if (recordId > 0)
                 {
+                    //返回新送货单号，便于打印
+                    label新送货单号.Text = recordId.ToString();
                     MessageBox.Show("发货成功， 送货单号：" + recordId.ToString());
+                    StreamReader rdstr = new StreamReader(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", Encoding.Default);
+                    string tempuse = rdstr.ReadToEnd();
+                    rdstr.Close();
+                    tempuse = tempuse.Replace("送货单号", recordId.ToString());
+                    File.Delete(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");
+                    StreamWriter wrstr = new StreamWriter(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm", true, Encoding.Default);
+                    wrstr.Write(tempuse);
+                    wrstr.Close();
+                 //   webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
+                //    webBrowser2.Update();
                 }
                 else
                 {
@@ -423,8 +439,18 @@ namespace QTsys
                 dataGridView生产计划.DataSource = ppm.GetProductPlanByOrder4Print(orderId);
                 dataGridView生产计划.Update();
                 //*****************
-                webBrowser2.ShowPageSetupDialog();
-                webBrowser2.ShowPrintPreviewDialog();
+                //webBrowser2.ShowPageSetupDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            try
+            {
+                webBrowser2.Navigate(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");
+                webBrowser2.Url = new Uri(Directory.GetCurrentDirectory() + "\\各种单据\\送货单_OVER.htm");//显示网页
+               // webBrowser2.ShowPrintPreviewDialog();
             }
             catch (Exception ex)
             {
@@ -448,6 +474,11 @@ namespace QTsys
         {
             打印快递单 kdd = new 打印快递单(label1订单编号.Text);
             kdd.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            webBrowser2.ShowPrintPreviewDialog();
         }
     }
 }

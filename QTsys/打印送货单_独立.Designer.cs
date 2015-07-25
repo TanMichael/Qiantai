@@ -61,6 +61,7 @@
             this.textBox分页数量 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label新送货单号 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView订单)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView生产计划)).BeginInit();
             this.SuspendLayout();
@@ -232,7 +233,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1120, 503);
+            this.label9.Location = new System.Drawing.Point(1115, 503);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 12);
             this.label9.TabIndex = 109;
@@ -240,7 +241,7 @@
             // 
             // textBox当前生产数
             // 
-            this.textBox当前生产数.Location = new System.Drawing.Point(1203, 499);
+            this.textBox当前生产数.Location = new System.Drawing.Point(1198, 499);
             this.textBox当前生产数.Name = "textBox当前生产数";
             this.textBox当前生产数.Size = new System.Drawing.Size(85, 21);
             this.textBox当前生产数.TabIndex = 110;
@@ -250,22 +251,22 @@
             // button打印送货单
             // 
             this.button打印送货单.Enabled = false;
-            this.button打印送货单.Location = new System.Drawing.Point(1121, 526);
+            this.button打印送货单.Location = new System.Drawing.Point(1293, 465);
             this.button打印送货单.Name = "button打印送货单";
-            this.button打印送货单.Size = new System.Drawing.Size(167, 23);
+            this.button打印送货单.Size = new System.Drawing.Size(111, 23);
             this.button打印送货单.TabIndex = 112;
-            this.button打印送货单.Text = "打印送货单--更新数据库";
+            this.button打印送货单.Text = "2.生成送货单";
             this.button打印送货单.UseVisualStyleBackColor = true;
             this.button打印送货单.Click += new System.EventHandler(this.button打印送货单_Click);
             // 
             // button生成送货单
             // 
             this.button生成送货单.Enabled = false;
-            this.button生成送货单.Location = new System.Drawing.Point(1323, 437);
+            this.button生成送货单.Location = new System.Drawing.Point(1293, 421);
             this.button生成送货单.Name = "button生成送货单";
-            this.button生成送货单.Size = new System.Drawing.Size(75, 23);
+            this.button生成送货单.Size = new System.Drawing.Size(111, 23);
             this.button生成送货单.TabIndex = 111;
-            this.button生成送货单.Text = "生成送货单";
+            this.button生成送货单.Text = "1.预览送货单";
             this.button生成送货单.UseVisualStyleBackColor = true;
             this.button生成送货单.Click += new System.EventHandler(this.button生成送货单_Click);
             // 
@@ -282,7 +283,7 @@
             // textBox订单数量
             // 
             this.textBox订单数量.Enabled = false;
-            this.textBox订单数量.Location = new System.Drawing.Point(1203, 472);
+            this.textBox订单数量.Location = new System.Drawing.Point(1198, 472);
             this.textBox订单数量.Name = "textBox订单数量";
             this.textBox订单数量.Size = new System.Drawing.Size(85, 21);
             this.textBox订单数量.TabIndex = 115;
@@ -291,7 +292,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Enabled = false;
-            this.label10.Location = new System.Drawing.Point(1144, 476);
+            this.label10.Location = new System.Drawing.Point(1139, 476);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 114;
@@ -300,7 +301,7 @@
             // textBox已发货数
             // 
             this.textBox已发货数.Enabled = false;
-            this.textBox已发货数.Location = new System.Drawing.Point(1203, 445);
+            this.textBox已发货数.Location = new System.Drawing.Point(1198, 445);
             this.textBox已发货数.Name = "textBox已发货数";
             this.textBox已发货数.Size = new System.Drawing.Size(85, 21);
             this.textBox已发货数.TabIndex = 117;
@@ -308,7 +309,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1144, 448);
+            this.label11.Location = new System.Drawing.Point(1139, 448);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 116;
@@ -317,11 +318,11 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(1300, 555);
+            this.button1.Location = new System.Drawing.Point(1293, 555);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 118;
-            this.button1.Text = "生成快递单数据";
+            this.button1.Text = "4.生成快递单数据";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -337,7 +338,7 @@
             // textBox已完成生产数
             // 
             this.textBox已完成生产数.Enabled = false;
-            this.textBox已完成生产数.Location = new System.Drawing.Point(1203, 418);
+            this.textBox已完成生产数.Location = new System.Drawing.Point(1198, 418);
             this.textBox已完成生产数.Name = "textBox已完成生产数";
             this.textBox已完成生产数.Size = new System.Drawing.Size(85, 21);
             this.textBox已完成生产数.TabIndex = 121;
@@ -345,7 +346,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1120, 421);
+            this.label12.Location = new System.Drawing.Point(1115, 421);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 12);
             this.label12.TabIndex = 120;
@@ -353,7 +354,7 @@
             // 
             // textBox分页数量
             // 
-            this.textBox分页数量.Location = new System.Drawing.Point(1123, 563);
+            this.textBox分页数量.Location = new System.Drawing.Point(1123, 539);
             this.textBox分页数量.Name = "textBox分页数量";
             this.textBox分页数量.Size = new System.Drawing.Size(49, 21);
             this.textBox分页数量.TabIndex = 122;
@@ -362,7 +363,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1178, 566);
+            this.label13.Location = new System.Drawing.Point(1178, 542);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 12);
             this.label13.TabIndex = 123;
@@ -377,11 +378,22 @@
             this.label新送货单号.TabIndex = 124;
             this.label新送货单号.Text = "新送货单号";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1293, 514);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 23);
+            this.button2.TabIndex = 125;
+            this.button2.Text = "3.打印送货单";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // 打印送货单_独立
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1414, 594);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label新送货单号);
             this.Controls.Add(this.textBox分页数量);
             this.Controls.Add(this.label13);
@@ -460,5 +472,6 @@
         public System.Windows.Forms.TextBox textBox分页数量;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label新送货单号;
+        private System.Windows.Forms.Button button2;
     }
 }
