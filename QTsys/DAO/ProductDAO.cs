@@ -310,15 +310,19 @@ namespace QTsys.DAO
         }
         public DataTable GetProductsWithCustomer(string customerId)
         {
-            string sql = "SELECT p.* FROM qiaotai.产品信息 p inner join qiaotai.产品客户关系 pc on p.产品编号=pc.产品编号 where pc.客户编号=" +
-                customerId + " order by pc.成交次数 desc;";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            this.Connection.Open();
-            ap.Fill(dt);
-            this.Connection.Close();
-            return dt;
+            try
+            {
+                string sql = "SELECT p.* FROM qiaotai.产品信息 p inner join qiaotai.产品客户关系 pc on p.产品编号=pc.产品编号 where pc.客户编号=" +
+                    customerId + " order by pc.成交次数 desc;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
 
         }
 

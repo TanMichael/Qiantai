@@ -362,7 +362,6 @@ namespace QTsys.DAO
             }
             catch (Exception ex)
             {
-                return outnum;
                 this.Connection.Close();
                 throw ex;
             }

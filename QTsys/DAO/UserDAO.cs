@@ -188,7 +188,7 @@ namespace QTsys.DAO
                 });
                 return true;
             }
-            catch (Exception ex) { this.Connection.Close(); return false; }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
         public bool AltUserPwd(string IDname, string Pwd)
@@ -210,20 +210,24 @@ namespace QTsys.DAO
 
         public bool CheckUsernameUnique(string userName)
         {
-            string sql = "select count(1) from qiaotai.员工信息 where 账户名='" + userName + "';";
-            MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
-            this.Connection.Open();
-            MySqlDataReader dr = cmd.ExecuteReader();
-
-            int count = 0;
-            while (dr.Read())
+            try
             {
-                count = Convert.ToInt32(dr[0]);
-            }
-            dr.Close();
-            this.Connection.Close();
+                string sql = "select count(1) from qiaotai.员工信息 where 账户名='" + userName + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                this.Connection.Open();
+                MySqlDataReader dr = cmd.ExecuteReader();
 
-            return count == 0;
+                int count = 0;
+                while (dr.Read())
+                {
+                    count = Convert.ToInt32(dr[0]);
+                }
+                dr.Close();
+                this.Connection.Close();
+
+                return count == 0;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
     }
 }
