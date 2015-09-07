@@ -51,6 +51,8 @@
             this.textBox分页数量 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.l编号 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox月结方式 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView对账单)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,7 +232,7 @@
             // 
             // textBox分页数量
             // 
-            this.textBox分页数量.Location = new System.Drawing.Point(802, 29);
+            this.textBox分页数量.Location = new System.Drawing.Point(815, 83);
             this.textBox分页数量.Name = "textBox分页数量";
             this.textBox分页数量.Size = new System.Drawing.Size(49, 21);
             this.textBox分页数量.TabIndex = 98;
@@ -239,7 +241,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(857, 32);
+            this.label12.Location = new System.Drawing.Point(870, 86);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 12);
             this.label12.TabIndex = 99;
@@ -255,11 +257,31 @@
             this.l编号.TabIndex = 100;
             this.l编号.Text = "0";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(694, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 12);
+            this.label7.TabIndex = 101;
+            this.label7.Text = "月结方式（备注）";
+            // 
+            // comboBox月结方式
+            // 
+            this.comboBox月结方式.FormattingEnabled = true;
+            this.comboBox月结方式.Location = new System.Drawing.Point(796, 21);
+            this.comboBox月结方式.Name = "comboBox月结方式";
+            this.comboBox月结方式.Size = new System.Drawing.Size(121, 20);
+            this.comboBox月结方式.TabIndex = 102;
+            this.comboBox月结方式.SelectedIndexChanged += new System.EventHandler(this.comboBox月结方式_SelectedIndexChanged);
+            // 
             // 对账
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 729);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBox月结方式);
             this.Controls.Add(this.l编号);
             this.Controls.Add(this.textBox分页数量);
             this.Controls.Add(this.label12);
@@ -317,5 +339,7 @@
         public System.Windows.Forms.TextBox textBox分页数量;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label l编号;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox comboBox月结方式;
     }
 }

@@ -17,10 +17,12 @@ namespace QTsys
         private OrderManager odm;
         private UserManager userMgr;
         private string selectedCustomerId;
+        private string selectedRemarks;
         private List<CustomerMember> cMembers;
         private List<string> listNew = new List<string>();
         private List<string> listtemp = new List<string>();
         private List<Customer> customers;
+        private List<Customer> distinctRemarks;
 
         public 对账()
         {
@@ -31,6 +33,16 @@ namespace QTsys
 
         private void 对账_Load(object sender, EventArgs e)
         {
+            comboBox月结方式.Items.Clear();
+            // 初始化客户信息
+            distinctRemarks = userMgr.getDistinctRemarks();
+            //  customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
+            //use dataSource make selectedValue works;
+            comboBox月结方式.DisplayMember = "Remarks";
+            comboBox月结方式.ValueMember = "Remarks";
+            comboBox月结方式.Items.AddRange(distinctRemarks.ToArray());
+
+
             comboBox客户.Items.Clear();
             // 初始化客户信息
             customers = userMgr.GetAllCustomerList();
@@ -84,6 +96,67 @@ namespace QTsys
                 text收货地址.Text = dt.Rows[0]["地址"].ToString();
                 textBox传真.Text = dt.Rows[0]["传真"].ToString();
                 textBox结算方式.Text = dt.Rows[0]["结算方式"].ToString();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+        }
+
+        private void comboBox月结方式_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBox月结方式.SelectedIndex < 0)
+                {
+                    return;
+                }
+                selectedRemarks = distinctRemarks[comboBox月结方式.SelectedIndex].Remarks;
+                DataTable refreshedCustomerDT;
+                List<Customer> refreshedCustomer = new List<Customer>();
+                if (selectedRemarks == "")
+                {
+                    refreshedCustomer = userMgr.GetAllCustomerList();
+                }
+                else
+                {
+                    refreshedCustomerDT = userMgr.SearchCustomerByCol("备注", selectedRemarks);
+                    var l = refreshedCustomerDT.Rows.Count;
+                    for (int i = 0; i < l; i++)
+                    {
+                        var rs = refreshedCustomerDT.Rows[i];
+                        Customer customer = new Customer();
+
+                        customer.Id = rs["客户编号"].ToString();
+                        customer.Name = rs["客户名称"].ToString();
+                        customer.Address = rs["地址"].ToString();
+                        customer.Phone = rs["联系电话"].ToString();
+                        customer.Fax = rs["传真"].ToString();
+                        customer.Email = rs["电子邮箱"].ToString();
+                        customer.PaymentMode = rs["结算方式"].ToString();
+                        customer.Serial = rs["流水号"].ToString();
+                        customer.Remarks = rs["备注"].ToString();
+
+                        refreshedCustomer.Add(customer);
+                    }
+                }      
+                
+                comboBox客户.Items.Clear();
+                // 初始化客户信息
+                // customers = userMgr.GetAllCustomerList();
+                //  customers.Insert(0, new Customer() { Id = "-9999", Name = "" });
+                //use dataSource make selectedValue works;
+                comboBox客户.DisplayMember = "Name";
+                comboBox客户.ValueMember = "Id";
+                comboBox客户.Items.AddRange(refreshedCustomer.ToArray());
+                //初始化temp数据
+                listNew.Clear();
+                listtemp.Clear();
+                foreach (var item in customers)
+                {
+                    if (item.Name.Contains(this.comboBox客户.Text))
+                    {
+                        listNew.Add(item.Name);
+                        listtemp.Add(item.Id);
+                    }
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
@@ -230,5 +303,7 @@ namespace QTsys
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
+
+        
     }
 }

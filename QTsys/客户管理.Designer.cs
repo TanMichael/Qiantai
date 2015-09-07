@@ -30,6 +30,7 @@
         {
             this.tabCustomer = new System.Windows.Forms.TabControl();
             this.tabPageCustomer = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.textBox联系人 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label搜索栏目 = new System.Windows.Forms.Label();
@@ -89,7 +90,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.t编号 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button9 = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.text客户号 = new System.Windows.Forms.TextBox();
             this.tabCustomer.SuspendLayout();
             this.tabPageCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -110,6 +112,8 @@
             // 
             // tabPageCustomer
             // 
+            this.tabPageCustomer.Controls.Add(this.label24);
+            this.tabPageCustomer.Controls.Add(this.text客户号);
             this.tabPageCustomer.Controls.Add(this.button9);
             this.tabPageCustomer.Controls.Add(this.textBox联系人);
             this.tabPageCustomer.Controls.Add(this.label23);
@@ -150,6 +154,16 @@
             this.tabPageCustomer.UseVisualStyleBackColor = true;
             this.tabPageCustomer.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(883, 130);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(146, 23);
+            this.button9.TabIndex = 29;
+            this.button9.Text = "数据导出到EXCEL";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // textBox联系人
             // 
             this.textBox联系人.Location = new System.Drawing.Point(363, 44);
@@ -160,7 +174,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(292, 53);
+            this.label23.Location = new System.Drawing.Point(292, 48);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(65, 12);
             this.label23.TabIndex = 27;
@@ -248,7 +262,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(701, 26);
+            this.label10.Location = new System.Drawing.Point(30, 107);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 12);
             this.label10.TabIndex = 19;
@@ -256,9 +270,9 @@
             // 
             // text备注
             // 
-            this.text备注.Location = new System.Drawing.Point(736, 17);
+            this.text备注.Location = new System.Drawing.Point(65, 103);
             this.text备注.Name = "text备注";
-            this.text备注.Size = new System.Drawing.Size(100, 21);
+            this.text备注.Size = new System.Drawing.Size(219, 21);
             this.text备注.TabIndex = 18;
             // 
             // label9
@@ -272,7 +286,7 @@
             // 
             // text收货地址
             // 
-            this.text收货地址.Location = new System.Drawing.Point(561, 76);
+            this.text收货地址.Location = new System.Drawing.Point(561, 81);
             this.text收货地址.Name = "text收货地址";
             this.text收货地址.Size = new System.Drawing.Size(216, 21);
             this.text收货地址.TabIndex = 16;
@@ -296,7 +310,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(502, 20);
+            this.label7.Location = new System.Drawing.Point(677, 14);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 13;
@@ -304,7 +318,7 @@
             // 
             // text电子邮箱
             // 
-            this.text电子邮箱.Location = new System.Drawing.Point(561, 17);
+            this.text电子邮箱.Location = new System.Drawing.Point(736, 11);
             this.text电子邮箱.Name = "text电子邮箱";
             this.text电子邮箱.Size = new System.Drawing.Size(100, 21);
             this.text电子邮箱.TabIndex = 12;
@@ -312,7 +326,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(304, 86);
+            this.label6.Location = new System.Drawing.Point(304, 81);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 11;
@@ -328,7 +342,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(526, 53);
+            this.label5.Location = new System.Drawing.Point(526, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 9;
@@ -344,7 +358,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(304, 26);
+            this.label4.Location = new System.Drawing.Point(501, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 7;
@@ -352,7 +366,7 @@
             // 
             // text联系电话
             // 
-            this.text联系电话.Location = new System.Drawing.Point(363, 17);
+            this.text联系电话.Location = new System.Drawing.Point(560, 11);
             this.text联系电话.Name = "text联系电话";
             this.text联系电话.Size = new System.Drawing.Size(100, 21);
             this.text联系电话.TabIndex = 6;
@@ -360,7 +374,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 85);
+            this.label3.Location = new System.Drawing.Point(6, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 5;
@@ -368,7 +382,7 @@
             // 
             // text客户地址
             // 
-            this.text客户地址.Location = new System.Drawing.Point(65, 76);
+            this.text客户地址.Location = new System.Drawing.Point(65, 75);
             this.text客户地址.Name = "text客户地址";
             this.text客户地址.Size = new System.Drawing.Size(219, 21);
             this.text客户地址.TabIndex = 4;
@@ -376,7 +390,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 50);
+            this.label2.Location = new System.Drawing.Point(6, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -392,7 +406,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
@@ -683,15 +697,22 @@
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // button9
+            // label24
             // 
-            this.button9.Location = new System.Drawing.Point(883, 130);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(146, 23);
-            this.button9.TabIndex = 29;
-            this.button9.Text = "数据导出到EXCEL";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(317, 13);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 12);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "客户号";
+            // 
+            // text客户号
+            // 
+            this.text客户号.Enabled = false;
+            this.text客户号.Location = new System.Drawing.Point(363, 8);
+            this.text客户号.Name = "text客户号";
+            this.text客户号.Size = new System.Drawing.Size(100, 21);
+            this.text客户号.TabIndex = 30;
             // 
             // 客户管理
             // 
@@ -777,5 +798,7 @@
         private System.Windows.Forms.TextBox textBox联系人;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox text客户号;
     }
 }

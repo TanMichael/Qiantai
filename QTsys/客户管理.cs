@@ -41,6 +41,7 @@ namespace QTsys
             try
             {
                 text客户编号.Text = selectedCustomerId = dataGridView1.Rows[e.RowIndex].Cells["客户编号"].Value.ToString();
+                text客户号.Text = dataGridView1.Rows[e.RowIndex].Cells["客户号"].Value.ToString();
                 text客户名称.Text = selectedCustomerName = dataGridView1.Rows[e.RowIndex].Cells["客户名称"].Value.ToString();
                 text客户地址.Text = dataGridView1.Rows[e.RowIndex].Cells["地址"].Value.ToString();
                 textBox联系人.Text = dataGridView1.Rows[e.RowIndex].Cells["默认联系人"].Value.ToString();

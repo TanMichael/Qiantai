@@ -109,6 +109,24 @@ namespace QTsys.DAO
             }
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
+
+        public DataTable getDistinctRemarks()
+        {
+            try
+            {
+                Customer cus = new Customer();
+                string sql = "SELECT DISTINCT 备注 FROM qiaotai.客户信息;";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
+
         public bool AddNewCustomer(Customer cus)
         {
             try

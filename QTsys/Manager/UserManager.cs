@@ -189,6 +189,51 @@ namespace QTsys.Manager
             return this.customerDao.SearchCustomerByCol(col, name);
         }
 
+        public List<Customer> getDistinctRemarks()//更新
+        {
+            //return this.customerDao.getDistinctRemarks();
+
+            try
+            {
+                List<Customer> customers = new List<Customer>();
+                var dt = this.customerDao.getDistinctRemarks();
+                bool containsEmpty = false;
+
+                var l = dt.Rows.Count;
+                for (int i = 0; i < l; i++)
+                {
+                    var rs = dt.Rows[i];
+                    Customer customer = new Customer();
+
+                    //customer.Id = rs["客户编号"].ToString();
+                    //customer.Name = rs["客户名称"].ToString();
+                    //customer.Address = rs["地址"].ToString();
+                    //customer.Phone = rs["联系电话"].ToString();
+                    //customer.Fax = rs["传真"].ToString();
+                    //customer.Email = rs["电子邮箱"].ToString();
+                    //customer.PaymentMode = rs["结算方式"].ToString();
+                    //customer.Serial = rs["流水号"].ToString();
+                    customer.Remarks = rs["备注"].ToString().Trim();
+
+                    if (customer.Remarks == "")
+                    {
+                        containsEmpty = true;
+                    }
+
+                    customers.Add(customer);
+                }
+
+                if (!containsEmpty)
+                {
+                    Customer customer = new Customer() { Remarks = "" };
+                    customers.Add(customer);
+                }
+
+                return customers;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
         public DataTable SearchCustomerMemberByCol(string col, string name, string cId = "")//更新
         {
             return this.customerDao.SearchCustomerMemberByCol(col, name, cId);

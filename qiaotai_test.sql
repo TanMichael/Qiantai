@@ -22,6 +22,7 @@ create table 客户信息
 (
    客户编号 int primary key auto_increment,
    客户名称 nvarchar(128) not null,
+   客户号   nvarchar(128) not null,
    默认联系人 nvarchar(128),
    地址 nvarchar(256) not null,
    联系电话 varchar(32) not null,
