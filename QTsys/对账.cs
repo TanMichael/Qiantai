@@ -100,7 +100,7 @@ namespace QTsys
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
         }
 
-        private void comboBox月结方式_SelectedIndexChanged(object sender, EventArgs e)
+        private void refreshCustomerList()
         {
             try
             {
@@ -117,27 +117,12 @@ namespace QTsys
                 }
                 else
                 {
-                    refreshedCustomerDT = userMgr.SearchCustomerByCol("备注", selectedRemarks);
-                    var l = refreshedCustomerDT.Rows.Count;
-                    for (int i = 0; i < l; i++)
-                    {
-                        var rs = refreshedCustomerDT.Rows[i];
-                        Customer customer = new Customer();
+                    //refreshedCustomerDT = userMgr.SearchCustomerByCol("备注", selectedRemarks);
+                    DateTime startDate = dateTimePicker对账起始日.Value;
+                    DateTime endDate = dateTimePicker对账截止日.Value;
+                    refreshedCustomer = userMgr.GetCustomersForChecking(startDate, endDate, selectedRemarks);
+                }
 
-                        customer.Id = rs["客户编号"].ToString();
-                        customer.Name = rs["客户名称"].ToString();
-                        customer.Address = rs["地址"].ToString();
-                        customer.Phone = rs["联系电话"].ToString();
-                        customer.Fax = rs["传真"].ToString();
-                        customer.Email = rs["电子邮箱"].ToString();
-                        customer.PaymentMode = rs["结算方式"].ToString();
-                        customer.Serial = rs["流水号"].ToString();
-                        customer.Remarks = rs["备注"].ToString();
-
-                        refreshedCustomer.Add(customer);
-                    }
-                }      
-                
                 comboBox客户.Items.Clear();
                 // 初始化客户信息
                 // customers = userMgr.GetAllCustomerList();
@@ -159,6 +144,11 @@ namespace QTsys
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString() + "加载失败！"); }
+        }
+
+        private void comboBox月结方式_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshCustomerList();
         }
 
         private void button生成_Click(object sender, EventArgs e)
@@ -302,6 +292,16 @@ namespace QTsys
                 this.comboBox客户.DroppedDown = true;
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+        }
+
+        private void dateTimePicker对账起始日_ValueChanged(object sender, EventArgs e)
+        {
+            refreshCustomerList();
+        }
+
+        private void dateTimePicker对账截止日_ValueChanged(object sender, EventArgs e)
+        {
+            refreshCustomerList();
         }
 
         

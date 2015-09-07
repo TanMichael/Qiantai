@@ -127,6 +127,24 @@ namespace QTsys.DAO
             catch (Exception ex) { this.Connection.Close(); throw ex; }
         }
 
+        public DataTable GetCustomersForChecking(DateTime from, DateTime end, string remarks)
+        {
+            try
+            {
+                Customer cus = new Customer();
+                string sql = "SELECT c.* FROM qiaotai.客户信息 c inner join qiaotai.送货记录 d on c.客户编号 = d.客户编号 " +
+                    "WHERE d.发货时间>'" + from.ToString("yyyy/MM/dd HH:mm:ss") + "' and d.发货时间<'" + end.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss") + "' and c.备注='" + remarks + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, this.Connection);
+                MySqlDataAdapter ap = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                this.Connection.Open();
+                ap.Fill(dt);
+                this.Connection.Close();
+                return dt;
+            }
+            catch (Exception ex) { this.Connection.Close(); throw ex; }
+        }
+
         public bool AddNewCustomer(Customer cus)
         {
             try

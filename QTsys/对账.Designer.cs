@@ -83,6 +83,7 @@
             this.dateTimePicker对账截止日.Name = "dateTimePicker对账截止日";
             this.dateTimePicker对账截止日.Size = new System.Drawing.Size(121, 21);
             this.dateTimePicker对账截止日.TabIndex = 83;
+            this.dateTimePicker对账截止日.ValueChanged += new System.EventHandler(this.dateTimePicker对账截止日_ValueChanged);
             // 
             // 对账截止日
             // 
@@ -99,6 +100,7 @@
             this.dateTimePicker对账起始日.Name = "dateTimePicker对账起始日";
             this.dateTimePicker对账起始日.Size = new System.Drawing.Size(121, 21);
             this.dateTimePicker对账起始日.TabIndex = 81;
+            this.dateTimePicker对账起始日.ValueChanged += new System.EventHandler(this.dateTimePicker对账起始日_ValueChanged);
             // 
             // 对账起始日
             // 
