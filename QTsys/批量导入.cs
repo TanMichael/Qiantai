@@ -54,7 +54,7 @@ namespace QTsys
                     //MessageBox.Show(resultFile);
                     if (resultFile.Substring(resultFile.Length - 3, 3) == "xls")
                     {
-                        oleconn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + resultFile + ";Extended Properties='Excel 8.0;HDR=YES'";
+                        oleconn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + resultFile + ";Extended Properties='Excel 8.0;HDR=YES;IMEX=1;'";
                     }
                     else
                     {
@@ -147,7 +147,8 @@ namespace QTsys
                         cus.OriginalId = ds.Tables[0].Rows[i][1].ToString(); 
                         cus.DefaultContact = ds.Tables[0].Rows[i][2].ToString();
                         cus.Address = ds.Tables[0].Rows[i][3].ToString();
-                        cus.Phone = ds.Tables[0].Rows[i][4].ToString();
+                        cus.Phone = ds.Tables[0].Rows[i][4].ToString();//电话号码
+                      //  MessageBox.Show(ds.Tables[0].Rows[i][4].ToString());
                         cus.Fax = ds.Tables[0].Rows[i][5].ToString();
                         cus.Email = ds.Tables[0].Rows[i][6].ToString();
                         cus.PaymentMode = ds.Tables[0].Rows[i][7].ToString();
