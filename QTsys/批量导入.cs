@@ -144,14 +144,15 @@ namespace QTsys
                     try
                     {
                         cus.Name = ds.Tables[0].Rows[i][0].ToString();
-                        cus.DefaultContact = ds.Tables[0].Rows[i][1].ToString();
-                        cus.Address = ds.Tables[0].Rows[i][2].ToString();
-                        cus.Phone = ds.Tables[0].Rows[i][3].ToString();
-                        cus.Fax = ds.Tables[0].Rows[i][4].ToString();
-                        cus.Email = ds.Tables[0].Rows[i][5].ToString();
-                        cus.PaymentMode = ds.Tables[0].Rows[i][6].ToString();
-                        cus.Serial = ds.Tables[0].Rows[i][7].ToString();
-                        cus.Remarks = ds.Tables[0].Rows[i][8].ToString();
+                        cus.OriginalId = ds.Tables[0].Rows[i][1].ToString(); 
+                        cus.DefaultContact = ds.Tables[0].Rows[i][2].ToString();
+                        cus.Address = ds.Tables[0].Rows[i][3].ToString();
+                        cus.Phone = ds.Tables[0].Rows[i][4].ToString();
+                        cus.Fax = ds.Tables[0].Rows[i][5].ToString();
+                        cus.Email = ds.Tables[0].Rows[i][6].ToString();
+                        cus.PaymentMode = ds.Tables[0].Rows[i][7].ToString();
+                        cus.Serial = ds.Tables[0].Rows[i][8].ToString();
+                        cus.Remarks = ds.Tables[0].Rows[i][9].ToString();
                         if (this.userMgr.AddNewCustomer(cus))
                         {
                             richTextBox1.Text += "新客户[" + cus.Name + "]生成成功！\r\n";

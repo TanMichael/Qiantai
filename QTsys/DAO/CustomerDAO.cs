@@ -149,7 +149,7 @@ namespace QTsys.DAO
         {
             try
             {
-                string sql = "INSERT INTO qiaotai.客户信息(客户名称,地址,默认联系人,联系电话,传真,电子邮箱,结算方式,流水号,备注) VALUES ('" + cus.Name + "','" + cus.Address + "','" + cus.DefaultContact + "','" + cus.Phone + "','" + cus.Fax + "','" + cus.Email + "','" + cus.PaymentMode + "','" + cus.Serial + "','" + cus.Remarks + "')";
+                string sql = "INSERT INTO qiaotai.客户信息(客户名称,客户号,地址,默认联系人,联系电话,传真,电子邮箱,结算方式,流水号,备注) VALUES ('" + cus.Name + "','" + cus.OriginalId + "','" + cus.Address + "','" + cus.DefaultContact + "','" + cus.Phone + "','" + cus.Fax + "','" + cus.Email + "','" + cus.PaymentMode + "','" + cus.Serial + "','" + cus.Remarks + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, this.Connection); 
                 this.Connection.Open();
                 cmd.ExecuteNonQuery();
